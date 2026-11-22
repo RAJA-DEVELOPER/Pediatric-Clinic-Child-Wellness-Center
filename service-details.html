@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growth Monitoring & Developmental Assessment | PediaCare</title>
+  <meta name="description" content="Comprehensive Growth Monitoring & Developmental Assessment service at PediaCare. Track your child's growth with expert pediatricians." />
+  <meta name="keywords" content="growth monitoring, developmental assessment, pediatric, child health, PediaCare" />
+  <meta property="og:title" content="Growth Monitoring & Developmental Assessment | PediaCare" />
+  <meta property="og:description" content="Expert growth monitoring and developmental assessment for children of all ages at PediaCare clinic." />
+  <meta property="og:image" content="https://images.pexels.com/photos/5998450/pexels-photo-5998450.jpeg?auto=compress&cs=tinysrgb&w=600&h=390&fit=crop&crop=faces&q=80" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    :root {
+      --sky-blue: #A8D8EA;
+      --mint-green: #B8D8C0;
+      --peach: #FFD6C2;
+      --cream: #FFF9F2;
+      --navy: #34445C;
+      --sky-blue-dark: #7EC8E3;
+      --mint-dark: #8EC89A;
+      --peach-dark: #FFB89A;
+      --text-dark: #2d3748;
+      --text-muted: #566274;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 10px rgba(52,68,92,0.08);
+      --shadow-md: 0 8px 30px rgba(52,68,92,0.12);
+      --shadow-lg: 0 20px 60px rgba(52,68,92,0.15);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --transition: all 0.3s ease;
+    }
+    [data-theme="dark"] {
+      --cream: #1a2234;
+      --white: #243047;
+      --text-dark: #e2e8f0;
+      --text-muted: #A8B8CC;
+      --navy: #A8D8EA;
+      --shadow-sm: 0 2px 10px rgba(0,0,0,0.3);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Quicksand', sans-serif; background: var(--cream); color: var(--text-dark); }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Nunito', sans-serif; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(255,249,242,0.95) !important;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      padding: 12px 0;
+    }
+    [data-theme="dark"] .navbar { background: rgba(26,34,52,0.95) !important; }
+    .navbar-brand { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--navy) !important; }
+    .navbar-brand span { color: var(--sky-blue-dark); }
+    .nav-link { font-weight: 600; color: var(--text-dark) !important; padding: 8px 14px !important; border-radius: 8px; transition: var(--transition); }
+    .nav-link:hover, .nav-link.active { background: var(--sky-blue); color: var(--navy) !important; }
+    .btn-appointment { background: linear-gradient(135deg, var(--navy), #4a6080); color: white !important; border-radius: 50px; padding: 8px 22px !important; font-weight: 700; border: none; }
+    .btn-appointment:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(52,68,92,0.35); color: white !important; }
+    .theme-toggle { background: none; border: 2px solid var(--sky-blue); border-radius: 50px; padding: 5px 12px; cursor: pointer; color: var(--navy); font-weight: 600; font-size: 0.85rem; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb-section {
+      background: linear-gradient(135deg, var(--sky-blue) 0%, var(--mint-green) 100%);
+      padding: 70px 0 30px;
+    }
+    .breadcrumb-item a { color: var(--navy); font-weight: 600; text-decoration: none; }
+    .breadcrumb-item.active { color: var(--navy); font-weight: 700; }
+    .breadcrumb-item + .breadcrumb-item::before { color: var(--navy); }
+
+    /* ── SERVICE HERO ── */
+    .service-hero {
+      background: var(--cream);
+      padding: 60px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(168,216,234,0.3), transparent 70%);
+      border-radius: 50%;
+    }
+    .service-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--sky-blue), var(--mint-green));
+      color: var(--navy); font-weight: 700; font-size: 0.85rem;
+      padding: 8px 18px; border-radius: 50px; margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 20px;
+    }
+    .hero-desc { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 28px; line-height: 1.8; }
+    .benefit-item {
+      display: flex; align-items: center; gap: 10px;
+      background: white; border-radius: var(--radius-sm);
+      padding: 10px 16px; margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+    .benefit-item i { color: var(--mint-dark); font-size: 1rem; }
+    .benefit-item span { font-weight: 600; font-size: 0.95rem; }
+    .hero-img-wrap {
+      position: relative; border-radius: var(--radius-md);
+      overflow: hidden; box-shadow: var(--shadow-lg);
+    }
+    .hero-img-wrap img { width: 100%; height: 450px; object-fit: cover; }
+    .floating-info-card {
+      position: absolute; bottom: -30px; left: -20px;
+      background: white; border-radius: var(--radius-md);
+      padding: 20px 24px; box-shadow: var(--shadow-lg);
+      min-width: 240px; border-left: 4px solid var(--sky-blue-dark);
+    }
+    [data-theme="dark"] .floating-info-card { background: #243047; }
+    .info-card-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .info-card-row:last-child { margin-bottom: 0; }
+    .info-card-row i { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: var(--sky-blue); border-radius: 8px; color: var(--navy); font-size: 0.85rem; }
+    .info-card-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .info-card-value { font-weight: 700; font-size: 0.9rem; color: var(--text-dark); }
+
+    /* ── TABS ── */
+    .tabs-section { padding: 80px 0; background: white; }
+    [data-theme="dark"] .tabs-section { background: #1f2d44; }
+    .custom-tabs .nav-link {
+      color: var(--text-muted); font-weight: 700; padding: 12px 24px;
+      border-radius: 50px; border: 2px solid transparent; margin-right: 8px;
+      transition: var(--transition);
+    }
+    .custom-tabs .nav-link.active, .custom-tabs .nav-link:hover {
+      background: linear-gradient(135deg, var(--sky-blue), var(--mint-green));
+      color: var(--navy); border-color: transparent;
+    }
+    .tab-content-inner { padding: 40px 0; }
+    .checklist-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 0; border-bottom: 1px solid rgba(168,216,234,0.3);
+    }
+    .checklist-item:last-child { border-bottom: none; }
+    .check-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--mint-green), var(--sky-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .check-icon i { color: var(--navy); font-size: 0.85rem; }
+    .step-visual { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 24px; }
+    .step-num { width: 48px; height: 48px; background: linear-gradient(135deg, var(--navy), #4a6080); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; flex-shrink: 0; }
+    .step-content h5 { font-weight: 800; margin-bottom: 4px; color: var(--navy); }
+    .step-content p { color: var(--text-muted); font-size: 0.95rem; }
+    .age-card { background: var(--cream); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; border-left: 4px solid var(--sky-blue-dark); }
+    .age-card i { font-size: 1.5rem; margin-bottom: 8px; display: block; }
+    .age-card h5 { font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .prep-box { background: linear-gradient(135deg, rgba(168,216,234,0.2), rgba(184,216,192,0.2)); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; }
+    .prep-box h5 { font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+
+    /* ── GROWTH CHART ── */
+    .growth-section { padding: 80px 0; background: var(--cream); }
+    .section-title-main { font-size: 2.2rem; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+    .section-subtitle-main { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 50px; }
+    .percentile-box {
+      background: white; border-radius: var(--radius-sm); padding: 20px;
+      text-align: center; box-shadow: var(--shadow-sm); margin-bottom: 16px;
+    }
+    [data-theme="dark"] .percentile-box { background: #243047; }
+    .percentile-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 700; margin-bottom: 8px; }
+    .percentile-val { font-size: 2rem; font-weight: 900; color: var(--navy); }
+    .percentile-bar { height: 8px; background: #e2e8f0; border-radius: 4px; margin-top: 10px; overflow: hidden; }
+    .percentile-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
+    .chart-container { background: white; border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-md); margin-top: 30px; }
+    [data-theme="dark"] .chart-container { background: #243047; }
+    .growth-explanation { background: white; border-radius: var(--radius-md); padding: 30px; box-shadow: var(--shadow-sm); }
+    [data-theme="dark"] .growth-explanation { background: #243047; }
+    .growth-explanation h3 { font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+    .growth-explanation p { color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
+    .info-highlight { background: linear-gradient(135deg, rgba(168,216,234,0.3), rgba(184,216,192,0.3)); border-radius: var(--radius-sm); padding: 16px; margin: 16px 0; border-left: 4px solid var(--sky-blue-dark); }
+    .info-highlight strong { color: var(--navy); display: block; margin-bottom: 4px; }
+    .info-highlight span { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ── MILESTONES ── */
+    .milestones-section { padding: 80px 0; background: white; }
+    [data-theme="dark"] .milestones-section { background: #1f2d44; }
+    .age-filter-btn {
+      background: var(--cream); border: 2px solid var(--sky-blue); color: var(--navy);
+      border-radius: 50px; padding: 8px 20px; font-weight: 700; margin: 4px;
+      cursor: pointer; transition: var(--transition);
+    }
+    .age-filter-btn.active, .age-filter-btn:hover {
+      background: linear-gradient(135deg, var(--sky-blue), var(--mint-green)); border-color: transparent;
+    }
+    .domain-card { background: var(--cream); border-radius: var(--radius-md); padding: 28px; height: 100%; }
+    [data-theme="dark"] .domain-card { background: #243047; }
+    .domain-icon { width: 56px; height: 56px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+    .domain-card h4 { font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+    .milestone-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(168,216,234,0.3); font-size: 0.9rem; }
+    .milestone-item:last-child { border-bottom: none; }
+    .milestone-item i { color: var(--mint-dark); }
+    .milestone-item.hidden { display: none; }
+
+    /* ── SPECIALIST + FAQ ── */
+    .specialist-section { padding: 80px 0; background: var(--cream); }
+    .doctor-card { background: white; border-radius: var(--radius-md); padding: 30px; box-shadow: var(--shadow-md); text-align: center; }
+    [data-theme="dark"] .doctor-card { background: #243047; }
+    .doctor-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid var(--sky-blue); margin-bottom: 16px; }
+    .doctor-name { font-weight: 900; font-size: 1.3rem; color: var(--navy); margin-bottom: 4px; }
+    .doctor-spec { color: var(--sky-blue-dark); font-weight: 700; margin-bottom: 12px; }
+    .doctor-bio { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; }
+    .credential-badge { display: inline-block; background: linear-gradient(135deg, var(--sky-blue), var(--mint-green)); color: var(--navy); font-weight: 700; font-size: 0.75rem; padding: 4px 12px; border-radius: 50px; margin: 2px; }
+    .slot-available { display: flex; align-items: center; gap: 8px; background: rgba(184,216,192,0.3); border-radius: 8px; padding: 8px 12px; margin-top: 12px; font-size: 0.85rem; color: var(--navy); font-weight: 600; }
+    .slot-available i { color: var(--mint-dark); }
+    .booking-card { background: white; border-radius: var(--radius-md); padding: 30px; box-shadow: var(--shadow-md); }
+    [data-theme="dark"] .booking-card { background: #243047; }
+    .booking-card h4 { font-weight: 800; color: var(--navy); margin-bottom: 20px; }
+    .form-control, .form-select {
+      border: 2px solid rgba(168,216,234,0.4); border-radius: 10px; padding: 10px 16px;
+      font-family: 'Quicksand', sans-serif; font-weight: 600; color: var(--text-dark);
+      background: var(--cream); transition: var(--transition);
+    }
+    .form-control:focus, .form-select:focus { border-color: var(--sky-blue-dark); box-shadow: 0 0 0 4px rgba(168,216,234,0.2); }
+    .btn-book-submit {
+      background: linear-gradient(135deg, var(--navy), #4a6080); color: white;
+      border: none; border-radius: 50px; padding: 12px 32px; font-weight: 700;
+      font-family: 'Quicksand', sans-serif; width: 100%; transition: var(--transition);
+    }
+    .btn-book-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(52,68,92,0.35); }
+    .faq-section { margin-top: 60px; }
+    .accordion-button {
+      font-family: 'Quicksand', sans-serif; font-weight: 700; color: var(--navy);
+      background: var(--cream) !important;
+    }
+    .accordion-button:not(.collapsed) { background: linear-gradient(135deg, var(--sky-blue), var(--mint-green)) !important; color: var(--navy); box-shadow: none; }
+    .accordion-item { border: none; margin-bottom: 10px; border-radius: var(--radius-sm) !important; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .accordion-body { background: white; color: var(--text-muted); line-height: 1.8; }
+    [data-theme="dark"] .accordion-body { background: #243047; color: var(--text-muted); }
+
+    /* ── RELATED SERVICES ── */
+    .related-section { padding: 80px 0; background: white; }
+    [data-theme="dark"] .related-section { background: #1f2d44; }
+    .related-card {
+      background: var(--cream); border-radius: var(--radius-md); padding: 30px;
+      text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);
+      border: 2px solid transparent; height: 100%;
+    }
+    [data-theme="dark"] .related-card { background: #243047; }
+    .related-card:hover { border-color: var(--sky-blue); transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .related-icon { width: 64px; height: 64px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 16px; }
+    .related-card h5 { font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+    .related-card p { color: var(--text-muted); font-size: 0.9rem; }
+    .related-card a { color: var(--sky-blue-dark); font-weight: 700; text-decoration: none; }
+    .testimonial-card { background: var(--cream); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-sm); height: 100%; }
+    [data-theme="dark"] .testimonial-card { background: #243047; }
+    .testimonial-stars { color: #FFB84C; margin-bottom: 12px; }
+    .testimonial-text { color: var(--text-muted); font-style: italic; line-height: 1.8; margin-bottom: 16px; font-size: 0.95rem; }
+    .testimonial-author { display: flex; align-items: center; gap: 10px; }
+    .testimonial-author img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 3px solid var(--sky-blue); }
+    .testimonial-author-name { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+    .testimonial-author-sub { font-size: 0.75rem; color: var(--text-muted); }
+    .final-cta { background: linear-gradient(135deg, var(--navy), #4a6080); border-radius: var(--radius-lg); padding: 50px 40px; text-align: center; color: white; margin-top: 60px; }
+    .final-cta h3 { font-weight: 900; font-size: 1.8rem; margin-bottom: 12px; }
+    .final-cta p { opacity: 0.85; margin-bottom: 28px; }
+    .btn-cta-white { background: white; color: var(--navy); border-radius: 50px; padding: 14px 36px; font-weight: 800; border: none; text-decoration: none; display: inline-block; transition: var(--transition); }
+    .btn-cta-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: var(--navy); }
+    .btn-cta-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.6); border-radius: 50px; padding: 14px 36px; font-weight: 700; text-decoration: none; display: inline-block; transition: var(--transition); margin-left: 12px; }
+    .btn-cta-outline:hover { background: rgba(255,255,255,0.15); color: white; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--navy); color: rgba(255,255,255,0.8); padding: 70px 0 30px; }
+    .footer-brand { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.6rem; color: white; margin-bottom: 12px; }
+    .footer-desc { font-size: 0.9rem; line-height: 1.8; opacity: 0.75; margin-bottom: 20px; }
+    .footer-title { font-family: 'Nunito', sans-serif; font-weight: 800; color: white; margin-bottom: 20px; font-size: 1rem; }
+    .footer-link { display: block; color: rgba(255,255,255,0.82); text-decoration: none; padding: 4px 0; font-size: 0.9rem; transition: var(--transition); }
+    .footer-link:hover { color: var(--sky-blue); padding-left: 6px; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.9rem; }
+    .footer-contact-item i { color: var(--sky-blue); margin-top: 2px; }
+    .footer-social a { width: 38px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: white; margin-right: 8px; transition: var(--transition); font-size: 0.9rem; }
+    .footer-social a:hover { background: var(--sky-blue-dark); color: var(--navy); transform: translateY(-3px); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; padding-top: 20px; text-align: center; font-size: 0.85rem; opacity: 0.6; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .floating-info-card { position: relative; left: 0; bottom: 0; margin-top: 20px; }
+      .hero-img-wrap img { height: 300px; }
+      .hero-title { font-size: 1.8rem; }
+      .custom-tabs .nav-link { padding: 10px 14px; font-size: 0.85rem; }
+    }
+  
+/* ===== HOME NAVBAR + FOOTER (SHARED) ===== */
+header, footer {
+  --sky-blue: #A8D8EA;
+  --cream: #FFF9F2;
+  --navy: #34445C;
+  --text-dark: #2c3e50;
+  --text-muted: #566274;
+  --shadow-md: 0 8px 30px rgba(52,68,92,.14);
+  --radius-sm: 0.5rem;
+  --transition: all .3s cubic-bezier(.4,0,.2,1);
+  --font-heading: 'Nunito', sans-serif;
+  --bg-card: #ffffff;
+  --text-body: var(--text-dark);
+}
+[data-theme="dark"] header, [data-theme="dark"] footer {
+  --bg-card: #243046;
+  --text-muted: #A8B8CC;
+  --navy: #A8D8EA;
+  --cream: #1a2233;
+  --text-body: #e8edf5;
+}
+/* ===== NAVBAR ===== */
+    header .navbar {
+      background: rgba(255,249,242,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,216,234,.3);
+      padding: .9rem 0;
+      transition: var(--transition);
+      z-index: 1050;
+    }
+    [data-theme="dark"] header .navbar {
+      background: rgba(26,34,51,.97);
+      border-color: rgba(168,216,234,.15);
+    }
+    header .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    header .navbar-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+      letter-spacing: -.5px;
+    }
+    [data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+    header .nav-link {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--text-dark) !important;
+      padding: .4rem .85rem !important;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    [data-theme="dark"] header .nav-link { color: #e8edf5 !important; }
+    header .nav-link:hover, header .nav-link.active {
+      background: var(--sky-blue);
+      color: var(--navy) !important;
+    }
+    header .btn-appointment {
+      background: linear-gradient(135deg, #34445C, #A8D8EA);
+      color: #fff !important;
+      border: none;
+      border-radius: 30px;
+      padding: .5rem 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(52,68,92,.25);
+    }
+    header .btn-appointment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52,68,92,.35);
+    }
+    header .toggle-btn {
+      background: none;
+      border: 2px solid rgba(168,216,234,.6);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    [data-theme="dark"] header .toggle-btn { color: var(--sky-blue); border-color: rgba(168,216,234,.4); }
+    header .toggle-btn:hover { background: var(--sky-blue); color: var(--navy); }
+
+    
+/* ===== FOOTER ===== */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid rgba(168,216,234,.3);
+      padding: 70px 0 0;
+    }
+    [data-theme="dark"] footer { background: #141c2b; }
+    footer .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: .9rem;
+      display: block;
+    }
+    [data-theme="dark"] footer .footer-brand { color: var(--sky-blue); }
+    footer .footer-about {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    footer .footer-social a {
+      width: 38px; height: 38px;
+      background: rgba(168,216,234,.2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      text-decoration: none;
+      margin-right: .4rem;
+    }
+    [data-theme="dark"] footer .footer-social a { color: var(--sky-blue); background: rgba(168,216,234,.1); }
+    footer .footer-social a:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    footer .footer-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] footer .footer-heading { color: #e8edf5; }
+    footer .footer-links { list-style: none; padding: 0; }
+    footer .footer-links li { margin-bottom: .6rem; }
+    footer .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    footer .footer-links a:hover { color: var(--navy); transform: translateX(4px); }
+    [data-theme="dark"] footer .footer-links a:hover { color: var(--sky-blue); }
+    footer .footer-contact-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: .9rem;
+    }
+    footer .footer-contact-item i {
+      color: var(--sky-blue);
+      font-size: 1rem;
+      margin-top: .15rem;
+      flex-shrink: 0;
+    }
+    footer .newsletter-form .form-control {
+      border-radius: 30px 0 0 30px;
+      border: 2px solid rgba(168,216,234,.4);
+      background: var(--bg-card);
+      color: var(--text-body);
+      padding: .6rem 1.2rem;
+    }
+    footer .newsletter-form .form-control:focus { border-color: var(--sky-blue); box-shadow: none; }
+    footer .newsletter-form .btn-newsletter {
+      border-radius: 0 30px 30px 0;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: .6rem 1.2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: var(--transition);
+    }
+    footer .newsletter-form .btn-newsletter:hover { background: #A8D8EA; color: var(--navy); }
+    footer .footer-bottom {
+      background: rgba(52,68,92,.06);
+      border-top: 1px solid rgba(168,216,234,.2);
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+    }
+    [data-theme="dark"] footer .footer-bottom { background: rgba(0,0,0,.2); }
+    footer .footer-bottom p { color: var(--text-muted); font-size: .85rem; margin: 0; }
+    footer .footer-bottom a { color: var(--sky-blue); text-decoration: none; font-weight: 600; }
+    footer .footer-bottom a:hover { text-decoration: underline; }
+
+    
+/* ===== NAVBAR TOGGLER CUSTOM ===== */
+    header .navbar-toggler { border: 2px solid rgba(168,216,234,.5); border-radius: var(--radius-sm); }
+    header .navbar-toggler:focus { box-shadow: none; }
+    [data-theme="dark"] header .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+header .navbar { color: var(--text-dark) !important; }
+footer { color: var(--text-dark) !important; font-size: 16px !important; }
+footer .footer-bottom { font-size: 14px !important; }body { padding-top: 72px !important; }
+header .navbar { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; }/* ===== HOME NAVBAR OVERRIDE ===== */
+header .navbar {
+  background: rgba(255,249,242,.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(168,216,234,.3) !important;
+  padding: .9rem 0 !important;
+}
+[data-theme="dark"] header .navbar {
+  background: rgba(26,34,51,.97) !important;
+  border-color: rgba(168,216,234,.15) !important;
+}
+header .navbar-brand {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  color: var(--navy) !important;
+  letter-spacing: -.5px !important;
+}
+[data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+header .navbar-nav .nav-link {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: .92rem !important;
+  color: var(--text-dark) !important;
+  padding: .4rem .85rem !important;
+  border-radius: 20px !important;
+}
+[data-theme="dark"] header .navbar-nav .nav-link { color: #e8edf5 !important; }
+header .navbar-nav .nav-link:hover,
+header .navbar-nav .nav-link.active {
+  background: var(--sky-blue) !important;
+  color: var(--navy) !important;
+}
+/* ===== ACCESSIBLE FOOTER CONTRAST ===== */
+footer { background: var(--cream) !important; color: var(--text-dark) !important; }
+footer .footer-about, footer .footer-contact-item, footer .footer-links a,
+footer .footer-bottom, footer .footer-bottom p, footer .footer-bottom a,
+footer .footer-bottom-links a { color: #566274 !important; }
+footer .footer-social a { color: #34445C !important; background: rgba(52,68,92,0.08) !important; border-color: rgba(52,68,92,0.15) !important; }
+footer .footer-newsletter input { background: rgba(52,68,92,0.06) !important; border-color: rgba(52,68,92,0.2) !important; color: #34445C !important; }
+footer .footer-newsletter input::placeholder { color: #566274 !important; }
+[data-theme="dark"] footer { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-about, [data-theme="dark"] footer .footer-contact-item,
+[data-theme="dark"] footer .footer-links a, [data-theme="dark"] footer .footer-bottom,
+[data-theme="dark"] footer .footer-bottom p, [data-theme="dark"] footer .footer-bottom a,
+[data-theme="dark"] footer .footer-bottom-links a { color: #A8B8CC !important; }
+[data-theme="dark"] footer .footer-social a { color: #A8D8EA !important; background: rgba(168,216,234,0.1) !important; border-color: rgba(168,216,234,0.2) !important; }
+[data-theme="dark"] footer .footer-newsletter input { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-newsletter input::placeholder { color: #A8B8CC !important; }/* ===== DARK NAVLINK CONTRAST ===== */
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] header .nav-link:hover,
+[data-theme="dark"] header .nav-link.active,
+[data-theme="dark"] header .navbar-nav .nav-link:hover,
+[data-theme="dark"] header .navbar-nav .nav-link.active {
+  background: #A8D8EA !important;
+  color: #17243A !important;
+}/* ===== PROFILE ICON CONTRAST ===== */
+.profile-menu .dropdown-item i { color: #34445C !important; }
+[data-theme="dark"] .profile-nav .profile-toggle { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-nav .profile-toggle:hover,
+[data-theme="dark"] .profile-nav .profile-toggle[aria-expanded="true"] { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .profile-menu { background: #1E2D3D !important; border: 1px solid rgba(168,216,234,0.15) !important; }
+[data-theme="dark"] .profile-menu .dropdown-item { color: #E8F0F8 !important; }
+[data-theme="dark"] .profile-menu .dropdown-item:hover { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-menu .dropdown-item i { color: #A8D8EA !important; }[data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: #17243A !important; }
+[data-theme="dark"] #copyLabel { color: #17243A !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     NAVBAR
+═══════════════════════════════════ -->
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html" aria-label="PediaCare Home">
+        PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+      </a>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMain" aria-controls="navbarMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto gap-1" role="list">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html" aria-current="page">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <!-- Dark mode toggle -->
+          <button class="toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fas fa-moon" id="darkModeIcon"></i>
+          </button>
+          <!-- RTL toggle -->
+          <button class="toggle-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL">
+            <span style="font-size:.62rem;font-weight:800;letter-spacing:.02em;line-height:1">RTL</span>
+          </button>
+          
+          <div class="dropdown profile-nav">
+            <a class="nav-link profile-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+              <i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end profile-menu">
+              <li><a class="dropdown-item" href="parent-dashboard.html"><i class="fa-solid fa-user me-2"></i>User Dashboard</a></li>
+              <li><a class="dropdown-item" href="admin-dashboard.html"><i class="fa-solid fa-user-shield me-2"></i>Admin Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════
+     SECTION 1: SERVICE HERO
+═══════════════════════════════════ -->
+<section class="breadcrumb-section" aria-label="Breadcrumb">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+        <li class="breadcrumb-item"><a href="services.html">Services</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Growth Monitoring & Development</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<section class="service-hero" aria-labelledby="serviceHeroTitle">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <!-- Left content -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="service-badge"><i class="fas fa-chart-line"></i> Pediatric Growth Services</span>
+        <h1 class="hero-title" id="serviceHeroTitle">
+          Comprehensive Growth Monitoring &amp; Developmental Assessment
+        </h1>
+        <p class="hero-desc">
+          Our expert pediatricians use WHO-validated standards and evidence-based developmental screening tools to ensure your child is growing and thriving at every stage of life.
+        </p>
+        <!-- Key Benefits -->
+        <div class="mb-32">
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-check-circle"></i>
+            <span>Personalized growth percentile tracking vs. WHO standards</span>
+          </div>
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="150">
+            <i class="fas fa-check-circle"></i>
+            <span>Comprehensive developmental milestone screening</span>
+          </div>
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-check-circle"></i>
+            <span>Expert parental guidance &amp; nutritional counselling</span>
+          </div>
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="250">
+            <i class="fas fa-check-circle"></i>
+            <span>Digital growth chart printout to keep at home</span>
+          </div>
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-check-circle"></i>
+            <span>Early identification of developmental delays</span>
+          </div>
+        </div>
+        <div class="d-flex gap-3 mt-3" data-aos="fade-up" data-aos-delay="350">
+          <a href="#booking" class="btn-appointment" style="display:inline-block; text-decoration:none; padding:14px 32px !important;">Book Now</a>
+          <a href="#overview" class="btn" style="border:2px solid var(--navy); border-radius:50px; padding:14px 28px; font-weight:700; color:var(--navy); text-decoration:none;">Learn More</a>
+        </div>
+      </div>
+      <!-- Right image -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="hero-img-wrap">
+          <img src="https://images.pexels.com/photos/5998450/pexels-photo-5998450.jpeg?auto=compress&cs=tinysrgb&w=600&h=390&fit=crop&crop=faces&q=80"
+               alt="Pediatric doctor performing child checkup" loading="lazy" />
+          <!-- Floating Info Card -->
+          <div class="floating-info-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="info-card-row">
+              <div><i class="fas fa-calendar-check"></i></div>
+              <div>
+                <div class="info-card-label">Next Available</div>
+                <div class="info-card-value">Tomorrow, Nov 19</div>
+              </div>
+            </div>
+            <div class="info-card-row">
+              <div><i class="fas fa-clock"></i></div>
+              <div>
+                <div class="info-card-label">Duration</div>
+                <div class="info-card-value">45–60 minutes</div>
+              </div>
+            </div>
+            <div class="info-card-row">
+              <div><i class="fas fa-user-md"></i></div>
+              <div>
+                <div class="info-card-label">Specialist</div>
+                <div class="info-card-value">Dr. Priya Sharma</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 2: SERVICE OVERVIEW TABS
+═══════════════════════════════════ -->
+<section class="tabs-section" id="overview" aria-labelledby="tabsSectionTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title-main" id="tabsSectionTitle">Service Overview</h2>
+      <p class="section-subtitle-main">Everything you need to know about your child's growth assessment visit</p>
+    </div>
+    <!-- Tab Navigation -->
+    <ul class="nav custom-tabs justify-content-center mb-0" id="serviceTabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="included-tab" data-bs-toggle="tab" data-bs-target="#included" type="button" role="tab" aria-selected="true">
+          <i class="fas fa-list-check me-2"></i>What's Included
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="works-tab" data-bs-toggle="tab" data-bs-target="#works" type="button" role="tab" aria-selected="false">
+          <i class="fas fa-route me-2"></i>How It Works
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="who-tab" data-bs-toggle="tab" data-bs-target="#who" type="button" role="tab" aria-selected="false">
+          <i class="fas fa-child me-2"></i>Who Is It For
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="prep-tab" data-bs-toggle="tab" data-bs-target="#prep" type="button" role="tab" aria-selected="false">
+          <i class="fas fa-clipboard-list me-2"></i>Preparation
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content tab-content-inner" id="serviceTabsContent">
+      <!-- WHAT'S INCLUDED -->
+      <div class="tab-pane fade show active" id="included" role="tabpanel" aria-labelledby="included-tab">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <h4 style="font-weight:800;color:var(--navy);margin-bottom:20px;"><i class="fas fa-ruler-combined me-2" style="color:var(--sky-blue-dark)"></i> Physical Measurements</h4>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>Height &amp; Weight</strong><br><small style="color:var(--text-muted)">Precise measurement using calibrated equipment</small></div>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>BMI Calculation</strong><br><small style="color:var(--text-muted)">Body Mass Index computed and interpreted</small></div>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>Head Circumference</strong><br><small style="color:var(--text-muted)">Critical for infants and toddlers up to 36 months</small></div>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>Percentile Chart Comparison</strong><br><small style="color:var(--text-muted)">Your child's data plotted against age-appropriate norms</small></div>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>WHO Growth Standard Comparison</strong><br><small style="color:var(--text-muted)">Benchmarked against international World Health Organization data</small></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h4 style="font-weight:800;color:var(--navy);margin-bottom:20px;"><i class="fas fa-brain me-2" style="color:var(--mint-dark)"></i> Developmental Screening</h4>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>Developmental Milestone Screening</strong><br><small style="color:var(--text-muted)">Covers gross motor, fine motor, language, and social skills</small></div>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>ASQ-3 Standardized Screening</strong><br><small style="color:var(--text-muted)">Ages &amp; Stages Questionnaire for objective assessment</small></div>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>Behavioral &amp; Social-Emotional Review</strong><br><small style="color:var(--text-muted)">Screen for early signs of autism, ADHD, or anxiety</small></div>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>Parental Guidance &amp; Counselling</strong><br><small style="color:var(--text-muted)">Age-specific tips and activities to support your child's development</small></div>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <div><strong>Digital Growth Chart Report</strong><br><small style="color:var(--text-muted)">Printable and downloadable summary to keep in your child's health records</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW IT WORKS -->
+      <div class="tab-pane fade" id="works" role="tabpanel" aria-labelledby="works-tab">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="step-visual" data-aos="fade-up">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h5>Registration &amp; Medical History Review</h5>
+                <p>Our nurse reviews your child's health records, previous growth data, and any concerns you'd like to discuss with the doctor. Takes about 5–10 minutes.</p>
+              </div>
+            </div>
+            <div class="step-visual" data-aos="fade-up" data-aos-delay="100">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h5>Physical Measurements</h5>
+                <p>Height, weight, head circumference (if applicable), and BMI are measured using certified, calibrated equipment. All measurements are recorded digitally.</p>
+              </div>
+            </div>
+            <div class="step-visual" data-aos="fade-up" data-aos-delay="200">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h5>Developmental Milestone Screening</h5>
+                <p>Dr. Sharma uses structured observation and standardized questionnaires to assess your child's development across four key domains: gross motor, fine motor, language, and social-emotional.</p>
+              </div>
+            </div>
+            <div class="step-visual" data-aos="fade-up" data-aos-delay="300">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h5>Chart Analysis &amp; Interpretation</h5>
+                <p>Results are plotted on WHO-standard growth charts. The doctor explains what each percentile means for your child and whether any follow-up is needed.</p>
+              </div>
+            </div>
+            <div class="step-visual" data-aos="fade-up" data-aos-delay="400">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <h5>Guidance, Next Steps &amp; Report</h5>
+                <p>You receive a personalized report with action items, referral letters (if needed), dietary recommendations, and your next follow-up appointment date.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHO IS IT FOR -->
+      <div class="tab-pane fade" id="who" role="tabpanel" aria-labelledby="who-tab">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="age-card">
+              <i class="fas fa-baby" style="color:var(--peach-dark)"></i>
+              <h5>Newborns (0–3 months)</h5>
+              <p style="color:var(--text-muted);font-size:0.9rem;">Tracking birth weight recovery, feeding patterns, and early reflexes. Crucial for detecting early complications.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="age-card">
+              <i class="fas fa-baby-carriage" style="color:var(--sky-blue-dark)"></i>
+              <h5>Infants (3–12 months)</h5>
+              <p style="color:var(--text-muted);font-size:0.9rem;">Rapid growth phase monitoring, head circumference tracking, motor milestone screening, and introduction to solid foods guidance.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="age-card">
+              <i class="fas fa-child" style="color:var(--mint-dark)"></i>
+              <h5>Toddlers (1–3 years)</h5>
+              <p style="color:var(--text-muted);font-size:0.9rem;">Language development screening, walking/running assessment, and behavioural milestone checks. Autism screening recommended at 18 &amp; 24 months.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="age-card">
+              <i class="fas fa-person-running" style="color:var(--peach-dark)"></i>
+              <h5>Preschool (3–5 years)</h5>
+              <p style="color:var(--text-muted);font-size:0.9rem;">School-readiness assessments, fine motor skill checks, speech clarity review, and social interaction patterns.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="age-card">
+              <i class="fas fa-graduation-cap" style="color:var(--sky-blue-dark)"></i>
+              <h5>School-Age (6–12 years)</h5>
+              <p style="color:var(--text-muted);font-size:0.9rem;">BMI monitoring, puberty preparation, attention and learning milestone checks, and mental well-being screening.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="age-card">
+              <i class="fas fa-user-friends" style="color:var(--mint-dark)"></i>
+              <h5>Adolescents (13–18 years)</h5>
+              <p style="color:var(--text-muted);font-size:0.9rem;">Puberty progress tracking, BMI &amp; nutritional counselling, mental health check-ins, and academic stress assessment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREPARATION -->
+      <div class="tab-pane fade" id="prep" role="tabpanel" aria-labelledby="prep-tab">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="prep-box">
+              <h5><i class="fas fa-folder-open me-2" style="color:var(--sky-blue-dark)"></i>What to Bring</h5>
+              <ul style="color:var(--text-muted);line-height:2;">
+                <li>Child's immunization / vaccination record book</li>
+                <li>Previous growth charts (if available)</li>
+                <li>List of current medications or supplements</li>
+                <li>Your child's health insurance card</li>
+                <li>Any concerns or questions written down</li>
+                <li>Comfort item for young children (toy, blanket)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="prep-box">
+              <h5><i class="fas fa-utensils me-2" style="color:var(--mint-dark)"></i>Fasting Requirements</h5>
+              <p style="color:var(--text-muted);margin-bottom:10px;">No fasting is required for a standard growth monitoring visit.</p>
+              <div class="info-highlight" style="margin:0;">
+                <strong><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> If Blood Tests Are Included</strong>
+                <span>Infants under 1 year: 2 hours fast. Children 1–5 years: 4 hours fast. Children 6+ years: 6–8 hours fast. Plain water is always allowed.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="prep-box">
+              <h5><i class="fas fa-tshirt me-2" style="color:var(--peach-dark)"></i>Clothing Tips</h5>
+              <ul style="color:var(--text-muted);line-height:2;">
+                <li>Dress your child in easy-to-remove clothing (no buttons or ties)</li>
+                <li>Lightweight, comfortable clothes for accurate weight measurement</li>
+                <li>Remove shoes and heavy accessories before measurement</li>
+                <li>Hair down / loose for head circumference accuracy</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="prep-box">
+              <h5><i class="fas fa-heart me-2" style="color:var(--sky-blue-dark)"></i>Preparing Your Child</h5>
+              <ul style="color:var(--text-muted);line-height:2;">
+                <li>Explain the visit in simple, positive terms</li>
+                <li>Bring a favourite toy or book</li>
+                <li>Schedule when your child is well-rested</li>
+                <li>Avoid scheduling during nap time for young children</li>
+                <li>Arrive 10 minutes early to allow settling time</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 3: GROWTH CHART PREVIEW
+═══════════════════════════════════ -->
+<section class="growth-section" aria-labelledby="growthSectionTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title-main" id="growthSectionTitle">Understanding Your Child's Growth Chart</h2>
+      <p class="section-subtitle-main">Learn how to read percentiles and what they mean for your child's health journey</p>
+    </div>
+
+    <div class="row g-5 align-items-center">
+      <!-- Left Image + Explanation -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <img src="https://images.pexels.com/photos/3376787/pexels-photo-3376787.jpeg?auto=compress&cs=tinysrgb&w=500&h=325&fit=crop&crop=faces&q=80"
+             alt="Nurse measuring an infant during a growth checkup" class="img-fluid rounded-4 shadow-lg mb-4"
+             style="width:100%;height:280px;object-fit:cover;" loading="lazy" />
+        <div class="growth-explanation">
+          <h3>What Do Percentiles Mean?</h3>
+          <p>A percentile indicates how your child compares to others of the same age and sex. A child at the 50th percentile for weight means 50% of children weigh more and 50% weigh less.</p>
+          <p><strong style="color:var(--navy)">What's "Normal"?</strong> Any percentile between the 5th and 95th is considered healthy. It's the <em>trend over time</em> that matters most — not a single measurement.</p>
+          <div class="info-highlight">
+            <strong><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> When to Be Concerned</strong>
+            <span>Sudden drop of 2+ percentile channels, consistently below 3rd or above 97th percentile, or measurements not matching the child's genetic potential (parent heights).</span>
+          </div>
+          <a href="#booking" class="btn-appointment mt-3 d-inline-block" style="text-decoration:none; padding:12px 28px !important;">
+            <i class="fas fa-chart-line me-2"></i>Track Your Child's Growth
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Percentile Boxes + Chart -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="percentile-box">
+              <div class="percentile-label">Height Percentile</div>
+              <div class="percentile-val" style="color:var(--sky-blue-dark)">72nd</div>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">Above average range</div>
+              <div class="percentile-bar"><div class="percentile-fill" style="width:72%;background:linear-gradient(90deg,var(--sky-blue),var(--sky-blue-dark))"></div></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="percentile-box">
+              <div class="percentile-label">Weight Percentile</div>
+              <div class="percentile-val" style="color:var(--mint-dark)">58th</div>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">Healthy normal range</div>
+              <div class="percentile-bar"><div class="percentile-fill" style="width:58%;background:linear-gradient(90deg,var(--mint-green),var(--mint-dark))"></div></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="percentile-box">
+              <div class="percentile-label">BMI-for-Age</div>
+              <div class="percentile-val" style="color:var(--peach-dark)">45th</div>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">Ideal healthy weight</div>
+              <div class="percentile-bar"><div class="percentile-fill" style="width:45%;background:linear-gradient(90deg,var(--peach),var(--peach-dark))"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Chart.js -->
+        <div class="chart-container">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 style="font-weight:800;color:var(--navy);margin:0;">Sample Growth Curve (0–24 months)</h5>
+            <span style="font-size:0.8rem;color:var(--text-muted);">Sample Child: Aarav</span>
+          </div>
+          <canvas id="growthChart" height="200" aria-label="Interactive growth chart for 0-24 months" role="img"></canvas>
+          <div class="d-flex gap-4 mt-3 justify-content-center" style="font-size:0.8rem;">
+            <span><span style="display:inline-block;width:14px;height:3px;background:var(--sky-blue-dark);vertical-align:middle;border-radius:2px;margin-right:5px;"></span>Child's Weight (kg)</span>
+            <span><span style="display:inline-block;width:14px;height:3px;background:var(--mint-dark);vertical-align:middle;border-radius:2px;margin-right:5px;"></span>WHO 50th Percentile</span>
+            <span><span style="display:inline-block;width:14px;height:3px;background:var(--peach-dark);vertical-align:middle;border-radius:2px;margin-right:5px;"></span>WHO 97th Percentile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 4: DEVELOPMENTAL MILESTONES
+═══════════════════════════════════ -->
+<section class="milestones-section" aria-labelledby="milestonesSectionTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title-main" id="milestonesSectionTitle">Developmental Screening We Cover</h2>
+      <p class="section-subtitle-main">Select your child's age to see the milestones we screen for at that stage</p>
+    </div>
+
+    <!-- Age Filter Buttons -->
+    <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+      <button class="age-filter-btn active" onclick="filterAge('3mo')" aria-pressed="true">3 Months</button>
+      <button class="age-filter-btn" onclick="filterAge('6mo')" aria-pressed="false">6 Months</button>
+      <button class="age-filter-btn" onclick="filterAge('12mo')" aria-pressed="false">12 Months</button>
+      <button class="age-filter-btn" onclick="filterAge('18mo')" aria-pressed="false">18 Months</button>
+      <button class="age-filter-btn" onclick="filterAge('2yr')" aria-pressed="false">2 Years</button>
+      <button class="age-filter-btn" onclick="filterAge('3yr')" aria-pressed="false">3 Years</button>
+    </div>
+
+    <!-- Domain Cards -->
+    <div class="row g-4">
+      <!-- Gross Motor -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="domain-card">
+          <div class="domain-icon" style="background:linear-gradient(135deg,var(--sky-blue),var(--sky-blue-dark))"><i class="fa-solid fa-person-running" aria-hidden="true"></i></div>
+          <h4>Gross Motor</h4>
+          <div class="milestone-item" data-age="3mo"><i class="fas fa-check"></i><span>Lifts head when on tummy</span></div>
+          <div class="milestone-item" data-age="3mo"><i class="fas fa-check"></i><span>Pushes up on arms</span></div>
+          <div class="milestone-item hidden" data-age="6mo"><i class="fas fa-check"></i><span>Rolls front to back</span></div>
+          <div class="milestone-item hidden" data-age="6mo"><i class="fas fa-check"></i><span>Sits with support</span></div>
+          <div class="milestone-item hidden" data-age="12mo"><i class="fas fa-check"></i><span>Stands with help</span></div>
+          <div class="milestone-item hidden" data-age="12mo"><i class="fas fa-check"></i><span>Cruises along furniture</span></div>
+          <div class="milestone-item hidden" data-age="18mo"><i class="fas fa-check"></i><span>Walks independently</span></div>
+          <div class="milestone-item hidden" data-age="18mo"><i class="fas fa-check"></i><span>Climbs stairs with help</span></div>
+          <div class="milestone-item hidden" data-age="2yr"><i class="fas fa-check"></i><span>Runs with confidence</span></div>
+          <div class="milestone-item hidden" data-age="2yr"><i class="fas fa-check"></i><span>Kicks a ball</span></div>
+          <div class="milestone-item hidden" data-age="3yr"><i class="fas fa-check"></i><span>Hops on one foot</span></div>
+          <div class="milestone-item hidden" data-age="3yr"><i class="fas fa-check"></i><span>Rides a tricycle</span></div>
+        </div>
+      </div>
+      <!-- Fine Motor -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="domain-card">
+          <div class="domain-icon" style="background:linear-gradient(135deg,var(--mint-green),var(--mint-dark))"><i class="fa-solid fa-hand" aria-hidden="true"></i></div>
+          <h4>Fine Motor</h4>
+          <div class="milestone-item" data-age="3mo"><i class="fas fa-check"></i><span>Grasps rattle briefly</span></div>
+          <div class="milestone-item" data-age="3mo"><i class="fas fa-check"></i><span>Opens and closes fists</span></div>
+          <div class="milestone-item hidden" data-age="6mo"><i class="fas fa-check"></i><span>Transfers object hand to hand</span></div>
+          <div class="milestone-item hidden" data-age="6mo"><i class="fas fa-check"></i><span>Rakes objects with hand</span></div>
+          <div class="milestone-item hidden" data-age="12mo"><i class="fas fa-check"></i><span>Pincer grasp developed</span></div>
+          <div class="milestone-item hidden" data-age="12mo"><i class="fas fa-check"></i><span>Stacks 2 blocks</span></div>
+          <div class="milestone-item hidden" data-age="18mo"><i class="fas fa-check"></i><span>Stacks 4+ blocks</span></div>
+          <div class="milestone-item hidden" data-age="18mo"><i class="fas fa-check"></i><span>Scribbles with crayon</span></div>
+          <div class="milestone-item hidden" data-age="2yr"><i class="fas fa-check"></i><span>Turns book pages</span></div>
+          <div class="milestone-item hidden" data-age="2yr"><i class="fas fa-check"></i><span>Builds tower of 6 blocks</span></div>
+          <div class="milestone-item hidden" data-age="3yr"><i class="fas fa-check"></i><span>Draws circles &amp; squares</span></div>
+          <div class="milestone-item hidden" data-age="3yr"><i class="fas fa-check"></i><span>Uses scissors with help</span></div>
+        </div>
+      </div>
+      <!-- Language -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="domain-card">
+          <div class="domain-icon" style="background:linear-gradient(135deg,var(--peach),var(--peach-dark))"><i class="fa-solid fa-comments" aria-hidden="true"></i></div>
+          <h4>Language</h4>
+          <div class="milestone-item" data-age="3mo"><i class="fas fa-check"></i><span>Coos and gurgles</span></div>
+          <div class="milestone-item" data-age="3mo"><i class="fas fa-check"></i><span>Turns toward voice</span></div>
+          <div class="milestone-item hidden" data-age="6mo"><i class="fas fa-check"></i><span>Babbles consonants (ba, da)</span></div>
+          <div class="milestone-item hidden" data-age="6mo"><i class="fas fa-check"></i><span>Responds to own name</span></div>
+          <div class="milestone-item hidden" data-age="12mo"><i class="fas fa-check"></i><span>Says "mama" / "dada" meaningfully</span></div>
+          <div class="milestone-item hidden" data-age="12mo"><i class="fas fa-check"></i><span>Understands simple words</span></div>
+          <div class="milestone-item hidden" data-age="18mo"><i class="fas fa-check"></i><span>Uses 10–25 words</span></div>
+          <div class="milestone-item hidden" data-age="18mo"><i class="fas fa-check"></i><span>Points to body parts</span></div>
+          <div class="milestone-item hidden" data-age="2yr"><i class="fas fa-check"></i><span>Combines 2 words</span></div>
+          <div class="milestone-item hidden" data-age="2yr"><i class="fas fa-check"></i><span>50+ word vocabulary</span></div>
+          <div class="milestone-item hidden" data-age="3yr"><i class="fas fa-check"></i><span>Speaks in sentences</span></div>
+          <div class="milestone-item hidden" data-age="3yr"><i class="fas fa-check"></i><span>Strangers understand speech</span></div>
+        </div>
+      </div>
+      <!-- Social/Emotional -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="domain-card">
+          <div class="domain-icon" style="background:linear-gradient(135deg,#FFB8D0,#FF8FAB)"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+          <h4>Social/Emotional</h4>
+          <div class="milestone-item" data-age="3mo"><i class="fas fa-check"></i><span>Social smile emerges</span></div>
+          <div class="milestone-item" data-age="3mo"><i class="fas fa-check"></i><span>Calms when comforted</span></div>
+          <div class="milestone-item hidden" data-age="6mo"><i class="fas fa-check"></i><span>Laughs and giggles</span></div>
+          <div class="milestone-item hidden" data-age="6mo"><i class="fas fa-check"></i><span>Shows interest in mirror</span></div>
+          <div class="milestone-item hidden" data-age="12mo"><i class="fas fa-check"></i><span>Waves bye-bye</span></div>
+          <div class="milestone-item hidden" data-age="12mo"><i class="fas fa-check"></i><span>Shows separation anxiety</span></div>
+          <div class="milestone-item hidden" data-age="18mo"><i class="fas fa-check"></i><span>Parallel play observed</span></div>
+          <div class="milestone-item hidden" data-age="18mo"><i class="fas fa-check"></i><span>Copies adults in play</span></div>
+          <div class="milestone-item hidden" data-age="2yr"><i class="fas fa-check"></i><span>Shows defiance ("No!")</span></div>
+          <div class="milestone-item hidden" data-age="2yr"><i class="fas fa-check"></i><span>Engages in pretend play</span></div>
+          <div class="milestone-item hidden" data-age="3yr"><i class="fas fa-check"></i><span>Takes turns in games</span></div>
+          <div class="milestone-item hidden" data-age="3yr"><i class="fas fa-check"></i><span>Shows concern for others</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 5: SPECIALIST + BOOKING + FAQ
+═══════════════════════════════════ -->
+<section class="specialist-section" id="booking" aria-labelledby="specialistSectionTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title-main" id="specialistSectionTitle">Meet the Specialist &amp; Book Your Visit</h2>
+      <p class="section-subtitle-main">Schedule directly with Dr. Priya Sharma — Developmental Pediatrics expert</p>
+    </div>
+
+    <div class="row g-5">
+      <!-- Doctor Card -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="doctor-card">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&h=195&fit=crop&crop=faces&q=80&auto=format"
+               alt="Dr. Priya Sharma, Developmental Pediatrics specialist"
+               class="doctor-avatar" loading="lazy" />
+          <div class="doctor-name">Dr. Priya Sharma</div>
+          <div class="doctor-spec"><i class="fas fa-stethoscope me-2"></i>Developmental Pediatrics</div>
+          <p class="doctor-bio">
+            Dr. Sharma brings 14 years of expertise in pediatric growth monitoring and neurodevelopmental assessments. She completed her fellowship at AIIMS New Delhi and is a certified ASQ-3 screener with a compassionate, child-first approach.
+          </p>
+          <div class="mb-3">
+            <span class="credential-badge">MD Pediatrics</span>
+            <span class="credential-badge">Fellowship - Dev. Peds</span>
+            <span class="credential-badge">ASQ-3 Certified</span>
+            <span class="credential-badge">WHO Growth Expert</span>
+          </div>
+          <div class="slot-available">
+            <i class="fas fa-circle" style="font-size:0.5rem;color:var(--mint-dark)"></i>
+            Available slots: <strong>Tue, Thu, Sat</strong> — 10 AM to 1 PM
+          </div>
+          <div class="slot-available" style="margin-top:8px;">
+            <i class="fas fa-phone"></i>
+            Direct line: <strong>+91 98765 43210</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="booking-card">
+          <h4><i class="fas fa-calendar-plus me-2" style="color:var(--sky-blue-dark)"></i>Book Your Appointment</h4>
+          <form id="bookingForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-bold small">Select Date <span style="color:red">*</span></label>
+                <input type="date" class="form-control" id="apptDate" required min="2026-11-19" aria-required="true" />
+                <div class="invalid-feedback">Please select a date.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold small">Select Time <span style="color:red">*</span></label>
+                <select class="form-select" id="apptTime" required aria-required="true">
+                  <option value="">Choose time slot...</option>
+                  <option>10:00 AM</option>
+                  <option>10:30 AM</option>
+                  <option>11:00 AM</option>
+                  <option>11:30 AM</option>
+                  <option>12:00 PM</option>
+                  <option>12:30 PM</option>
+                </select>
+                <div class="invalid-feedback">Please choose a time.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold small">Child's Name <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="childName" placeholder="Enter child's name" required aria-required="true" />
+                <div class="invalid-feedback">Please enter the child's name.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold small">Child's Age <span style="color:red">*</span></label>
+                <select class="form-select" id="childAge" required aria-required="true">
+                  <option value="">Select age range...</option>
+                  <option>0–3 months</option>
+                  <option>3–6 months</option>
+                  <option>6–12 months</option>
+                  <option>1–2 years</option>
+                  <option>2–5 years</option>
+                  <option>5–12 years</option>
+                  <option>12–18 years</option>
+                </select>
+                <div class="invalid-feedback">Please select age range.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-bold small">Parent's Contact Number <span style="color:red">*</span></label>
+                <input type="tel" class="form-control" id="parentContact" placeholder="+91 00000 00000" required aria-required="true" />
+                <div class="invalid-feedback">Please enter a valid contact number.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-bold small">Any specific concerns?</label>
+                <textarea class="form-control" rows="2" placeholder="Mention any concerns or previous issues..." style="resize:none;"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-book-submit">
+                  <i class="fas fa-calendar-check me-2"></i>Confirm Appointment
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section" data-aos="fade-up">
+      <div class="text-center mb-4">
+        <h3 style="font-weight:800;color:var(--navy);">Frequently Asked Questions</h3>
+      </div>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+              <i class="fas fa-question-circle me-2" style="color:var(--sky-blue-dark)"></i>How often should growth monitoring happen?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              The frequency depends on the child's age. For infants (0–12 months), we recommend monthly visits. For toddlers (1–3 years), every 3–6 months. For school-age children (3–12 years), annual checkups are typically sufficient unless there are concerns.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              <i class="fas fa-question-circle me-2" style="color:var(--sky-blue-dark)"></i>What if my child is below the 5th percentile?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Being below the 5th percentile doesn't automatically mean something is wrong — especially if parents are small-statured. We consider genetic potential, nutrition, overall health trends, and velocity of growth. If needed, we may refer to a pediatric endocrinologist or nutritionist.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              <i class="fas fa-question-circle me-2" style="color:var(--sky-blue-dark)"></i>Is developmental screening covered by insurance?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Most preventive developmental screenings are covered under routine well-child visits by major health insurance providers. We recommend calling your insurer before the visit. We also provide affordable self-pay options. Our billing team can assist with pre-authorization.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+              <i class="fas fa-question-circle me-2" style="color:var(--sky-blue-dark)"></i>How long does the appointment take?
+            </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              A standard growth monitoring and developmental assessment appointment takes 45–60 minutes. If additional tests or detailed screenings are requested, please allow up to 90 minutes. We recommend arriving 10 minutes early for registration.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+              <i class="fas fa-question-circle me-2" style="color:var(--sky-blue-dark)"></i>Will I get a growth chart printout?
+            </button>
+          </h2>
+          <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes! Every parent receives a printed growth chart with their child's current and historical measurements, as well as a digital PDF copy emailed to you. We also integrate with the PediaCare parent dashboard so you can view your child's growth history anytime.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+              <i class="fas fa-question-circle me-2" style="color:var(--sky-blue-dark)"></i>What happens if a developmental delay is detected?
+            </button>
+          </h2>
+          <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Early detection is a good thing — it means early intervention! If a delay is suspected, we don't alarm parents. Instead, we schedule a comprehensive evaluation, discuss findings calmly, and create an individualized care plan. We work with speech therapists, occupational therapists, and child psychologists in-house and via referral.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 6: RELATED SERVICES + TESTIMONIALS
+═══════════════════════════════════ -->
+<section class="related-section" aria-labelledby="relatedSectionTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title-main" id="relatedSectionTitle">You Might Also Need</h2>
+      <p class="section-subtitle-main">Complementary services that work alongside growth monitoring</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="related-card">
+          <div class="related-icon" style="background:linear-gradient(135deg,var(--mint-green),var(--mint-dark))">
+            <i class="fas fa-apple-alt" style="color:var(--navy)"></i>
+          </div>
+          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=200&fit=crop&q=80&auto=format" class="img-fluid rounded-3 mb-3" style="height:140px;width:100%;object-fit:cover;" alt="Nutrition Guidance"><h5>Nutrition Guidance</h5>
+          <p>Personalized dietary plans to support healthy growth and development at every age stage.</p>
+          <a href="service-details.html"><i class="fas fa-arrow-right me-1"></i>Learn More</a>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="related-card">
+          <div class="related-icon" style="background:linear-gradient(135deg,var(--sky-blue),var(--sky-blue-dark))">
+            <i class="fas fa-syringe" style="color:var(--navy)"></i>
+          </div>
+          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=400&h=200&fit=crop&q=80&auto=format" class="img-fluid rounded-3 mb-3" style="height:140px;width:100%;object-fit:cover;" alt="Vaccination Services"><h5>Vaccination Services</h5>
+          <p>Complete immunization programs following the latest national vaccine schedule for all ages.</p>
+          <a href="service-details.html"><i class="fas fa-arrow-right me-1"></i>Learn More</a>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="related-card">
+          <div class="related-icon" style="background:linear-gradient(135deg,var(--peach),var(--peach-dark))">
+            <i class="fas fa-allergies" style="color:var(--navy)"></i>
+          </div>
+          <img src="https://images.pexels.com/photos/3997722/pexels-photo-3997722.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop&crop=faces&q=80" class="img-fluid rounded-3 mb-3" style="height:140px;width:100%;object-fit:cover;" alt="Allergy Testing"><h5>Allergy Testing</h5>
+          <p>Comprehensive skin-prick and blood tests to identify food and environmental allergies early.</p>
+          <a href="service-details.html"><i class="fas fa-arrow-right me-1"></i>Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="text-center mb-4" data-aos="fade-up">
+      <h3 style="font-weight:800;color:var(--navy);">What Parents Say</h3>
+    </div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="testimonial-text">"Dr. Sharma caught that our son's weight gain had stalled two months before we noticed. Her early intervention and dietary guidance made a world of difference. He's thriving now!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.pexels.com/photos/32846944/pexels-photo-32846944.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Meera Kapoor" />
+            <div>
+              <div class="testimonial-author-name">Meera Kapoor</div>
+              <div class="testimonial-author-sub">Mother of Aryan, 18 months</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="testimonial-text">"I was worried about my daughter's speech delay. PediaCare's developmental screening pinpointed the issue quickly and connected us with a speech therapist. She's speaking beautifully now!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.pexels.com/photos/16152597/pexels-photo-16152597.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Preethi Nair" />
+            <div>
+              <div class="testimonial-author-name">Preethi Nair</div>
+              <div class="testimonial-author-sub">Mother of Diya, 2.5 years</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="testimonial-text">"The growth chart they gave us was so detailed and easy to understand. We now track our son's progress every 3 months and always leave feeling reassured and informed."</p>
+          <div class="testimonial-author">
+            <img src="https://images.pexels.com/photos/19456424/pexels-photo-19456424.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Rahul Singh" />
+            <div>
+              <div class="testimonial-author-name">Rahul Singh</div>
+              <div class="testimonial-author-sub">Father of Kabir, 3 years</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="final-cta" data-aos="zoom-in">
+      <h3>Ready to Start Tracking Your Child's Growth?</h3>
+      <p>Book a comprehensive growth monitoring &amp; developmental assessment with Dr. Priya Sharma today.</p>
+      <a href="#booking" class="btn-cta-white">
+        <i class="fas fa-calendar-check me-2"></i>Book This Service
+      </a>
+      <a href="tel:+919876543210" class="btn-cta-outline">
+        <i class="fas fa-phone me-2"></i>+91 98765 43210
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Col 1: Brand -->
+      <div class="col-lg-4 col-md-6">
+        <span class="footer-brand">PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span>
+        <p class="footer-about">
+          PediaCare is a premier pediatric clinic dedicated to nurturing the health, growth, and happiness of children from birth through adolescence. Our board-certified team combines medical excellence with heartfelt compassion.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+          <li><a href="home2.html"><i class="fas fa-chevron-right fa-xs"></i> Home 2</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          <li><a href="parent-dashboard.html"><i class="fas fa-chevron-right fa-xs"></i> Parent Dashboard</a></li>
+          <li><a href="#appointment"><i class="fas fa-chevron-right fa-xs"></i> Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> General Pediatrics</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Neonatology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Developmental Medicine</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Pediatric Nutrition</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Allergy &amp; Immunology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Vaccinations</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Wellness Programs</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact + Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Wellness Blvd, Suite 200<br>Health City, CA 90001</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1-800-PEDIACARE<br>+1 (555) 234-5678</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>hello@pediacare.com<br>appointments@pediacare.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Open 24/7 · 365 Days a Year</span>
+        </div>
+
+        <h4 class="footer-heading mt-4">Newsletter</h4>
+        <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:.8rem;">Get parenting tips & clinic news.</p>
+        <form class="newsletter-form d-flex" aria-label="Newsletter signup form" onsubmit="return handleNewsletter(event)">
+          <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter" required />
+          <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p>© 2025 PediaCare Medical Group. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+        <a href="#">HIPAA Notice</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="assets/js/main.js" defer></script>
+<script>
+  // AOS Init
+  AOS.init({ duration: 700, once: true, offset: 60 });
+
+  // Dark mode toggle
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    (document.getElementById('themeBtn') || document.createElement('span')).innerHTML = isDark ? '<i class="fa-solid fa-moon" aria-hidden="true"></i> Dark' : '<i class="fa-solid fa-sun" aria-hidden="true"></i> Light';
+    localStorage.setItem('pediacare-theme', isDark ? 'light' : 'dark');
+  }
+  (function() {
+    const saved = localStorage.getItem('pediacare-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    const btn = (document.getElementById('themeBtn') || document.createElement('span'));
+    if (btn) btn.innerHTML = saved === 'dark' ? '<i class="fa-solid fa-sun" aria-hidden="true"></i> Light' : '<i class="fa-solid fa-moon" aria-hidden="true"></i> Dark';
+  })();
+
+  // Age milestone filter
+  function filterAge(age) {
+    document.querySelectorAll('.age-filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+    event.target.classList.add('active'); event.target.setAttribute('aria-pressed', 'true');
+    document.querySelectorAll('.milestone-item').forEach(item => {
+      item.classList.add('hidden');
+      if (item.dataset.age === age) item.classList.remove('hidden');
+    });
+  }
+
+  // Booking form validation
+  (document.getElementById('bookingForm') || document.createElement('span')).addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!this.checkValidity()) { this.classList.add('was-validated'); return; }
+    this.classList.add('was-validated');
+    // Simulate success
+    const btn = this.querySelector('.btn-book-submit');
+    btn.innerHTML = '<i class="fas fa-check me-2"></i>Appointment Requested!';
+    btn.style.background = 'linear-gradient(135deg, var(--mint-dark), #5a9a62)';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-calendar-check me-2"></i>Confirm Appointment';
+      btn.style.background = '';
+      this.reset(); this.classList.remove('was-validated');
+    }, 3000);
+  });
+
+  // Growth Chart.js
+  const ctx = (document.getElementById('growthChart') || document.createElement('span')).getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','15','18','21','24'],
+      datasets: [
+        {
+          label: "Child's Weight",
+          data: [3.2,4.1,5.0,5.8,6.4,7.0,7.5,7.9,8.3,8.7,9.0,9.3,9.6,10.5,11.1,11.5,12.0],
+          borderColor: '#7EC8E3', backgroundColor: 'rgba(126,200,227,0.1)',
+          borderWidth: 3, tension: 0.4, fill: true, pointRadius: 4, pointHoverRadius: 7
+        },
+        {
+          label: 'WHO 50th',
+          data: [3.3,4.4,5.4,6.1,6.6,7.0,7.3,7.6,7.9,8.1,8.3,8.5,8.7,9.5,10.2,10.9,11.5],
+          borderColor: '#8EC89A', backgroundColor: 'transparent',
+          borderWidth: 2, borderDash: [6,4], tension: 0.4, pointRadius: 0
+        },
+        {
+          label: 'WHO 97th',
+          data: [4.4,5.8,7.0,7.9,8.5,9.0,9.4,9.7,10.0,10.3,10.6,10.9,11.1,12.1,12.9,13.6,14.3],
+          borderColor: '#FFB89A', backgroundColor: 'transparent',
+          borderWidth: 2, borderDash: [4,4], tension: 0.4, pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { mode: 'index', intersect: false }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Age (months)', font: { family: 'Quicksand', weight: '700' } }, grid: { color: 'rgba(0,0,0,0.05)' } },
+        y: { title: { display: true, text: 'Weight (kg)', font: { family: 'Quicksand', weight: '700' } }, min: 2, max: 16, grid: { color: 'rgba(0,0,0,0.05)' } }
+      }
+    }
+  });
+</script>
+
+<script>
+(function () {
+  const navbar = document.getElementById('mainNavbar');
+  if (navbar) {
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  const darkBtn = document.getElementById('darkModeToggle');
+  const darkIcon = document.getElementById('darkModeIcon');
+  const rtlBtn = document.getElementById('rtlToggle');
+  const htmlEl = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    try { localStorage.setItem('pediacare-theme', theme); } catch (e) {}
+    if (darkIcon) {
+      if (theme === 'dark') {
+        darkIcon.classList.remove('fa-moon');
+        darkIcon.classList.add('fa-sun');
+      } else {
+        darkIcon.classList.remove('fa-sun');
+        darkIcon.classList.add('fa-moon');
+      }
+    }
+  }
+
+  let saved = 'light';
+  try { saved = localStorage.getItem('pediacare-theme') || 'light'; } catch (e) {}
+  applyTheme(saved);
+
+  if (darkBtn) {
+    darkBtn.addEventListener('click', () => {
+      applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+  if (rtlBtn) {
+    rtlBtn.addEventListener('click', () => {
+      const cur = htmlEl.getAttribute('dir');
+      htmlEl.setAttribute('dir', cur === 'rtl' ? 'ltr' : 'rtl');
+    });
+  }
+
+  window.handleNewsletter = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const input = form.querySelector('input[type="email"]');
+    if (!input || !input.value) return false;
+    input.value = '';
+    const btn = form.querySelector('button');
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i>';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 2500);
+    }
+    return false;
+  };
+
+  document.querySelectorAll('#navbarMain a').forEach(a => {
+    a.addEventListener('click', () => {
+      const el = document.getElementById('navbarMain');
+      if (el && el.classList.contains('show') && window.bootstrap) {
+        bootstrap.Collapse.getOrCreateInstance(el).hide();
+      }
+    });
+  });
+})();
+</script>
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>

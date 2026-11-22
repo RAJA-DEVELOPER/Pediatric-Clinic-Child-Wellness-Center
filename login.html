@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PediaCare Parent Portal — Secure login and registration for parents and guardians to access child health records, appointments, and more." />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Login & Register | PediaCare Parent Portal</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Shared CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sky: #A8D8EA;
+      --mint: #B8D8C0;
+      --peach: #FFD6C2;
+      --cream: #FFF9F2;
+      --navy: #34445C;
+      --sky-dark: #165A75;
+      --mint-dark: #1B5E32;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Quicksand', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Nunito', sans-serif; }
+
+    /* ── NAVBAR ── */
+    .auth-navbar { background: #fff; box-shadow: 0 2px 20px rgba(52,68,92,.08); padding: 14px 0; }
+    .navbar-brand { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--navy) !important; }
+    .navbar-brand span { color: var(--sky-dark); }
+    .auth-theme-toggle { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #e8eef5; background: #fff; color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; cursor: pointer; transition: all .2s; }
+    .auth-theme-toggle:hover { background: var(--sky); color: #17243A; border-color: var(--sky); }
+
+    /* ── AUTH CARD ── */
+    .auth-card { background: #fff; border-radius: 24px; box-shadow: 0 20px 60px rgba(52,68,92,.12); padding: 40px; max-width: 480px; margin: 0 auto; position: relative; z-index: 2; }
+    .auth-tabs { display: flex; gap: 4px; background: #f0f4f8; border-radius: 14px; padding: 4px; margin-bottom: 30px; }
+    .auth-tab { flex: 1; border: none; background: transparent; border-radius: 10px; padding: 10px 8px; font-weight: 700; font-family: 'Quicksand', sans-serif; color: #475569; cursor: pointer; transition: all .2s; font-size: .85rem; }
+    .auth-tab.active { background: #fff; color: var(--navy); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+
+    .form-control, .form-select { border-radius: 12px; border: 2px solid #e8eef5; padding: 12px 16px; font-family: 'Quicksand', sans-serif; font-weight: 600; transition: all .2s; }
+    .form-control:focus, .form-select:focus { border-color: var(--sky-dark); box-shadow: 0 0 0 .2rem rgba(126,200,227,.25); }
+    .input-group .form-control { border-radius: 12px 0 0 12px; }
+    .input-group .btn-toggle { border-radius: 0 12px 12px 0; border: 2px solid #e8eef5; border-left: none; background: #f8fafc; color: #adb5bd; cursor: pointer; padding: 0 14px; }
+    .input-group .btn-toggle:hover { background: #e8eef5; }
+
+    .btn-auth { width: 100%; border-radius: 25px; padding: 14px; font-weight: 700; font-size: 1rem; border: none; transition: all .3s; cursor: pointer; }
+    .btn-parent { background: var(--sky-dark); color: #fff; }
+    .btn-parent:hover { background: var(--sky); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(126,200,227,.4); }
+    .btn-register { background: var(--mint-dark); color: #fff; }
+    .btn-register:hover { background: var(--mint); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(141,196,154,.4); }
+    .btn-admin { background: var(--navy); color: #fff; }
+    .btn-admin:hover { background: #2a3749; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(52,68,92,.4); }
+    .btn-google { width: 100%; border-radius: 25px; padding: 12px; font-weight: 700; border: 2px solid #e8eef5; background: #fff; color: var(--navy); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all .2s; }
+    .btn-google:hover { border-color: var(--sky-dark); background: #f0f9ff; }
+    .divider { display: flex; align-items: center; gap: 12px; color: #adb5bd; font-size: .9rem; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e8eef5; }
+
+    /* Password strength */
+    .strength-bar { height: 4px; border-radius: 2px; background: #e8eef5; overflow: hidden; }
+    .strength-fill { height: 100%; border-radius: 2px; transition: all .3s; width: 0; }
+    .strength-weak { width: 25%; background: #ef4444; }
+    .strength-fair { width: 50%; background: #f97316; }
+    .strength-good { width: 75%; background: #eab308; }
+    .strength-strong { width: 100%; background: #22c55e; }
+
+    .auth-section { min-height: calc(100vh - 68px); display: flex; align-items: center; }
+
+    /* Tooltip-style error */
+    .pw-match-error { color: #ef4444; font-size: .8rem; margin-top: 4px; display: none; }
+    .pw-match-error.show { display: block; }
+  [data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: #17243A !important; }
+[data-theme="dark"] #copyLabel { color: #17243A !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] .auth-section { background: #141c2b !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+<body>
+
+<nav class="auth-navbar sticky-top" aria-label="Authentication page navigation">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="index.html">Pedia<span>Care</span> <i class="fa-solid fa-stethoscope" aria-hidden="true"></i></a>
+    <button type="button" class="auth-theme-toggle" id="authThemeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <i class="fa fa-moon" id="authThemeIcon" aria-hidden="true"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 2: AUTH TABS PANEL
+════════════════════════════════════════════════════════ -->
+<section class="auth-section py-5" style="background:linear-gradient(180deg, #e8f6fb 0%, var(--cream) 100%);" aria-labelledby="authPanelTitle">
+  <div class="container">
+        <div class="auth-card" data-aos="fade-up" data-aos-delay="100" role="main">
+      <div class="auth-card-banner text-center mb-4">
+        <img src="https://images.pexels.com/photos/5998459/pexels-photo-5998459.jpeg?auto=compress&cs=tinysrgb&w=800&h=300&fit=crop&crop=faces&q=80" alt="Pediatrician with a young patient" class="img-fluid rounded-4 shadow-sm" style="height:150px;width:100%;object-fit:cover;" />
+      </div>
+      <h2 id="authPanelTitle" class="visually-hidden">Account Authentication</h2>
+
+      <!-- Tab Switcher -->
+      <div class="auth-tabs" role="tablist" aria-label="Login options">
+        <button class="auth-tab active" id="tab-parent" role="tab" aria-selected="true" aria-controls="panel-parent" onclick="switchTab('parent')">
+          <i class="fa fa-user me-1"></i> Parent Login
+        </button>
+        <button class="auth-tab" id="tab-register" role="tab" aria-selected="false" aria-controls="panel-register" onclick="switchTab('register')">
+          <i class="fa fa-user-plus me-1"></i> Register
+        </button>
+        <button class="auth-tab" id="tab-admin" role="tab" aria-selected="false" aria-controls="panel-admin" onclick="switchTab('admin')">
+          <i class="fa fa-shield me-1"></i> Admin
+        </button>
+      </div>
+
+      <!-- ── PARENT LOGIN ── -->
+      <div id="panel-parent" role="tabpanel" aria-labelledby="tab-parent">
+        <form id="parentLoginForm" class="needs-validation" novalidate aria-label="Parent login form">
+          <div class="mb-3">
+            <label for="parentEmail" class="form-label fw-700">Email Address</label>
+            <input type="email" class="form-control" id="parentEmail" placeholder="jane@example.com" required autocomplete="email" />
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+          <div class="mb-3">
+            <label for="parentPw" class="form-label fw-700">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="parentPw" placeholder="••••••••" required autocomplete="current-password" />
+              <button type="button" class="btn-toggle" onclick="togglePw('parentPw','eyeParent')" aria-label="Toggle password visibility">
+                <i class="fa fa-eye" id="eyeParent"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback">Please enter your password.</div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="form-check mb-0">
+              <input class="form-check-input" type="checkbox" id="rememberMe" />
+              <label class="form-check-label fw-600" for="rememberMe">Remember Me</label>
+            </div>
+            <a href="#forgotModal" data-bs-toggle="modal" style="color:var(--sky-dark); font-weight:700; text-decoration:none;">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn-auth btn-parent mb-3">
+            <i class="fa fa-sign-in-alt me-2"></i>Log In
+          </button>
+          <div class="divider mb-3">or continue with</div>
+          <button type="button" class="btn-google" onclick="googleSignIn()">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Sign in with Google
+          </button>
+          <!-- Success redirect comment: on success, redirect to dashboard.html -->
+        </form>
+      </div>
+
+      <!-- ── REGISTER ── -->
+      <div id="panel-register" class="d-none" role="tabpanel" aria-labelledby="tab-register">
+        <form id="registerForm" class="needs-validation" novalidate aria-label="Parent registration form">
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="regParentName" class="form-label fw-700">Parent Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="regParentName" placeholder="Jane Smith" required minlength="2" autocomplete="name" />
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="regEmail" class="form-label fw-700">Email <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="regEmail" placeholder="jane@email.com" required autocomplete="email" />
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="regPhone" class="form-label fw-700">Phone <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="regPhone" placeholder="(555) 000-0000" required autocomplete="tel" />
+              <div class="invalid-feedback">Please enter your phone number.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="regPassword" class="form-label fw-700">Password <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="regPassword" placeholder="Min 8 characters" required minlength="8" autocomplete="new-password" oninput="checkStrength(this.value)" />
+                <button type="button" class="btn-toggle" onclick="togglePw('regPassword','eyeReg')" aria-label="Toggle password visibility">
+                  <i class="fa fa-eye" id="eyeReg"></i>
+                </button>
+              </div>
+              <div class="strength-bar mt-2"><div class="strength-fill" id="strengthFill"></div></div>
+              <div class="small mt-1" id="strengthLabel" style="color:#adb5bd;">Enter a password</div>
+              <div class="invalid-feedback">Password must be at least 8 characters.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="regConfirmPw" class="form-label fw-700">Confirm Password <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="regConfirmPw" placeholder="Repeat password" required autocomplete="new-password" oninput="checkMatch()" />
+                <button type="button" class="btn-toggle" onclick="togglePw('regConfirmPw','eyeConfirm')" aria-label="Toggle confirm password visibility">
+                  <i class="fa fa-eye" id="eyeConfirm"></i>
+                </button>
+              </div>
+              <div class="pw-match-error" id="matchError">Passwords do not match.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="childName" class="form-label fw-700">Child's Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="childName" placeholder="Emma Smith" required />
+              <div class="invalid-feedback">Please enter your child's name.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="childDob" class="form-label fw-700">Child's Date of Birth <span class="text-danger">*</span></label>
+              <input type="date" class="form-control" id="childDob" required />
+              <div class="invalid-feedback">Please enter your child's date of birth.</div>
+            </div>
+            <div class="col-12">
+              <label for="relationship" class="form-label fw-700">Relationship to Child</label>
+              <select class="form-select" id="relationship">
+                <option value="" disabled selected>Select relationship</option>
+                <option value="mother">Mother</option>
+                <option value="father">Father</option>
+                <option value="guardian">Legal Guardian</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="termsCheck" required />
+                <label class="form-check-label fw-600" for="termsCheck">
+                  I agree to the <a href="#" style="color:var(--sky-dark);">Terms of Service</a> and <a href="#" style="color:var(--sky-dark);">Privacy Policy</a> <span class="text-danger">*</span>
+                </label>
+                <div class="invalid-feedback">You must accept the terms.</div>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="newsletterCheck" />
+                <label class="form-check-label fw-600" for="newsletterCheck">Subscribe to health tips &amp; clinic updates</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn-auth btn-register">
+                <i class="fa fa-user-plus me-2"></i>Create Account
+              </button>
+              <!-- Success redirect comment: on success, redirect to dashboard.html with welcome modal -->
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- ── ADMIN LOGIN ── -->
+      <div id="panel-admin" class="d-none" role="tabpanel" aria-labelledby="tab-admin">
+        <div class="text-center mb-4 p-3 rounded-3" style="background:rgba(52,68,92,.06); border:2px solid rgba(52,68,92,.1);">
+          <i class="fa fa-shield-halved fa-2x mb-2" style="color:var(--navy);"></i>
+          <div class="fw-700 small" style="color:var(--navy);">Restricted Access — Authorized Personnel Only</div>
+        </div>
+        <form id="adminLoginForm" class="needs-validation" novalidate aria-label="Admin login form">
+          <div class="mb-3">
+            <label for="adminEmail" class="form-label fw-700">Admin Email</label>
+            <input type="email" class="form-control" id="adminEmail" placeholder="admin@pediacare.com" required autocomplete="off" />
+            <div class="invalid-feedback">Please enter a valid admin email.</div>
+          </div>
+          <div class="mb-3">
+            <label for="adminPw" class="form-label fw-700">Admin Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="adminPw" placeholder="••••••••" required autocomplete="off" />
+              <button type="button" class="btn-toggle" onclick="togglePw('adminPw','eyeAdmin')" aria-label="Toggle admin password visibility">
+                <i class="fa fa-eye" id="eyeAdmin"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback">Please enter your password.</div>
+          </div>
+          <div class="mb-4">
+            <label for="twoFaCode" class="form-label fw-700">Two-Factor Authentication Code</label>
+            <input type="text" class="form-control" id="twoFaCode" placeholder="6-digit code" maxlength="6" pattern="\d{6}" required autocomplete="one-time-code" />
+            <div class="form-text">Enter the code from your authenticator app.</div>
+            <div class="invalid-feedback">Please enter a valid 6-digit 2FA code.</div>
+          </div>
+          <button type="submit" class="btn-auth btn-admin">
+            <i class="fa fa-lock me-2"></i>Secure Admin Login
+          </button>
+          <!-- Success redirect comment: on success, redirect to admin-dashboard.html -->
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModalLabel" role="dialog" aria-modal="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 rounded-4" style="padding:30px;">
+      <h5 id="forgotModalLabel" class="fw-900 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);">Reset Your Password</h5>
+      <p class="text-muted mb-3">Enter the email address linked to your PediaCare account.</p>
+      <input type="email" class="form-control mb-3" placeholder="your@email.com" />
+      <div class="d-flex gap-2">
+        <button class="btn-auth btn-parent" style="padding:12px;" onclick="document.getElementById('forgotModal').querySelector('.modal').hide()">Send Reset Link</button>
+        <button class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  AOS.init({ duration: 800, once: true, offset: 60 });
+
+  const authHtmlEl = document.documentElement;
+  const authThemeBtn = document.getElementById('authThemeToggle');
+  const authThemeIcon = document.getElementById('authThemeIcon');
+  function applyAuthTheme(theme) {
+    authHtmlEl.setAttribute('data-theme', theme);
+    try { localStorage.setItem('pediacare-theme', theme); } catch (e) {}
+    if (authThemeIcon) authThemeIcon.className = theme === 'dark' ? 'fa fa-sun' : 'fa fa-moon';
+  }
+  let authSavedTheme = 'light';
+  try { authSavedTheme = localStorage.getItem('pediacare-theme') || 'light'; } catch (e) {}
+  applyAuthTheme(authSavedTheme);
+  if (authThemeBtn) {
+    authThemeBtn.addEventListener('click', () => {
+      applyAuthTheme(authHtmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // ── Tab switcher
+  function switchTab(tab) {
+    ['parent','register','admin'].forEach(t => {
+      document.getElementById('panel-'+t).classList.add('d-none');
+      document.getElementById('tab-'+t).classList.remove('active');
+      document.getElementById('tab-'+t).setAttribute('aria-selected','false');
+    });
+    document.getElementById('panel-'+tab).classList.remove('d-none');
+    document.getElementById('tab-'+tab).classList.add('active');
+    document.getElementById('tab-'+tab).setAttribute('aria-selected','true');
+  }
+
+  // ── Password toggle
+  function togglePw(id, iconId) {
+    const inp = document.getElementById(id);
+    const icon = document.getElementById(iconId);
+    if(inp.type === 'password') {
+      inp.type = 'text';
+      icon.className = 'fa fa-eye-slash';
+    } else {
+      inp.type = 'password';
+      icon.className = 'fa fa-eye';
+    }
+  }
+
+  // ── Password strength checker
+  function checkStrength(val) {
+    const fill = document.getElementById('strengthFill');
+    const label = document.getElementById('strengthLabel');
+    let score = 0;
+    if(val.length >= 8) score++;
+    if(/[A-Z]/.test(val)) score++;
+    if(/[0-9]/.test(val)) score++;
+    if(/[^A-Za-z0-9]/.test(val)) score++;
+    const levels = [
+      {cls:'strength-weak', txt:'Weak', color:'#ef4444'},
+      {cls:'strength-fair', txt:'Fair', color:'#f97316'},
+      {cls:'strength-good', txt:'Good', color:'#eab308'},
+      {cls:'strength-strong', txt:'Strong <i class="fa-solid fa-check" aria-hidden="true"></i>', color:'#22c55e'}
+    ];
+    if(val.length === 0) { fill.className='strength-fill'; fill.style.width='0'; label.textContent='Enter a password'; label.style.color='#adb5bd'; return; }
+    const lvl = levels[Math.min(score-1, 3)];
+    fill.className = 'strength-fill ' + lvl.cls;
+    label.innerHTML = lvl.txt;
+    label.style.color = lvl.color;
+  }
+
+  // ── Password match
+  function checkMatch() {
+    const pw = document.getElementById('regPassword').value;
+    const cpw = document.getElementById('regConfirmPw').value;
+    const err = document.getElementById('matchError');
+    err.classList.toggle('show', cpw.length > 0 && pw !== cpw);
+  }
+
+  // ── Google Sign-In (stub)
+  function googleSignIn() { window.location.href = 'index.html'; }
+
+  // ── Form validation — Parent Login
+  document.getElementById('parentLoginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(!this.checkValidity()) { this.classList.add('was-validated'); return; }
+    window.location.href = 'index.html';
+  });
+
+  // ── Form validation — Register
+  document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(!this.checkValidity()) { this.classList.add('was-validated'); return; }
+    const pw = document.getElementById('regPassword').value;
+    const cpw = document.getElementById('regConfirmPw').value;
+    if(pw !== cpw) { document.getElementById('matchError').classList.add('show'); return; }
+    window.location.href = 'index.html';
+  });
+
+  // ── Admin Login
+  document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(!this.checkValidity()) { this.classList.add('was-validated'); return; }
+    window.location.href = 'index.html';
+  });
+</script>
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>

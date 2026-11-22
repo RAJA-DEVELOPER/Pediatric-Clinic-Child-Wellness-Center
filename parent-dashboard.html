@@ -1,0 +1,3200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Dashboard — PediaCare</title>
+  <!-- Bootstrap 5.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Shared Styles (supplementary) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <style>
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
+    :root {
+      --sky:    #A8D8EA;
+      --mint:   #B8D8C0;
+      --peach:  #FFD6C2;
+      --cream:  #FFF9F2;
+      --navy:   #34445C;
+      --on-pastel: #34445C;
+      --accent-solid: #34445C;
+      --sky-dark:  #7bbdd6;
+      --accent-text: #2f7f9e;
+      --mint-dark: #89c09a;
+      --peach-dark:#f5b494;
+      --sidebar-w: 260px;
+      --top-h:  64px;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(52,68,92,.10);
+      --shadow-sm: 0 2px 10px rgba(52,68,92,.08);
+      --transition: .25s ease;
+      --font-main: 'Nunito', sans-serif;
+      --font-alt:  'Quicksand', sans-serif;
+    }
+    [data-theme="dark"] {
+      --cream:  #1a2235;
+      --navy:   #A8D8EA;
+      --bg-main: #131c2e;
+      --card-bg: #1e2d44;
+      --text-main: #e2eaf4;
+      --text-muted: #A8B8CC;
+      --border-col: #2a3d58;
+      --accent-text: #A8D8EA;
+    }
+    [data-theme="light"] {
+      --bg-main: #f4f7fb;
+      --card-bg: #ffffff;
+      --text-main: #34445C;
+      --text-muted: #566274;
+      --border-col: #e4eaf2;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-main);
+      color: var(--text-main);
+      transition: background var(--transition), color var(--transition);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* =============================================
+       SIDEBAR
+    ============================================= */
+    .sidebar {
+      position: fixed; top:0; left:0;
+      width: var(--sidebar-w);
+      height: 100vh;
+      background: var(--navy);
+      display: flex; flex-direction: column;
+      z-index: 1050;
+      transition: transform var(--transition);
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    [data-theme="dark"] .sidebar { background: #0d1829; }
+
+    .sidebar-brand {
+      padding: 22px 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      display: flex; align-items: center; gap:12px;
+      text-decoration: none; color: inherit;
+    }
+    .sidebar-brand .brand-icon {
+      width:42px; height:42px; border-radius:12px;
+      background: linear-gradient(135deg, var(--sky), var(--mint));
+      display: flex; align-items: center; justify-content: center;
+      font-size:1.4rem; color: var(--on-pastel); flex-shrink:0;
+    }
+    .sidebar-brand .brand-text h5 {
+      color:#fff; font-weight:800; font-size:1.05rem; margin:0; line-height:1.2;
+      font-family: var(--font-alt);
+    }
+    .sidebar-brand .brand-text small {
+      color: var(--sky); font-size:.72rem; font-weight:600; letter-spacing:.5px;
+    }
+
+    .sidebar-user {
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      display: flex; align-items: center; gap:12px;
+    }
+    .sidebar-user .avatar {
+      width:46px; height:46px; border-radius:50%;
+      border:2px solid var(--sky);
+      background: linear-gradient(135deg, var(--peach), var(--sky));
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; font-weight:800; color: var(--on-pastel);
+      flex-shrink:0; overflow:hidden;
+    }
+    .sidebar-user .avatar img { width:100%; height:100%; object-fit:cover; }
+    .sidebar-user .user-info h6 {
+      color:#fff; font-weight:700; font-size:.88rem; margin:0; line-height:1.3;
+    }
+    .sidebar-user .user-info small {
+      color: rgba(255,255,255,.55); font-size:.7rem;
+    }
+
+    .sidebar-nav { flex:1; padding: 10px 0; }
+    .sidebar-nav .nav-section-label {
+      padding: 14px 20px 4px;
+      color: rgba(255,255,255,.35);
+      font-size:.65rem; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    }
+    .sidebar-nav a {
+      display:flex; align-items:center; gap:12px;
+      padding: 10px 20px;
+      color: rgba(255,255,255,.70);
+      text-decoration:none;
+      font-size:.88rem; font-weight:600;
+      border-radius:0;
+      transition: all var(--transition);
+      position:relative;
+      border-left: 3px solid transparent;
+    }
+    .sidebar-nav a .nav-icon {
+      width:32px; height:32px; border-radius:8px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.88rem; flex-shrink:0;
+      background: rgba(255,255,255,.07);
+      transition: all var(--transition);
+    }
+    .sidebar-nav a:hover, .sidebar-nav a.active {
+      color:#fff; background: rgba(168,216,234,.12);
+      border-left-color: var(--sky);
+    }
+    .sidebar-nav a:hover .nav-icon, .sidebar-nav a.active .nav-icon {
+      background: rgba(168,216,234,.25);
+    }
+    .sidebar-nav a.active { font-weight:800; }
+    .sidebar-nav a .nav-badge {
+      margin-left:auto;
+      background: var(--peach); color: var(--on-pastel);
+      font-size:.6rem; font-weight:800;
+      padding: 2px 7px; border-radius:20px; min-width:20px; text-align:center;
+    }
+
+    .sidebar-footer {
+      padding: 14px 20px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .sidebar-footer a {
+      display:flex; align-items:center; gap:10px;
+      color: rgba(255,255,255,.55); text-decoration:none;
+      font-size:.85rem; font-weight:600;
+      padding: 8px 0;
+      transition: color var(--transition);
+    }
+    .sidebar-footer a:hover { color:#fff; }
+
+    /* Mobile sidebar overlay */
+    .sidebar-overlay {
+      display:none; position:fixed; inset:0;
+      background: rgba(0,0,0,.5); z-index:1040;
+    }
+    .sidebar-overlay.show { display:block; }
+
+    /* =============================================
+       MAIN CONTENT
+    ============================================= */
+    .main-content {
+      margin-left: var(--sidebar-w);
+      min-height: 100vh;
+      display:flex; flex-direction:column;
+      transition: margin-left var(--transition);
+    }
+
+    /* =============================================
+       TOP NAVBAR
+    ============================================= */
+    .top-navbar {
+      position: sticky; top:0; z-index:900;
+      height: var(--top-h);
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border-col);
+      display:flex; align-items:center;
+      padding: 0 24px; gap:16px;
+      box-shadow: 0 2px 12px rgba(52,68,92,.06);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .hamburger-btn {
+      display:none; border:none; background:none;
+      color: var(--text-main); font-size:1.3rem; cursor:pointer;
+      padding:4px 8px; border-radius:8px;
+      transition: background var(--transition);
+    }
+    .hamburger-btn:hover { background: var(--border-col); }
+
+    .top-search {
+      flex:1; max-width:360px;
+      display:flex; align-items:center; gap:10px;
+      background: var(--bg-main);
+      border: 1px solid var(--border-col);
+      border-radius:30px; padding: 7px 16px;
+      transition: all var(--transition);
+    }
+    .top-search:focus-within {
+      border-color: var(--accent-text); box-shadow: 0 0 0 3px rgba(168,216,234,.25);
+    }
+    .top-search input {
+      border:none; background:none; outline:none;
+      font-size:.88rem; color: var(--text-main); width:100%;
+      font-family: var(--font-main);
+    }
+    .top-search input::placeholder { color: var(--text-muted); }
+    .top-search i { color: var(--text-muted); font-size:.9rem; }
+
+    .top-actions { display:flex; align-items:center; gap:8px; margin-left:auto; }
+    .top-btn {
+      width:40px; height:40px; border-radius:50%;
+      border:none; background: var(--bg-main);
+      color: var(--text-main); font-size:1rem; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      position:relative; transition: all var(--transition);
+      border: 1px solid var(--border-col);
+    }
+    .top-btn:hover { background: var(--border-col); }
+    .top-btn .badge-dot {
+      position:absolute; top:7px; right:7px;
+      width:9px; height:9px; border-radius:50%;
+      background: #ff4757; border:2px solid var(--card-bg);
+    }
+    .top-btn .badge-count {
+      position:absolute; top:3px; right:3px;
+      background: #ff4757; color:#fff;
+      font-size:.55rem; font-weight:800; min-width:16px; height:16px;
+      border-radius:8px; display:flex; align-items:center; justify-content:center;
+      padding:0 3px; border:2px solid var(--card-bg);
+    }
+
+    .top-profile {
+      display:flex; align-items:center; gap:10px;
+      padding: 6px 12px; border-radius:30px;
+      background: var(--bg-main); border: 1px solid var(--border-col);
+      cursor:pointer; transition: all var(--transition);
+      position:relative;
+    }
+    .top-profile:hover { background: var(--border-col); }
+    .top-profile .p-avatar {
+      width:34px; height:34px; border-radius:50%;
+      background: linear-gradient(135deg, var(--sky), var(--mint));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:.85rem; color: var(--on-pastel);
+    }
+    .top-profile .p-name { font-size:.82rem; font-weight:700; color: var(--text-main); }
+    .top-profile .p-role { font-size:.68rem; color: var(--text-muted); }
+
+    /* Profile dropdown */
+    .profile-dropdown {
+      position:absolute; top:calc(100% + 8px); right:0;
+      background: var(--card-bg); border: 1px solid var(--border-col);
+      border-radius: var(--radius); min-width:200px;
+      box-shadow: var(--shadow); z-index:999;
+      display:none; padding:8px 0;
+    }
+    .profile-dropdown.show { display:block; }
+    .profile-dropdown a {
+      display:flex; align-items:center; gap:10px;
+      padding: 10px 16px; color: var(--text-main);
+      text-decoration:none; font-size:.85rem; font-weight:600;
+      transition: background var(--transition);
+    }
+    .profile-dropdown a:hover { background: var(--bg-main); }
+    .profile-dropdown hr { margin:6px 0; border-color: var(--border-col); }
+
+    /* Dark mode toggle */
+    .dark-toggle {
+      display:flex; align-items:center; gap:6px;
+      cursor:pointer; padding:6px 12px; border-radius:20px;
+      background: var(--bg-main); border: 1px solid var(--border-col);
+      font-size:.8rem; font-weight:700; color: var(--text-main);
+      transition: all var(--transition); white-space:nowrap;
+    }
+    .dark-toggle:hover { background: var(--border-col); }
+
+    /* =============================================
+       PAGE CONTENT
+    ============================================= */
+    .page-content { padding: 24px; flex:1; }
+
+    /* =============================================
+       SECTION HEADER
+    ============================================= */
+    .section-header {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:20px; flex-wrap:wrap; gap:10px;
+    }
+    .section-title {
+      font-size:1.3rem; font-weight:800; color: var(--text-main);
+      font-family: var(--font-alt);
+    }
+    .section-title span { color: var(--accent-text); }
+
+    /* =============================================
+       STAT CARDS
+    ============================================= */
+    .stat-card {
+      border-radius: var(--radius);
+      padding: 20px;
+      display:flex; align-items:center; gap:16px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      border:none; cursor:default;
+      position:relative; overflow:hidden;
+    }
+    .stat-card::after {
+      content:'';
+      position:absolute; top:-20px; right:-20px;
+      width:80px; height:80px; border-radius:50%;
+      background: rgba(255,255,255,.15);
+    }
+    .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .stat-card.sky   { background: var(--sky);   color: var(--on-pastel); }
+    .stat-card.peach { background: var(--peach); color: var(--on-pastel); }
+    .stat-card.mint  { background: var(--mint);  color: var(--on-pastel); }
+    .stat-card.navy  { background: var(--navy);  color: #fff; }
+    [data-theme="dark"] .stat-card.navy { background: #0d1829; color: var(--sky); }
+    .stat-icon {
+      width:52px; height:52px; border-radius:12px;
+      background: rgba(255,255,255,.30);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.4rem; flex-shrink:0;
+    }
+    .stat-info .stat-num {
+      font-size:2rem; font-weight:900; line-height:1; font-family: var(--font-alt);
+    }
+    .stat-info .stat-label { font-size:.78rem; font-weight:700; opacity:.8; margin-top:3px; }
+    .stat-info .stat-trend {
+      font-size:.7rem; font-weight:700; margin-top:4px;
+      display:flex; align-items:center; gap:4px;
+    }
+
+    /* =============================================
+       QUICK ACTIONS
+    ============================================= */
+    .quick-actions {
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;
+    }
+    .quick-btn {
+      display:flex; align-items:center; gap:8px;
+      padding: 10px 20px; border-radius:30px;
+      font-size:.85rem; font-weight:700;
+      border:none; cursor:pointer; transition: all var(--transition);
+      font-family: var(--font-main);
+    }
+    .quick-btn.primary { background: var(--accent-solid); color:#fff; }
+    .quick-btn.primary:hover { background: #253448; transform: translateY(-2px); }
+    .quick-btn.sky { background: var(--sky); color: var(--on-pastel); }
+    .quick-btn.sky:hover { background: var(--sky-dark); transform: translateY(-2px); }
+    .quick-btn.mint { background: var(--mint); color: var(--on-pastel); }
+    .quick-btn.mint:hover { background: var(--mint-dark); transform: translateY(-2px); }
+    .quick-btn.peach { background: var(--peach); color: var(--on-pastel); }
+    .quick-btn.peach:hover { background: var(--peach-dark); transform: translateY(-2px); }
+
+    /* =============================================
+       WELCOME BANNER
+    ============================================= */
+    .welcome-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #4a5f7e 100%);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      color:#fff; margin-bottom:24px;
+      position:relative; overflow:hidden;
+    }
+    [data-theme="dark"] .welcome-banner { background: linear-gradient(135deg, #0d1829 0%, #1e2d44 100%); }
+    .welcome-banner::before {
+      content:'';
+      position:absolute; top:-40px; right:-40px;
+      width:200px; height:200px; border-radius:50%;
+      background: rgba(168,216,234,.12);
+    }
+    .welcome-banner::after {
+      content:'';
+      position:absolute; bottom:-60px; right:80px;
+      width:150px; height:150px; border-radius:50%;
+      background: rgba(184,216,192,.10);
+    }
+    .welcome-banner h2 { font-size:1.5rem; font-weight:900; font-family: var(--font-alt); margin-bottom:6px; color:#fff; }
+    .welcome-banner p { font-size:.88rem; color:rgba(255,255,255,.88); margin:0; }
+    .welcome-banner .alert-pill {
+      display:inline-flex; align-items:center; gap:7px;
+      background: rgba(255,214,194,.20); border: 1px solid rgba(255,214,194,.4);
+      color: var(--peach); border-radius:20px; padding:5px 14px;
+      font-size:.78rem; font-weight:700; margin-top:12px;
+    }
+
+    /* =============================================
+       CARDS
+    ============================================= */
+    .dash-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-col);
+      box-shadow: var(--shadow-sm);
+      transition: background var(--transition), border-color var(--transition);
+      overflow: hidden;
+    }
+    .dash-card .card-head {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-col);
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .dash-card .card-head h6 { font-weight:800; font-size:.92rem; margin:0; }
+    .dash-card .card-body { padding:20px; }
+
+    /* =============================================
+       CHILDREN PROFILE CARDS
+    ============================================= */
+    .child-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-col);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .child-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .child-card .child-header {
+      padding: 20px;
+      background: linear-gradient(135deg, var(--sky) 0%, var(--mint) 100%);
+      display:flex; align-items:center; gap:14px; position:relative;
+    }
+    [data-theme="dark"] .child-card .child-header {
+      background: linear-gradient(135deg, #1e3a4a 0%, #1e3a30 100%);
+    }
+    .child-card .child-avatar {
+      width:64px; height:64px; border-radius:50%;
+      border:3px solid rgba(255,255,255,.8);
+      object-fit:cover; flex-shrink:0;
+    }
+    .child-card .child-info h5 { font-weight:800; color: var(--navy); font-size:1.05rem; margin:0 0 2px; }
+    [data-theme="dark"] .child-card .child-info h5 { color:#fff; }
+    .child-card .child-info .age-badge {
+      display:inline-block; background: rgba(255,255,255,.6);
+      color: var(--navy); font-size:.7rem; font-weight:800;
+      padding:2px 10px; border-radius:20px;
+    }
+    [data-theme="dark"] .child-card .child-info .age-badge { background: rgba(0,0,0,.3); color:#fff; }
+    .child-card .edit-btn {
+      position:absolute; top:12px; right:12px;
+      background: rgba(255,255,255,.3); border:none;
+      width:32px; height:32px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      color: var(--navy); font-size:.8rem; cursor:pointer;
+      transition: background var(--transition);
+    }
+    .child-card .edit-btn:hover { background: rgba(255,255,255,.6); }
+    [data-theme="dark"] .child-card .edit-btn { color:#fff; }
+
+    .child-card .child-tabs {
+      display:flex; border-bottom: 1px solid var(--border-col);
+      background: var(--card-bg);
+    }
+    .child-card .child-tabs button {
+      flex:1; padding:9px 4px;
+      border:none; background:none;
+      font-size:.72rem; font-weight:700; color: var(--text-muted);
+      cursor:pointer; border-bottom: 2px solid transparent;
+      transition: all var(--transition); font-family: var(--font-main);
+    }
+    .child-card .child-tabs button.active {
+      color: var(--navy); border-bottom-color: var(--navy);
+    }
+    [data-theme="dark"] .child-card .child-tabs button.active { color: var(--sky); border-bottom-color: var(--sky); }
+
+    .child-card .child-content { padding:16px; }
+    .child-info-row {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:7px 0; border-bottom: 1px solid var(--border-col);
+      font-size:.8rem;
+    }
+    .child-info-row:last-child { border-bottom:none; }
+    .child-info-row .label { color: var(--text-muted); font-weight:600; }
+    .child-info-row .value { font-weight:700; color: var(--text-main); }
+
+    .add-child-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 2px dashed var(--border-col);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      min-height:280px; cursor:pointer;
+      transition: all var(--transition);
+    }
+    .add-child-card:hover {
+      border-color: var(--accent-text);
+      background: rgba(168,216,234,.05);
+      transform: translateY(-4px);
+    }
+    .add-child-card .add-icon {
+      width:60px; height:60px; border-radius:50%;
+      background: var(--sky); color: var(--on-pastel);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; margin-bottom:14px;
+    }
+    .add-child-card h6 { font-weight:800; color: var(--text-main); margin-bottom:4px; }
+    .add-child-card p { font-size:.8rem; color: var(--text-muted); text-align:center; max-width:160px; margin:0; }
+
+    /* =============================================
+       SECTION TABS
+    ============================================= */
+    .section-tabs {
+      display:flex; gap:4px; background: var(--bg-main);
+      border-radius:30px; padding:4px;
+      border: 1px solid var(--border-col);
+      width:fit-content; margin-bottom:20px;
+    }
+    .section-tabs button {
+      padding:7px 20px; border:none; border-radius:24px;
+      font-size:.82rem; font-weight:700; cursor:pointer;
+      background:none; color: var(--text-muted);
+      transition: all var(--transition); font-family: var(--font-main);
+    }
+    .section-tabs button.active {
+      background: var(--accent-solid); color:#fff;
+    }
+    [data-theme="dark"] .section-tabs button.active { background: var(--sky); color: var(--on-pastel); }
+
+    /* =============================================
+       APPOINTMENTS TABLE
+    ============================================= */
+    .appt-table {
+      width:100%; border-collapse:collapse; font-size:.83rem;
+    }
+    .appt-table th {
+      padding:11px 14px; text-align:left;
+      font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.6px;
+      color: var(--text-muted); background: var(--bg-main);
+      border-bottom: 1px solid var(--border-col);
+    }
+    .appt-table td {
+      padding:13px 14px; border-bottom: 1px solid var(--border-col);
+      color: var(--text-main); vertical-align:middle;
+    }
+    .appt-table tr:last-child td { border-bottom:none; }
+    .appt-table tr:hover td { background: var(--bg-main); }
+    .appt-table .patient-cell { display:flex; align-items:center; gap:8px; }
+    .appt-table .patient-mini-avatar {
+      width:30px; height:30px; border-radius:50%;
+      object-fit:cover; border:2px solid var(--border-col);
+    }
+    .status-badge {
+      display:inline-flex; align-items:center; gap:5px;
+      padding:4px 10px; border-radius:20px;
+      font-size:.7rem; font-weight:800;
+    }
+    .status-badge.completed { background:#d1fae5; color:#065f46; }
+    .status-badge.cancelled { background:#fee2e2; color:#991b1b; }
+    .status-badge.upcoming  { background:#e0f2fe; color:#075985; }
+    [data-theme="dark"] .status-badge.completed { background:#064e3b; color:#6ee7b7; }
+    [data-theme="dark"] .status-badge.cancelled { background:#7f1d1d; color:#fca5a5; }
+    [data-theme="dark"] .status-badge.upcoming  { background:#0c4a6e; color:#7dd3fc; }
+
+    .appt-action-btn {
+      padding:4px 12px; border-radius:20px; font-size:.72rem; font-weight:700;
+      border: 1px solid; cursor:pointer; transition: all var(--transition);
+      font-family: var(--font-main);
+    }
+    .appt-action-btn.reschedule {
+      border-color: var(--accent-text); color: var(--accent-text); background:none;
+    }
+    .appt-action-btn.reschedule:hover { background: var(--sky); color: var(--on-pastel); border-color: var(--sky); }
+    .appt-action-btn.cancel {
+      border-color: #f87171; color: #f87171; background:none;
+    }
+    .appt-action-btn.cancel:hover { background:#fee2e2; color:#991b1b; }
+
+    /* Booking form */
+    .booking-form label {
+      font-size:.82rem; font-weight:700; color: var(--text-main); margin-bottom:4px;
+    }
+    .booking-form .form-control, .booking-form .form-select {
+      border-radius:10px; border: 1px solid var(--border-col);
+      background: var(--bg-main); color: var(--text-main);
+      font-size:.85rem; font-family: var(--font-main);
+      padding:10px 14px;
+      transition: all var(--transition);
+    }
+    .booking-form .form-control:focus, .booking-form .form-select:focus {
+      border-color: var(--accent-text);
+      box-shadow: 0 0 0 3px rgba(168,216,234,.25);
+      background: var(--card-bg);
+      outline:none;
+    }
+    .time-slots { display:flex; flex-wrap:wrap; gap:8px; }
+    .time-slot {
+      padding:7px 14px; border-radius:20px; font-size:.78rem; font-weight:700;
+      border: 1px solid var(--border-col); background: var(--bg-main);
+      cursor:pointer; transition: all var(--transition); color: var(--text-main);
+      font-family: var(--font-main);
+    }
+    .time-slot.selected { background: var(--accent-solid); color:#fff; border-color: var(--accent-solid); }
+    .time-slot:hover:not(.selected) { border-color: var(--accent-text); color: var(--accent-text); }
+    .time-slot.disabled { opacity:.4; cursor:not-allowed; }
+
+    /* =============================================
+       VACCINATION
+    ============================================= */
+    .vax-col-title {
+      display:flex; align-items:center; gap:8px;
+      font-weight:800; font-size:.85rem; margin-bottom:12px;
+      padding-bottom:8px; border-bottom: 2px solid var(--border-col);
+    }
+    .vax-item {
+      display:flex; align-items:center; gap:10px;
+      padding:9px 12px; border-radius:10px;
+      margin-bottom:6px; font-size:.82rem; font-weight:600;
+    }
+    .vax-item.done { background:#d1fae5; color:#065f46; }
+    .vax-item.due  { background:#fff3cd; color:#856404; border: 1px solid #ffc107; }
+    .vax-item.upcoming { background: var(--bg-main); color: var(--text-muted); }
+    [data-theme="dark"] .vax-item.done { background:#064e3b; color:#6ee7b7; }
+    [data-theme="dark"] .vax-item.due  { background:#451a03; color:#fbbf24; border-color:#d97706; }
+    [data-theme="dark"] .vax-item.upcoming { background:#1e2d44; color: var(--text-muted); }
+    .vax-item i { font-size:.8rem; }
+
+    .vax-progress-bar {
+      height:10px; border-radius:20px; background: var(--border-col);
+      overflow:hidden; margin-bottom:6px;
+    }
+    .vax-progress-bar .fill {
+      height:100%; border-radius:20px;
+      background: linear-gradient(90deg, var(--mint-dark), #2ecc71);
+      transition: width .6s ease;
+    }
+
+    .reminder-toggle {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:9px 0; border-bottom: 1px solid var(--border-col);
+      font-size:.82rem; font-weight:700;
+    }
+    .reminder-toggle:last-child { border-bottom:none; }
+    .toggle-switch {
+      width:38px; height:20px; border-radius:10px;
+      background: var(--border-col); position:relative;
+      cursor:pointer; transition: background var(--transition); flex-shrink:0;
+    }
+    .toggle-switch.on { background: #2ecc71; }
+    .toggle-switch::after {
+      content:''; position:absolute; top:3px; left:3px;
+      width:14px; height:14px; border-radius:50%; background:#fff;
+      transition: left var(--transition);
+    }
+    .toggle-switch.on::after { left:21px; }
+
+    /* =============================================
+       GROWTH CHARTS
+    ============================================= */
+    .growth-stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-col);
+      border-radius: var(--radius);
+      padding:16px; text-align:center;
+      box-shadow: var(--shadow-sm);
+    }
+    .growth-stat-card .g-num {
+      font-size:1.6rem; font-weight:900; font-family: var(--font-alt); color: var(--navy);
+    }
+    [data-theme="dark"] .growth-stat-card .g-num { color: var(--sky); }
+    .growth-stat-card .g-unit { font-size:.7rem; font-weight:700; color: var(--text-muted); }
+    .growth-stat-card .g-label { font-size:.82rem; font-weight:700; margin-top:4px; }
+    .growth-stat-card .g-percentile {
+      display:inline-block; margin-top:6px;
+      background: var(--mint); color: var(--on-pastel);
+      font-size:.68rem; font-weight:800; padding:2px 10px; border-radius:20px;
+    }
+
+    .growth-table { font-size:.82rem; width:100%; }
+    .growth-table th {
+      padding:9px 12px; background: var(--bg-main);
+      font-size:.72rem; font-weight:800; text-transform:uppercase;
+      letter-spacing:.5px; color: var(--text-muted);
+      border-bottom: 1px solid var(--border-col); text-align:left;
+    }
+    .growth-table td {
+      padding:10px 12px; border-bottom: 1px solid var(--border-col);
+      color: var(--text-main); vertical-align:middle;
+    }
+    .growth-table tr:last-child td { border-bottom:none; }
+
+    /* =============================================
+       PRESCRIPTIONS
+    ============================================= */
+    .rx-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-col);
+      border-radius: var(--radius);
+      padding:16px; margin-bottom:12px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition);
+    }
+    .rx-card:hover { transform: translateY(-2px); }
+    .rx-card .rx-name { font-weight:800; font-size:.95rem; }
+    .rx-card .rx-meta { font-size:.78rem; color: var(--text-muted); margin-top:3px; }
+    .rx-card .rx-instruction {
+      background: var(--bg-main); border-radius:8px;
+      padding:8px 12px; font-size:.78rem; color: var(--text-muted);
+      margin-top:10px; display:flex; align-items:center; gap:7px;
+    }
+    .rx-active-badge {
+      display:inline-flex; align-items:center; gap:4px;
+      background:#d1fae5; color:#065f46;
+      font-size:.68rem; font-weight:800; padding:2px 8px; border-radius:20px;
+    }
+    [data-theme="dark"] .rx-active-badge { background:#064e3b; color:#6ee7b7; }
+    .refill-btn {
+      display:inline-flex; align-items:center; gap:7px;
+      padding:7px 16px; border-radius:20px; font-size:.78rem; font-weight:700;
+      background: var(--sky); color: var(--on-pastel); border:none; cursor:pointer;
+      transition: all var(--transition); font-family: var(--font-main); margin-top:10px;
+    }
+    .refill-btn:hover { background: var(--sky-dark); transform: translateY(-1px); }
+
+    /* =============================================
+       NOTIFICATIONS
+    ============================================= */
+    .notif-item {
+      display:flex; align-items:flex-start; gap:12px;
+      padding:12px 16px; border-bottom: 1px solid var(--border-col);
+      transition: background var(--transition); position:relative; cursor:pointer;
+    }
+    .notif-item:last-child { border-bottom:none; }
+    .notif-item:hover { background: var(--bg-main); }
+    .notif-item.unread { background: rgba(168,216,234,.07); }
+    .notif-item.unread::before {
+      content:''; position:absolute; left:0; top:50%; transform:translateY(-50%);
+      width:3px; height:60%; background: var(--sky-dark); border-radius:0 3px 3px 0;
+    }
+    .notif-icon {
+      width:36px; height:36px; border-radius:50%; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:.9rem;
+    }
+    .notif-icon.bell   { background: rgba(168,216,234,.2); color: var(--accent-text); }
+    .notif-icon.syringe{ background: rgba(255,214,194,.3); color: var(--peach-dark); }
+    .notif-icon.lab    { background: rgba(184,216,192,.3); color: var(--mint-dark); }
+    .notif-icon.pill   { background: rgba(168,216,234,.2); color: var(--accent-text); }
+    .notif-icon.cal    { background: rgba(255,214,194,.3); color: var(--peach-dark); }
+    .notif-icon.check  { background: rgba(184,216,192,.3); color: var(--mint-dark); }
+    .notif-icon.billing{ background: rgba(168,216,234,.2); color: var(--accent-text); }
+    .notif-icon.doctor { background: rgba(52,68,92,.12); color: var(--navy); }
+    [data-theme="dark"] .notif-icon.doctor { background: rgba(168,216,234,.15); color: var(--sky); }
+
+    .notif-text { flex:1; }
+    .notif-text p { font-size:.82rem; font-weight:600; margin:0 0 2px; color: var(--text-main); line-height:1.4; }
+    .notif-text .notif-time { font-size:.7rem; color: var(--text-muted); }
+    .notif-unread-dot {
+      width:8px; height:8px; border-radius:50%;
+      background: var(--sky-dark); flex-shrink:0; margin-top:6px;
+    }
+
+    /* =============================================
+       MODALS
+    ============================================= */
+    .custom-modal-overlay {
+      position:fixed; inset:0; background: rgba(0,0,0,.5);
+      z-index:2000; display:none; align-items:center; justify-content:center;
+      padding:20px;
+    }
+    .custom-modal-overlay.show { display:flex; }
+    .custom-modal {
+      background: var(--card-bg); border-radius: calc(var(--radius) + 4px);
+      max-width:500px; width:100%; max-height:90vh; overflow-y:auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+    .custom-modal .modal-header {
+      padding:20px 24px 16px;
+      border-bottom: 1px solid var(--border-col);
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .custom-modal .modal-header h5 { font-weight:800; margin:0; font-family: var(--font-alt); }
+    .custom-modal .modal-close {
+      width:32px; height:32px; border-radius:50%; border:none;
+      background: var(--bg-main); color: var(--text-muted);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; font-size:1rem;
+    }
+    .custom-modal .modal-close:hover { background: var(--border-col); }
+    .custom-modal .modal-body { padding:24px; }
+
+    /* =============================================
+       CHILD SELECTOR TOGGLE
+    ============================================= */
+    .child-toggle {
+      display:inline-flex; border-radius:30px; overflow:hidden;
+      border: 1px solid var(--border-col); margin-bottom:16px;
+    }
+    .child-toggle button {
+      padding:7px 20px; border:none;
+      background: var(--bg-main); color: var(--text-muted);
+      font-size:.82rem; font-weight:700; cursor:pointer;
+      transition: all var(--transition); font-family: var(--font-main);
+    }
+    .child-toggle button.active {
+      background: var(--accent-solid); color:#fff;
+    }
+    [data-theme="dark"] .child-toggle button.active { background: var(--sky); color: var(--on-pastel); }
+
+    /* =============================================
+       SCROLLBAR
+    ============================================= */
+    ::-webkit-scrollbar { width:6px; height:6px; }
+    ::-webkit-scrollbar-track { background:transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-col); border-radius:3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* =============================================
+       SECTION PANELS
+    ============================================= */
+    .dash-section { display:none; }
+    .dash-section.active { display:block; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 991px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .main-content { margin-left: 0; }
+      .hamburger-btn { display:flex; align-items:center; justify-content:center; }
+    }
+    @media (max-width: 768px) {
+      .page-content { padding:16px; }
+      .top-navbar { padding:0 14px; gap:10px; }
+      .top-search { max-width:200px; }
+      .dark-toggle span { display:none; }
+    }
+    @media (max-width: 576px) {
+      .top-search { display:none; }
+      .welcome-banner h2 { font-size:1.2rem; }
+    }
+
+    /* =============================================
+       MISC HELPERS
+    ============================================= */
+    .btn-sm-action {
+      padding:6px 14px; border-radius:20px; font-size:.78rem; font-weight:700;
+      border:none; cursor:pointer; transition: all var(--transition);
+      font-family: var(--font-main);
+    }
+    .btn-sm-action.primary { background: var(--accent-solid); color:#fff; }
+    .btn-sm-action.primary:hover { background: #253448; }
+    .btn-sm-action.outline {
+      background:none; border: 1px solid var(--border-col); color: var(--text-main);
+    }
+    .btn-sm-action.outline:hover { border-color: var(--accent-text); color: var(--accent-text); }
+
+    .link-action {
+      color: var(--accent-text); font-size:.78rem; font-weight:700;
+      text-decoration:none; transition: color var(--transition);
+    }
+    .link-action:hover { color: var(--navy); text-decoration:underline; }
+    [data-theme="dark"] .link-action:hover { color:#fff; }
+
+    .text-muted-sm { color: var(--text-muted); font-size:.8rem; }
+
+    .past-rx-toggle {
+      display:flex; align-items:center; justify-content:space-between;
+      cursor:pointer; padding:10px 0; font-size:.85rem; font-weight:700;
+      color: var(--text-muted); border-top: 1px solid var(--border-col);
+    }
+    .past-rx-list { display:none; }
+    .past-rx-list.show { display:block; }
+
+    .past-rx-item {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:9px 0; border-bottom: 1px solid var(--border-col);
+      font-size:.8rem;
+    }
+    .past-rx-item:last-child { border-bottom:none; }
+  [data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: var(--text-main) !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }
+
+/* ===== DARK MODE CONTRAST FIXES ===== */
+[data-theme="dark"] .dark-toggle { background: var(--card-bg) !important; color: var(--text-main) !important; border-color: rgba(168,216,234,.25) !important; }
+[data-theme="dark"] .dark-toggle:hover { background: var(--border-col) !important; }
+
+[data-theme="dark"] .quick-btn.primary,
+[data-theme="dark"] .quick-btn.sky,
+[data-theme="dark"] .quick-btn.mint,
+[data-theme="dark"] .quick-btn.peach { color: #17243A !important; }
+[data-theme="dark"] .quick-btn.primary:hover { background: var(--sky-dark) !important; color: #17243A !important; }
+
+[data-theme="dark"] .btn-sm-action.primary { color: #17243A !important; }
+[data-theme="dark"] .btn-sm-action.primary:hover { background: var(--sky-dark) !important; color: #17243A !important; }
+
+[data-theme="dark"] .section-tabs button.active,
+[data-theme="dark"] .child-toggle button.active { color: #17243A !important; }
+
+[data-theme="dark"] .refill-btn { color: #17243A !important; }
+[data-theme="dark"] .refill-btn:hover { color: #17243A !important; }
+
+[data-theme="dark"] .child-card .child-header { background: linear-gradient(135deg, #1e3a4a 0%, #1e3a30 100%) !important; }
+[data-theme="dark"] .child-card .child-header .child-info > div span { background: rgba(0,0,0,.35) !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .child-card .child-header .child-info > div span i { color: #FFB4A2 !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+<body data-theme="light">
+
+<!-- Sidebar Overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()" aria-hidden="true"></div>
+
+<!-- =============================================
+     SIDEBAR
+============================================= -->
+<nav class="sidebar" id="sidebar" role="navigation" aria-label="Parent Portal Navigation">
+
+  <!-- Brand -->
+  <a href="index.html" class="sidebar-brand" aria-label="PediaCare Home">
+    <div class="brand-icon"><i class="fa-solid fa-stethoscope"></i></div>
+    <div class="brand-text">
+      <h5>PediaCare</h5>
+      <small>PARENT PORTAL</small>
+    </div>
+  </a>
+
+  <!-- User -->
+  <div class="sidebar-user">
+    <div class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="Sarah Mitchell" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+    <div class="user-info">
+      <h6>Sarah Mitchell</h6>
+      <small>Logged in as Parent</small>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <div class="sidebar-nav" role="menubar">
+    <div class="nav-section-label">MAIN</div>
+
+    <a href="#" class="active" onclick="showSection('overview', this)" role="menuitem" aria-current="page">
+      <div class="nav-icon"><i class="fa-solid fa-house"></i></div>
+      Dashboard
+    </a>
+    <a href="#" onclick="showSection('children', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-baby"></i></div>
+      My Children
+    </a>
+    <a href="#" onclick="showSection('appointments', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-calendar-days"></i></div>
+      Appointments
+      <span class="nav-badge">2</span>
+    </a>
+    <a href="#" onclick="showSection('vaccinations', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-syringe"></i></div>
+      Vaccinations
+      <span class="nav-badge">1</span>
+    </a>
+    <a href="#" onclick="showSection('growth', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-chart-line"></i></div>
+      Growth Records
+    </a>
+    <a href="#" onclick="showSection('prescriptions', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-pills"></i></div>
+      Prescriptions
+    </a>
+
+    <div class="nav-section-label">ACCOUNT</div>
+
+    <a href="#" onclick="showSection('notifications-side', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-bell"></i></div>
+      Notifications
+      <span class="nav-badge">5</span>
+    </a>
+    <a href="#" onclick="showSection('medical-history', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+      Medical History
+    </a>
+    <a href="#" onclick="showSection('billing', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-credit-card"></i></div>
+      Billing
+    </a>
+    <a href="#" onclick="showSection('settings', this)" role="menuitem">
+      <div class="nav-icon"><i class="fa-solid fa-gear"></i></div>
+      Settings
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    <a href="#" aria-label="Logout">
+      <div class="nav-icon" style="width:32px;height:32px;border-radius:8px;background:rgba(255,99,99,.15);display:flex;align-items:center;justify-content:center;color:#f87171;">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </div>
+      Logout
+    </a>
+  </div>
+</nav>
+
+<!-- =============================================
+     MAIN CONTENT
+============================================= -->
+<div class="main-content" id="mainContent">
+
+  <!-- TOP NAVBAR -->
+  <header class="top-navbar" role="banner">
+    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="top-search" role="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search appointments, records..." aria-label="Search dashboard" />
+    </div>
+
+    <div class="top-actions" role="toolbar" aria-label="Quick actions">
+
+      <!-- Dark mode -->
+      <button class="dark-toggle" onclick="toggleDark()" id="darkBtn" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon" id="darkIcon"></i>
+        <span id="darkLabel">Dark Mode</span>
+      </button>
+
+      <!-- Notifications -->
+      <div style="position:relative;">
+        <button class="top-btn" onclick="showSection('prescriptions', document.querySelector('.sidebar-nav a[onclick*=prescriptions]'))" aria-label="Notifications (5 unread)">
+          <i class="fa-solid fa-bell"></i>
+          <span class="badge-count">5</span>
+        </button>
+      </div>
+
+      <!-- Profile -->
+      <div class="top-profile" onclick="toggleProfileDropdown()" aria-haspopup="true" aria-expanded="false" id="profileToggle">
+        <div class="p-avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="Sarah Mitchell" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+        <div>
+          <div class="p-name">Sarah Mitchell</div>
+          <div class="p-role">Parent Account</div>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="font-size:.7rem; color:var(--text-muted); margin-left:4px;"></i>
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="#"><i class="fa-solid fa-user"></i> My Profile</a>
+          <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+          <a href="#"><i class="fa-solid fa-shield-halved"></i> Privacy</a>
+          <hr />
+          <a href="#" style="color:#f87171;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="page-content" id="pageContent">
+
+    <!-- =========================================
+         SECTION 1: DASHBOARD OVERVIEW
+    ========================================= -->
+    <section class="dash-section active" id="sec-overview" aria-label="Dashboard Overview">
+
+      <!-- Welcome Banner -->
+      <div class="welcome-banner" role="region" aria-label="Welcome message">
+        <h2 id="greetingText">Good Morning, Sarah! <i class="fa-solid fa-hand" aria-hidden="true"></i></h2>
+        <p>Emma's next checkup is in 3 days. Everything is on track.</p>
+        <div class="alert-pill">
+          <i class="fa-solid fa-calendar-check"></i>
+          Next: Emma — Growth Monitoring — Nov 21, 2026 at 10:30 AM
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="row g-3 mb-4" role="region" aria-label="Summary statistics">
+        <div class="col-6 col-xl-3">
+          <div class="stat-card sky" aria-label="Upcoming Appointments: 2">
+            <div class="stat-icon"><i class="fa-solid fa-calendar-days"></i></div>
+            <div class="stat-info">
+              <div class="stat-num">2</div>
+              <div class="stat-label">Upcoming Appointments</div>
+              <div class="stat-trend"><i class="fa-solid fa-clock"></i> Next in 3 days</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card peach" aria-label="Vaccination Due: 1">
+            <div class="stat-icon"><i class="fa-solid fa-syringe"></i></div>
+            <div class="stat-info">
+              <div class="stat-num">1</div>
+              <div class="stat-label">Vaccination Due</div>
+              <div class="stat-trend"><i class="fa-solid fa-triangle-exclamation"></i> Due Nov 25</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card mint" aria-label="Growth Records: 24 entries">
+            <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="stat-info">
+              <div class="stat-num">24</div>
+              <div class="stat-label">Growth Records</div>
+              <div class="stat-trend"><i class="fa-solid fa-arrow-trend-up"></i> 24 entries total</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card navy" aria-label="Active Prescriptions: 1">
+            <div class="stat-icon"><i class="fa-solid fa-pills"></i></div>
+            <div class="stat-info">
+              <div class="stat-num">1</div>
+              <div class="stat-label">Active Prescriptions</div>
+              <div class="stat-trend"><i class="fa-solid fa-capsules"></i> 1 active, 2 past</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions" role="region" aria-label="Quick actions">
+        <button class="quick-btn primary" onclick="showSection('appointments', null); setTimeout(()=>switchApptTab('book'),100);">
+          <i class="fa-solid fa-calendar-plus"></i> Book Appointment
+        </button>
+        <button class="quick-btn sky" onclick="openModal('addChildModal')">
+          <i class="fa-solid fa-baby"></i> Add Child
+        </button>
+        <button class="quick-btn mint">
+          <i class="fa-solid fa-file-arrow-down"></i> Download Records
+        </button>
+        <button class="quick-btn peach">
+          <i class="fa-solid fa-message"></i> Message Doctor
+        </button>
+      </div>
+
+      <!-- Mini upcoming + recent activity grid -->
+      <div class="row g-3 mt-2">
+        <div class="col-lg-6">
+          <div class="dash-card">
+            <div class="card-head">
+              <h6><i class="fa-solid fa-calendar-days me-2" style="color:var(--accent-text);"></i>Upcoming Appointments</h6>
+              <a href="#" class="link-action" onclick="showSection('appointments',null);return false;">View All</a>
+            </div>
+            <div class="card-body" style="padding:0;">
+              <table class="appt-table" aria-label="Upcoming appointments">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="font-weight:800;font-size:.85rem;">Nov 21, 2026</div>
+                      <div style="font-size:.72rem;color:var(--text-muted);">10:30 AM</div>
+                    </td>
+                    <td>
+                      <div style="font-weight:700;font-size:.82rem;">Emma</div>
+                      <div style="font-size:.7rem;color:var(--text-muted);">Growth Monitoring</div>
+                    </td>
+                    <td><span class="status-badge upcoming">Upcoming</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight:800;font-size:.85rem;">Dec 5, 2026</div>
+                      <div style="font-size:.72rem;color:var(--text-muted);">2:00 PM</div>
+                    </td>
+                    <td>
+                      <div style="font-weight:700;font-size:.82rem;">Liam</div>
+                      <div style="font-size:.7rem;color:var(--text-muted);">18-Month Checkup</div>
+                    </td>
+                    <td><span class="status-badge upcoming">Upcoming</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="dash-card">
+            <div class="card-head">
+              <h6><i class="fa-solid fa-syringe me-2" style="color:var(--peach-dark);"></i>Vaccination Alerts</h6>
+              <a href="#" class="link-action" onclick="showSection('vaccinations',null);return false;">View All</a>
+            </div>
+            <div class="card-body">
+              <div class="vax-item due mb-2">
+                <i class="fa-solid fa-syringe"></i>
+                <div>
+                  <div style="font-weight:800;font-size:.82rem;">Flu Vaccine — Emma</div>
+                  <div style="font-size:.72rem;opacity:.8;">Due: Nov 25, 2026 · 7 days away</div>
+                </div>
+              </div>
+              <div class="vax-item due">
+                <i class="fa-solid fa-syringe"></i>
+                <div>
+                  <div style="font-weight:800;font-size:.82rem;">Hepatitis A Booster — Emma</div>
+                  <div style="font-size:.72rem;opacity:.8;">Due: Dec 10, 2026 · 22 days away</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================
+         SECTION 2: CHILDREN PROFILES
+    ========================================= -->
+    <section class="dash-section" id="sec-children" aria-label="My Children">
+
+      <div class="section-header">
+        <div class="section-title"><i class="fa-solid fa-baby" aria-hidden="true"></i> My <span>Children</span></div>
+        <button class="btn-sm-action primary" onclick="openModal('addChildModal')">
+          <i class="fa-solid fa-plus me-1"></i>Add Child
+        </button>
+      </div>
+
+      <div class="row g-3">
+
+        <!-- Emma Card -->
+        <div class="col-md-6 col-xl-4">
+          <div class="child-card">
+            <div class="child-header">
+              <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=150&h=150&fit=crop&crop=faces&q=80&auto=format"
+                   alt="Emma Mitchell" class="child-avatar" loading="lazy" />
+              <div class="child-info">
+                <h5>Emma Mitchell</h5>
+                <span class="age-badge">Age 4 yrs 2 mos</span>
+                <div style="margin-top:6px;">
+                  <span style="background:rgba(255,255,255,.4);color:var(--on-pastel);font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:20px;" class="me-1">A+</span>
+                  <span style="background:rgba(255,255,255,.4);color:var(--on-pastel);font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:20px;">No Allergies</span>
+                </div>
+              </div>
+              <button class="edit-btn" aria-label="Edit Emma's profile"><i class="fa-solid fa-pen"></i></button>
+            </div>
+            <div class="child-tabs" role="tablist">
+              <button class="active" onclick="switchChildTab(this,'emma-overview')" role="tab" aria-selected="true">Overview</button>
+              <button onclick="switchChildTab(this,'emma-vax')" role="tab" aria-selected="false">Vaccines</button>
+              <button onclick="switchChildTab(this,'emma-growth')" role="tab" aria-selected="false">Growth</button>
+              <button onclick="switchChildTab(this,'emma-rx')" role="tab" aria-selected="false">Rx</button>
+            </div>
+            <div class="child-content">
+              <div id="emma-overview">
+                <div class="child-info-row"><span class="label">Date of Birth</span><span class="value">Mar 15, 2022</span></div>
+                <div class="child-info-row"><span class="label">Blood Type</span><span class="value">A+</span></div>
+                <div class="child-info-row"><span class="label">Allergies</span><span class="value" style="color:#2ecc71;">None</span></div>
+                <div class="child-info-row"><span class="label">Last Visit</span><span class="value">Nov 1, 2026</span></div>
+                <div class="child-info-row"><span class="label">Next Visit</span><span class="value" style="color:var(--accent-text);">Nov 21, 2026</span></div>
+              </div>
+              <div id="emma-vax" style="display:none;">
+                <div style="font-size:.8rem;font-weight:700;margin-bottom:8px;">Vaccination Progress</div>
+                <div class="vax-progress-bar"><div class="fill" style="width:75%;"></div></div>
+                <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:10px;">9 of 12 completed (75%)</div>
+                <div class="vax-item done mb-1"><i class="fa-solid fa-check"></i> BCG</div>
+                <div class="vax-item done mb-1"><i class="fa-solid fa-check"></i> Hepatitis B ×3</div>
+                <div class="vax-item due mb-1"><i class="fa-solid fa-clock"></i> Flu Vaccine — Nov 25</div>
+              </div>
+              <div id="emma-growth" style="display:none;">
+                <div class="child-info-row"><span class="label">Height</span><span class="value">102 cm (68th %ile)</span></div>
+                <div class="child-info-row"><span class="label">Weight</span><span class="value">16.2 kg (55th %ile)</span></div>
+                <div class="child-info-row"><span class="label">BMI</span><span class="value">15.6 — Normal</span></div>
+                <div class="child-info-row"><span class="label">Last Measured</span><span class="value">Nov 1, 2026</span></div>
+              </div>
+              <div id="emma-rx" style="display:none;">
+                <div class="rx-card" style="padding:12px;">
+                  <div class="rx-name" style="font-size:.85rem;">Amoxicillin 250mg</div>
+                  <div class="rx-meta">Nov 1–10, 2026 · Dr. Sharma</div>
+                  <span class="rx-active-badge"><i class="fa-solid fa-circle" style="font-size:.4rem;"></i> Active</span>
+                </div>
+              </div>
+              <div style="margin-top:12px;">
+                <a href="#" class="link-action" onclick="showSection('children',null);return false;">View Full Profile →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liam Card -->
+        <div class="col-md-6 col-xl-4">
+          <div class="child-card">
+            <div class="child-header" style="background:linear-gradient(135deg,var(--peach) 0%,var(--mint) 100%);">
+              <img src="https://images.pexels.com/photos/17781080/pexels-photo-17781080.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=faces&q=80"
+                   alt="Liam Mitchell" class="child-avatar" loading="lazy" />
+              <div class="child-info">
+                <h5>Liam Mitchell</h5>
+                <span class="age-badge">Age 1 yr 8 mos</span>
+                <div style="margin-top:6px;">
+                  <span style="background:rgba(255,255,255,.4);color:var(--on-pastel);font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:20px;" class="me-1">O+</span>
+                  <span style="background:rgba(255,99,99,.2);color:#991b1b;font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:20px;"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Penicillin</span>
+                </div>
+              </div>
+              <button class="edit-btn" aria-label="Edit Liam's profile"><i class="fa-solid fa-pen"></i></button>
+            </div>
+            <div class="child-tabs" role="tablist">
+              <button class="active" onclick="switchChildTab(this,'liam-overview')" role="tab" aria-selected="true">Overview</button>
+              <button onclick="switchChildTab(this,'liam-vax')" role="tab" aria-selected="false">Vaccines</button>
+              <button onclick="switchChildTab(this,'liam-growth')" role="tab" aria-selected="false">Growth</button>
+              <button onclick="switchChildTab(this,'liam-rx')" role="tab" aria-selected="false">Rx</button>
+            </div>
+            <div class="child-content">
+              <div id="liam-overview">
+                <div class="child-info-row"><span class="label">Date of Birth</span><span class="value">Mar 8, 2025</span></div>
+                <div class="child-info-row"><span class="label">Blood Type</span><span class="value">O+</span></div>
+                <div class="child-info-row"><span class="label">Allergies</span><span class="value" style="color:#f87171;">Penicillin</span></div>
+                <div class="child-info-row"><span class="label">Last Visit</span><span class="value">Oct 15, 2026</span></div>
+                <div class="child-info-row"><span class="label">Next Visit</span><span class="value" style="color:var(--accent-text);">Dec 5, 2026</span></div>
+              </div>
+              <div id="liam-vax" style="display:none;">
+                <div style="font-size:.8rem;font-weight:700;margin-bottom:8px;">Vaccination Progress</div>
+                <div class="vax-progress-bar"><div class="fill" style="width:60%;background:linear-gradient(90deg,var(--peach-dark),#e67e22);"></div></div>
+                <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:10px;">6 of 10 completed (60%)</div>
+                <div class="vax-item done mb-1"><i class="fa-solid fa-check"></i> BCG</div>
+                <div class="vax-item done mb-1"><i class="fa-solid fa-check"></i> Hepatitis B ×2</div>
+                <div class="vax-item due mb-1"><i class="fa-solid fa-clock"></i> MMR — Jan 2027</div>
+              </div>
+              <div id="liam-growth" style="display:none;">
+                <div class="child-info-row"><span class="label">Height</span><span class="value">79 cm (52nd %ile)</span></div>
+                <div class="child-info-row"><span class="label">Weight</span><span class="value">9.8 kg (48th %ile)</span></div>
+                <div class="child-info-row"><span class="label">BMI</span><span class="value">15.7 — Normal</span></div>
+                <div class="child-info-row"><span class="label">Last Measured</span><span class="value">Oct 15, 2026</span></div>
+              </div>
+              <div id="liam-rx" style="display:none;">
+                <div class="rx-card" style="padding:12px;">
+                  <div class="rx-name" style="font-size:.85rem;">Vitamin D3 drops</div>
+                  <div class="rx-meta">Ongoing · Dr. Johnson</div>
+                  <span class="rx-active-badge"><i class="fa-solid fa-circle" style="font-size:.4rem;"></i> Active</span>
+                </div>
+              </div>
+              <div style="margin-top:12px;">
+                <a href="#" class="link-action">View Full Profile →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Child Card -->
+        <div class="col-md-6 col-xl-4">
+          <div class="add-child-card" onclick="openModal('addChildModal')" role="button" tabindex="0"
+               aria-label="Register a new child profile"
+               onkeydown="if(event.key==='Enter')openModal('addChildModal')">
+            <div class="add-icon"><i class="fa-solid fa-plus"></i></div>
+            <h6>Add New Child</h6>
+            <p>Register your child's profile to manage their health records</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 3: APPOINTMENTS
+    ========================================= -->
+    <section class="dash-section" id="sec-appointments" aria-label="Appointments">
+
+      <div class="section-header">
+        <div class="section-title"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> <span>Appointments</span></div>
+        <button class="btn-sm-action primary" onclick="switchApptTab('book')">
+          <i class="fa-solid fa-plus me-1"></i>Book New
+        </button>
+      </div>
+
+      <div class="section-tabs" role="tablist" aria-label="Appointment tabs">
+        <button class="active" onclick="switchApptTab('upcoming')" id="tab-upcoming" role="tab">Upcoming</button>
+        <button onclick="switchApptTab('past')" id="tab-past" role="tab">Past</button>
+        <button onclick="switchApptTab('book')" id="tab-book" role="tab">Book New</button>
+      </div>
+
+      <!-- Upcoming Tab -->
+      <div id="appt-upcoming" class="dash-card" role="tabpanel">
+        <div class="card-head">
+          <h6><i class="fa-solid fa-calendar-check me-2" style="color:var(--accent-text);"></i>Upcoming Appointments</h6>
+          <span class="status-badge upcoming">2 Scheduled</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="appt-table" aria-label="Upcoming appointments list">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Child</th>
+                <th>Doctor</th>
+                <th>Service</th>
+                <th>Location</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="font-weight:800;font-size:.85rem;">Nov 21, 2026</div>
+                  <div style="font-size:.72rem;color:var(--text-muted);">10:30 AM</div>
+                </td>
+                <td>
+                  <div class="patient-cell">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=150&h=150&fit=crop&crop=faces&q=80&auto=format" class="patient-mini-avatar" alt="Emma" />
+                    <div>
+                      <div style="font-weight:700;">Emma Mitchell</div>
+                      <div style="font-size:.7rem;color:var(--text-muted);">Age 4</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div style="font-weight:700;font-size:.82rem;">Dr. Priya Sharma</div>
+                  <div style="font-size:.7rem;color:var(--text-muted);">Pediatrician</div>
+                </td>
+                <td><span style="font-weight:700;font-size:.82rem;">Growth Monitoring</span></td>
+                <td><div style="font-size:.8rem;"><i class="fa-solid fa-location-dot me-1" style="color:var(--accent-text);"></i>Downtown Clinic</div></td>
+                <td>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <button class="appt-action-btn reschedule" aria-label="Reschedule Emma's appointment">Reschedule</button>
+                    <button class="appt-action-btn cancel" aria-label="Cancel Emma's appointment">Cancel</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="font-weight:800;font-size:.85rem;">Dec 5, 2026</div>
+                  <div style="font-size:.72rem;color:var(--text-muted);">2:00 PM</div>
+                </td>
+                <td>
+                  <div class="patient-cell">
+                    <img src="https://images.pexels.com/photos/17781080/pexels-photo-17781080.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=faces&q=80" class="patient-mini-avatar" alt="Liam" />
+                    <div>
+                      <div style="font-weight:700;">Liam Mitchell</div>
+                      <div style="font-size:.7rem;color:var(--text-muted);">Age 1</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div style="font-weight:700;font-size:.82rem;">Dr. Sarah Johnson</div>
+                  <div style="font-size:.7rem;color:var(--text-muted);">Pediatrician</div>
+                </td>
+                <td><span style="font-weight:700;font-size:.82rem;">18-Month Checkup</span></td>
+                <td><div style="font-size:.8rem;"><i class="fa-solid fa-location-dot me-1" style="color:var(--accent-text);"></i>Westside Branch</div></td>
+                <td>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <button class="appt-action-btn reschedule" aria-label="Reschedule Liam's appointment">Reschedule</button>
+                    <button class="appt-action-btn cancel" aria-label="Cancel Liam's appointment">Cancel</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Past Tab -->
+      <div id="appt-past" class="dash-card" style="display:none;" role="tabpanel">
+        <div class="card-head">
+          <h6><i class="fa-solid fa-clock-rotate-left me-2" style="color:var(--text-muted);"></i>Past Appointments</h6>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="appt-table" aria-label="Past appointments list">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Child</th>
+                <th>Doctor</th>
+                <th>Service</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div style="font-weight:700;font-size:.85rem;">Nov 1, 2026</div></td>
+                <td>Emma Mitchell</td>
+                <td>Dr. Priya Sharma</td>
+                <td>Well-Child Visit</td>
+                <td><span class="status-badge completed"><i class="fa-solid fa-check" aria-hidden="true"></i> Completed</span></td>
+              </tr>
+              <tr>
+                <td><div style="font-weight:700;font-size:.85rem;">Oct 15, 2026</div></td>
+                <td>Liam Mitchell</td>
+                <td>Dr. Sarah Johnson</td>
+                <td>15-Month Checkup</td>
+                <td><span class="status-badge completed"><i class="fa-solid fa-check" aria-hidden="true"></i> Completed</span></td>
+              </tr>
+              <tr>
+                <td><div style="font-weight:700;font-size:.85rem;">Sep 20, 2026</div></td>
+                <td>Emma Mitchell</td>
+                <td>Dr. Priya Sharma</td>
+                <td>Flu Vaccine</td>
+                <td><span class="status-badge completed"><i class="fa-solid fa-check" aria-hidden="true"></i> Completed</span></td>
+              </tr>
+              <tr>
+                <td><div style="font-weight:700;font-size:.85rem;">Aug 10, 2026</div></td>
+                <td>Emma Mitchell</td>
+                <td>Dr. David Kim</td>
+                <td>Allergy Consultation</td>
+                <td><span class="status-badge cancelled"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Cancelled</span></td>
+              </tr>
+              <tr>
+                <td><div style="font-weight:700;font-size:.85rem;">Jul 5, 2026</div></td>
+                <td>Liam Mitchell</td>
+                <td>Dr. Sarah Johnson</td>
+                <td>12-Month Checkup</td>
+                <td><span class="status-badge completed"><i class="fa-solid fa-check" aria-hidden="true"></i> Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Book New Tab -->
+      <div id="appt-book" class="dash-card" style="display:none;" role="tabpanel">
+        <div class="card-head">
+          <h6><i class="fa-solid fa-calendar-plus me-2" style="color:var(--accent-text);"></i>Book a New Appointment</h6>
+        </div>
+        <div class="card-body booking-form">
+          <form id="bookingForm" novalidate onsubmit="submitBooking(event)">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="bookChild">Select Child *</label>
+                <select class="form-select" id="bookChild" required aria-required="true">
+                  <option value="">— Choose child —</option>
+                  <option value="emma">Emma Mitchell (Age 4)</option>
+                  <option value="liam">Liam Mitchell (Age 1)</option>
+                </select>
+                <div class="invalid-feedback">Please select a child.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="bookService">Select Service *</label>
+                <select class="form-select" id="bookService" required aria-required="true">
+                  <option value="">— Choose service —</option>
+                  <option>Well-Child Visit</option>
+                  <option>Vaccination</option>
+                  <option>Growth Monitoring</option>
+                  <option>Sick Visit</option>
+                  <option>Specialist Consultation</option>
+                  <option>Lab Work</option>
+                </select>
+                <div class="invalid-feedback">Please select a service.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="bookDoctor">Preferred Doctor</label>
+                <select class="form-select" id="bookDoctor">
+                  <option value="">— Any available doctor —</option>
+                  <option>Dr. Priya Sharma</option>
+                  <option>Dr. Sarah Johnson</option>
+                  <option>Dr. David Kim</option>
+                  <option>Dr. Maria Rodriguez</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="bookDate">Preferred Date *</label>
+                <input type="date" class="form-control" id="bookDate" required aria-required="true"
+                       min="" placeholder="Select date" />
+                <div class="invalid-feedback">Please select a date.</div>
+              </div>
+              <div class="col-12">
+                <label>Preferred Time Slot *</label>
+                <div class="time-slots" role="group" aria-label="Available time slots" id="timeSlotGroup">
+                  <button type="button" class="time-slot" onclick="selectTime(this)">9:00 AM</button>
+                  <button type="button" class="time-slot" onclick="selectTime(this)">9:30 AM</button>
+                  <button type="button" class="time-slot selected" onclick="selectTime(this)">10:00 AM</button>
+                  <button type="button" class="time-slot" onclick="selectTime(this)">10:30 AM</button>
+                  <button type="button" class="time-slot" onclick="selectTime(this)">11:00 AM</button>
+                  <button type="button" class="time-slot disabled" disabled>11:30 AM</button>
+                  <button type="button" class="time-slot" onclick="selectTime(this)">1:00 PM</button>
+                  <button type="button" class="time-slot" onclick="selectTime(this)">1:30 PM</button>
+                  <button type="button" class="time-slot disabled" disabled>2:00 PM</button>
+                  <button type="button" class="time-slot" onclick="selectTime(this)">2:30 PM</button>
+                  <button type="button" class="time-slot" onclick="selectTime(this)">3:00 PM</button>
+                  <button type="button" class="time-slot" onclick="selectTime(this)">3:30 PM</button>
+                </div>
+                <div style="font-size:.72rem;color:var(--text-muted);margin-top:6px;">
+                  <i class="fa-solid fa-circle-info me-1"></i>Grayed out slots are unavailable
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="bookNotes">Notes / Reason for Visit</label>
+                <textarea class="form-control" id="bookNotes" rows="3"
+                          placeholder="Any concerns, symptoms, or special requests..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="quick-btn primary" style="padding:12px 32px;">
+                  <i class="fa-solid fa-calendar-check me-2"></i>Book Appointment
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================
+         SECTION 4: VACCINATION SCHEDULE
+    ========================================= -->
+    <section class="dash-section" id="sec-vaccinations" aria-label="Vaccination Tracker">
+
+      <div class="section-header">
+        <div class="section-title"><i class="fa-solid fa-syringe" aria-hidden="true"></i> Vaccination <span>Tracker</span></div>
+        <button class="btn-sm-action primary" onclick="downloadVaxRecord()">
+          <i class="fa-solid fa-file-pdf me-1"></i>Download Record
+        </button>
+      </div>
+
+      <!-- Child Selector -->
+      <div class="child-toggle" role="group" aria-label="Select child for vaccination view">
+        <button class="active" id="vaxToggleEmma" onclick="switchVaxChild('emma')" aria-pressed="true">Emma</button>
+        <button id="vaxToggleLiam" onclick="switchVaxChild('liam')" aria-pressed="false">Liam</button>
+      </div>
+
+      <!-- Emma Vax View -->
+      <div id="vax-emma">
+        <!-- Progress -->
+        <div class="dash-card mb-3">
+          <div class="card-body">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <div style="font-weight:800;font-size:.92rem;">Emma's Vaccination Progress</div>
+              <div style="font-weight:900;font-size:1.1rem;color:var(--mint-dark);">75%</div>
+            </div>
+            <div class="vax-progress-bar" style="height:14px;">
+              <div class="fill" style="width:75%;"></div>
+            </div>
+            <div style="font-size:.78rem;color:var(--text-muted);margin-top:5px;">9 of 12 vaccines completed</div>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <!-- Completed -->
+          <div class="col-md-4">
+            <div class="dash-card h-100">
+              <div class="card-head">
+                <div class="vax-col-title" style="border:none;padding:0;margin:0;">
+                  <span style="background:#d1fae5;color:#065f46;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+                  Completed <span style="color:var(--text-muted);font-weight:600;">(9)</span>
+                </div>
+              </div>
+              <div class="card-body" style="padding:12px;">
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> BCG</div>
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> Hepatitis B ×3</div>
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> DTaP ×3</div>
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> Polio ×3</div>
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> MMR</div>
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> Varicella</div>
+              </div>
+            </div>
+          </div>
+          <!-- Due Soon -->
+          <div class="col-md-4">
+            <div class="dash-card h-100">
+              <div class="card-head">
+                <div class="vax-col-title" style="border:none;padding:0;margin:0;">
+                  <span style="background:#fff3cd;color:#856404;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;">!</span>
+                  Due Soon <span style="color:var(--text-muted);font-weight:600;">(2)</span>
+                </div>
+              </div>
+              <div class="card-body" style="padding:12px;">
+                <div class="vax-item due" style="flex-direction:column;align-items:flex-start;gap:4px;">
+                  <div style="display:flex;gap:7px;align-items:center;font-weight:800;">
+                    <i class="fa-solid fa-syringe"></i> Flu Vaccine
+                  </div>
+                  <div style="font-size:.72rem;padding-left:20px;">Due: <strong>Nov 25, 2026</strong></div>
+                  <button class="btn-sm-action primary" style="margin-top:6px;font-size:.7rem;padding:5px 12px;" onclick="switchApptTab('book');showSection('appointments',null);">
+                    Book Now
+                  </button>
+                </div>
+                <div class="vax-item due" style="flex-direction:column;align-items:flex-start;gap:4px;margin-top:8px;">
+                  <div style="display:flex;gap:7px;align-items:center;font-weight:800;">
+                    <i class="fa-solid fa-syringe"></i> Hep A Booster
+                  </div>
+                  <div style="font-size:.72px;padding-left:20px;font-size:.72rem;">Due: <strong>Dec 10, 2026</strong></div>
+                  <button class="btn-sm-action primary" style="margin-top:6px;font-size:.7rem;padding:5px 12px;" onclick="switchApptTab('book');showSection('appointments',null);">
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Upcoming -->
+          <div class="col-md-4">
+            <div class="dash-card h-100">
+              <div class="card-head">
+                <div class="vax-col-title" style="border:none;padding:0;margin:0;">
+                  <span style="background:var(--bg-main);color:var(--text-muted);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;">○</span>
+                  Upcoming <span style="color:var(--text-muted);font-weight:600;">(1)</span>
+                </div>
+              </div>
+              <div class="card-body" style="padding:12px;">
+                <div class="vax-item upcoming"><i class="fa-solid fa-clock"></i> HPV (Age 11-12)</div>
+                <div class="vax-item upcoming"><i class="fa-solid fa-clock"></i> Td Booster (Age 11-12)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reminder Settings -->
+        <div class="dash-card">
+          <div class="card-head">
+            <h6><i class="fa-solid fa-bell me-2" style="color:var(--peach-dark);"></i>Reminder Settings</h6>
+          </div>
+          <div class="card-body">
+            <div class="reminder-toggle">
+              <div>
+                <div style="font-weight:700;font-size:.85rem;"><i class="fa-solid fa-envelope me-2" style="color:var(--accent-text);"></i>Email Reminders</div>
+                <div style="font-size:.72rem;color:var(--text-muted);">sarah@email.com</div>
+              </div>
+              <div class="toggle-switch on" onclick="this.classList.toggle('on')" role="switch" aria-checked="true" tabindex="0"></div>
+            </div>
+            <div class="reminder-toggle">
+              <div>
+                <div style="font-weight:700;font-size:.85rem;"><i class="fa-solid fa-sms me-2" style="color:var(--mint-dark);"></i>SMS Reminders</div>
+                <div style="font-size:.72rem;color:var(--text-muted);">+1 (555) 012-3456</div>
+              </div>
+              <div class="toggle-switch on" onclick="this.classList.toggle('on')" role="switch" aria-checked="true" tabindex="0"></div>
+            </div>
+            <div class="reminder-toggle">
+              <div>
+                <div style="font-weight:700;font-size:.85rem;"><i class="fa-solid fa-mobile-screen me-2" style="color:var(--peach-dark);"></i>App Notifications</div>
+                <div style="font-size:.72rem;color:var(--text-muted);">Push notifications</div>
+              </div>
+              <div class="toggle-switch" onclick="this.classList.toggle('on')" role="switch" aria-checked="false" tabindex="0"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Liam Vax View (hidden) -->
+      <div id="vax-liam" style="display:none;">
+        <div class="dash-card mb-3">
+          <div class="card-body">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <div style="font-weight:800;font-size:.92rem;">Liam's Vaccination Progress</div>
+              <div style="font-weight:900;font-size:1.1rem;color:var(--peach-dark);">60%</div>
+            </div>
+            <div class="vax-progress-bar" style="height:14px;">
+              <div class="fill" style="width:60%;background:linear-gradient(90deg,var(--peach-dark),#e67e22);"></div>
+            </div>
+            <div style="font-size:.78rem;color:var(--text-muted);margin-top:5px;">6 of 10 vaccines completed</div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="dash-card h-100">
+              <div class="card-head"><h6 style="font-size:.85rem;margin:0;"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Completed (6)</h6></div>
+              <div class="card-body" style="padding:12px;">
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> BCG</div>
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> Hepatitis B ×2</div>
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> DTaP ×2</div>
+                <div class="vax-item done"><i class="fa-solid fa-check"></i> Polio ×2</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dash-card h-100">
+              <div class="card-head"><h6 style="font-size:.85rem;margin:0;"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Due Soon (2)</h6></div>
+              <div class="card-body" style="padding:12px;">
+                <div class="vax-item due"><i class="fa-solid fa-syringe"></i> MMR — Jan 2027</div>
+                <div class="vax-item due"><i class="fa-solid fa-syringe"></i> Varicella — Jan 2027</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dash-card h-100">
+              <div class="card-head"><h6 style="font-size:.85rem;margin:0;">○ Upcoming (2)</h6></div>
+              <div class="card-body" style="padding:12px;">
+                <div class="vax-item upcoming"><i class="fa-solid fa-clock"></i> Hepatitis B ×3</div>
+                <div class="vax-item upcoming"><i class="fa-solid fa-clock"></i> DTaP ×3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================
+         SECTION 5: GROWTH RECORDS + CHARTS
+    ========================================= -->
+    <section class="dash-section" id="sec-growth" aria-label="Growth Tracker">
+
+      <div class="section-header">
+        <div class="section-title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Growth <span>Tracker</span></div>
+        <button class="btn-sm-action primary" onclick="openModal('addMeasureModal')">
+          <i class="fa-solid fa-plus me-1"></i>Add Measurement
+        </button>
+      </div>
+
+      <!-- Child Selector -->
+      <div class="child-toggle" role="group" aria-label="Select child for growth records">
+        <button class="active" id="growthToggleEmma" onclick="switchGrowthChild('emma')" aria-pressed="true">Emma</button>
+        <button id="growthToggleLiam" onclick="switchGrowthChild('liam')" aria-pressed="false">Liam</button>
+      </div>
+
+      <!-- Emma Growth Stats -->
+      <div id="growth-emma">
+        <div class="row g-3 mb-3">
+          <div class="col-4">
+            <div class="growth-stat-card">
+              <div class="g-num">102</div>
+              <div class="g-unit">cm — Height</div>
+              <div class="g-label">Height</div>
+              <span class="g-percentile">68th percentile</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="growth-stat-card">
+              <div class="g-num">16.2</div>
+              <div class="g-unit">kg — Weight</div>
+              <div class="g-label">Weight</div>
+              <span class="g-percentile" style="background:var(--sky);color:var(--on-pastel);">55th percentile</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="growth-stat-card">
+              <div class="g-num">15.6</div>
+              <div class="g-unit">kg/m² — BMI</div>
+              <div class="g-label">BMI</div>
+              <span class="g-percentile" style="background:var(--peach);color:var(--on-pastel);">Normal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-lg-6">
+            <div class="dash-card">
+              <div class="card-head">
+                <h6><i class="fa-solid fa-ruler-vertical me-2" style="color:var(--mint-dark);"></i>Height Over Time</h6>
+                <span style="font-size:.72rem;color:var(--text-muted);">WHO Percentile Bands</span>
+              </div>
+              <div class="card-body">
+                <canvas id="heightChart" aria-label="Height growth chart for Emma" role="img" height="250"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="dash-card">
+              <div class="card-head">
+                <h6><i class="fa-solid fa-weight-scale me-2" style="color:var(--accent-text);"></i>Weight Over Time</h6>
+                <span style="font-size:.72rem;color:var(--text-muted);">WHO Percentile Bands</span>
+              </div>
+              <div class="card-body">
+                <canvas id="weightChart" aria-label="Weight growth chart for Emma" role="img" height="250"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="dash-card">
+          <div class="card-head">
+            <h6><i class="fa-solid fa-table me-2" style="color:var(--accent-text);"></i>Measurement History — Emma</h6>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="growth-table" aria-label="Emma's measurement history">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Height</th>
+                  <th>Weight</th>
+                  <th>BMI</th>
+                  <th>Doctor</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:700;">Nov 1, 2026</td>
+                  <td><strong>102 cm</strong></td>
+                  <td><strong>16.2 kg</strong></td>
+                  <td><strong>15.6</strong></td>
+                  <td>Dr. Sharma</td>
+                  <td style="color:var(--text-muted);">Normal growth trajectory</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Aug 15, 2026</td>
+                  <td>99.8 cm</td>
+                  <td>15.8 kg</td>
+                  <td>15.9</td>
+                  <td>Dr. Sharma</td>
+                  <td style="color:var(--text-muted);">Good progress</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">May 20, 2026</td>
+                  <td>97.5 cm</td>
+                  <td>15.3 kg</td>
+                  <td>16.1</td>
+                  <td>Dr. Sharma</td>
+                  <td style="color:var(--text-muted);">Healthy range</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Feb 10, 2026</td>
+                  <td>95.2 cm</td>
+                  <td>14.9 kg</td>
+                  <td>16.4</td>
+                  <td>Dr. Johnson</td>
+                  <td style="color:var(--text-muted);">Well-child visit</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Nov 5, 2025</td>
+                  <td>92.0 cm</td>
+                  <td>14.4 kg</td>
+                  <td>17.0</td>
+                  <td>Dr. Sharma</td>
+                  <td style="color:var(--text-muted);">Age 3 checkup</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Aug 1, 2025</td>
+                  <td>89.3 cm</td>
+                  <td>13.9 kg</td>
+                  <td>17.4</td>
+                  <td>Dr. Sharma</td>
+                  <td style="color:var(--text-muted);">Routine visit</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Liam Growth (hidden) -->
+      <div id="growth-liam" style="display:none;">
+        <div class="row g-3 mb-3">
+          <div class="col-4">
+            <div class="growth-stat-card">
+              <div class="g-num">79</div>
+              <div class="g-unit">cm — Height</div>
+              <div class="g-label">Height</div>
+              <span class="g-percentile">52nd percentile</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="growth-stat-card">
+              <div class="g-num">9.8</div>
+              <div class="g-unit">kg — Weight</div>
+              <div class="g-label">Weight</div>
+              <span class="g-percentile" style="background:var(--sky);color:var(--on-pastel);">48th percentile</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="growth-stat-card">
+              <div class="g-num">15.7</div>
+              <div class="g-unit">kg/m² — BMI</div>
+              <div class="g-label">BMI</div>
+              <span class="g-percentile" style="background:var(--peach);color:var(--on-pastel);">Normal</span>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 mb-3">
+          <div class="col-lg-6">
+            <div class="dash-card">
+              <div class="card-head"><h6>Height Over Time — Liam</h6></div>
+              <div class="card-body">
+                <canvas id="liamHeightChart" aria-label="Height growth chart for Liam" role="img" height="250"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="dash-card">
+              <div class="card-head"><h6>Weight Over Time — Liam</h6></div>
+              <div class="card-body">
+                <canvas id="liamWeightChart" aria-label="Weight growth chart for Liam" role="img" height="250"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="card-head"><h6>Measurement History — Liam</h6></div>
+          <div style="overflow-x:auto;">
+            <table class="growth-table" aria-label="Liam's measurement history">
+              <thead>
+                <tr><th>Date</th><th>Height</th><th>Weight</th><th>BMI</th><th>Doctor</th><th>Notes</th></tr>
+              </thead>
+              <tbody>
+                <tr><td style="font-weight:700;">Oct 15, 2026</td><td><strong>79 cm</strong></td><td><strong>9.8 kg</strong></td><td><strong>15.7</strong></td><td>Dr. Johnson</td><td style="color:var(--text-muted);">15-month checkup</td></tr>
+                <tr><td style="font-weight:700;">Jul 8, 2026</td><td>75.2 cm</td><td>9.2 kg</td><td>16.3</td><td>Dr. Johnson</td><td style="color:var(--text-muted);">12-month checkup</td></tr>
+                <tr><td style="font-weight:700;">Apr 10, 2026</td><td>70.1 cm</td><td>8.5 kg</td><td>17.3</td><td>Dr. Johnson</td><td style="color:var(--text-muted);">9-month checkup</td></tr>
+                <tr><td style="font-weight:700;">Jan 8, 2026</td><td>64.0 cm</td><td>7.6 kg</td><td>18.5</td><td>Dr. Johnson</td><td style="color:var(--text-muted);">6-month checkup</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================
+         SECTION 6: PRESCRIPTIONS + NOTIFICATIONS
+    ========================================= -->
+    <section class="dash-section" id="sec-prescriptions" aria-label="Prescriptions and Notifications">
+
+      <div class="section-header">
+        <div class="section-title"><i class="fa-solid fa-pills" aria-hidden="true"></i> Prescriptions &amp; <span>Notifications</span></div>
+      </div>
+
+      <div class="row g-3">
+
+        <!-- LEFT: Prescriptions -->
+        <div class="col-lg-6">
+          <div class="dash-card">
+            <div class="card-head">
+              <h6><i class="fa-solid fa-prescription-bottle me-2" style="color:var(--accent-text);"></i>Active Prescriptions</h6>
+              <span class="rx-active-badge"><i class="fa-solid fa-circle" style="font-size:.4rem;"></i> 2 Active</span>
+            </div>
+            <div class="card-body">
+
+              <!-- Rx 1 -->
+              <div class="rx-card">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+                  <div class="rx-name">Amoxicillin 250mg</div>
+                  <span class="rx-active-badge"><i class="fa-solid fa-circle" style="font-size:.4rem;"></i> Active</span>
+                </div>
+                <div class="rx-meta">
+                  <i class="fa-solid fa-baby me-1"></i> Emma Mitchell &nbsp;|&nbsp;
+                  <i class="fa-solid fa-calendar me-1"></i> Nov 1 – Nov 10, 2026 &nbsp;|&nbsp;
+                  <i class="fa-solid fa-user-doctor me-1"></i> Dr. Sharma
+                </div>
+                <div class="rx-instruction">
+                  <i class="fa-solid fa-circle-info" style="color:var(--accent-text);"></i>
+                  Take twice daily with food
+                </div>
+                <button class="refill-btn" aria-label="Request refill for Amoxicillin">
+                  <i class="fa-solid fa-rotate"></i> Request Refill
+                </button>
+              </div>
+
+              <!-- Rx 2 -->
+              <div class="rx-card">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+                  <div class="rx-name">Vitamin D3 Drops</div>
+                  <span class="rx-active-badge"><i class="fa-solid fa-circle" style="font-size:.4rem;"></i> Active</span>
+                </div>
+                <div class="rx-meta">
+                  <i class="fa-solid fa-baby me-1"></i> Liam Mitchell &nbsp;|&nbsp;
+                  <i class="fa-solid fa-calendar me-1"></i> Ongoing &nbsp;|&nbsp;
+                  <i class="fa-solid fa-user-doctor me-1"></i> Dr. Johnson
+                </div>
+                <div class="rx-instruction">
+                  <i class="fa-solid fa-circle-info" style="color:var(--accent-text);"></i>
+                  400 IU daily — add to milk/formula
+                </div>
+                <button class="refill-btn" aria-label="Request refill for Vitamin D3 Drops">
+                  <i class="fa-solid fa-rotate"></i> Request Refill
+                </button>
+              </div>
+
+              <!-- Past Prescriptions -->
+              <div class="past-rx-toggle" onclick="togglePastRx()" id="pastRxToggle" role="button" tabindex="0"
+                   aria-expanded="false" onkeydown="if(event.key==='Enter')togglePastRx()">
+                <span><i class="fa-solid fa-clock me-2"></i>Past Prescriptions (3)</span>
+                <i class="fa-solid fa-chevron-down" id="pastRxChevron"></i>
+              </div>
+              <div class="past-rx-list" id="pastRxList">
+                <div class="past-rx-item">
+                  <div>
+                    <div style="font-weight:700;font-size:.82rem;">Ibuprofen 100mg</div>
+                    <div style="font-size:.72rem;color:var(--text-muted);">Emma · Oct 5–10, 2026 · Dr. Sharma</div>
+                  </div>
+                  <span class="status-badge completed" style="font-size:.65rem;">Completed</span>
+                </div>
+                <div class="past-rx-item">
+                  <div>
+                    <div style="font-weight:700;font-size:.82rem;">Cetirizine 5mg</div>
+                    <div style="font-size:.72rem;color:var(--text-muted);">Emma · Sep 1–14, 2026 · Dr. Kim</div>
+                  </div>
+                  <span class="status-badge completed" style="font-size:.65rem;">Completed</span>
+                </div>
+                <div class="past-rx-item">
+                  <div>
+                    <div style="font-weight:700;font-size:.82rem;">Iron Drops</div>
+                    <div style="font-size:.72rem;color:var(--text-muted);">Liam · Jul 8 – Aug 8, 2026 · Dr. Johnson</div>
+                  </div>
+                  <span class="status-badge completed" style="font-size:.65rem;">Completed</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Notifications -->
+        <div class="col-lg-6">
+          <div class="dash-card">
+            <div class="card-head">
+              <h6>
+                <i class="fa-solid fa-bell me-2" style="color:var(--peach-dark);"></i>
+                Notifications
+                <span style="background:#ff4757;color:#fff;font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:20px;margin-left:6px;">5 new</span>
+              </h6>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <button class="link-action" style="border:none;background:none;cursor:pointer;font-size:.78rem;font-weight:700;color:var(--accent-text);" onclick="markAllRead()" aria-label="Mark all notifications as read">
+                  Mark all read
+                </button>
+                <a href="#" class="link-action" onclick="event.preventDefault(); showSection('settings', document.querySelector('.sidebar-nav a[onclick*=settings]'))">Settings</a>
+              </div>
+            </div>
+            <div id="notifList">
+
+              <div class="notif-item" data-unread="false">
+                <div class="notif-icon bell"><i class="fa-solid fa-calendar-check"></i></div>
+                <div class="notif-text">
+                  <p>Emma's appointment confirmed for Nov 21</p>
+                  <span class="notif-time">2 hours ago</span>
+                </div>
+              </div>
+
+              <div class="notif-item unread" data-unread="true">
+                <div class="notif-icon syringe"><i class="fa-solid fa-syringe"></i></div>
+                <div class="notif-text">
+                  <p>Flu vaccine due for Emma in 5 days</p>
+                  <span class="notif-time">3 hours ago</span>
+                </div>
+                <div class="notif-unread-dot"></div>
+              </div>
+
+              <div class="notif-item unread" data-unread="true">
+                <div class="notif-icon lab"><i class="fa-solid fa-flask"></i></div>
+                <div class="notif-text">
+                  <p>Lab results ready for Liam</p>
+                  <span class="notif-time">5 hours ago</span>
+                </div>
+                <div class="notif-unread-dot"></div>
+              </div>
+
+              <div class="notif-item" data-unread="false">
+                <div class="notif-icon pill"><i class="fa-solid fa-pills"></i></div>
+                <div class="notif-text">
+                  <p>Prescription refill available</p>
+                  <span class="notif-time">Yesterday</span>
+                </div>
+              </div>
+
+              <div class="notif-item unread" data-unread="true">
+                <div class="notif-icon cal"><i class="fa-solid fa-calendar-day"></i></div>
+                <div class="notif-text">
+                  <p>Appointment reminder: tomorrow at 10:30 AM</p>
+                  <span class="notif-time">Yesterday</span>
+                </div>
+                <div class="notif-unread-dot"></div>
+              </div>
+
+              <div class="notif-item" data-unread="false">
+                <div class="notif-icon check"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="notif-text">
+                  <p>Vaccination record updated</p>
+                  <span class="notif-time">2 days ago</span>
+                </div>
+              </div>
+
+              <div class="notif-item unread" data-unread="true">
+                <div class="notif-icon billing"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                <div class="notif-text">
+                  <p>Invoice #1024 generated — $45.00</p>
+                  <span class="notif-time">3 days ago</span>
+                </div>
+                <div class="notif-unread-dot"></div>
+              </div>
+
+              <div class="notif-item unread" data-unread="true">
+                <div class="notif-icon doctor"><i class="fa-solid fa-user-doctor"></i></div>
+                <div class="notif-text">
+                  <p>New message from Dr. Sharma</p>
+                  <span class="notif-time">3 days ago</span>
+                </div>
+                <div class="notif-unread-dot"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 7: MEDICAL HISTORY
+    ========================================= -->
+    <section class="dash-section" id="sec-medical-history" aria-label="Medical History">
+
+      <div class="section-header">
+        <div class="section-title"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Medical <span>History</span></div>
+        <button class="btn-sm-action outline" onclick="showToast('Medical history export started')">
+          <i class="fa-solid fa-download me-1"></i>Export
+        </button>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <div class="dash-card h-100">
+            <div class="card-head"><h6><i class="fa-solid fa-triangle-exclamation me-2" style="color:var(--peach-dark);"></i>Allergies</h6></div>
+            <div class="card-body">
+              <div class="child-info-row"><span class="label">Emma</span><span class="value">None recorded</span></div>
+              <div class="child-info-row"><span class="label">Liam</span><span class="value" style="color:#f87171;">Penicillin</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="dash-card h-100">
+            <div class="card-head"><h6><i class="fa-solid fa-heart-pulse me-2" style="color:var(--accent-text);"></i>Conditions</h6></div>
+            <div class="card-body">
+              <div class="child-info-row"><span class="label">Emma</span><span class="value">Mild eczema</span></div>
+              <div class="child-info-row"><span class="label">Liam</span><span class="value">None recorded</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="dash-card h-100">
+            <div class="card-head"><h6><i class="fa-solid fa-notes-medical me-2" style="color:var(--mint-dark);"></i>Surgeries</h6></div>
+            <div class="card-body">
+              <div class="child-info-row"><span class="label">Emma</span><span class="value">None</span></div>
+              <div class="child-info-row"><span class="label">Liam</span><span class="value">None</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="dash-card">
+            <div class="card-head"><h6><i class="fa-solid fa-clock-rotate-left me-2" style="color:var(--text-muted);"></i>Recent Medical Events</h6></div>
+            <div class="card-body">
+              <div class="past-rx-item">
+                <div>
+                  <div style="font-weight:700;font-size:.82rem;">Well-Child Visit — Emma</div>
+                  <div style="font-size:.72rem;color:var(--text-muted);">Dr. Priya Sharma · Nov 1, 2026</div>
+                </div>
+                <span class="status-badge completed">Completed</span>
+              </div>
+              <div class="past-rx-item">
+                <div>
+                  <div style="font-weight:700;font-size:.82rem;">15-Month Checkup — Liam</div>
+                  <div style="font-size:.72rem;color:var(--text-muted);">Dr. Sarah Johnson · Oct 15, 2026</div>
+                </div>
+                <span class="status-badge completed">Completed</span>
+              </div>
+              <div class="past-rx-item">
+                <div>
+                  <div style="font-weight:700;font-size:.82rem;">Flu Vaccine — Emma</div>
+                  <div style="font-size:.72rem;color:var(--text-muted);">Dr. Priya Sharma · Sep 20, 2026</div>
+                </div>
+                <span class="status-badge completed">Completed</span>
+              </div>
+              <div class="past-rx-item">
+                <div>
+                  <div style="font-weight:700;font-size:.82rem;">Allergy Consultation — Emma</div>
+                  <div style="font-size:.72rem;color:var(--text-muted);">Dr. David Kim · Aug 10, 2026</div>
+                </div>
+                <span class="status-badge cancelled">Cancelled</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 8: BILLING
+    ========================================= -->
+    <section class="dash-section" id="sec-billing" aria-label="Billing and Payments">
+
+      <div class="section-header">
+        <div class="section-title"><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Billing &amp; <span>Payments</span></div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="dash-card h-100">
+            <div class="card-body">
+              <div style="font-size:.78rem;color:var(--text-muted);font-weight:700;">Outstanding Balance</div>
+              <div style="font-size:1.9rem;font-weight:800;color:var(--accent-text);margin:6px 0;">$45.00</div>
+              <button class="btn-sm-action primary" onclick="showToast('Payment portal opened')">
+                <i class="fa-solid fa-credit-card me-1"></i>Pay Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="dash-card h-100">
+            <div class="card-body">
+              <div style="font-size:.78rem;color:var(--text-muted);font-weight:700;">Next Statement</div>
+              <div style="font-size:1.05rem;font-weight:800;margin:6px 0;">Dec 1, 2026</div>
+              <div style="font-size:.78rem;color:var(--text-muted);">Auto-pay is enabled</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="dash-card h-100">
+            <div class="card-body">
+              <div style="font-size:.78rem;color:var(--text-muted);font-weight:700;">Payment Method</div>
+              <div style="font-size:1.05rem;font-weight:800;margin:6px 0;"><i class="fa-brands fa-cc-visa me-2" style="color:var(--accent-text);"></i>Visa •••• 4242</div>
+              <button class="btn-sm-action outline" onclick="showToast('Payment methods opened')">Manage</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="dash-card">
+            <div class="card-head"><h6><i class="fa-solid fa-file-invoice-dollar me-2" style="color:var(--accent-text);"></i>Invoices</h6></div>
+            <div class="card-body" style="overflow-x:auto;">
+              <table class="appt-table" aria-label="Invoice history">
+                <thead>
+                  <tr>
+                    <th>Invoice</th>
+                    <th>Date</th>
+                    <th>Child</th>
+                    <th>Service</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#1024</td>
+                    <td>Nov 18, 2026</td>
+                    <td>Emma Mitchell</td>
+                    <td>Well-Child Visit</td>
+                    <td>$45.00</td>
+                    <td><span class="status-badge upcoming">Due</span></td>
+                    <td><button class="btn-sm-action primary" onclick="showToast('Payment portal opened')">Pay</button></td>
+                  </tr>
+                  <tr>
+                    <td>#1019</td>
+                    <td>Oct 15, 2026</td>
+                    <td>Liam Mitchell</td>
+                    <td>15-Month Checkup</td>
+                    <td>$30.00</td>
+                    <td><span class="status-badge completed">Paid</span></td>
+                    <td><button class="btn-sm-action outline" onclick="showToast('Receipt downloaded')">Receipt</button></td>
+                  </tr>
+                  <tr>
+                    <td>#1012</td>
+                    <td>Sep 20, 2026</td>
+                    <td>Emma Mitchell</td>
+                    <td>Flu Vaccine</td>
+                    <td>$25.00</td>
+                    <td><span class="status-badge completed">Paid</span></td>
+                    <td><button class="btn-sm-action outline" onclick="showToast('Receipt downloaded')">Receipt</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 9: SETTINGS
+    ========================================= -->
+    <section class="dash-section" id="sec-settings" aria-label="Account Settings">
+
+      <div class="section-header">
+        <div class="section-title"><i class="fa-solid fa-gear" aria-hidden="true"></i> Account <span>Settings</span></div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-lg-7">
+          <div class="dash-card">
+            <div class="card-head"><h6><i class="fa-solid fa-user me-2" style="color:var(--accent-text);"></i>Profile Information</h6></div>
+            <div class="card-body booking-form">
+              <form onsubmit="event.preventDefault(); showToast('Profile settings saved');">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="setFirstName">First Name</label>
+                    <input type="text" class="form-control" id="setFirstName" value="Sarah" />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="setLastName">Last Name</label>
+                    <input type="text" class="form-control" id="setLastName" value="Mitchell" />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="setEmail">Email</label>
+                    <input type="email" class="form-control" id="setEmail" value="sarah.mitchell@email.com" />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="setPhone">Phone</label>
+                    <input type="tel" class="form-control" id="setPhone" value="(555) 123-4567" />
+                  </div>
+                  <div class="col-12">
+                    <label for="setAddress">Address</label>
+                    <input type="text" class="form-control" id="setAddress" value="142 Oak Street, Springfield" />
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="quick-btn primary">
+                      <i class="fa-solid fa-floppy-disk me-2"></i>Save Changes
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="dash-card">
+            <div class="card-head"><h6><i class="fa-solid fa-bell me-2" style="color:var(--peach-dark);"></i>Notifications</h6></div>
+            <div class="card-body">
+              <div class="child-info-row">
+                <span class="label">Appointment reminders</span>
+                <span class="value"><input class="form-check-input" type="checkbox" checked aria-label="Appointment reminders" /></span>
+              </div>
+              <div class="child-info-row">
+                <span class="label">Vaccination alerts</span>
+                <span class="value"><input class="form-check-input" type="checkbox" checked aria-label="Vaccination alerts" /></span>
+              </div>
+              <div class="child-info-row">
+                <span class="label">Billing notifications</span>
+                <span class="value"><input class="form-check-input" type="checkbox" checked aria-label="Billing notifications" /></span>
+              </div>
+              <div class="child-info-row">
+                <span class="label">Marketing emails</span>
+                <span class="value"><input class="form-check-input" type="checkbox" aria-label="Marketing emails" /></span>
+              </div>
+            </div>
+          </div>
+          <div class="dash-card mt-3">
+            <div class="card-head"><h6><i class="fa-solid fa-shield-halved me-2" style="color:var(--mint-dark);"></i>Security</h6></div>
+            <div class="card-body">
+              <button class="btn-sm-action outline w-100" onclick="showToast('Password reset link sent to your email')">
+                <i class="fa-solid fa-key me-1"></i>Change Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /page-content -->
+</div><!-- /main-content -->
+
+
+<!-- =============================================
+     MODALS
+============================================= -->
+
+<!-- Add Child Modal -->
+<div class="custom-modal-overlay" id="addChildModal" role="dialog" aria-modal="true" aria-labelledby="addChildTitle">
+  <div class="custom-modal">
+    <div class="modal-header">
+      <h5 id="addChildTitle"><i class="fa-solid fa-baby" aria-hidden="true"></i> Register New Child</h5>
+      <button class="modal-close" onclick="closeModal('addChildModal')" aria-label="Close modal"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="addChildForm" novalidate onsubmit="submitAddChild(event)">
+        <div class="row g-3 booking-form">
+          <div class="col-md-6">
+            <label for="childFirstName">First Name *</label>
+            <input type="text" class="form-control" id="childFirstName" required placeholder="e.g. Oliver" />
+            <div class="invalid-feedback">Please enter first name.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="childLastName">Last Name *</label>
+            <input type="text" class="form-control" id="childLastName" required placeholder="e.g. Mitchell" />
+          </div>
+          <div class="col-md-6">
+            <label for="childDOB">Date of Birth *</label>
+            <input type="date" class="form-control" id="childDOB" required />
+            <div class="invalid-feedback">Please enter date of birth.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="childBlood">Blood Type</label>
+            <select class="form-select" id="childBlood">
+              <option value="">Unknown</option>
+              <option>A+</option><option>A-</option>
+              <option>B+</option><option>B-</option>
+              <option>O+</option><option>O-</option>
+              <option>AB+</option><option>AB-</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="childGender">Gender</label>
+            <select class="form-select" id="childGender">
+              <option>Male</option>
+              <option>Female</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="childAllergies">Known Allergies</label>
+            <input type="text" class="form-control" id="childAllergies" placeholder="e.g. Penicillin, Peanuts" />
+          </div>
+          <div class="col-12" style="margin-top:4px;">
+            <button type="submit" class="quick-btn primary" style="width:100%;justify-content:center;">
+              <i class="fa-solid fa-baby me-2"></i>Register Child
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Add Measurement Modal -->
+<div class="custom-modal-overlay" id="addMeasureModal" role="dialog" aria-modal="true" aria-labelledby="addMeasureTitle">
+  <div class="custom-modal">
+    <div class="modal-header">
+      <h5 id="addMeasureTitle"><i class="fa-solid fa-ruler" aria-hidden="true"></i> Add Manual Measurement</h5>
+      <button class="modal-close" onclick="closeModal('addMeasureModal')" aria-label="Close modal"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="measureForm" novalidate onsubmit="submitMeasure(event)">
+        <div class="row g-3 booking-form">
+          <div class="col-md-6">
+            <label for="measureChild">Child *</label>
+            <select class="form-select" id="measureChild" required>
+              <option value="">Select child</option>
+              <option>Emma Mitchell</option>
+              <option>Liam Mitchell</option>
+            </select>
+            <div class="invalid-feedback">Please select a child.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="measureDate">Date *</label>
+            <input type="date" class="form-control" id="measureDate" required />
+          </div>
+          <div class="col-md-4">
+            <label for="measureHeight">Height (cm) *</label>
+            <input type="number" class="form-control" id="measureHeight" required step="0.1" min="30" max="200" placeholder="e.g. 102.5" />
+            <div class="invalid-feedback">Please enter height.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="measureWeight">Weight (kg) *</label>
+            <input type="number" class="form-control" id="measureWeight" required step="0.1" min="1" max="100" placeholder="e.g. 16.2" />
+            <div class="invalid-feedback">Please enter weight.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="measureBMI">BMI</label>
+            <input type="number" class="form-control" id="measureBMI" readonly placeholder="Auto-calc" style="background:var(--bg-main);" />
+          </div>
+          <div class="col-12">
+            <label for="measureNotes">Notes</label>
+            <input type="text" class="form-control" id="measureNotes" placeholder="Any observations..." />
+          </div>
+          <div class="col-12">
+            <button type="submit" class="quick-btn primary" style="width:100%;justify-content:center;">
+              <i class="fa-solid fa-floppy-disk me-2"></i>Save Measurement
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Booking Confirmation Modal -->
+<div class="custom-modal-overlay" id="bookingConfirmModal" role="dialog" aria-modal="true" aria-labelledby="bookingConfirmTitle">
+  <div class="custom-modal" style="max-width:420px;text-align:center;">
+    <div class="modal-body" style="padding:40px 30px;">
+      <div style="width:70px;height:70px;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.8rem;"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+      <h5 id="bookingConfirmTitle" style="font-weight:900;font-family:var(--font-alt);margin-bottom:8px;">Appointment Booked!</h5>
+      <p style="color:var(--text-muted);font-size:.88rem;">Your appointment request has been submitted. You will receive a confirmation via email and SMS.</p>
+      <button class="quick-btn primary" style="margin-top:20px;width:100%;justify-content:center;" onclick="closeModal('bookingConfirmModal')">
+        Done
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* =============================================
+   THEME
+============================================= */
+function toggleDark() {
+  const body = document.body;
+  const isDark = body.getAttribute('data-theme') === 'dark';
+  body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('darkIcon').className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  document.getElementById('darkLabel').textContent = isDark ? 'Dark Mode' : 'Light Mode';
+  refreshGrowthCharts();
+}
+
+/* =============================================
+   GREETING
+============================================= */
+function setGreeting() {
+  const h = new Date().getHours();
+  let g = h < 12 ? 'Good Morning' : h < 17 ? 'Good Afternoon' : 'Good Evening';
+  document.getElementById('greetingText').innerHTML = g + ', Sarah! <i class="fa-solid fa-hand" aria-hidden="true"></i>';
+}
+setGreeting();
+
+/* =============================================
+   SIDEBAR
+============================================= */
+function toggleSidebar() {
+  const sb = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const btn = document.getElementById('hamburgerBtn');
+  const isOpen = sb.classList.toggle('open');
+  overlay.classList.toggle('show', isOpen);
+  btn.setAttribute('aria-expanded', isOpen);
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('show');
+  document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
+}
+
+/* =============================================
+   SECTION NAV
+============================================= */
+const sectionMap = {
+  'overview':       'sec-overview',
+  'children':       'sec-children',
+  'appointments':   'sec-appointments',
+  'vaccinations':   'sec-vaccinations',
+  'growth':         'sec-growth',
+  'prescriptions':  'sec-prescriptions',
+  'notifications-side': 'sec-prescriptions',
+  'medical-history': 'sec-medical-history',
+  'billing':        'sec-billing',
+  'settings':       'sec-settings',
+};
+
+function showSection(key, linkEl) {
+  // Hide all sections
+  document.querySelectorAll('.dash-section').forEach(s => s.classList.remove('active'));
+  // Show target
+  const target = document.getElementById(sectionMap[key] || 'sec-overview');
+  if (target) target.classList.add('active');
+  // Update sidebar links
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  if (linkEl) {
+    linkEl.classList.add('active');
+    linkEl.setAttribute('aria-current', 'page');
+  }
+  // On mobile, close sidebar
+  if (window.innerWidth < 992) closeSidebar();
+  // Scroll to top
+  document.getElementById('pageContent').scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Trigger chart if growth
+  if (key === 'growth') {
+    setTimeout(renderCharts, 100);
+  }
+}
+
+/* =============================================
+   PROFILE DROPDOWN
+============================================= */
+function toggleProfileDropdown() {
+  const dd = document.getElementById('profileDropdown');
+  const toggle = document.getElementById('profileToggle');
+  const isOpen = dd.classList.toggle('show');
+  toggle.setAttribute('aria-expanded', isOpen);
+}
+document.addEventListener('click', function(e) {
+  const toggle = document.getElementById('profileToggle');
+  if (toggle && !toggle.contains(e.target)) {
+    document.getElementById('profileDropdown').classList.remove('show');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+/* =============================================
+   APPOINTMENT TABS
+============================================= */
+function switchApptTab(tab) {
+  ['upcoming','past','book'].forEach(t => {
+    document.getElementById('appt-'+t).style.display = 'none';
+    const btn = document.getElementById('tab-'+t);
+    if (btn) btn.classList.remove('active');
+  });
+  document.getElementById('appt-'+tab).style.display = 'block';
+  const activeBtn = document.getElementById('tab-'+tab);
+  if (activeBtn) activeBtn.classList.add('active');
+}
+
+/* =============================================
+   CHILD CARD TABS
+============================================= */
+function switchChildTab(btn, panelId) {
+  const card = btn.closest('.child-card');
+  card.querySelectorAll('.child-tabs button').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+  const child = panelId.split('-')[0];
+  ['overview','vax','growth','rx'].forEach(p => {
+    const el = document.getElementById(child+'-'+p);
+    if (el) el.style.display = 'none';
+  });
+  const panel = document.getElementById(panelId);
+  if (panel) panel.style.display = 'block';
+}
+
+/* =============================================
+   VACCINATION CHILD SELECTOR
+============================================= */
+function switchVaxChild(child) {
+  ['emma','liam'].forEach(c => {
+    document.getElementById('vax-'+c).style.display = c === child ? 'block' : 'none';
+    document.getElementById('vaxToggle'+c.charAt(0).toUpperCase()+c.slice(1)).classList.toggle('active', c === child);
+    document.getElementById('vaxToggle'+c.charAt(0).toUpperCase()+c.slice(1)).setAttribute('aria-pressed', c === child);
+  });
+}
+
+/* =============================================
+   GROWTH CHILD SELECTOR + CHARTS
+============================================= */
+let chartsRendered = false;
+let liamChartsRendered = false;
+let growthChartInstances = [];
+
+function chartTheme() {
+  const dark = document.body.getAttribute('data-theme') === 'dark';
+  return {
+    text: dark ? '#A8B8CC' : '#566274',
+    grid: dark ? 'rgba(168,216,234,.12)' : 'rgba(0,0,0,.05)',
+    line: dark ? '#A8D8EA' : '#34445C',
+    fill: dark ? 'rgba(168,216,234,.15)' : 'rgba(52,68,92,.10)',
+    pointBorder: dark ? '#0B1220' : '#34445C',
+    tooltipBg: dark ? '#22304A' : '#34445C'
+  };
+}
+
+function refreshGrowthCharts() {
+  if (!chartsRendered && !liamChartsRendered) return;
+  const hadEmma = chartsRendered;
+  const hadLiam = liamChartsRendered;
+  growthChartInstances.forEach(c => c.destroy());
+  growthChartInstances = [];
+  chartsRendered = false;
+  liamChartsRendered = false;
+  if (hadEmma) renderCharts();
+  if (hadLiam) renderLiamCharts();
+}
+
+function switchGrowthChild(child) {
+  ['emma','liam'].forEach(c => {
+    document.getElementById('growth-'+c).style.display = c === child ? 'block' : 'none';
+    document.getElementById('growthToggle'+c.charAt(0).toUpperCase()+c.slice(1)).classList.toggle('active', c === child);
+    document.getElementById('growthToggle'+c.charAt(0).toUpperCase()+c.slice(1)).setAttribute('aria-pressed', c === child);
+  });
+  if (child === 'emma' && !chartsRendered) renderCharts();
+  if (child === 'liam' && !liamChartsRendered) renderLiamCharts();
+}
+
+/* =============================================
+   CHART.JS CHARTS
+============================================= */
+// WHO Approximate Percentile Data for girls 0-5 years (height cm)
+const months = ["Aug '25", "Nov '25", "Feb '26", "May '26", "Aug '26", "Nov '26"];
+
+function renderCharts() {
+  if (chartsRendered) return;
+  chartsRendered = true;
+
+  const labels = ["Aug '25", "Nov '25", "Feb '26", "May '26", "Aug '26", "Nov '26"];
+  const t = chartTheme();
+
+  // Emma Height
+  const hCtx = document.getElementById('heightChart').getContext('2d');
+  new Chart(hCtx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Emma (Actual)',
+          data: [89.3, 92.0, 95.2, 97.5, 99.8, 102.0],
+          borderColor: t.line,
+          backgroundColor: t.fill,
+          borderWidth: 2.5,
+          pointBackgroundColor: t.line,
+          pointRadius: 5,
+          tension: 0.4,
+          fill: false,
+          order: 0,
+        },
+        {
+          label: '95th %ile',
+          data: [93.5, 96.8, 100.1, 103.3, 106.4, 109.4],
+          borderColor: 'rgba(168,216,234,.6)',
+          backgroundColor: 'rgba(168,216,234,.08)',
+          borderWidth: 1.5,
+          borderDash: [5,4],
+          pointRadius: 0,
+          tension: 0.4,
+          fill: false,
+        },
+        {
+          label: '50th %ile',
+          data: [86.5, 89.5, 92.5, 95.4, 98.2, 100.9],
+          borderColor: 'rgba(184,216,192,.8)',
+          backgroundColor: 'rgba(184,216,192,.12)',
+          borderWidth: 1.5,
+          borderDash: [5,4],
+          pointRadius: 0,
+          tension: 0.4,
+          fill: false,
+        },
+        {
+          label: '5th %ile',
+          data: [79.5, 82.2, 85.0, 87.6, 90.1, 92.5],
+          borderColor: 'rgba(255,214,194,.8)',
+          backgroundColor: 'rgba(255,214,194,.08)',
+          borderWidth: 1.5,
+          borderDash: [5,4],
+          pointRadius: 0,
+          tension: 0.4,
+          fill: false,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'bottom', labels: { color: t.text, font: { family: 'Nunito', size: 11 }, padding: 12 } },
+        tooltip: { backgroundColor: t.tooltipBg, titleFont: { family: 'Nunito', weight: '700' }, bodyFont: { family: 'Nunito' } }
+      },
+      scales: {
+        y: {
+          title: { display: true, text: 'Height (cm)', color: t.text, font: { family: 'Nunito', weight: '700', size: 11 } },
+          min: 75,
+          grid: { color: t.grid },
+          ticks: { color: t.text, font: { family: 'Nunito', size: 11 } }
+        },
+        x: {
+          grid: { color: t.grid },
+          ticks: { color: t.text, font: { family: 'Nunito', size: 11 } }
+        }
+      }
+    }
+  });
+
+  // Emma Weight
+  const wCtx = document.getElementById('weightChart').getContext('2d');
+  new Chart(wCtx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Emma (Actual)',
+          data: [13.9, 14.4, 14.9, 15.3, 15.8, 16.2],
+          borderColor: '#A8D8EA',
+          backgroundColor: 'rgba(168,216,234,.15)',
+          borderWidth: 2.5,
+          pointBackgroundColor: '#A8D8EA',
+          pointBorderColor: t.pointBorder,
+          pointBorderWidth: 1.5,
+          pointRadius: 5,
+          tension: 0.4,
+          fill: true,
+          order: 0,
+        },
+        {
+          label: '95th %ile',
+          data: [16.4, 17.2, 18.0, 18.8, 19.6, 20.4],
+          borderColor: 'rgba(168,216,234,.5)',
+          borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false,
+        },
+        {
+          label: '50th %ile',
+          data: [13.1, 13.7, 14.3, 14.9, 15.4, 16.0],
+          borderColor: 'rgba(184,216,192,.7)',
+          borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false,
+        },
+        {
+          label: '5th %ile',
+          data: [10.8, 11.3, 11.8, 12.3, 12.7, 13.2],
+          borderColor: 'rgba(255,214,194,.7)',
+          borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'bottom', labels: { color: t.text, font: { family: 'Nunito', size: 11 }, padding: 12 } },
+        tooltip: { backgroundColor: t.tooltipBg, titleFont: { family: 'Nunito', weight: '700' }, bodyFont: { family: 'Nunito' } }
+      },
+      scales: {
+        y: {
+          title: { display: true, text: 'Weight (kg)', color: t.text, font: { family: 'Nunito', weight: '700', size: 11 } },
+          min: 9,
+          grid: { color: t.grid },
+          ticks: { color: t.text, font: { family: 'Nunito', size: 11 } }
+        },
+        x: {
+          grid: { color: t.grid },
+          ticks: { color: t.text, font: { family: 'Nunito', size: 11 } }
+        }
+      }
+    }
+  });
+
+  ['heightChart', 'weightChart'].forEach(id => {
+    const el = document.getElementById(id);
+    const c = el && Chart.getChart(el);
+    if (c) growthChartInstances.push(c);
+  });
+}
+
+function renderLiamCharts() {
+  if (liamChartsRendered) return;
+  liamChartsRendered = true;
+
+  const labels = ["Jan '26", "Apr '26", "Jul '26", "Oct '26"];
+  const t = chartTheme();
+
+  const lhCtx = document.getElementById('liamHeightChart').getContext('2d');
+  new Chart(lhCtx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Liam (Actual)', data: [64.0, 70.1, 75.2, 79.0], borderColor: '#FFD6C2', backgroundColor: 'rgba(255,214,194,.15)', borderWidth: 2.5, pointBackgroundColor: '#FFD6C2', pointBorderColor: t.pointBorder, pointBorderWidth: 1.5, pointRadius: 5, tension: 0.4, fill: true },
+        { label: '95th %ile', data: [68.8, 75.5, 80.5, 83.5], borderColor: 'rgba(168,216,234,.5)', borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false },
+        { label: '50th %ile', data: [63.3, 69.9, 75.0, 78.6], borderColor: 'rgba(184,216,192,.7)', borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false },
+        { label: '5th %ile', data: [58.0, 64.4, 69.5, 73.5], borderColor: 'rgba(255,214,194,.5)', borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { position: 'bottom', labels: { color: t.text, font: { family: 'Nunito', size: 11 }, padding: 12 } } },
+      scales: {
+        y: { title: { display: true, text: 'Height (cm)', color: t.text, font: { family: 'Nunito', weight: '700', size: 11 } }, min: 55, grid: { color: t.grid }, ticks: { color: t.text, font: { family: 'Nunito', size: 11 } } },
+        x: { grid: { color: t.grid }, ticks: { color: t.text, font: { family: 'Nunito', size: 11 } } }
+      }
+    }
+  });
+
+  const lwCtx = document.getElementById('liamWeightChart').getContext('2d');
+  new Chart(lwCtx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Liam (Actual)', data: [7.6, 8.5, 9.2, 9.8], borderColor: '#B8D8C0', backgroundColor: 'rgba(184,216,192,.15)', borderWidth: 2.5, pointBackgroundColor: '#B8D8C0', pointBorderColor: t.pointBorder, pointBorderWidth: 1.5, pointRadius: 5, tension: 0.4, fill: true },
+        { label: '95th %ile', data: [8.8, 10.0, 11.0, 11.8], borderColor: 'rgba(168,216,234,.5)', borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false },
+        { label: '50th %ile', data: [7.5, 8.5, 9.4, 10.0], borderColor: 'rgba(184,216,192,.7)', borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false },
+        { label: '5th %ile', data: [6.4, 7.2, 8.0, 8.5], borderColor: 'rgba(255,214,194,.5)', borderWidth: 1.5, borderDash: [5,4], pointRadius: 0, tension: 0.4, fill: false },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { position: 'bottom', labels: { color: t.text, font: { family: 'Nunito', size: 11 }, padding: 12 } } },
+      scales: {
+        y: { title: { display: true, text: 'Weight (kg)', color: t.text, font: { family: 'Nunito', weight: '700', size: 11 } }, min: 5, grid: { color: t.grid }, ticks: { color: t.text, font: { family: 'Nunito', size: 11 } } },
+        x: { grid: { color: t.grid }, ticks: { color: t.text, font: { family: 'Nunito', size: 11 } } }
+      }
+    }
+  });
+
+  ['liamHeightChart', 'liamWeightChart'].forEach(id => {
+    const el = document.getElementById(id);
+    const c = el && Chart.getChart(el);
+    if (c) growthChartInstances.push(c);
+  });
+}
+
+/* =============================================
+   TIME SLOT SELECTION
+============================================= */
+function selectTime(btn) {
+  document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+/* =============================================
+   MODALS
+============================================= */
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) { modal.classList.add('show'); document.body.style.overflow = 'hidden'; }
+}
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) { modal.classList.remove('show'); document.body.style.overflow = ''; }
+}
+// Close on overlay click
+document.querySelectorAll('.custom-modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal(overlay.id);
+  });
+});
+// ESC key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.custom-modal-overlay.show').forEach(m => closeModal(m.id));
+  }
+});
+
+/* =============================================
+   FORM SUBMISSIONS
+============================================= */
+function submitBooking(e) {
+  e.preventDefault();
+  const form = document.getElementById('bookingForm');
+  const child = document.getElementById('bookChild').value;
+  const service = document.getElementById('bookService').value;
+  const date = document.getElementById('bookDate').value;
+  if (!child || !service || !date) {
+    form.classList.add('was-validated');
+    return;
+  }
+  form.reset();
+  form.classList.remove('was-validated');
+  document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
+  document.querySelector('.time-slot:nth-child(3)').classList.add('selected');
+  openModal('bookingConfirmModal');
+}
+
+function submitAddChild(e) {
+  e.preventDefault();
+  const form = document.getElementById('addChildForm');
+  const first = document.getElementById('childFirstName').value;
+  const dob = document.getElementById('childDOB').value;
+  if (!first || !dob) { form.classList.add('was-validated'); return; }
+  form.reset();
+  form.classList.remove('was-validated');
+  closeModal('addChildModal');
+  showToast('Child profile registered successfully! <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i>');
+}
+
+function submitMeasure(e) {
+  e.preventDefault();
+  const form = document.getElementById('measureForm');
+  const child = document.getElementById('measureChild').value;
+  const h = document.getElementById('measureHeight').value;
+  const w = document.getElementById('measureWeight').value;
+  const date = document.getElementById('measureDate').value;
+  if (!child || !h || !w || !date) { form.classList.add('was-validated'); return; }
+  form.reset();
+  form.classList.remove('was-validated');
+  closeModal('addMeasureModal');
+  showToast('Measurement saved successfully! <i class="fa-solid fa-ruler" aria-hidden="true"></i>');
+}
+
+// Auto-calculate BMI
+document.getElementById('measureHeight').addEventListener('input', calcBMI);
+document.getElementById('measureWeight').addEventListener('input', calcBMI);
+function calcBMI() {
+  const h = parseFloat(document.getElementById('measureHeight').value);
+  const w = parseFloat(document.getElementById('measureWeight').value);
+  if (h > 0 && w > 0) {
+    const bmi = (w / ((h/100) ** 2)).toFixed(1);
+    document.getElementById('measureBMI').value = bmi;
+  }
+}
+
+/* =============================================
+   NOTIFICATIONS
+============================================= */
+function markAllRead() {
+  document.querySelectorAll('.notif-item').forEach(item => {
+    item.classList.remove('unread');
+    const dot = item.querySelector('.notif-unread-dot');
+    if (dot) dot.remove();
+  });
+  document.querySelectorAll('.badge-count').forEach(b => b.remove());
+  showToast('All notifications marked as read <i class="fa-solid fa-check" aria-hidden="true"></i>');
+}
+
+/* =============================================
+   PAST PRESCRIPTIONS TOGGLE
+============================================= */
+function togglePastRx() {
+  const list = document.getElementById('pastRxList');
+  const chevron = document.getElementById('pastRxChevron');
+  const toggle = document.getElementById('pastRxToggle');
+  const isOpen = list.classList.toggle('show');
+  chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
+  toggle.setAttribute('aria-expanded', isOpen);
+}
+
+/* =============================================
+   DOWNLOAD VAX RECORD (placeholder)
+============================================= */
+function downloadVaxRecord() {
+  showToast('Preparing vaccination record PDF...');
+}
+
+/* =============================================
+   TOAST NOTIFICATION
+============================================= */
+function showToast(msg) {
+  let toast = document.getElementById('globalToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'globalToast';
+    toast.style.cssText = `
+      position:fixed; bottom:24px; right:24px; z-index:9999;
+      background:var(--accent-solid); color:#fff;
+      padding:14px 22px; border-radius:12px;
+      font-family:var(--font-main); font-size:.85rem; font-weight:700;
+      box-shadow:0 8px 30px rgba(0,0,0,.2);
+      transform:translateY(100px); opacity:0;
+      transition:all .3s ease; max-width:320px;
+      display:flex; align-items:center; gap:10px;
+    `;
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = msg;
+  setTimeout(() => { toast.style.transform = 'translateY(0)'; toast.style.opacity = '1'; }, 10);
+  setTimeout(() => { toast.style.transform = 'translateY(100px)'; toast.style.opacity = '0'; }, 3500);
+}
+
+/* =============================================
+   MIN DATE FOR BOOKING
+============================================= */
+document.addEventListener('DOMContentLoaded', function() {
+  renderCharts();
+  const dateInput = document.getElementById('bookDate');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+  const measureDate = document.getElementById('measureDate');
+  if (measureDate) {
+    const today = new Date().toISOString().split('T')[0];
+    measureDate.value = today;
+    measureDate.max = today;
+  }
+});
+
+/* =============================================
+   KEYBOARD ACCESSIBILITY FOR TOGGLES
+============================================= */
+document.querySelectorAll('.toggle-switch').forEach(sw => {
+  sw.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      sw.classList.toggle('on');
+      sw.setAttribute('aria-checked', sw.classList.contains('on'));
+    }
+  });
+});
+
+</script>
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>

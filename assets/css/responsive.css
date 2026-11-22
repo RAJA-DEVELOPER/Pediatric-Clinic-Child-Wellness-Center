@@ -1,0 +1,1189 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+.container,
+.container-fluid,
+.row,
+[class*="col-"],
+section,
+footer,
+header,
+main,
+.navbar,
+.card {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+.hero,
+.hero2,
+#hero,
+.about-hero,
+.services-hero,
+.blog-hero,
+.contact-hero,
+.cs-hero,
+.hero-404,
+.service-hero {
+  overflow: hidden;
+}
+
+.dropdown-menu {
+  max-width: calc(100vw - 24px);
+}
+
+/* Keep the front navbar pinned and visible while scrolling */
+header .navbar,
+.navbar.fixed-top {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1050 !important;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* backdrop-filter on a fixed navbar can make it vanish during scroll in Chromium */
+header .navbar {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Clear, high-contrast hamburger in both themes */
+.navbar-toggler {
+  border: 2px solid rgba(52, 68, 92, 0.55) !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme="dark"] .navbar-toggler {
+  border-color: rgba(168, 216, 234, 0.7) !important;
+  background-color: rgba(26, 34, 51, 0.7) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2334445C' stroke-width='3' stroke-linecap='round' d='M4 8h22M4 15h22M4 22h22'/%3e%3c/svg%3e") !important;
+  filter: none !important;
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23A8D8EA' stroke-width='3' stroke-linecap='round' d='M4 8h22M4 15h22M4 22h22'/%3e%3c/svg%3e") !important;
+}
+
+@media (min-width: 992px) {
+  header .navbar .navbar-collapse,
+  header .navbar .navbar-nav {
+    align-items: center;
+  }
+
+  header .navbar .navbar-nav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar {
+    max-width: 100%;
+  }
+
+  .navbar > .container,
+  .navbar > .container-fluid {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .navbar-collapse .dropdown-menu {
+    position: static !important;
+    width: 100%;
+    min-width: 0 !important;
+    float: none;
+    margin-top: 0.25rem;
+  }
+
+  .navbar-brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  header .navbar .navbar-toggler {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 40px !important;
+    min-width: 44px !important;
+    padding: 0;
+    margin-left: auto !important;
+    position: relative !important;
+    z-index: 1060 !important;
+  }
+
+  header .navbar .navbar-toggler-icon {
+    display: block !important;
+    width: 22px !important;
+    height: 22px !important;
+    background-size: 100% 100%;
+  }
+
+  .navbar-collapse {
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .hamburger-btn,
+  #sidebarToggle {
+    flex-shrink: 0;
+  }
+
+  .top-search,
+  .topbar-search {
+    min-width: 0;
+  }
+
+  .top-actions,
+  .topbar-actions {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    padding: 70px 0;
+  }
+
+  .footer {
+    padding: 56px 0 24px;
+  }
+
+  .footer-bottom {
+    margin-top: 36px;
+  }
+
+  #hero {
+    padding: 88px 0 50px;
+  }
+
+  .hero2 {
+    min-height: auto;
+  }
+
+  .about-hero,
+  .services-hero,
+  .blog-hero,
+  .contact-hero,
+  .cs-hero,
+  .hero-404,
+  .service-hero {
+    padding-top: 80px;
+    padding-bottom: 56px;
+    min-height: auto;
+  }
+
+  .featured-img {
+    height: 340px;
+  }
+
+  .hero-img img,
+  .hero-img-wrap img {
+    height: 380px;
+  }
+
+  .page-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .cal-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  }
+
+  .vaccine-timeline,
+  .step-wrapper,
+  .floating-info-card,
+  .newsletter-mini-input,
+  .card,
+  [class*="-card"] {
+    min-width: 0 !important;
+  }
+
+  .floating-info-card {
+    left: 0 !important;
+    right: 0;
+  }
+
+  .profile-dropdown {
+    max-width: calc(100vw - 24px);
+  }
+
+  .locations-section .location-tab {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .locations-section .location-card .p-4 {
+    padding: 1.25rem !important;
+  }
+
+  .locations-section .location-map iframe {
+    height: 200px;
+  }
+
+  section {
+    padding: 56px 0;
+  }
+
+  :is(.trending-section, .search-section, .featured-section, .blog-grid-section, .newsletter-section, .categories-section, .loadmore-section, .features-section, .signup-section, .progress-section, .contact-section, .tabs-section, .growth-section, .milestones-section, .specialist-section, .related-section, .age-cards-section, .vaccine-section, .milestone-section, .doctors-section, .packages-section) {
+    padding: 56px 0;
+  }
+
+  #appointment {
+    padding: 56px 0;
+  }
+
+  footer {
+    padding: 48px 0 0;
+  }
+
+  .footer {
+    padding: 48px 0 20px;
+  }
+
+  header .navbar,
+  .navbar {
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+  }
+
+  #hero {
+    padding: 72px 0 40px;
+    min-height: auto;
+  }
+
+  body:has(.navbar.fixed-top):not(:has(#hero)) {
+    padding-top: 64px !important;
+  }
+
+  .hero2 {
+    min-height: auto;
+    padding-top: 88px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .hero2 .row {
+    --bs-gutter-y: 2.5rem;
+  }
+
+  .hero2-title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem) !important;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero2-subtitle {
+    margin-bottom: 1.25rem;
+  }
+
+  .age-filter-group {
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero2-img-wrap img {
+    height: 280px !important;
+  }
+
+  .hero2-float-badge {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.72rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 7vw, 2.5rem);
+  }
+
+  .hero-desc,
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .about-hero,
+  .services-hero,
+  .blog-hero,
+  .contact-hero,
+  .cs-hero,
+  .hero-404,
+  .service-hero {
+    padding: 64px 0 44px;
+  }
+
+  .hero-img img,
+  .hero-img-wrap img {
+    height: 320px;
+  }
+
+  .featured-img {
+    height: 280px;
+  }
+
+  .featured-overlay {
+    padding: 28px 22px;
+  }
+
+  .subscribe-cta {
+    padding: 36px 24px;
+  }
+
+  .form-wrapper {
+    padding: 24px;
+  }
+
+  .signup-form-wrap {
+    padding: 32px 24px;
+  }
+
+  .article-meta {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  .doctor-flip-wrap {
+    height: 340px;
+  }
+
+  table.pricing-table {
+    min-width: 560px;
+  }
+
+  .milestone-card {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .newsletter-wrap {
+    padding: 2rem 1.25rem;
+  }
+
+  .hero2-float-badge {
+    transform: scale(0.9);
+  }
+
+  .hero2-float-badge:nth-child(2) {
+    right: 0;
+  }
+
+  .hero2-float-badge:nth-child(3) {
+    left: 0;
+  }
+
+  .hours-row {
+    flex-wrap: wrap;
+  }
+
+  .footer .newsletter-form,
+  footer .newsletter-form,
+  .footer-newsletter form {
+    flex-wrap: wrap;
+  }
+
+  .page-content {
+    padding: 16px;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+
+  .dash-card .card-body {
+    padding: 16px;
+    overflow-x: auto;
+  }
+
+  .appt-table {
+    min-width: 560px;
+  }
+
+  .growth-table {
+    min-width: 460px;
+  }
+
+  .admin-table {
+    min-width: 640px;
+  }
+
+  .section-card-body {
+    overflow-x: auto;
+  }
+
+  .cal-grid {
+    gap: 3px;
+  }
+
+  .topbar-search {
+    max-width: 160px;
+  }
+
+  .top-search {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  body:has(.navbar.fixed-top):not(:has(#hero)) {
+    padding-top: 64px !important;
+  }
+
+  .hero2 {
+    padding-top: 80px !important;
+    padding-bottom: 44px !important;
+  }
+
+  .hero2-title {
+    font-size: 1.7rem !important;
+  }
+
+  .hero2-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .age-filter-btn {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.78rem;
+  }
+
+  .hero2 .d-flex.flex-wrap.gap-3 {
+    gap: 0.6rem !important;
+  }
+
+  .hero2 .btn.btn-lg {
+    padding: 0.6rem 1.25rem !important;
+    font-size: 0.85rem;
+  }
+
+  .hero2-img-wrap img {
+    height: 240px !important;
+  }
+
+  section {
+    padding: 44px 0;
+  }
+
+  :is(.trending-section, .search-section, .featured-section, .blog-grid-section, .newsletter-section, .categories-section, .loadmore-section, .features-section, .signup-section, .progress-section, .contact-section, .tabs-section, .growth-section, .milestones-section, .specialist-section, .related-section, .age-cards-section, .vaccine-section, .milestone-section, .doctors-section, .packages-section) {
+    padding: 44px 0;
+  }
+
+  #appointment {
+    padding: 44px 0;
+  }
+
+  footer {
+    padding: 40px 0 0;
+  }
+
+  .footer {
+    padding: 40px 0 16px;
+  }
+
+  .footer-bottom {
+    margin-top: 24px;
+  }
+
+  header .navbar,
+  .navbar {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .navbar-toggler {
+    padding: 0.2rem 0.45rem;
+  }
+
+  .navbar-toggler-icon {
+    width: 1.25em;
+    height: 1.25em;
+  }
+
+  .locations-section .text-center.mb-5 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .locations-section .d-flex.justify-content-center.mb-4 {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .locations-section .d-flex.justify-content-center.mb-4 > .d-flex {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 24px !important;
+  }
+
+  .locations-section .location-tab {
+    padding: 0.45rem 0.6rem !important;
+    font-size: 0.78rem;
+  }
+
+  .locations-section .location-tab i {
+    display: none !important;
+  }
+
+  .locations-section .location-map iframe {
+    height: 180px;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-desc,
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .appt-form {
+    padding: 1.25rem !important;
+  }
+
+  .appt-form .btn {
+    width: 100%;
+  }
+
+  .stat-pill {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .specialty-content {
+    padding: 1.25rem;
+  }
+
+  .wellness-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .testimonial-card {
+    padding: 1.25rem;
+  }
+
+  .mvv-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  [class*="blob"] {
+    display: none !important;
+  }
+
+  .hero-img img,
+  .hero-img-wrap img {
+    height: 240px;
+  }
+
+  .hero-img-badge {
+    left: 12px;
+    bottom: 12px;
+    padding: 0.55rem 0.8rem;
+  }
+
+  .hero-img-badge .icon {
+    font-size: 1.3rem;
+  }
+
+  .about-hero,
+  .services-hero,
+  .blog-hero,
+  .contact-hero,
+  .cs-hero,
+  .hero-404,
+  .service-hero {
+    padding: 52px 0 36px;
+  }
+
+  .search-bar button {
+    padding: 0.75rem 1rem;
+  }
+
+  .filter-chips {
+    gap: 0.4rem;
+  }
+
+  .chip {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .pricing-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .insurance-item {
+    font-size: 0.85rem;
+  }
+
+  .step-number {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+
+  .cta-option {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .featured-img {
+    height: 220px;
+  }
+
+  .featured-overlay {
+    padding: 20px 16px;
+  }
+
+  .subscribe-cta {
+    padding: 28px 18px;
+  }
+
+  .signup-form-wrap {
+    padding: 24px 18px;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .newsletter-mini-box {
+    padding: 18px;
+  }
+
+  .newsletter-mini-input {
+    min-width: 100%;
+  }
+
+  .newsletter-mini-btn {
+    width: 100%;
+  }
+
+  .email-input,
+  .subscribe-btn {
+    border-radius: 50px;
+  }
+
+  .article-meta {
+    font-size: 0.78rem;
+  }
+
+  .blog-card-footer {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .article-content {
+    padding: 20px 16px;
+  }
+
+  .author-meta-bar {
+    flex-wrap: wrap;
+  }
+
+  .takeaway-box,
+  .callout-box {
+    padding: 1rem;
+  }
+
+  .vaccine-table {
+    min-width: 520px;
+  }
+
+  .step-progress {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 24px;
+  }
+
+  .step-dot {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .step-line {
+    max-width: 24px;
+  }
+
+  .hours-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .social-card {
+    padding: 1rem;
+  }
+
+  .form-wrapper {
+    padding: 18px;
+  }
+
+  .hours-row {
+    padding: 12px 14px;
+  }
+
+  footer .newsletter-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  footer .newsletter-form .form-control,
+  footer .newsletter-form button,
+  footer .newsletter-form .btn-newsletter {
+    width: 100%;
+    border-radius: 50px;
+  }
+
+  #chatWidget {
+    width: calc(100vw - 32px) !important;
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+
+  .auth-card {
+    padding: 24px 18px;
+  }
+
+  .modal-confirm .modal-body {
+    padding: 1.25rem;
+  }
+
+  #signupForm .d-flex {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100% !important;
+  }
+
+  #signupForm .form-control {
+    width: 100%;
+  }
+
+  #signupForm button {
+    width: 100%;
+  }
+
+  .countdown {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item,
+  .countdown-box {
+    min-width: 60px;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .num-404 {
+    font-size: 5rem;
+  }
+
+  .hero-404::before,
+  .hero-404::after {
+    display: none;
+  }
+
+  .search-box {
+    padding: 20px;
+  }
+
+  .search-box form > .d-flex {
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+    border-radius: 50px;
+  }
+
+  .search-btn {
+    width: 100%;
+    border-radius: 50px;
+  }
+
+  .page-content {
+    padding: 12px;
+  }
+
+  #topNavbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .top-search {
+    display: none;
+  }
+
+  .top-actions {
+    gap: 6px;
+  }
+
+  .dark-toggle span {
+    display: none;
+  }
+
+  .top-profile .p-name,
+  .top-profile .p-role,
+  .top-profile > i {
+    display: none;
+  }
+
+  .hamburger-btn {
+    padding: 4px 6px;
+    font-size: 1.15rem;
+  }
+
+  #sidebarToggle {
+    padding: 6px;
+    font-size: 1.1rem;
+  }
+
+  .section-card-body {
+    padding: 16px;
+  }
+
+  .stat-card {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .stat-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .stat-card-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .stat-info .stat-num,
+  .stat-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .dash-card .card-body {
+    padding: 12px;
+  }
+
+  .cal-grid {
+    grid-template-columns: repeat(7, minmax(72px, 1fr));
+  }
+
+  .cal-cell {
+    min-height: 64px;
+    font-size: 0.68rem;
+  }
+
+  .cal-event {
+    font-size: 0.62rem;
+  }
+
+  .custom-modal {
+    margin: 12px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .custom-modal .modal-body {
+    padding: 16px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-bar input,
+  .filter-bar select,
+  .filter-bar .form-control,
+  .filter-bar .form-select {
+    width: 100%;
+  }
+
+  .toast {
+    width: calc(100vw - 24px) !important;
+    min-width: 0 !important;
+  }
+
+  .dropdown-menu {
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px);
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-dialog {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  body:has(.navbar.fixed-top):not(:has(#hero)) {
+    padding-top: 60px !important;
+  }
+
+  .hero2 {
+    padding-top: 72px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .hero2-title {
+    font-size: 1.55rem !important;
+  }
+
+  .hero2-img-wrap img {
+    height: 220px !important;
+  }
+
+  section {
+    padding: 40px 0;
+  }
+
+  :is(.trending-section, .search-section, .featured-section, .blog-grid-section, .newsletter-section, .categories-section, .loadmore-section, .features-section, .signup-section, .progress-section, .contact-section, .tabs-section, .growth-section, .milestones-section, .specialist-section, .related-section, .age-cards-section, .vaccine-section, .milestone-section, .doctors-section, .packages-section) {
+    padding: 40px 0;
+  }
+
+  #appointment {
+    padding: 40px 0;
+  }
+
+  footer {
+    padding: 36px 0 0;
+  }
+
+  .navbar-brand {
+    font-size: 1.15rem;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-img img,
+  .hero-img-wrap img {
+    height: 210px;
+  }
+
+  .num-404 {
+    font-size: 4.2rem;
+  }
+
+  .page-content {
+    padding: 10px;
+  }
+
+  .stat-card {
+    padding: 10px;
+  }
+
+  .stat-info .stat-num,
+  .stat-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .stat-info .stat-label {
+    font-size: 0.68rem;
+  }
+
+  .top-navbar {
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .topbar-search {
+    display: none;
+  }
+
+  .section-tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .section-tabs button {
+    padding: 7px 14px;
+    font-size: 0.78rem;
+  }
+
+  .features-section .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .dash-card .card-body {
+    padding: 10px;
+  }
+
+  .custom-modal {
+    margin: 8px;
+  }
+
+  .countdown-item,
+  .countdown-box {
+    min-width: 54px;
+    padding: 0.45rem;
+  }
+}
+
+@media (max-width: 320px) {
+  section {
+    padding: 36px 0;
+  }
+
+  :is(.trending-section, .search-section, .featured-section, .blog-grid-section, .newsletter-section, .categories-section, .loadmore-section, .features-section, .signup-section, .progress-section, .contact-section, .tabs-section, .growth-section, .milestones-section, .specialist-section, .related-section, .age-cards-section, .vaccine-section, .milestone-section, .doctors-section, .packages-section) {
+    padding: 36px 0;
+  }
+
+  #appointment {
+    padding: 36px 0;
+  }
+
+  footer {
+    padding: 32px 0 0;
+  }
+
+  .hero-title {
+    font-size: 1.45rem;
+  }
+
+  .hero-img img,
+  .hero-img-wrap img {
+    height: 190px;
+  }
+
+  .num-404 {
+    font-size: 3.6rem;
+  }
+
+  .footer {
+    padding: 32px 0 16px;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+  }
+
+  .auth-card {
+    padding: 20px 14px;
+  }
+
+  .modal-body,
+  .custom-modal .modal-body {
+    padding: 12px;
+  }
+
+  table.pricing-table {
+    min-width: 520px;
+  }
+
+  .appt-table {
+    min-width: 520px;
+  }
+
+  .vaccine-table {
+    min-width: 480px;
+  }
+
+  .admin-table {
+    min-width: 600px;
+  }
+
+  .stat-info .stat-num,
+  .stat-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .stat-icon,
+  .stat-card-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+}

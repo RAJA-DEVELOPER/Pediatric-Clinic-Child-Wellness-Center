@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | PediaCare – Expert Pediatric Healthcare</title>
+  <meta name="description" content="Explore PediaCare's comprehensive pediatric services: wellness checkups, vaccinations, developmental assessments, telemedicine, emergency care, and more." />
+  <meta name="keywords" content="pediatric services, children's healthcare, vaccinations, developmental assessment, telemedicine, emergency pediatrics" />
+  <meta property="og:title" content="Expert Pediatric Services | PediaCare" />
+  <meta property="og:description" content="12 specialized pediatric services delivered by board-certified experts with warmth and precision." />
+  <meta property="og:image" content="https://images.pexels.com/photos/39192344/pexels-photo-39192344.jpeg?auto=compress&cs=tinysrgb&w=600&h=390&fit=crop&crop=faces&q=80" />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org MedicalBusiness + services -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "PediaCare",
+    "url": "https://www.pediacare.example.com",
+    "medicalSpecialty": ["Pediatrics","Neonatology","Allergy","Cardiology","Neurology"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Pediatric Services",
+      "itemListElement": [
+        {"@type":"Offer","itemOffered":{"@type":"MedicalTherapy","name":"Regular Checkups"}},
+        {"@type":"Offer","itemOffered":{"@type":"MedicalTherapy","name":"Vaccination Services"}},
+        {"@type":"Offer","itemOffered":{"@type":"MedicalTherapy","name":"Developmental Assessment"}},
+        {"@type":"Offer","itemOffered":{"@type":"MedicalTherapy","name":"Telemedicine Consultation"}},
+        {"@type":"Offer","itemOffered":{"@type":"MedicalTherapy","name":"Emergency Pediatrics"}}
+      ]
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    :root {
+      --sky-blue: #A8D8EA;
+      --mint-green: #B8D8C0;
+      --peach: #FFD6C2;
+      --cream: #FFF9F2;
+      --navy: #34445C;
+      --white: #ffffff;
+      --text-dark: #2d3748;
+      --text-muted: #566274;
+      --shadow-sm: 0 2px 8px rgba(52,68,92,.08);
+      --shadow-md: 0 8px 24px rgba(52,68,92,.12);
+      --shadow-lg: 0 16px 48px rgba(52,68,92,.16);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --transition: all .3s cubic-bezier(.4,0,.2,1);
+    }
+    [data-theme="dark"] {
+      --cream: #1a2234;
+      --white: #243047;
+      --text-dark: #e2e8f0;
+      --text-muted: #A8B8CC;
+      --navy: #A8D8EA;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.3);
+      --shadow-md: 0 8px 24px rgba(0,0,0,.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      transition: background .3s, color .3s;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Nunito', sans-serif; font-weight: 800; }
+
+    /* ───── NAVBAR ───── */
+    .navbar {
+      background: var(--white) !important;
+      box-shadow: var(--shadow-sm);
+      padding: .75rem 0;
+      transition: var(--transition);
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-md); }
+    .navbar-brand {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+    }
+    .nav-link {
+      font-weight: 600;
+      color: var(--text-dark) !important;
+      padding: .5rem .9rem !important;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .nav-link:hover, .nav-link.active { background: var(--sky-blue); color: var(--navy) !important; }
+    .btn-appt {
+      background: var(--navy);
+      color: #fff !important;
+      border-radius: 50px;
+      padding: .5rem 1.4rem !important;
+      font-weight: 700;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    .btn-appt:hover { background: var(--sky-blue); color: var(--navy) !important; transform: translateY(-2px); }
+    .toggle-btn {
+      background: var(--cream);
+      border: none;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      margin-left: .3rem;
+    }
+    .toggle-btn:hover { background: var(--sky-blue); transform: scale(1.1); }
+
+    /* ───── BREADCRUMB ───── */
+    .breadcrumb-wrap {
+      background: linear-gradient(135deg, var(--sky-blue) 0%, var(--peach) 100%);
+      padding: .6rem 0;
+    }
+    .breadcrumb-item, .breadcrumb-item a { color: var(--navy); font-weight: 600; font-size: .9rem; text-decoration: none; }
+    .breadcrumb-item.active { opacity: .75; }
+    .breadcrumb-item+.breadcrumb-item::before { color: var(--navy); }
+
+    /* ───── SECTION COMMON ───── */
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .section-subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      background: var(--sky-blue);
+      color: var(--navy);
+      border-radius: 50px;
+      padding: .3rem .9rem;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+    section { padding: 90px 0; }
+
+    /* ───── SERVICES HERO ───── */
+    .services-hero {
+      background: linear-gradient(135deg, #e8f6fb 0%, #fff5f0 100%);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+      min-height: 85vh;
+      display: flex; align-items: center;
+    }
+    [data-theme="dark"] .services-hero { background: linear-gradient(135deg, #1a2a3a 0%, #2d2018 100%); }
+    .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .3; animation: blobFloat 8s ease-in-out infinite alternate; }
+    .blob-1 { width: 350px; height: 350px; background: var(--sky-blue); top: -80px; right: -80px; }
+    .blob-2 { width: 300px; height: 300px; background: var(--peach); bottom: -60px; left: -60px; animation-delay: -4s; }
+    @keyframes blobFloat { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(20px,15px) scale(1.07)} }
+
+    .hero-label {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--white);
+      border: 2px solid var(--peach);
+      border-radius: 50px;
+      padding: .4rem 1rem;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .hero-desc { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.8rem; max-width: 500px; }
+    .search-bar {
+      display: flex;
+      background: var(--white);
+      border: 2px solid var(--sky-blue);
+      border-radius: 50px;
+      overflow: hidden;
+      max-width: 440px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .search-bar:focus-within { border-color: var(--navy); box-shadow: var(--shadow-md); }
+    .search-bar input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: .75rem 1.2rem;
+      font-size: .95rem;
+      outline: none;
+      color: var(--text-dark);
+      font-family: 'Quicksand', sans-serif;
+    }
+    .search-bar button {
+      background: var(--navy);
+      border: none;
+      padding: .75rem 1.4rem;
+      color: #fff;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+    .search-bar button:hover { background: var(--sky-blue); color: var(--navy); }
+    .hero-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-img img { width: 100%; height: 480px; object-fit: cover; display: block; }
+
+    /* Filter chips */
+    .filter-chips { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; padding: 1.5rem 0 0; }
+    .chip {
+      background: var(--white);
+      border: 2px solid var(--sky-blue);
+      border-radius: 50px;
+      padding: .5rem 1.3rem;
+      font-weight: 700;
+      font-size: .88rem;
+      color: var(--navy);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    .chip:hover, .chip.active { background: var(--navy); border-color: var(--navy); color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .chip.active { box-shadow: var(--shadow-md); }
+
+    /* ───── SERVICES GRID ───── */
+    .services-grid-section { background: var(--white); }
+    [data-theme="dark"] .services-grid-section { background: #1e2535; }
+    .service-card {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 1.8rem 1.5rem;
+      height: 100%;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    [data-theme="dark"] .service-card { background: #1a2234; }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--sky-blue), var(--mint-green));
+      transform: scaleX(0);
+      transition: var(--transition);
+      transform-origin: left;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--sky-blue); background: var(--white); }
+    [data-theme="dark"] .service-card:hover { background: #243047; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      transition: var(--transition);
+    }
+    .service-card:hover .service-icon-wrap { transform: scale(1.1) rotate(5deg); }
+    .service-category-tag {
+      display: inline-block;
+      border-radius: 50px;
+      padding: .2rem .7rem;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-bottom: .8rem;
+    }
+        .service-card-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 1.2rem;
+      transition: transform 0.35s ease;
+      display: block;
+    }
+    .service-card:hover .service-card-img {
+      transform: scale(1.03);
+    }
+    .service-card h4 { font-size: 1.1rem; color: var(--navy); margin-bottom: .5rem; }
+    .service-card p { color: var(--text-muted); font-size: .9rem; line-height: 1.6; margin: 0; }
+    .service-card .learn-more {
+      display: inline-flex; align-items: center; gap: .4rem;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .85rem;
+      margin-top: 1rem;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: var(--transition);
+    }
+    .service-card:hover .learn-more { opacity: 1; transform: translateX(0); }
+    .service-card[style*="display:none"], .service-card.hidden { display: none !important; }
+
+    /* Category colors */
+    .cat-preventive { background: rgba(168,216,234,.2); color: #2a7fa8; }
+    .cat-diagnostic { background: rgba(184,216,192,.2); color: #3a7a4a; }
+    .cat-specialist { background: rgba(255,214,194,.2); color: #c2663a; }
+    .cat-wellness { background: rgba(168,216,234,.15); color: #5a6a8a; }
+    .cat-emergency { background: rgba(255,100,100,.15); color: #c03a3a; }
+
+    .icon-preventive { background: rgba(168,216,234,.25); color: #2a7fa8; }
+    .icon-diagnostic { background: rgba(184,216,192,.25); color: #3a7a4a; }
+    .icon-specialist { background: rgba(255,214,194,.25); color: #c2663a; }
+    .icon-wellness { background: rgba(100,160,220,.18); color: #4a5a8a; }
+    .icon-emergency { background: rgba(255,100,100,.18); color: #c03a3a; }
+
+    /* ───── HOW IT WORKS ───── */
+    .how-section { background: linear-gradient(135deg, var(--cream) 0%, #eef8f5 100%); }
+    [data-theme="dark"] .how-section { background: linear-gradient(135deg, #1a2234 0%, #1e2a25 100%); }
+    .steps-flow {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .step-wrapper {
+      display: flex;
+      align-items: flex-start;
+      flex: 1;
+      min-width: 200px;
+      max-width: 240px;
+    }
+    .step-connector {
+      flex-shrink: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sky-blue), var(--mint-green));
+      margin-top: 36px;
+      border-radius: 3px;
+      position: relative;
+    }
+    .step-connector::after {
+      content: '→';
+      position: absolute;
+      right: -10px; top: -14px;
+      color: var(--navy);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+    @media(max-width:767px){
+      .step-wrapper { min-width: 150px; }
+      .step-connector { width: 30px; }
+    }
+    @media(max-width:575px){
+      .steps-flow { flex-direction: column; align-items: center; }
+      .step-connector { width: 3px; height: 40px; margin-top: 0; margin-left: 36px; }
+      .step-connector::after { content: '↓'; right: auto; top: auto; bottom: -16px; left: -8px; }
+    }
+    .step-box {
+      text-align: center;
+      padding: 1rem;
+      flex: 1;
+    }
+    .step-number {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Nunito',sans-serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: #fff;
+      margin: 0 auto 1rem;
+      position: relative;
+      box-shadow: var(--shadow-md);
+    }
+    .step-number.s1 { background: var(--sky-blue); color: var(--navy); }
+    .step-number.s2 { background: var(--mint-green); color: var(--navy); }
+    .step-number.s3 { background: var(--peach); color: var(--navy); }
+    .step-number.s4 { background: var(--navy); color: #fff; }
+    .step-icon { font-size: 1.2rem; display: block; margin-bottom: .5rem; color: var(--navy); }
+    .step-box h4 { font-size: 1rem; color: var(--navy); margin-bottom: .4rem; }
+    .step-box p { color: var(--text-muted); font-size: .88rem; line-height: 1.5; }
+    .btn-journey {
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: .9rem 2.4rem;
+      font-weight: 700;
+      font-family: 'Nunito',sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .6rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-journey:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+    /* ───── INSURANCE & PRICING ───── */
+    .insurance-section { background: var(--white); }
+    [data-theme="dark"] .insurance-section { background: #1e2535; }
+    .insurance-item {
+      display: flex; align-items: center; gap: .7rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid rgba(52,68,92,.06);
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: .92rem;
+    }
+    .insurance-item i { color: #27ae60; font-size: 1rem; flex-shrink: 0; }
+    .pricing-table {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    [data-theme="dark"] .pricing-table { background: #1a2234; }
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.4rem;
+      border-bottom: 1px solid rgba(52,68,92,.06);
+      transition: var(--transition);
+    }
+    .pricing-row:last-child { border-bottom: none; }
+    .pricing-row:hover { background: rgba(168,216,234,.15); }
+    .pricing-row span { font-weight: 600; color: var(--text-dark); font-size: .95rem; }
+    .pricing-row strong { color: var(--navy); font-size: 1.1rem; font-family: 'Nunito',sans-serif; }
+    .pricing-note {
+      background: rgba(168,216,234,.2);
+      border-left: 4px solid var(--sky-blue);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: .9rem 1.2rem;
+      font-size: .88rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+    .btn-ins {
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: .6rem 1.4rem;
+      font-weight: 700;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+      text-decoration: none;
+    }
+    .btn-ins:hover { background: var(--sky-blue); color: var(--navy); }
+    .btn-ins.outline {
+      background: transparent;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+    }
+    .btn-ins.outline:hover { background: var(--navy); color: #fff; }
+
+    /* ───── SPECIALIST NETWORK ───── */
+    .specialist-section { background: linear-gradient(135deg, var(--navy) 0%, #1e2a3a 100%); }
+    .specialist-tile {
+      border-radius: var(--radius-md);
+      padding: 1.6rem 1rem;
+      text-align: center;
+      transition: var(--transition);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .specialist-tile:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .spec-icon {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 1rem;
+    }
+    .specialist-tile h5 { color: #fff; font-size: 1rem; margin-bottom: .3rem; }
+    .specialist-tile small { color: rgba(255,255,255,.65); font-size: .8rem; }
+
+    /* Tile color variants */
+    .tile-1 { background: rgba(168,216,234,.12); border: 1px solid rgba(168,216,234,.2); }
+    .tile-1 .spec-icon { background: rgba(168,216,234,.2); color: var(--sky-blue); }
+    .tile-2 { background: rgba(255,120,120,.12); border: 1px solid rgba(255,120,120,.2); }
+    .tile-2 .spec-icon { background: rgba(255,120,120,.2); color: #ff9090; }
+    .tile-3 { background: rgba(184,216,192,.12); border: 1px solid rgba(184,216,192,.2); }
+    .tile-3 .spec-icon { background: rgba(184,216,192,.2); color: var(--mint-green); }
+    .tile-4 { background: rgba(255,214,194,.12); border: 1px solid rgba(255,214,194,.2); }
+    .tile-4 .spec-icon { background: rgba(255,214,194,.2); color: var(--peach); }
+    .tile-5 { background: rgba(100,180,255,.12); border: 1px solid rgba(100,180,255,.2); }
+    .tile-5 .spec-icon { background: rgba(100,180,255,.2); color: #90c8ff; }
+    .tile-6 { background: rgba(255,200,80,.12); border: 1px solid rgba(255,200,80,.2); }
+    .tile-6 .spec-icon { background: rgba(255,200,80,.2); color: #ffd060; }
+    .tile-7 { background: rgba(200,120,255,.12); border: 1px solid rgba(200,120,255,.2); }
+    .tile-7 .spec-icon { background: rgba(200,120,255,.2); color: #c880ff; }
+    .tile-8 { background: rgba(255,160,100,.12); border: 1px solid rgba(255,160,100,.2); }
+    .tile-8 .spec-icon { background: rgba(255,160,100,.2); color: #ffa060; }
+
+    /* ───── TESTIMONIALS + CTA ───── */
+    .testimonials-section { background: var(--cream); }
+    [data-theme="dark"] .testimonials-section { background: var(--cream); }
+    .testi-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      height: 100%;
+      position: relative;
+    }
+    [data-theme="dark"] .testi-card { background: #1e2535; }
+    .testi-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .testi-card::before {
+      content: '"';
+      position: absolute;
+      top: .8rem; right: 1.4rem;
+      font-size: 5rem;
+      color: var(--sky-blue);
+      opacity: .4;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .testi-stars { color: #f59e0b; margin-bottom: .8rem; font-size: 1rem; }
+    .testi-text { color: var(--text-muted); line-height: 1.8; font-size: .95rem; margin-bottom: 1.2rem; }
+    .testi-author { display: flex; align-items: center; gap: .8rem; }
+    .testi-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--sky-blue); }
+    .testi-author strong { color: var(--navy); display: block; font-size: .95rem; }
+    .testi-author small { color: var(--text-muted); font-size: .82rem; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e2a3a 100%);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cta-banner h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: .8rem; position: relative; }
+    .cta-banner p { color: rgba(255,255,255,.75); font-size: 1.05rem; margin-bottom: 2rem; position: relative; }
+    .cta-options { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; position: relative; }
+    .cta-option {
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(255,255,255,.12);
+      border: 2px solid rgba(255,255,255,.25);
+      color: #fff;
+      border-radius: 50px;
+      padding: .7rem 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      font-family: 'Nunito',sans-serif;
+    }
+    .cta-option:hover { background: var(--sky-blue); border-color: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    .cta-option.primary { background: var(--sky-blue); border-color: var(--sky-blue); color: var(--navy); }
+    .cta-option.primary:hover { background: var(--white); }
+
+    /* Mini FAQ */
+    .mini-faq .accordion-button { font-family: 'Nunito',sans-serif; font-weight: 700; color: var(--navy); background: var(--white); font-size: .95rem; }
+    [data-theme="dark"] .mini-faq .accordion-button { background: #1e2535; }
+    .mini-faq .accordion-button:not(.collapsed) { background: var(--sky-blue); color: var(--navy); box-shadow: none; }
+    .mini-faq .accordion-item { border: none; margin-bottom: .5rem; border-radius: var(--radius-sm) !important; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .mini-faq .accordion-body { background: var(--white); color: var(--text-muted); font-size: .92rem; line-height: 1.7; }
+    [data-theme="dark"] .mini-faq .accordion-body { background: #1a2234; }
+
+    /* ───── FOOTER ───── */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.8);
+      padding: 70px 0 0;
+    }
+    .footer-logo { font-family: 'Nunito',sans-serif; font-weight: 900; font-size: 1.6rem; color: #fff; }
+    .footer-desc { font-size: .9rem; line-height: 1.8; opacity: .75; margin-top: .6rem; }
+    .footer-heading { font-family: 'Nunito',sans-serif; font-weight: 800; color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: .5rem; }
+    .footer-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; transition: var(--transition); }
+    .footer-links a:hover { color: var(--sky-blue); padding-left: 4px; }
+    .footer-contact { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: .8rem; font-size: .9rem; }
+    .footer-contact i { color: var(--sky-blue); flex-shrink: 0; margin-top: 2px; }
+    .social-icons { display: flex; gap: .6rem; margin-top: 1rem; }
+    .social-icon {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    .social-icon:hover { background: var(--sky-blue); border-color: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    .newsletter-input { display: flex; gap: .5rem; margin-top: 1rem; }
+    .newsletter-input input {
+      flex: 1;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.1);
+      color: #fff;
+      padding: .5rem 1rem;
+      font-size: .9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .newsletter-input input::placeholder { color: rgba(255,255,255,.5); }
+    .newsletter-input input:focus { border-color: var(--sky-blue); background: rgba(255,255,255,.15); }
+    .newsletter-input button {
+      background: var(--sky-blue); border: none; border-radius: 50px;
+      padding: .5rem 1.2rem; color: var(--navy); font-weight: 700; cursor: pointer; transition: var(--transition); font-size: .9rem;
+    }
+    .newsletter-input button:hover { background: var(--mint-green); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 3rem; padding: 1.2rem 0; font-size: .85rem; opacity: .65; }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 46px; height: 46px;
+      background: var(--navy); color: #fff;
+      border: none; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; cursor: pointer; opacity: 0;
+      transform: translateY(20px); transition: var(--transition); z-index: 1000; box-shadow: var(--shadow-md);
+    }
+    .back-to-top.show { opacity: 1; transform: translateY(0); }
+    .back-to-top:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+
+    /* Responsive */
+    @media(max-width:991px){ .services-hero { padding: 80px 0 60px; min-height: auto; } }
+    @media(max-width:767px){ section { padding: 60px 0; } }
+    [dir="rtl"] .footer-links a:hover { padding-left: 0; padding-right: 4px; }
+  
+/* ===== HOME NAVBAR + FOOTER (SHARED) ===== */
+header, footer {
+  --sky-blue: #A8D8EA;
+  --cream: #FFF9F2;
+  --navy: #34445C;
+  --text-dark: #2c3e50;
+  --text-muted: #566274;
+  --shadow-md: 0 8px 30px rgba(52,68,92,.14);
+  --radius-sm: 0.5rem;
+  --transition: all .3s cubic-bezier(.4,0,.2,1);
+  --font-heading: 'Nunito', sans-serif;
+  --bg-card: #ffffff;
+  --text-body: var(--text-dark);
+}
+[data-theme="dark"] header, [data-theme="dark"] footer {
+  --bg-card: #243046;
+  --text-muted: #A8B8CC;
+  --navy: #A8D8EA;
+  --cream: #1a2233;
+  --text-body: #e8edf5;
+}
+/* ===== NAVBAR ===== */
+    header .navbar {
+      background: rgba(255,249,242,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,216,234,.3);
+      padding: .9rem 0;
+      transition: var(--transition);
+      z-index: 1050;
+    }
+    [data-theme="dark"] header .navbar {
+      background: rgba(26,34,51,.97);
+      border-color: rgba(168,216,234,.15);
+    }
+    header .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    header .navbar-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+      letter-spacing: -.5px;
+    }
+    [data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+    header .nav-link {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--text-dark) !important;
+      padding: .4rem .85rem !important;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    [data-theme="dark"] header .nav-link { color: #e8edf5 !important; }
+    header .nav-link:hover, header .nav-link.active {
+      background: var(--sky-blue);
+      color: var(--navy) !important;
+    }
+    header .btn-appointment {
+      background: linear-gradient(135deg, #34445C, #A8D8EA);
+      color: #fff !important;
+      border: none;
+      border-radius: 30px;
+      padding: .5rem 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(52,68,92,.25);
+    }
+    header .btn-appointment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52,68,92,.35);
+    }
+    header .toggle-btn {
+      background: none;
+      border: 2px solid rgba(168,216,234,.6);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    [data-theme="dark"] header .toggle-btn { color: var(--sky-blue); border-color: rgba(168,216,234,.4); }
+    header .toggle-btn:hover { background: var(--sky-blue); color: var(--navy); }
+
+    
+/* ===== FOOTER ===== */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid rgba(168,216,234,.3);
+      padding: 70px 0 0;
+    }
+    [data-theme="dark"] footer { background: #141c2b; }
+    footer .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: .9rem;
+      display: block;
+    }
+    [data-theme="dark"] footer .footer-brand { color: var(--sky-blue); }
+    footer .footer-about {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    footer .footer-social a {
+      width: 38px; height: 38px;
+      background: rgba(168,216,234,.2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      text-decoration: none;
+      margin-right: .4rem;
+    }
+    [data-theme="dark"] footer .footer-social a { color: var(--sky-blue); background: rgba(168,216,234,.1); }
+    footer .footer-social a:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    footer .footer-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] footer .footer-heading { color: #e8edf5; }
+    footer .footer-links { list-style: none; padding: 0; }
+    footer .footer-links li { margin-bottom: .6rem; }
+    footer .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    footer .footer-links a:hover { color: var(--navy); transform: translateX(4px); }
+    [data-theme="dark"] footer .footer-links a:hover { color: var(--sky-blue); }
+    footer .footer-contact-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: .9rem;
+    }
+    footer .footer-contact-item i {
+      color: var(--sky-blue);
+      font-size: 1rem;
+      margin-top: .15rem;
+      flex-shrink: 0;
+    }
+    footer .newsletter-form .form-control {
+      border-radius: 30px 0 0 30px;
+      border: 2px solid rgba(168,216,234,.4);
+      background: var(--bg-card);
+      color: var(--text-body);
+      padding: .6rem 1.2rem;
+    }
+    footer .newsletter-form .form-control:focus { border-color: var(--sky-blue); box-shadow: none; }
+    footer .newsletter-form .btn-newsletter {
+      border-radius: 0 30px 30px 0;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: .6rem 1.2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: var(--transition);
+    }
+    footer .newsletter-form .btn-newsletter:hover { background: #A8D8EA; color: var(--navy); }
+    footer .footer-bottom {
+      background: rgba(52,68,92,.06);
+      border-top: 1px solid rgba(168,216,234,.2);
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+    }
+    [data-theme="dark"] footer .footer-bottom { background: rgba(0,0,0,.2); }
+    footer .footer-bottom p { color: var(--text-muted); font-size: .85rem; margin: 0; }
+    footer .footer-bottom a { color: var(--sky-blue); text-decoration: none; font-weight: 600; }
+    footer .footer-bottom a:hover { text-decoration: underline; }
+
+    
+/* ===== NAVBAR TOGGLER CUSTOM ===== */
+    header .navbar-toggler { border: 2px solid rgba(168,216,234,.5); border-radius: var(--radius-sm); }
+    header .navbar-toggler:focus { box-shadow: none; }
+    [data-theme="dark"] header .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+header .navbar { color: var(--text-dark) !important; }
+footer { color: var(--text-dark) !important; font-size: 16px !important; }
+footer .footer-bottom { font-size: 14px !important; }body { padding-top: 72px !important; }
+header .navbar { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; }/* ===== HOME NAVBAR OVERRIDE ===== */
+header .navbar {
+  background: rgba(255,249,242,.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(168,216,234,.3) !important;
+  padding: .9rem 0 !important;
+}
+[data-theme="dark"] header .navbar {
+  background: rgba(26,34,51,.97) !important;
+  border-color: rgba(168,216,234,.15) !important;
+}
+header .navbar-brand {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  color: var(--navy) !important;
+  letter-spacing: -.5px !important;
+}
+[data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+header .navbar-nav .nav-link {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: .92rem !important;
+  color: var(--text-dark) !important;
+  padding: .4rem .85rem !important;
+  border-radius: 20px !important;
+}
+[data-theme="dark"] header .navbar-nav .nav-link { color: #e8edf5 !important; }
+header .navbar-nav .nav-link:hover,
+header .navbar-nav .nav-link.active {
+  background: var(--sky-blue) !important;
+  color: var(--navy) !important;
+}
+/* ===== ACCESSIBLE FOOTER CONTRAST ===== */
+footer { background: var(--cream) !important; color: var(--text-dark) !important; }
+footer .footer-about, footer .footer-contact-item, footer .footer-links a,
+footer .footer-bottom, footer .footer-bottom p, footer .footer-bottom a,
+footer .footer-bottom-links a { color: #566274 !important; }
+footer .footer-social a { color: #34445C !important; background: rgba(52,68,92,0.08) !important; border-color: rgba(52,68,92,0.15) !important; }
+footer .footer-newsletter input { background: rgba(52,68,92,0.06) !important; border-color: rgba(52,68,92,0.2) !important; color: #34445C !important; }
+footer .footer-newsletter input::placeholder { color: #566274 !important; }
+[data-theme="dark"] footer { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-about, [data-theme="dark"] footer .footer-contact-item,
+[data-theme="dark"] footer .footer-links a, [data-theme="dark"] footer .footer-bottom,
+[data-theme="dark"] footer .footer-bottom p, [data-theme="dark"] footer .footer-bottom a,
+[data-theme="dark"] footer .footer-bottom-links a { color: #A8B8CC !important; }
+[data-theme="dark"] footer .footer-social a { color: #A8D8EA !important; background: rgba(168,216,234,0.1) !important; border-color: rgba(168,216,234,0.2) !important; }
+[data-theme="dark"] footer .footer-newsletter input { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-newsletter input::placeholder { color: #A8B8CC !important; }/* ===== DARK NAVLINK CONTRAST ===== */
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] header .nav-link:hover,
+[data-theme="dark"] header .nav-link.active,
+[data-theme="dark"] header .navbar-nav .nav-link:hover,
+[data-theme="dark"] header .navbar-nav .nav-link.active {
+  background: #A8D8EA !important;
+  color: #17243A !important;
+}/* ===== PROFILE ICON CONTRAST ===== */
+.profile-menu .dropdown-item i { color: #34445C !important; }
+[data-theme="dark"] .profile-nav .profile-toggle { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-nav .profile-toggle:hover,
+[data-theme="dark"] .profile-nav .profile-toggle[aria-expanded="true"] { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .profile-menu { background: #1E2D3D !important; border: 1px solid rgba(168,216,234,0.15) !important; }
+[data-theme="dark"] .profile-menu .dropdown-item { color: #E8F0F8 !important; }
+[data-theme="dark"] .profile-menu .dropdown-item:hover { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-menu .dropdown-item i { color: #A8D8EA !important; }[data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: #17243A !important; }
+[data-theme="dark"] #copyLabel { color: #17243A !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     STICKY NAVBAR
+═══════════════════════════════════════ -->
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html" aria-label="PediaCare Home">
+        PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+      </a>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMain" aria-controls="navbarMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto gap-1" role="list">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html" aria-current="page">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <!-- Dark mode toggle -->
+          <button class="toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fas fa-moon" id="darkModeIcon"></i>
+          </button>
+          <!-- RTL toggle -->
+          <button class="toggle-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL">
+            <span style="font-size:.62rem;font-weight:800;letter-spacing:.02em;line-height:1">RTL</span>
+          </button>
+          
+          <div class="dropdown profile-nav">
+            <a class="nav-link profile-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+              <i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end profile-menu">
+              <li><a class="dropdown-item" href="parent-dashboard.html"><i class="fa-solid fa-user me-2"></i>User Dashboard</a></li>
+              <li><a class="dropdown-item" href="admin-dashboard.html"><i class="fa-solid fa-user-shield me-2"></i>Admin Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════
+     BREADCRUMB
+═══════════════════════════════════════ -->
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 py-1">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Services</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 1 — SERVICES HERO
+═══════════════════════════════════════ -->
+<section class="services-hero" aria-labelledby="servicesHeroHeading">
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="hero-label">
+          <i class="fa-solid fa-heart-pulse" style="color:var(--navy)"></i>
+          12 Specialized Pediatric Services
+        </span>
+        <h1 class="hero-title" id="servicesHeroHeading">
+          Expert Pediatric<br><span style="color:var(--sky-blue)">Services</span> for<br>Every Stage <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+        </h1>
+        <p class="hero-desc">
+          From newborn care to adolescent health, our comprehensive suite of pediatric services is designed to support your child's wellbeing at every milestone with evidence-based, compassionate care.
+        </p>
+        <div class="search-bar" role="search" aria-label="Find a service">
+          <input type="search" id="serviceSearch" placeholder="Find your service…" aria-label="Search services" autocomplete="off" />
+          <button type="button" onclick="filterBySearch()" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i> Find
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+        <div class="hero-img">
+          <img src="https://images.pexels.com/photos/39192344/pexels-photo-39192344.jpeg?auto=compress&cs=tinysrgb&w=600&h=390&fit=crop&crop=faces&q=80"
+               alt="Pediatric healthcare professional caring for a child patient"
+               width="600" height="480" loading="eager" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="filter-chips mt-4" role="group" aria-label="Filter services by category" data-aos="fade-up" data-aos-delay="200">
+      <button class="chip active" data-filter="all" onclick="filterServices('all', this)">
+        <i class="fa-solid fa-th"></i> All
+      </button>
+      <button class="chip" data-filter="preventive" onclick="filterServices('preventive', this)">
+        <i class="fa-solid fa-shield-heart"></i> Preventive
+      </button>
+      <button class="chip" data-filter="diagnostic" onclick="filterServices('diagnostic', this)">
+        <i class="fa-solid fa-microscope"></i> Diagnostic
+      </button>
+      <button class="chip" data-filter="specialist" onclick="filterServices('specialist', this)">
+        <i class="fa-solid fa-user-doctor"></i> Specialist
+      </button>
+      <button class="chip" data-filter="wellness" onclick="filterServices('wellness', this)">
+        <i class="fa-solid fa-spa"></i> Wellness
+      </button>
+      <button class="chip" data-filter="emergency" onclick="filterServices('emergency', this)">
+        <i class="fa-solid fa-truck-medical"></i> Emergency
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 2 — SERVICES GRID
+═══════════════════════════════════════ -->
+<section class="services-grid-section" id="services-grid" aria-labelledby="servicesGridHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title" id="servicesGridHeading">Comprehensive Pediatric Care</h2>
+      <p class="section-subtitle">Every service tailored to your child's unique needs, delivered by certified pediatric specialists.</p>
+    </div>
+
+    <div class="row g-4" id="servicesContainer" aria-label="Pediatric services">
+
+      <!-- 1. Regular Checkups -->
+      <div class="col-lg-4 col-md-6" data-category="preventive" data-aos="fade-up" data-aos-delay="0">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-preventive"><i class="fa-solid fa-stethoscope"></i></div>
+          <span class="service-category-tag cat-preventive">Preventive</span>
+          <img src="https://images.pexels.com/photos/5998446/pexels-photo-5998446.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Regular Checkups - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Regular Checkups</h4>
+          <p>Comprehensive wellness visits from birth through adolescence, tracking development, nutrition, and overall health at every milestone.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Regular Checkups">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 2. Vaccination Services -->
+      <div class="col-lg-4 col-md-6" data-category="preventive" data-aos="fade-up" data-aos-delay="60">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-preventive"><i class="fa-solid fa-syringe"></i></div>
+          <span class="service-category-tag cat-preventive">Preventive</span>
+          <img src="https://images.pexels.com/photos/8460048/pexels-photo-8460048.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Vaccination Services - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Vaccination Services</h4>
+          <p>Full immunization schedules per AAP guidelines, including standard childhood vaccines, travel vaccines, and flu shots for all ages.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Vaccination Services">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 3. Growth Monitoring -->
+      <div class="col-lg-4 col-md-6" data-category="diagnostic" data-aos="fade-up" data-aos-delay="120">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-diagnostic"><i class="fa-solid fa-chart-line"></i></div>
+          <span class="service-category-tag cat-diagnostic">Diagnostic</span>
+          <img src="https://images.pexels.com/photos/11947830/pexels-photo-11947830.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&q=80" alt="Growth Monitoring - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Growth Monitoring</h4>
+          <p>Height, weight, and BMI tracking with percentile charts and AI-powered trend analysis to identify growth concerns early.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Growth Monitoring">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 4. Nutrition Guidance -->
+      <div class="col-lg-4 col-md-6" data-category="wellness" data-aos="fade-up" data-aos-delay="0">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-wellness"><i class="fa-solid fa-apple-whole"></i></div>
+          <span class="service-category-tag cat-wellness">Wellness</span>
+          <img src="https://images.pexels.com/photos/7447271/pexels-photo-7447271.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Nutrition Guidance - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Nutrition Guidance</h4>
+          <p>Personalized dietary plans from certified pediatric nutritionists, addressing everything from picky eating to childhood obesity management.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Nutrition Guidance">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 5. Developmental Assessment -->
+      <div class="col-lg-4 col-md-6" data-category="specialist" data-aos="fade-up" data-aos-delay="60">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-specialist"><i class="fa-solid fa-brain"></i></div>
+          <span class="service-category-tag cat-specialist">Specialist</span>
+          <img src="https://images.pexels.com/photos/6321641/pexels-photo-6321641.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Developmental Assessment - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Developmental Assessment</h4>
+          <p>Comprehensive evaluation of cognitive, motor, social, and language skills to detect developmental delays and create targeted intervention plans.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Developmental Assessment">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 6. Newborn Care -->
+      <div class="col-lg-4 col-md-6" data-category="specialist" data-aos="fade-up" data-aos-delay="120">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-specialist"><i class="fa-solid fa-baby"></i></div>
+          <span class="service-category-tag cat-specialist">Specialist</span>
+          <img src="https://images.pexels.com/photos/33919289/pexels-photo-33919289.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&q=80" alt="Newborn Care - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Newborn Care</h4>
+          <p>Complete postnatal care from the first hours to 28 days, including neonatal screenings, feeding support, jaundice monitoring, and parental guidance.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Newborn Care">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 7. Allergy Testing -->
+      <div class="col-lg-4 col-md-6" data-category="diagnostic" data-aos="fade-up" data-aos-delay="0">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-diagnostic"><i class="fa-solid fa-flask"></i></div>
+          <span class="service-category-tag cat-diagnostic">Diagnostic</span>
+          <img src="https://images.pexels.com/photos/3997722/pexels-photo-3997722.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Allergy Testing - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Allergy Testing</h4>
+          <p>Comprehensive allergy panels for food, environmental, and drug allergens, plus immunotherapy programs for long-term allergy management.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Allergy Testing">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 8. Child Psychology -->
+      <div class="col-lg-4 col-md-6" data-category="wellness" data-aos="fade-up" data-aos-delay="60">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-wellness"><i class="fa-solid fa-heart"></i></div>
+          <span class="service-category-tag cat-wellness">Wellness</span>
+          <img src="https://images.pexels.com/photos/7653094/pexels-photo-7653094.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Child Psychology - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Child Psychology</h4>
+          <p>Behavioral and emotional support for children ages 2–16, including anxiety, ADHD, depression, trauma-informed care, and family counseling.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Child Psychology">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 9. Telemedicine -->
+      <div class="col-lg-4 col-md-6" data-category="preventive" data-aos="fade-up" data-aos-delay="120">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-preventive"><i class="fa-solid fa-video"></i></div>
+          <span class="service-category-tag cat-preventive">Preventive</span>
+          <img src="https://images.pexels.com/photos/8376168/pexels-photo-8376168.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Telemedicine - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Telemedicine</h4>
+          <p>HIPAA-compliant virtual consultations from the comfort of home — available 7 days a week for follow-ups, minor illness, and medication reviews.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Telemedicine">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 10. School Physicals -->
+      <div class="col-lg-4 col-md-6" data-category="preventive" data-aos="fade-up" data-aos-delay="0">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-preventive"><i class="fa-solid fa-school"></i></div>
+          <span class="service-category-tag cat-preventive">Preventive</span>
+          <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=500&h=300&fit=crop&q=80&auto=format" alt="School Physicals - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>School Physicals</h4>
+          <p>Annual physicals and sports clearance exams meeting all state school requirements, with same-day results and digital record submission.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about School Physicals">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 11. Dental Health -->
+      <div class="col-lg-4 col-md-6" data-category="diagnostic" data-aos="fade-up" data-aos-delay="60">
+        <article class="service-card">
+          <div class="service-icon-wrap icon-diagnostic"><i class="fa-solid fa-tooth"></i></div>
+          <span class="service-category-tag cat-diagnostic">Diagnostic</span>
+          <img src="https://images.pexels.com/photos/6502553/pexels-photo-6502553.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Dental Health - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Dental Health</h4>
+          <p>Oral health assessment and hygiene education for children 1–18, including cavity screening, fluoride treatments, and referral coordination.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Dental Health">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <!-- 12. Emergency Pediatrics -->
+      <div class="col-lg-4 col-md-6" data-category="emergency" data-aos="fade-up" data-aos-delay="120">
+        <article class="service-card" style="border-color:rgba(255,100,100,.2)">
+          <div class="service-icon-wrap icon-emergency"><i class="fa-solid fa-truck-medical"></i></div>
+          <span class="service-category-tag cat-emergency">Emergency</span>
+          <img src="https://images.pexels.com/photos/8376203/pexels-photo-8376203.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Emergency Pediatrics - Pediatric Care" class="service-card-img" loading="lazy" />
+          <h4>Emergency Pediatrics</h4>
+          <p>24/7 urgent care for children in need — from high fevers and respiratory distress to injuries — staffed by pediatric emergency specialists.</p>
+          <a href="#" class="learn-more" aria-label="Learn more about Emergency Pediatrics">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- No results message -->
+    <div id="noResults" class="text-center py-5" style="display:none">
+      <i class="fa-solid fa-magnifying-glass" style="font-size:3rem;color:var(--sky-blue);opacity:.5"></i>
+      <p class="mt-3" style="color:var(--text-muted)">No services found matching your search. Try a different term.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 3 — HOW IT WORKS
+═══════════════════════════════════════ -->
+<section class="how-section" id="how-it-works" aria-labelledby="howHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Simple Process</span>
+      <h2 class="section-title" id="howHeading">Your Care Journey in 4 Simple Steps</h2>
+      <p class="section-subtitle">Getting expert pediatric care has never been easier. Here's how it works from start to finish.</p>
+    </div>
+
+    <div class="steps-flow" data-aos="fade-up" data-aos-delay="100" role="list" aria-label="4-step care journey">
+
+      <!-- Step 1 -->
+      <div class="step-wrapper" role="listitem">
+        <div class="step-box">
+          <div class="step-number s1">1</div>
+          <i class="fa-solid fa-calendar-check step-icon"></i>
+          <h4>Book Online or Call</h4>
+          <p>Schedule through our portal, app, or call any clinic — same-day slots available for urgent visits.</p>
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 2 -->
+      <div class="step-wrapper" role="listitem">
+        <div class="step-box">
+          <div class="step-number s2">2</div>
+          <i class="fa-solid fa-clipboard-check step-icon"></i>
+          <h4>Arrive & Check In</h4>
+          <p>Use our digital check-in kiosk or reception desk. Wait in our child-friendly lounge.</p>
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 3 -->
+      <div class="step-wrapper" role="listitem">
+        <div class="step-box">
+          <div class="step-number s3">3</div>
+          <i class="fa-solid fa-user-doctor step-icon"></i>
+          <h4>Meet Your Doctor</h4>
+          <p>Your board-certified pediatrician conducts a thorough examination and discusses findings with you.</p>
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 4 -->
+      <div class="step-wrapper" role="listitem">
+        <div class="step-box">
+          <div class="step-number s4">4</div>
+          <i class="fa-solid fa-file-medical step-icon" style="color:var(--sky-blue)"></i>
+          <h4>Follow-Up & Records</h4>
+          <p>Access visit summaries, prescriptions, and growth data instantly through our secure parent portal.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="200">
+      <a href="#book" class="btn-journey">
+        <i class="fa-solid fa-rocket"></i>Start Your Journey
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 4 — INSURANCE & PRICING
+═══════════════════════════════════════ -->
+<section class="insurance-section" id="book" aria-labelledby="insuranceHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">No Surprises</span>
+      <h2 class="section-title" id="insuranceHeading">Transparent Pricing & Insurance</h2>
+      <p class="section-subtitle">We believe in upfront, honest pricing and work with most major insurance providers so your child's care is accessible.</p>
+    </div>
+
+    <div class="row g-5 align-items-start">
+      <!-- Insurance -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <h3 style="color:var(--navy);font-size:1.3rem;margin-bottom:1.2rem">
+          <i class="fa-solid fa-id-card me-2" style="color:var(--sky-blue)"></i>Accepted Insurance Providers
+        </h3>
+        <div class="row">
+          <div class="col-6">
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Blue Cross Blue Shield</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Aetna</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Cigna</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> United Healthcare</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Humana</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Medicare / Medicaid</div>
+          </div>
+          <div class="col-6">
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Kaiser Permanente</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Anthem</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Molina Healthcare</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Centene / WellCare</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Oscar Health</div>
+            <div class="insurance-item"><i class="fa-solid fa-circle-check"></i> Tricare / VA</div>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#" class="btn-ins">
+            <i class="fa-solid fa-shield-halved"></i>Verify Your Insurance
+          </a>
+          <a href="#" class="btn-ins outline">
+            <i class="fa-solid fa-file-invoice-dollar"></i>Request Price List
+          </a>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <h3 style="color:var(--navy);font-size:1.3rem;margin-bottom:1.2rem">
+          <i class="fa-solid fa-dollar-sign me-2" style="color:var(--mint-green)"></i>Self-Pay Pricing
+        </h3>
+        <div class="pricing-table" role="table" aria-label="Self-pay pricing table">
+          <div class="pricing-row" role="row">
+            <span role="cell"><i class="fa-solid fa-baby me-2" style="color:var(--sky-blue)"></i>Newborn Checkup</span>
+            <strong role="cell">$85</strong>
+          </div>
+          <div class="pricing-row" role="row">
+            <span role="cell"><i class="fa-solid fa-syringe me-2" style="color:var(--mint-green)"></i>Vaccination Visit</span>
+            <strong role="cell">$65</strong>
+          </div>
+          <div class="pricing-row" role="row">
+            <span role="cell"><i class="fa-solid fa-stethoscope me-2" style="color:var(--peach)"></i>Well-Child Visit</span>
+            <strong role="cell">$95</strong>
+          </div>
+          <div class="pricing-row" role="row">
+            <span role="cell"><i class="fa-solid fa-brain me-2" style="color:var(--sky-blue)"></i>Developmental Assessment</span>
+            <strong role="cell">$150</strong>
+          </div>
+          <div class="pricing-row" role="row">
+            <span role="cell"><i class="fa-solid fa-truck-medical me-2" style="color:#e74c3c"></i>Same-Day Sick Visit</span>
+            <strong role="cell">$110</strong>
+          </div>
+        </div>
+        <div class="pricing-note">
+          <i class="fa-solid fa-circle-info me-2"></i>
+          All prices include doctor consultation, examination, and basic lab interpretation. Additional procedures billed separately.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 5 — SPECIALIST REFERRAL NETWORK
+═══════════════════════════════════════ -->
+<section class="specialist-section" aria-labelledby="specialistHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label" style="background:rgba(168,216,234,.2);color:var(--sky-blue)">Referral Network</span>
+      <h2 class="section-title" id="specialistHeading" style="color:#fff">Comprehensive Specialist Network</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,.7)">We coordinate seamless referrals to the top pediatric specialists in the region, ensuring your child gets the right expert at the right time.</p>
+    </div>
+
+    <div class="row g-3" aria-label="Specialist referral options">
+
+      <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="specialist-tile tile-1">
+          <div class="spec-icon"><i class="fa-solid fa-scissors"></i></div>
+          <h5>Pediatric Surgery</h5>
+          <small>Available via referral</small>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="60">
+        <div class="specialist-tile tile-2">
+          <div class="spec-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h5>Pediatric Cardiology</h5>
+          <small>Available via referral</small>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="120">
+        <div class="specialist-tile tile-3">
+          <div class="spec-icon"><i class="fa-solid fa-brain"></i></div>
+          <h5>Child Neurology</h5>
+          <small>Available via referral</small>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="180">
+        <div class="specialist-tile tile-4">
+          <div class="spec-icon"><i class="fa-solid fa-ear-listen"></i></div>
+          <h5>Pediatric ENT</h5>
+          <small>Available via referral</small>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="specialist-tile tile-5">
+          <div class="spec-icon"><i class="fa-solid fa-eye"></i></div>
+          <h5>Ophthalmology</h5>
+          <small>Available via referral</small>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="60">
+        <div class="specialist-tile tile-6">
+          <div class="spec-icon"><i class="fa-solid fa-bone"></i></div>
+          <h5>Orthopedics</h5>
+          <small>Available via referral</small>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="120">
+        <div class="specialist-tile tile-7">
+          <div class="spec-icon"><i class="fa-solid fa-hand-dots"></i></div>
+          <h5>Dermatology</h5>
+          <small>Available via referral</small>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="180">
+        <div class="specialist-tile tile-8">
+          <div class="spec-icon"><i class="fa-solid fa-ribbon"></i></div>
+          <h5>Oncology</h5>
+          <small>Available via referral</small>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="contact.html" class="btn-journey" style="background:var(--sky-blue);color:var(--navy)">
+        <i class="fa-solid fa-paper-plane"></i>Request a Referral
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 6 — TESTIMONIALS + CTA
+═══════════════════════════════════════ -->
+<section class="testimonials-section" aria-labelledby="testimonialsHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">From Our Families</span>
+      <h2 class="section-title" id="testimonialsHeading">What Parents Are Saying</h2>
+      <p class="section-subtitle">Real experiences from families who trust PediaCare with their most precious ones.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <!-- Testi 1 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="testi-text">"The vaccination service was incredibly smooth. The nurse was so gentle with my 3-year-old, he barely cried! The digital records were available instantly in the parent portal — absolutely love PediaCare."</p>
+          <div class="testi-author">
+            <img src="https://images.pexels.com/photos/28559864/pexels-photo-28559864.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Amanda Torres" class="testi-avatar" loading="lazy" />
+            <div>
+              <strong>Amanda Torres</strong>
+              <small>Vaccination Services patient</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testi 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="testi-text">"Dr. Johnson's developmental assessment was thorough and so reassuring. She identified my son's sensory processing issues early, and thanks to their referral network, he's already making amazing progress."</p>
+          <div class="testi-author">
+            <img src="https://images.pexels.com/photos/29284321/pexels-photo-29284321.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Michael Chen" class="testi-avatar" loading="lazy" />
+            <div>
+              <strong>Michael Chen</strong>
+              <small>Developmental Assessment patient</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testi 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="testi-text">"The telemedicine service saved us on a Sunday evening when my daughter had a high fever. Dr. Kim was on the call within 10 minutes and prescribed medication I could pick up immediately. Life-saving service!"</p>
+          <div class="testi-author">
+            <img src="https://images.pexels.com/photos/29852895/pexels-photo-29852895.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Sarah Williams" class="testi-avatar" loading="lazy" />
+            <div>
+              <strong>Sarah Williams</strong>
+              <small>Telemedicine patient</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner" data-aos="fade-up" role="region" aria-labelledby="ctaBannerHeading">
+      <h2 id="ctaBannerHeading">Questions About Our Services? <i class="fa-solid fa-comments" aria-hidden="true"></i></h2>
+      <p>Our team is available 7 days a week to help you find the right care for your child. Reach us your way.</p>
+      <div class="cta-options">
+        <a href="tel:+18001234567" class="cta-option">
+          <i class="fa-solid fa-phone"></i>Call Us
+        </a>
+        <a href="mailto:hello@pediacare.example.com" class="cta-option">
+          <i class="fa-solid fa-envelope"></i>Email
+        </a>
+        <a href="#" class="cta-option">
+          <i class="fa-solid fa-comments"></i>Live Chat
+        </a>
+        <a href="#" class="cta-option primary">
+          <i class="fa-solid fa-calendar-check"></i>Book Now
+        </a>
+      </div>
+    </div>
+
+    <!-- Mini FAQ -->
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-8">
+        <h3 class="text-center mb-4" style="color:var(--navy);font-size:1.6rem" data-aos="fade-up">Quick Questions</h3>
+        <div class="accordion mini-faq" id="servicesFaq" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sfaq1" aria-expanded="true" aria-controls="sfaq1">
+                <i class="fa-solid fa-clock me-2" style="color:var(--sky-blue)"></i>How quickly can I get a same-day appointment?
+              </button>
+            </h2>
+            <div id="sfaq1" class="accordion-collapse collapse show" data-bs-parent="#servicesFaq">
+              <div class="accordion-body">
+                We reserve a portion of our daily schedule for same-day urgent visits. For sick children who need to be seen quickly, call us as early as possible — typically by 9AM — and we'll do our best to accommodate you that day. Telemedicine same-day slots are even more readily available and can often be booked within 1–2 hours.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sfaq2" aria-expanded="false" aria-controls="sfaq2">
+                <i class="fa-solid fa-file-prescription me-2" style="color:var(--mint-green)"></i>Can I get a referral to a specialist on the same visit?
+              </button>
+            </h2>
+            <div id="sfaq2" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+              <div class="accordion-body">
+                In most cases, yes. Our pediatricians can issue a referral during your child's visit if they determine specialist care is needed. We work with a network of top pediatric specialists and will help coordinate the appointment, share medical records, and follow up on the outcome. For insurance-covered referrals, we ensure all documentation is submitted correctly to avoid delays.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sfaq3" aria-expanded="false" aria-controls="sfaq3">
+                <i class="fa-solid fa-globe me-2" style="color:var(--peach)"></i>Are your services available in multiple languages?
+              </button>
+            </h2>
+            <div id="sfaq3" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+              <div class="accordion-body">
+                Yes! Our staff includes bilingual providers fluent in Spanish, Mandarin, and Arabic. For other languages, we provide professional medical interpreting services at no additional cost to you. We believe language should never be a barrier to quality pediatric care, and we're committed to making every family feel heard and understood.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Col 1: Brand -->
+      <div class="col-lg-4 col-md-6">
+        <span class="footer-brand">PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span>
+        <p class="footer-about">
+          PediaCare is a premier pediatric clinic dedicated to nurturing the health, growth, and happiness of children from birth through adolescence. Our board-certified team combines medical excellence with heartfelt compassion.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+          <li><a href="home2.html"><i class="fas fa-chevron-right fa-xs"></i> Home 2</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          <li><a href="parent-dashboard.html"><i class="fas fa-chevron-right fa-xs"></i> Parent Dashboard</a></li>
+          <li><a href="#appointment"><i class="fas fa-chevron-right fa-xs"></i> Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> General Pediatrics</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Neonatology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Developmental Medicine</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Pediatric Nutrition</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Allergy &amp; Immunology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Vaccinations</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Wellness Programs</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact + Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Wellness Blvd, Suite 200<br>Health City, CA 90001</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1-800-PEDIACARE<br>+1 (555) 234-5678</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>hello@pediacare.com<br>appointments@pediacare.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Open 24/7 · 365 Days a Year</span>
+        </div>
+
+        <h4 class="footer-heading mt-4">Newsletter</h4>
+        <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:.8rem;">Get parenting tips & clinic news.</p>
+        <form class="newsletter-form d-flex" aria-label="Newsletter signup form" onsubmit="return handleNewsletter(event)">
+          <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter" required />
+          <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p>© 2025 PediaCare Medical Group. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+        <a href="#">HIPAA Notice</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  // AOS init
+  AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic', offset: 60 });
+
+  // Navbar scroll
+  const nav = (document.getElementById('mainNav') || document.createElement('span'));
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+  // Dark mode toggle
+  const darkToggle = (document.getElementById('darkToggle') || document.createElement('span'));
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('pediacare-theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+  (darkToggle.querySelector('i') || document.createElement('i')).className = savedTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+  darkToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('pediacare-theme', next);
+    (darkToggle.querySelector('i') || document.createElement('i')).className = next === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+  });
+
+  // RTL toggle
+  (document.getElementById('rtlToggle') || document.createElement('span')).addEventListener('click', () => {
+    html.setAttribute('dir', html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl');
+  });
+
+  // Back to top
+  const btt = (document.getElementById('backToTop') || document.createElement('span'));
+  window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 300));
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ── SERVICE FILTERING ──
+  let activeCategory = 'all';
+
+  function filterServices(category, btn) {
+    activeCategory = category;
+    // Update chips
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    applyFilters();
+  }
+
+  function filterBySearch() {
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const searchTerm = ((document.getElementById('serviceSearch') || document.createElement('span')).value || '').toLowerCase().trim();
+    const cards = document.querySelectorAll('#servicesContainer > [data-category]');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const catMatch = activeCategory === 'all' || card.dataset.category === activeCategory;
+      const text = card.textContent.toLowerCase();
+      const searchMatch = !searchTerm || text.includes(searchTerm);
+      const show = catMatch && searchMatch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    (document.getElementById('noResults') || document.createElement('span')).style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  // Live search
+  (document.getElementById('serviceSearch') || document.createElement('span')).addEventListener('input', applyFilters);
+
+  // Also wire filter chips to scroll into grid
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      setTimeout(() => {
+        (document.getElementById('services-grid') || document.createElement('span')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    });
+  });
+</script>
+
+<script>
+(function () {
+  const navbar = document.getElementById('mainNavbar');
+  if (navbar) {
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  const darkBtn = document.getElementById('darkModeToggle');
+  const darkIcon = document.getElementById('darkModeIcon');
+  const rtlBtn = document.getElementById('rtlToggle');
+  const htmlEl = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    try { localStorage.setItem('pediacare-theme', theme); } catch (e) {}
+    if (darkIcon) {
+      if (theme === 'dark') {
+        darkIcon.classList.remove('fa-moon');
+        darkIcon.classList.add('fa-sun');
+      } else {
+        darkIcon.classList.remove('fa-sun');
+        darkIcon.classList.add('fa-moon');
+      }
+    }
+  }
+
+  let saved = 'light';
+  try { saved = localStorage.getItem('pediacare-theme') || 'light'; } catch (e) {}
+  applyTheme(saved);
+
+  if (darkBtn) {
+    darkBtn.addEventListener('click', () => {
+      applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+  if (rtlBtn) {
+    rtlBtn.addEventListener('click', () => {
+      const cur = htmlEl.getAttribute('dir');
+      htmlEl.setAttribute('dir', cur === 'rtl' ? 'ltr' : 'rtl');
+    });
+  }
+
+  window.handleNewsletter = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const input = form.querySelector('input[type="email"]');
+    if (!input || !input.value) return false;
+    input.value = '';
+    const btn = form.querySelector('button');
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i>';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 2500);
+    }
+    return false;
+  };
+
+  document.querySelectorAll('#navbarMain a').forEach(a => {
+    a.addEventListener('click', () => {
+      const el = document.getElementById('navbarMain');
+      if (el && el.classList.contains('show') && window.bootstrap) {
+        bootstrap.Collapse.getOrCreateInstance(el).hide();
+      }
+    });
+  });
+})();
+</script>
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>

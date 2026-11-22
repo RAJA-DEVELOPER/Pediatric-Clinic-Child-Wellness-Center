@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Meta Tags -->
+  <title>PediaCare – Premium Pediatric Clinic & Child Wellness Center</title>
+  <meta name="description" content="PediaCare is a premium pediatric clinic offering expert child healthcare, wellness programs, vaccinations, developmental medicine, and 24/7 pediatric support for families." />
+  <meta name="keywords" content="pediatric clinic, child health, pediatrician, wellness programs, vaccination, neonatology, child care" />
+  <meta name="author" content="PediaCare Medical Group" />
+  <link rel="canonical" href="https://www.pediacare.com/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pediacare.com/" />
+  <meta property="og:title" content="PediaCare – Where Little Ones Thrive" />
+  <meta property="og:description" content="Expert pediatric care for children from newborns to age 12. Book your appointment today." />
+  <meta property="og:image" content="https://images.pexels.com/photos/5998455/pexels-photo-5998455.jpeg?auto=compress&cs=tinysrgb&w=1200&h=780&fit=crop&crop=faces&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PediaCare – Where Little Ones Thrive" />
+  <meta name="twitter:description" content="Expert pediatric care for children from newborns to age 12." />
+  <meta name="twitter:image" content="https://images.pexels.com/photos/5998455/pexels-photo-5998455.jpeg?auto=compress&cs=tinysrgb&w=1200&h=780&fit=crop&crop=faces&q=80" />
+
+  <!-- Schema.org Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "PediaCare",
+    "description": "Premium Pediatric Clinic & Child Wellness Center",
+    "url": "https://www.pediacare.com",
+    "telephone": "+1-800-PEDIACARE",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Wellness Blvd",
+      "addressLocality": "Health City",
+      "addressRegion": "CA",
+      "postalCode": "90001",
+      "addressCountry": "US"
+    },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "medicalSpecialty": ["Pediatrics", "Neonatology", "Allergy", "Nutrition"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1200"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --sky-blue:   #A8D8EA;
+      --mint-green: #B8D8C0;
+      --peach:      #FFD6C2;
+      --cream:      #FFF9F2;
+      --navy:       #34445C;
+      --navy-dark:  #202d3e;
+      --white:      #ffffff;
+      --text-dark:  #2c3e50;
+      --text-muted: #566274;
+      --shadow-sm:  0 2px 12px rgba(52,68,92,.08);
+      --shadow-md:  0 8px 30px rgba(52,68,92,.14);
+      --shadow-lg:  0 16px 48px rgba(52,68,92,.18);
+      --radius-sm:  0.5rem;
+      --radius-md:  1rem;
+      --radius-lg:  1.5rem;
+      --transition: all .3s cubic-bezier(.4,0,.2,1);
+      --font-heading: 'Nunito', sans-serif;
+      --font-body:    'Quicksand', sans-serif;
+      --bg-body:      var(--cream);
+      --bg-card:      #ffffff;
+      --text-body:    var(--text-dark);
+    }
+    [data-theme="dark"] {
+      --bg-body:   #1a2233;
+      --bg-card:   #243046;
+      --text-body: #e8edf5;
+      --text-muted:#A8B8CC;
+      --navy:      #A8D8EA;
+      --cream:     #1a2233;
+    }
+
+    /* ===== BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-body);
+      color: var(--text-body);
+      transition: background .4s, color .4s;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
+    img { max-width: 100%; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: rgba(255,249,242,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,216,234,.3);
+      padding: .9rem 0;
+      transition: var(--transition);
+      z-index: 1050;
+    }
+    [data-theme="dark"] .navbar {
+      background: rgba(26,34,51,.97);
+      border-color: rgba(168,216,234,.15);
+    }
+    .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    .navbar-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+      letter-spacing: -.5px;
+    }
+    [data-theme="dark"] .navbar-brand { color: var(--sky-blue) !important; }
+    .nav-link {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--text-dark) !important;
+      padding: .4rem .85rem !important;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    [data-theme="dark"] .nav-link { color: #e8edf5 !important; }
+    .nav-link:hover, .nav-link.active {
+      background: var(--sky-blue);
+      color: var(--navy) !important;
+    }
+    .btn-appointment {
+      background: linear-gradient(135deg, #34445C, #A8D8EA);
+      color: #fff !important;
+      border: none;
+      border-radius: 30px;
+      padding: .5rem 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(52,68,92,.25);
+    }
+    .btn-appointment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52,68,92,.35);
+    }
+    .toggle-btn {
+      background: none;
+      border: 2px solid rgba(168,216,234,.6);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    [data-theme="dark"] .toggle-btn { color: var(--sky-blue); border-color: rgba(168,216,234,.4); }
+    .toggle-btn:hover { background: var(--sky-blue); color: var(--navy); }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 60px;
+      background: var(--cream);
+    }
+    [data-theme="dark"] #hero { background: #1a2233; }
+
+    /* Animated blobs */
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: .55;
+      animation: blobFloat 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .blob-1 { width: 480px; height: 480px; background: var(--sky-blue);  top: -120px; left: -120px; animation-delay: 0s; }
+    .blob-2 { width: 360px; height: 360px; background: var(--peach);     bottom: -80px; right: 10%;  animation-delay: 2.5s; }
+    .blob-3 { width: 280px; height: 280px; background: var(--mint-green); top: 40%; left: 35%;     animation-delay: 5s; }
+    @keyframes blobFloat {
+      0%,100% { transform: scale(1) translate(0,0); }
+      33%      { transform: scale(1.08) translate(20px,-15px); }
+      66%      { transform: scale(.94) translate(-15px,20px); }
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(168,216,234,.35);
+      color: var(--navy);
+      border-radius: 30px;
+      padding: .35rem 1.1rem;
+      font-size: .85rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      margin-bottom: 1.2rem;
+      letter-spacing: .5px;
+    }
+    [data-theme="dark"] .hero-eyebrow { background: rgba(168,216,234,.18); color: var(--sky-blue); }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.18;
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] .hero-title { color: #e8edf5; }
+    .hero-title span { color: #A8D8EA; }
+    .hero-sub {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .btn-hero-primary {
+      background: linear-gradient(135deg, var(--navy), #4a6080);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: .8rem 2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(52,68,92,.28);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(52,68,92,.38); color: #fff; }
+    .btn-hero-secondary {
+      background: rgba(168,216,234,.25);
+      color: var(--navy);
+      border: 2px solid var(--sky-blue);
+      border-radius: 30px;
+      padding: .78rem 1.8rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-hero-secondary:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    [data-theme="dark"] .btn-hero-secondary { background: rgba(168,216,234,.12); color: var(--sky-blue); border-color: var(--sky-blue); }
+
+    /* Hero image */
+    .hero-img-wrap {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-circle {
+      width: min(460px, 90vw);
+      height: min(460px, 90vw);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sky-blue) 0%, var(--peach) 100%);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-img-circle img {
+      width: 100%; height: 100%; object-fit: cover;
+      border-radius: 50%;
+      animation: heroImgFloat 6s ease-in-out infinite;
+    }
+    @keyframes heroImgFloat {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-12px); }
+    }
+
+    /* Floating badges */
+    .hero-badge {
+      position: absolute;
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: .6rem 1rem;
+      box-shadow: var(--shadow-md);
+      display: flex; align-items: center; gap: .55rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: .82rem;
+      color: var(--navy);
+      animation: badgeBounce 3s ease-in-out infinite;
+      white-space: nowrap;
+      z-index: 3;
+    }
+    [data-theme="dark"] .hero-badge { background: #243046; color: #e8edf5; }
+    .hero-badge .badge-icon { font-size: 1.2rem; }
+    .hero-badge-1 { top: 8%;  left: -10%; animation-delay: 0s; }
+    .hero-badge-2 { top: 50%; right: -10%; animation-delay: 1.2s; }
+    .hero-badge-3 { bottom: 10%; left: -6%; animation-delay: 2.4s; }
+    @keyframes badgeBounce {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50%      { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      background: var(--navy);
+      padding: 1.4rem 0;
+      position: relative;
+      z-index: 2;
+    }
+    .stat-item { text-align: center; padding: .5rem; }
+    .stat-number {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--sky-blue);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .82rem;
+      color: rgba(255,255,255,.75);
+      font-weight: 600;
+      margin-top: .2rem;
+      font-family: var(--font-heading);
+    }
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,.15);
+      height: 48px;
+      margin: auto;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 90px 0; }
+    .section-badge {
+      display: inline-block;
+      background: rgba(168,216,234,.25);
+      color: var(--navy);
+      border-radius: 30px;
+      padding: .3rem 1rem;
+      font-size: .8rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      margin-bottom: .9rem;
+    }
+    [data-theme="dark"] .section-badge { background: rgba(168,216,234,.15); color: var(--sky-blue); }
+    .section-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .9rem;
+    }
+    [data-theme="dark"] .section-title { color: #e8edf5; }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    /* ===== FACILITIES ===== */
+    #facilities { background: #f5f0eb; }
+    [data-theme="dark"] #facilities { background: #1e2a3a; }
+    .facility-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      height: 100%;
+    }
+    .facility-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .facility-img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .facility-card:hover .facility-img { transform: scale(1.05); }
+    .facility-img-wrap { overflow: hidden; }
+    .facility-body { padding: 1.4rem; }
+    .facility-icon-wrap {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .facility-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: .4rem;
+    }
+    [data-theme="dark"] .facility-title { color: #e8edf5; }
+    .facility-desc {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ===== SPECIALTIES ===== */
+    #specialties { background: var(--cream); }
+    [data-theme="dark"] #specialties { background: #1a2233; }
+    .specialty-tabs .nav-pills { gap: .6rem; flex-wrap: wrap; }
+    .specialty-tabs .nav-link {
+      border-radius: 30px !important;
+      padding: .55rem 1.2rem !important;
+      font-weight: 700 !important;
+      font-family: var(--font-heading) !important;
+      font-size: .88rem !important;
+      color: var(--navy) !important;
+      background: rgba(168,216,234,.18) !important;
+      transition: var(--transition) !important;
+      border: none !important;
+    }
+    .specialty-tabs .nav-link:hover {
+      background: rgba(168,216,234,.4) !important;
+      color: var(--navy) !important;
+    }
+    .specialty-tabs .nav-link.active {
+      background: var(--navy) !important;
+      color: #fff !important;
+      box-shadow: var(--shadow-md);
+    }
+    [data-theme="dark"] .specialty-tabs .nav-link { color: #e8edf5 !important; background: rgba(168,216,234,.1) !important; }
+    [data-theme="dark"] .specialty-tabs .nav-link.active { background: var(--sky-blue) !important; color: var(--navy-dark) !important; }
+    .specialty-content {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-top: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(168,216,234,.2);
+    }
+    .specialty-icon-lg {
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, var(--sky-blue), var(--mint-green));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .specialty-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: .8rem;
+    }
+    [data-theme="dark"] .specialty-heading { color: #e8edf5; }
+    .specialty-desc {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+    }
+    .specialty-list { list-style: none; padding: 0; margin-bottom: 1.8rem; }
+    .specialty-list li {
+      display: flex; align-items: center; gap: .7rem;
+      color: var(--text-body);
+      font-weight: 600;
+      padding: .4rem 0;
+      font-family: var(--font-heading);
+    }
+    .specialty-list li::before {
+      content: '';
+      width: 10px; height: 10px;
+      background: var(--sky-blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .btn-learn-more {
+      background: linear-gradient(135deg, var(--navy), #4a6080);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: .65rem 1.6rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-learn-more:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); color: #fff; }
+
+    /* ===== WELLNESS PROGRAMS ===== */
+    #wellness { background: #f5f0eb; }
+    [data-theme="dark"] #wellness { background: #1e2a3a; }
+    .wellness-card {
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .wellness-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .wellness-card-peach  { background: linear-gradient(135deg, #FFD6C2 0%, #ffcab0 100%); }
+    .wellness-card-mint   { background: linear-gradient(135deg, #B8D8C0 0%, #a3cead 100%); }
+    .wellness-card-sky    { background: linear-gradient(135deg, #A8D8EA 0%, #8ecce0 100%); }
+    [data-theme="dark"] .wellness-card-peach  { background: linear-gradient(135deg, #5a3828 0%, #4a2d1e 100%); }
+    [data-theme="dark"] .wellness-card-mint   { background: linear-gradient(135deg, #1e4030 0%, #163325 100%); }
+    [data-theme="dark"] .wellness-card-sky    { background: linear-gradient(135deg, #1a3d4f 0%, #12303f 100%); }
+    .wellness-emoji { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+    .wellness-title {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin-bottom: .4rem;
+    }
+    [data-theme="dark"] .wellness-title { color: #e8edf5; }
+    .wellness-age {
+      font-size: .82rem;
+      font-weight: 700;
+      color: rgba(52,68,92,.7);
+      font-family: var(--font-heading);
+      margin-bottom: 1rem;
+    }
+    [data-theme="dark"] .wellness-age { color: rgba(232,237,245,.6); }
+    .wellness-desc {
+      font-size: .92rem;
+      color: rgba(52,68,92,.85);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] .wellness-desc { color: rgba(232,237,245,.8); }
+    .wellness-list { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+    .wellness-list li {
+      display: flex; align-items: center; gap: .6rem;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--navy);
+      padding: .3rem 0;
+      font-family: var(--font-heading);
+    }
+    [data-theme="dark"] .wellness-list li { color: #e8edf5; }
+    .wellness-list li i { color: var(--navy); font-size: .8rem; opacity: .8; }
+    [data-theme="dark"] .wellness-list li i { color: var(--sky-blue); }
+    .wellness-fee {
+      display: inline-block;
+      background: rgba(52,68,92,.15);
+      color: var(--navy);
+      border-radius: 30px;
+      padding: .3rem 1rem;
+      font-size: .88rem;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      margin-bottom: 1.4rem;
+    }
+    [data-theme="dark"] .wellness-fee { background: rgba(168,216,234,.18); color: var(--sky-blue); }
+    .btn-enroll {
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: .65rem 1.6rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .92rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .5rem;
+      text-decoration: none;
+    }
+    .btn-enroll:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(52,68,92,.3); color: #fff; }
+    .wellness-bg-deco {
+      position: absolute;
+      bottom: -30px; right: -30px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      pointer-events: none;
+    }
+    .counter-num {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--navy);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    #testimonials { background: var(--cream); }
+    [data-theme="dark"] #testimonials { background: #1a2233; }
+    .swiper-testimonials { padding-bottom: 50px !important; }
+    .testimonial-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(168,216,234,.2);
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .stars { color: #ffc107; font-size: 1.1rem; margin-bottom: 1rem; }
+    .testimonial-quote {
+      font-size: .97rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      flex-grow: 1;
+      margin-bottom: 1.4rem;
+      font-style: italic;
+    }
+    .testimonial-footer { display: flex; align-items: center; gap: 1rem; }
+    .testimonial-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--sky-blue);
+    }
+    .testimonial-name {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: .97rem;
+      color: var(--navy);
+      margin-bottom: .1rem;
+    }
+    [data-theme="dark"] .testimonial-name { color: #e8edf5; }
+    .testimonial-meta {
+      font-size: .8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .swiper-pagination-bullet { background: var(--sky-blue) !important; }
+    .swiper-pagination-bullet-active { background: var(--navy) !important; }
+    .swiper-button-next, .swiper-button-prev {
+      color: var(--navy) !important;
+    }
+    [data-theme="dark"] .swiper-button-next, [data-theme="dark"] .swiper-button-prev { color: var(--sky-blue) !important; }
+
+    /* ===== APPOINTMENT CTA ===== */
+    #appointment {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5872 50%, #A8D8EA 100%);
+      padding: 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .appt-deco {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+      pointer-events: none;
+    }
+    .appt-deco-1 { width: 400px; height: 400px; top: -150px; left: -100px; }
+    .appt-deco-2 { width: 300px; height: 300px; bottom: -100px; right: 5%; }
+    .appt-deco-3 { width: 180px; height: 180px; top: 30%; right: 20%; }
+    .appt-title {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      color: #fff;
+      margin-bottom: .8rem;
+    }
+    .appt-sub { color: rgba(255,255,255,.8); font-size: 1.05rem; line-height: 1.65; margin-bottom: 2rem; }
+    .appt-emoji { font-size: 4rem; margin-bottom: 1rem; display: block; }
+    .appt-form {
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .appt-form .form-label {
+      color: rgba(255,255,255,.9);
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .88rem;
+    }
+    .appt-form .form-control,
+    .appt-form .form-select {
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-family: var(--font-body);
+    }
+    .appt-form .form-control::placeholder { color: rgba(255,255,255,.55); }
+    .appt-form .form-control:focus,
+    .appt-form .form-select:focus {
+      background: rgba(255,255,255,.25);
+      border-color: rgba(255,255,255,.6);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.15);
+      color: #fff;
+      outline: none;
+    }
+    .appt-form .form-select option { background: var(--navy); color: #fff; }
+    .btn-submit-appt {
+      background: #fff;
+      color: var(--navy);
+      border: none;
+      border-radius: 30px;
+      padding: .9rem 2.2rem;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+      box-shadow: 0 6px 20px rgba(0,0,0,.18);
+    }
+    .btn-submit-appt:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.24); }
+    .was-validated .form-control:invalid,
+    .form-control.is-invalid { border-color: #ff7c7c !important; }
+    .invalid-feedback { color: #ffd4d4 !important; font-size: .8rem; font-weight: 600; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid rgba(168,216,234,.3);
+      padding: 70px 0 0;
+    }
+    [data-theme="dark"] footer { background: #141c2b; }
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: .9rem;
+      display: block;
+    }
+    [data-theme="dark"] .footer-brand { color: var(--sky-blue); }
+    .footer-about {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    .footer-social a {
+      width: 38px; height: 38px;
+      background: rgba(168,216,234,.2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      text-decoration: none;
+      margin-right: .4rem;
+    }
+    [data-theme="dark"] .footer-social a { color: var(--sky-blue); background: rgba(168,216,234,.1); }
+    .footer-social a:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] .footer-heading { color: #e8edf5; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: .6rem; }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    .footer-links a:hover { color: var(--navy); transform: translateX(4px); }
+    [data-theme="dark"] .footer-links a:hover { color: var(--sky-blue); }
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: .9rem;
+    }
+    .footer-contact-item i {
+      color: var(--sky-blue);
+      font-size: 1rem;
+      margin-top: .15rem;
+      flex-shrink: 0;
+    }
+    .newsletter-form .form-control {
+      border-radius: 30px 0 0 30px;
+      border: 2px solid rgba(168,216,234,.4);
+      background: var(--bg-card);
+      color: var(--text-body);
+      padding: .6rem 1.2rem;
+    }
+    .newsletter-form .form-control:focus { border-color: var(--sky-blue); box-shadow: none; }
+    .newsletter-form .btn-newsletter {
+      border-radius: 0 30px 30px 0;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: .6rem 1.2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: var(--transition);
+    }
+    .newsletter-form .btn-newsletter:hover { background: #A8D8EA; color: var(--navy); }
+    .footer-bottom {
+      background: rgba(52,68,92,.06);
+      border-top: 1px solid rgba(168,216,234,.2);
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+    }
+    [data-theme="dark"] .footer-bottom { background: rgba(0,0,0,.2); }
+    .footer-bottom p { color: var(--text-muted); font-size: .85rem; margin: 0; }
+    .footer-bottom a { color: var(--sky-blue); text-decoration: none; font-weight: 600; }
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    /* ===== BACK TO TOP ===== */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 46px; height: 46px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 999;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+    }
+    #backToTop:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    #backToTop.visible { display: flex; }
+
+    /* ===== CONFIRMATION MODAL ===== */
+    .modal-confirm .modal-header {
+      background: linear-gradient(135deg, var(--navy), #4a6080);
+      border-radius: 1rem 1rem 0 0;
+    }
+    .modal-confirm .modal-header .modal-title { color: #fff; font-family: var(--font-heading); font-weight: 800; }
+    .modal-confirm .btn-close { filter: invert(1); }
+    .modal-confirm .modal-body { text-align: center; padding: 2.5rem; }
+    .modal-confirm .confirm-emoji { font-size: 4rem; display: block; margin-bottom: 1rem; }
+    .modal-confirm .confirm-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    [data-theme="dark"] .modal-confirm .confirm-title { color: #e8edf5; }
+    .modal-confirm .confirm-sub { color: var(--text-muted); font-size: .95rem; line-height: 1.65; }
+    [data-theme="dark"] .modal-content { background: var(--bg-card); }
+
+    /* ===== RESPONSIVE TWEAKS ===== */
+    @media (max-width: 991.98px) {
+      .hero-img-wrap { margin-top: 2.5rem; }
+      .hero-badge-1 { top: -5%; left: 0; }
+      .hero-badge-2 { top: 50%; right: 0; }
+      .hero-badge-3 { bottom: -5%; left: 0; }
+      .stat-divider { display: none; }
+    }
+    @media (max-width: 767.98px) {
+      .hero-title { font-size: 2rem; }
+      .wellness-card { margin-bottom: 1rem; }
+      .appt-form { padding: 1.5rem; }
+      #appointment .col-lg-5 { margin-top: 2rem; }
+    }
+    @media (max-width: 575.98px) {
+      .hero-badge { font-size: .75rem; padding: .45rem .75rem; }
+      .btn-hero-primary, .btn-hero-secondary { font-size: .88rem; padding: .7rem 1.4rem; }
+    }
+
+    /* ===== RTL ===== */
+    [dir="rtl"] .footer-links a:hover { transform: translateX(-4px); }
+    [dir="rtl"] .specialty-list li::before { margin-left: .7rem; margin-right: 0; }
+    [dir="rtl"] .hero-badge-1 { left: auto; right: -10%; }
+    [dir="rtl"] .hero-badge-2 { right: auto; left: -10%; }
+    [dir="rtl"] .hero-badge-3 { left: auto; right: -6%; }
+
+    /* ===== NAVBAR TOGGLER CUSTOM ===== */
+    .navbar-toggler { border: 2px solid rgba(168,216,234,.5); border-radius: var(--radius-sm); }
+    .navbar-toggler:focus { box-shadow: none; }
+    [data-theme="dark"] .navbar-toggler-icon {
+      filter: invert(1);
+    }
+  /* ===== ACCESSIBLE FOOTER CONTRAST ===== */
+footer { background: var(--cream) !important; color: var(--text-dark) !important; }
+footer .footer-about, footer .footer-contact-item, footer .footer-links a,
+footer .footer-bottom, footer .footer-bottom p, footer .footer-bottom a,
+footer .footer-bottom-links a { color: #566274 !important; }
+footer .footer-social a { color: #34445C !important; background: rgba(52,68,92,0.08) !important; border-color: rgba(52,68,92,0.15) !important; }
+footer .footer-newsletter input { background: rgba(52,68,92,0.06) !important; border-color: rgba(52,68,92,0.2) !important; color: #34445C !important; }
+footer .footer-newsletter input::placeholder { color: #566274 !important; }
+[data-theme="dark"] footer { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-about, [data-theme="dark"] footer .footer-contact-item,
+[data-theme="dark"] footer .footer-links a, [data-theme="dark"] footer .footer-bottom,
+[data-theme="dark"] footer .footer-bottom p, [data-theme="dark"] footer .footer-bottom a,
+[data-theme="dark"] footer .footer-bottom-links a { color: #A8B8CC !important; }
+[data-theme="dark"] footer .footer-social a { color: #A8D8EA !important; background: rgba(168,216,234,0.1) !important; border-color: rgba(168,216,234,0.2) !important; }
+[data-theme="dark"] footer .footer-newsletter input { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-newsletter input::placeholder { color: #A8B8CC !important; }/* ===== DARK NAVLINK CONTRAST ===== */
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] header .nav-link:hover,
+[data-theme="dark"] header .nav-link.active,
+[data-theme="dark"] header .navbar-nav .nav-link:hover,
+[data-theme="dark"] header .navbar-nav .nav-link.active {
+  background: #A8D8EA !important;
+  color: #17243A !important;
+}/* ===== PROFILE ICON CONTRAST ===== */
+.profile-menu .dropdown-item i { color: #34445C !important; }
+[data-theme="dark"] .profile-nav .profile-toggle { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-nav .profile-toggle:hover,
+[data-theme="dark"] .profile-nav .profile-toggle[aria-expanded="true"] { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .profile-menu { background: #1E2D3D !important; border: 1px solid rgba(168,216,234,0.15) !important; }
+[data-theme="dark"] .profile-menu .dropdown-item { color: #E8F0F8 !important; }
+[data-theme="dark"] .profile-menu .dropdown-item:hover { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-menu .dropdown-item i { color: #A8D8EA !important; }[data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: #17243A !important; }
+[data-theme="dark"] #copyLabel { color: #17243A !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html" aria-label="PediaCare Home">
+        PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+      </a>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMain" aria-controls="navbarMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto gap-1" role="list">
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <!-- Dark mode toggle -->
+          <button class="toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fas fa-moon" id="darkModeIcon"></i>
+          </button>
+          <!-- RTL toggle -->
+          <button class="toggle-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL">
+            <span style="font-size:.62rem;font-weight:800;letter-spacing:.02em;line-height:1">RTL</span>
+          </button>
+          
+          <div class="dropdown profile-nav">
+            <a class="nav-link profile-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+              <i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end profile-menu">
+              <li><a class="dropdown-item" href="parent-dashboard.html"><i class="fa-solid fa-user me-2"></i>User Dashboard</a></li>
+              <li><a class="dropdown-item" href="admin-dashboard.html"><i class="fa-solid fa-user-shield me-2"></i>Admin Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ===================== SECTION 1: HERO ===================== -->
+<section id="hero" aria-label="Hero - Where Little Ones Thrive">
+  <!-- Animated background blobs -->
+  <div class="hero-blob blob-1" aria-hidden="true"></div>
+  <div class="hero-blob blob-2" aria-hidden="true"></div>
+  <div class="hero-blob blob-3" aria-hidden="true"></div>
+
+  <div class="container hero-content">
+    <div class="row align-items-center g-4">
+      <!-- Left content -->
+      <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+        <span class="hero-eyebrow"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Trusted by 500+ Families</span>
+        <h1 class="hero-title">
+          Where Little Ones<br><span>Thrive <i class="fa-solid fa-star" aria-hidden="true"></i></span>
+        </h1>
+        <p class="hero-sub">
+          Compassionate, expert pediatric care tailored for every stage of your child's journey — from newborn days to growing-up milestones. Because every child deserves the very best.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#appointment" class="btn-hero-primary">
+            <i class="fas fa-calendar-check"></i> Book Appointment
+          </a>
+          <a href="services.html" class="btn-hero-secondary">
+            <i class="fas fa-stethoscope"></i> View Services
+          </a>
+        </div>
+      </div>
+
+      <!-- Right image -->
+      <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
+        <div class="hero-img-wrap">
+          <!-- Floating badges -->
+          <div class="hero-badge hero-badge-1" aria-label="500+ Happy Families">
+            <span class="badge-icon"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>
+            <span>500+ Happy Families</span>
+          </div>
+          <div class="hero-badge hero-badge-2" aria-label="Expert Pediatricians">
+            <span class="badge-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span>
+            <span>Expert Pediatricians</span>
+          </div>
+          <div class="hero-badge hero-badge-3" aria-label="24/7 Care">
+            <span class="badge-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span>
+            <span>24/7 Care</span>
+          </div>
+
+          <div class="hero-img-circle">
+            <img
+              src="https://images.pexels.com/photos/5998455/pexels-photo-5998455.jpeg?auto=compress&cs=tinysrgb&w=600&h=390&fit=crop&crop=faces&q=80"
+              alt="Friendly pediatric doctor with a child patient"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar" role="region" aria-label="Clinic Statistics">
+  <div class="container">
+    <div class="row justify-content-center align-items-center g-0">
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-number" data-counter="10" data-suffix="+">10+</div>
+          <div class="stat-label">Expert Doctors</div>
+        </div>
+      </div>
+      <div class="col-auto d-none d-md-block"><div class="stat-divider"></div></div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-number" data-counter="5000" data-suffix="+">5000+</div>
+          <div class="stat-label">Children Treated</div>
+        </div>
+      </div>
+      <div class="col-auto d-none d-md-block"><div class="stat-divider"></div></div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-number" data-counter="15" data-suffix="+">15+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+      <div class="col-auto d-none d-md-block"><div class="stat-divider"></div></div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter-decimal="4.9" data-suffix="">4.9</span> <i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SECTION 2: CLINIC FACILITIES ===================== -->
+<section id="facilities" aria-labelledby="facilities-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge" data-aos="fade-up"><i class="fa-solid fa-hospital" aria-hidden="true"></i> Our Facilities</span>
+      <h2 class="section-title" id="facilities-heading" data-aos="fade-up" data-aos-delay="80">
+        World-Class Facilities for<br>Your Little Champions
+      </h2>
+      <p class="section-sub" data-aos="fade-up" data-aos-delay="150">
+        Every room, every corner, every detail is designed with your child's comfort, safety, and happiness in mind.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="facility-card">
+          <div class="facility-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/8460035/pexels-photo-8460035.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+              alt="Pediatrician with a child in a modern exam room"
+              class="facility-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="facility-body">
+            <div class="facility-icon-wrap" style="background:rgba(168,216,234,.25);">
+              <i class="fas fa-clinic-medical" style="color:#34445C;"></i>
+            </div>
+            <h3 class="facility-title">Modern Exam Rooms</h3>
+            <p class="facility-desc">Child-friendly, fully equipped exam rooms designed to ease anxiety and ensure accurate diagnoses every visit.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="facility-card">
+          <div class="facility-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/3992931/pexels-photo-3992931.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+              alt="Vaccination suite with trained pediatric nurses"
+              class="facility-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="facility-body">
+            <div class="facility-icon-wrap" style="background:rgba(184,216,192,.3);">
+              <i class="fas fa-syringe" style="color:#34445C;"></i>
+            </div>
+            <h3 class="facility-title">Vaccination Suite</h3>
+            <p class="facility-desc">Safe, sterile vaccination suite with gentle-touch nurses who make immunization visits calm and comfortable.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="facility-card">
+          <div class="facility-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/31212341/pexels-photo-31212341.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+              alt="Play-friendly colorful waiting area for children"
+              class="facility-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="facility-body">
+            <div class="facility-icon-wrap" style="background:rgba(255,214,194,.4);">
+              <i class="fas fa-gamepad" style="color:#34445C;"></i>
+            </div>
+            <h3 class="facility-title">Play-Friendly Waiting</h3>
+            <p class="facility-desc">A vibrant, toy-filled waiting area that transforms waiting time into playtime — kids love it here!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="facility-card">
+          <div class="facility-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=260&fit=crop&q=80&auto=format"
+              alt="Pediatric diagnostic laboratory"
+              class="facility-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="facility-body">
+            <div class="facility-icon-wrap" style="background:rgba(168,216,234,.25);">
+              <i class="fas fa-flask" style="color:#34445C;"></i>
+            </div>
+            <h3 class="facility-title">Diagnostic Lab</h3>
+            <p class="facility-desc">In-house pediatric lab with rapid-result testing for blood work, cultures, and comprehensive health panels.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 3: PEDIATRIC SPECIALTIES ===================== -->
+<section id="specialties" aria-labelledby="specialties-heading">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="section-badge" data-aos="fade-up"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Expertise</span>
+      <h2 class="section-title" id="specialties-heading" data-aos="fade-up" data-aos-delay="80">
+        Our Specialties
+      </h2>
+      <p class="section-sub" data-aos="fade-up" data-aos-delay="150">
+        From newborns to preteens, our board-certified specialists cover every dimension of child health with compassion and evidence-based care.
+      </p>
+    </div>
+
+    <div class="specialty-tabs" data-aos="fade-up" data-aos-delay="200">
+      <!-- Tab Nav -->
+      <ul class="nav nav-pills justify-content-center mb-0" id="specialtyTabs" role="tablist" aria-label="Pediatric specialties">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tab-general" data-bs-toggle="pill" data-bs-target="#panel-general"
+                  type="button" role="tab" aria-controls="panel-general" aria-selected="true">
+            <i class="fas fa-child me-1"></i> General Pediatrics
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-neo" data-bs-toggle="pill" data-bs-target="#panel-neo"
+                  type="button" role="tab" aria-controls="panel-neo" aria-selected="false">
+            <i class="fas fa-baby me-1"></i> Neonatology
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-dev" data-bs-toggle="pill" data-bs-target="#panel-dev"
+                  type="button" role="tab" aria-controls="panel-dev" aria-selected="false">
+            <i class="fas fa-brain me-1"></i> Developmental Medicine
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-nut" data-bs-toggle="pill" data-bs-target="#panel-nut"
+                  type="button" role="tab" aria-controls="panel-nut" aria-selected="false">
+            <i class="fas fa-apple-alt me-1"></i> Pediatric Nutrition
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-allergy" data-bs-toggle="pill" data-bs-target="#panel-allergy"
+                  type="button" role="tab" aria-controls="panel-allergy" aria-selected="false">
+            <i class="fas fa-shield-alt me-1"></i> Allergy &amp; Immunology
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div class="tab-content" id="specialtyTabContent">
+
+        <!-- General Pediatrics -->
+        <div class="tab-pane fade show active specialty-content" id="panel-general" role="tabpanel" aria-labelledby="tab-general">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <div class="specialty-icon-lg" aria-hidden="true"><i class="fas fa-child"></i></div>
+              <h3 class="specialty-heading">General Pediatrics</h3>
+              <p class="specialty-desc">Our general pediatricians provide comprehensive primary care for children from birth through adolescence. We monitor growth and development, manage acute illnesses, and serve as your trusted healthcare partner for every milestone.</p>
+              <ul class="specialty-list" aria-label="General Pediatrics services">
+                <li>Well-child check-ups & growth monitoring</li>
+                <li>Acute illness diagnosis & treatment</li>
+                <li>Immunization scheduling & administration</li>
+                <li>Referral coordination & chronic condition management</li>
+              </ul>
+              <a href="services.html" class="btn-learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="col-lg-5 text-center">
+              <img src="https://images.pexels.com/photos/39192341/pexels-photo-39192341.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80" alt="General pediatrics consultation" class="img-fluid rounded-4" style="max-height:300px;object-fit:cover;width:100%;" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Neonatology -->
+        <div class="tab-pane fade specialty-content" id="panel-neo" role="tabpanel" aria-labelledby="tab-neo">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <div class="specialty-icon-lg" style="background:linear-gradient(135deg,var(--peach),#f5b8a0);" aria-hidden="true"><i class="fas fa-baby"></i></div>
+              <h3 class="specialty-heading">Neonatology</h3>
+              <p class="specialty-desc">Our neonatology team provides specialized care for newborns, especially premature babies and those requiring intensive medical attention. We work closely with families from the first breath to bring every baby home healthy and strong.</p>
+              <ul class="specialty-list">
+                <li>NICU-level newborn intensive care</li>
+                <li>Premature infant monitoring & feeding support</li>
+                <li>Newborn hearing & metabolic screening</li>
+                <li>Family-centered care & parent education</li>
+              </ul>
+              <a href="services.html" class="btn-learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="col-lg-5 text-center">
+              <img src="https://images.pexels.com/photos/4964214/pexels-photo-4964214.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&q=80" alt="Neonatology care for newborns" class="img-fluid rounded-4" style="max-height:300px;object-fit:cover;width:100%;" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Developmental Medicine -->
+        <div class="tab-pane fade specialty-content" id="panel-dev" role="tabpanel" aria-labelledby="tab-dev">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <div class="specialty-icon-lg" style="background:linear-gradient(135deg,var(--mint-green),#8dc89a);" aria-hidden="true"><i class="fas fa-brain"></i></div>
+              <h3 class="specialty-heading">Developmental Medicine</h3>
+              <p class="specialty-desc">Our developmental pediatricians specialize in evaluating and supporting children with developmental delays, learning differences, autism spectrum disorders, and behavioral challenges — empowering every child to reach their full potential.</p>
+              <ul class="specialty-list">
+                <li>Autism spectrum disorder assessment & therapy planning</li>
+                <li>ADHD evaluation & management</li>
+                <li>Speech, language & occupational therapy referral</li>
+                <li>Developmental milestone screening & early intervention</li>
+              </ul>
+              <a href="services.html" class="btn-learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="col-lg-5 text-center">
+              <img src="https://images.pexels.com/photos/6321641/pexels-photo-6321641.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80" alt="Developmental medicine assessment" class="img-fluid rounded-4" style="max-height:300px;object-fit:cover;width:100%;" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Pediatric Nutrition -->
+        <div class="tab-pane fade specialty-content" id="panel-nut" role="tabpanel" aria-labelledby="tab-nut">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <div class="specialty-icon-lg" style="background:linear-gradient(135deg,#ffe08a,#ffd060);" aria-hidden="true"><i class="fas fa-apple-alt"></i></div>
+              <h3 class="specialty-heading">Pediatric Nutrition</h3>
+              <p class="specialty-desc">Good nutrition is the cornerstone of healthy growth. Our pediatric dietitians craft personalized meal plans, tackle feeding challenges, and guide families through every nutritional stage — from first foods to teen diet choices.</p>
+              <ul class="specialty-list">
+                <li>Infant feeding & breastfeeding support</li>
+                <li>Childhood obesity management programs</li>
+                <li>Allergy-friendly & specialized dietary planning</li>
+                <li>Nutritional counseling for growth deficiencies</li>
+              </ul>
+              <a href="services.html" class="btn-learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="col-lg-5 text-center">
+              <img src="https://images.pexels.com/photos/28442529/pexels-photo-28442529.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80" alt="Pediatric nutrition consultation" class="img-fluid rounded-4" style="max-height:300px;object-fit:cover;width:100%;" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Allergy & Immunology -->
+        <div class="tab-pane fade specialty-content" id="panel-allergy" role="tabpanel" aria-labelledby="tab-allergy">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <div class="specialty-icon-lg" style="background:linear-gradient(135deg,#c8aeff,#b08ee0);" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
+              <h3 class="specialty-heading">Allergy &amp; Immunology</h3>
+              <p class="specialty-desc">From seasonal allergies to complex immune disorders, our allergy specialists provide accurate testing, innovative treatments, and ongoing support to keep your child breathing easy and living fully.</p>
+              <ul class="specialty-list">
+                <li>Food & environmental allergy testing & treatment</li>
+                <li>Asthma management & action plans</li>
+                <li>Immunotherapy (allergy shots) for children</li>
+                <li>Primary immunodeficiency evaluation & care</li>
+              </ul>
+              <a href="services.html" class="btn-learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="col-lg-5 text-center">
+              <img src="https://images.pexels.com/photos/3997722/pexels-photo-3997722.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80" alt="Pediatrician examining a child for allergies" class="img-fluid rounded-4" style="max-height:300px;object-fit:cover;width:100%;" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /tab-content -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 4: WELLNESS PROGRAMS ===================== -->
+<section id="wellness" aria-labelledby="wellness-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge" data-aos="fade-up"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Programs</span>
+      <h2 class="section-title" id="wellness-heading" data-aos="fade-up" data-aos-delay="80">
+        Comprehensive Wellness Programs
+      </h2>
+      <p class="section-sub" data-aos="fade-up" data-aos-delay="150">
+        Structured programs that nurture your child's health at every stage, with dedicated support for families every step of the way.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Program 1: Healthy Start -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="wellness-card wellness-card-peach h-100">
+          <div class="wellness-bg-deco" aria-hidden="true"></div>
+          <span class="wellness-emoji" aria-hidden="true"><i class="fa-solid fa-baby" aria-hidden="true"></i></span>
+          <h3 class="wellness-title">Healthy Start Program</h3>
+          <p class="wellness-age">Newborns · 0–12 months</p>
+          <p class="wellness-desc">Give your newborn the strongest possible start with our comprehensive first-year care program. Expert guidance on feeding, sleeping, growth, and all early milestones.</p>
+          <ul class="wellness-list" aria-label="Healthy Start Program services">
+            <li><i class="fas fa-check-circle"></i> Monthly well-baby check-ups</li>
+            <li><i class="fas fa-check-circle"></i> Complete vaccination schedule</li>
+            <li><i class="fas fa-check-circle"></i> Breastfeeding & nutrition support</li>
+            <li><i class="fas fa-check-circle"></i> 24/7 nurse hotline access</li>
+            <li><i class="fas fa-check-circle"></i> Parent education workshops</li>
+          </ul>
+          <div class="wellness-fee">From $89 / month</div>
+          <br />
+          <a href="#appointment" class="btn-enroll">
+            Enroll Now <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Program 2: Growing Strong -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="wellness-card wellness-card-mint h-100">
+          <div class="wellness-bg-deco" aria-hidden="true"></div>
+          <span class="wellness-emoji" aria-hidden="true"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+          <h3 class="wellness-title">Growing Strong Program</h3>
+          <p class="wellness-age">Toddlers · 1–5 years</p>
+          <p class="wellness-desc">The toddler years are magical and fast-paced. Our program supports language development, motor skills, socialization, nutrition, and behavioral milestones with expert guidance.</p>
+          <ul class="wellness-list">
+            <li><i class="fas fa-check-circle"></i> Bi-annual developmental assessments</li>
+            <li><i class="fas fa-check-circle"></i> Dental health screenings</li>
+            <li><i class="fas fa-check-circle"></i> Nutrition & healthy eating plans</li>
+            <li><i class="fas fa-check-circle"></i> Behavioral guidance sessions</li>
+            <li><i class="fas fa-check-circle"></i> Group play & social skills classes</li>
+          </ul>
+          <div class="wellness-fee">From $69 / month</div>
+          <br />
+          <a href="#appointment" class="btn-enroll">
+            Enroll Now <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Program 3: School Ready -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="wellness-card wellness-card-sky h-100">
+          <div class="wellness-bg-deco" aria-hidden="true"></div>
+          <span class="wellness-emoji" aria-hidden="true"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+          <h3 class="wellness-title">School Ready Program</h3>
+          <p class="wellness-age">School-Age · 5–12 years</p>
+          <p class="wellness-desc">Equip your school-age child with optimal health, focus, and resilience. Our program covers physical exams, learning support, mental wellness, and sports health checks.</p>
+          <ul class="wellness-list">
+            <li><i class="fas fa-check-circle"></i> Annual physical &amp; vision exams</li>
+            <li><i class="fas fa-check-circle"></i> Learning &amp; focus assessments</li>
+            <li><i class="fas fa-check-circle"></i> Sports physicals &amp; injury prevention</li>
+            <li><i class="fas fa-check-circle"></i> Mental health & stress support</li>
+            <li><i class="fas fa-check-circle"></i> Nutrition coaching for school success</li>
+          </ul>
+          <div class="wellness-fee">From $59 / month</div>
+          <br />
+          <a href="#appointment" class="btn-enroll">
+            Enroll Now <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 5: TESTIMONIALS ===================== -->
+<section id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge" data-aos="fade-up"><i class="fa-solid fa-comments" aria-hidden="true"></i> Reviews</span>
+      <h2 class="section-title" id="testimonials-heading" data-aos="fade-up" data-aos-delay="80">
+        What Parents Are Saying <i class="fa-solid fa-comments" aria-hidden="true"></i>
+      </h2>
+      <p class="section-sub" data-aos="fade-up" data-aos-delay="150">
+        Real stories from families who trust PediaCare with the most precious thing in their world — their children.
+      </p>
+    </div>
+
+    <!-- Swiper Carousel -->
+    <div class="swiper swiper-testimonials" data-aos="fade-up" data-aos-delay="200" aria-label="Parent testimonials carousel">
+      <div class="swiper-wrapper">
+
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "PediaCare changed our lives. When our son was diagnosed with a developmental delay at 18 months, Dr. Reyes created a personalized therapy plan that had him hitting milestones we never thought possible. The team's warmth and expertise are unmatched. We feel so supported every single visit."
+            </p>
+            <div class="testimonial-footer">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="James M. parent photo" class="testimonial-avatar" loading="lazy" />
+              <div>
+                <div class="testimonial-name">James M.</div>
+                <div class="testimonial-meta">Parent of Ethan, age 3 · Downtown Branch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "As a first-time mom, I was terrified about every little thing. The PediaCare team was so patient and reassuring. The Healthy Start Program was a lifesaver — having a nurse I could call at 2 AM when my newborn wouldn't stop crying made all the difference. Truly exceptional care."
+            </p>
+            <div class="testimonial-footer">
+              <img src="https://images.pexels.com/photos/40062831/pexels-photo-40062831.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Sara K. parent photo" class="testimonial-avatar" loading="lazy" />
+              <div>
+                <div class="testimonial-name">Sara K.</div>
+                <div class="testimonial-meta">Parent of Lily, age 6 months · Westside Branch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "Our daughter has severe food allergies and we've been to many clinics before PediaCare. Dr. Chen's allergy team was the first to give us a comprehensive action plan that actually works. We've had zero emergency reactions in 8 months. We sleep so much better knowing she's in expert hands."
+            </p>
+            <div class="testimonial-footer">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="Michael T. parent photo" class="testimonial-avatar" loading="lazy" />
+              <div>
+                <div class="testimonial-name">Michael T.</div>
+                <div class="testimonial-meta">Parent of Zoe, age 7 · Northside Branch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The School Ready Program prepared our son for kindergarten beyond academics. His health checkups were thorough, his vision issue was caught early, and the focus support sessions helped his confidence skyrocket. PediaCare isn't just a clinic — it's a true partner in raising a healthy child."
+            </p>
+            <div class="testimonial-footer">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="David L. parent photo" class="testimonial-avatar" loading="lazy" />
+              <div>
+                <div class="testimonial-name">David L.</div>
+                <div class="testimonial-meta">Parent of Noah, age 5 · Downtown Branch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "Our premature twins received such incredible care from the neonatology team at PediaCare. Even when they were only 2 lbs each, the doctors never lost hope or compassion. Today they're thriving 4-year-olds who run, laugh, and light up every room. We owe PediaCare everything."
+            </p>
+            <div class="testimonial-footer">
+              <img src="https://images.pexels.com/photos/30004320/pexels-photo-30004320.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Priya S. parent photo" class="testimonial-avatar" loading="lazy" />
+              <div>
+                <div class="testimonial-name">Priya S.</div>
+                <div class="testimonial-meta">Parent of twins Asha & Arjun, age 4 · Westside Branch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Swiper Controls -->
+      <div class="swiper-pagination" aria-label="Testimonial pagination"></div>
+      <div class="swiper-button-next" aria-label="Next testimonial"></div>
+      <div class="swiper-button-prev" aria-label="Previous testimonial"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 6: APPOINTMENT CTA ===================== -->
+<section id="appointment" aria-labelledby="appointment-heading">
+  <!-- Decorative circles -->
+  <div class="appt-deco appt-deco-1" aria-hidden="true"></div>
+  <div class="appt-deco appt-deco-2" aria-hidden="true"></div>
+  <div class="appt-deco appt-deco-3" aria-hidden="true"></div>
+
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row align-items-center g-5">
+
+      <!-- Left: Text -->
+      <div class="col-lg-5" data-aos="fade-right" data-aos-duration="800">
+        <span class="appt-emoji" aria-hidden="true"><i class="fa-solid fa-rainbow" aria-hidden="true"></i></span>
+        <h2 class="appt-title" id="appointment-heading">
+          Ready to Give Your Child<br>the Best Care?
+        </h2>
+        <p class="appt-sub">
+          Our team of board-certified pediatricians, neonatologists, and child health specialists are ready to partner with you. Book your appointment today and take the first step toward a healthier, happier childhood.
+        </p>
+        <div class="d-flex flex-column gap-3" style="max-width:320px;">
+          <div class="d-flex align-items-center gap-3" style="color:rgba(255,255,255,.85);">
+            <i class="fas fa-phone-alt fa-fw" style="color:var(--sky-blue);font-size:1.2rem;"></i>
+            <span style="font-weight:600;">+1-800-PEDIACARE</span>
+          </div>
+          <div class="d-flex align-items-center gap-3" style="color:rgba(255,255,255,.85);">
+            <i class="fas fa-envelope fa-fw" style="color:var(--sky-blue);font-size:1.2rem;"></i>
+            <span style="font-weight:600;">hello@pediacare.com</span>
+          </div>
+          <div class="d-flex align-items-center gap-3" style="color:rgba(255,255,255,.85);">
+            <i class="fas fa-clock fa-fw" style="color:var(--sky-blue);font-size:1.2rem;"></i>
+            <span style="font-weight:600;">Open 24/7 · 365 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="col-lg-7" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
+        <div class="appt-form">
+          <h3 style="font-family:var(--font-heading);font-weight:800;color:#fff;margin-bottom:1.5rem;font-size:1.3rem;">
+            <i class="fas fa-calendar-plus me-2"></i>Book an Appointment
+          </h3>
+          <form id="appointmentForm" novalidate aria-label="Appointment booking form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="childName" class="form-label">Child's Name *</label>
+                <input type="text" class="form-control" id="childName" name="childName"
+                       placeholder="e.g. Emma Johnson" required aria-required="true" />
+                <div class="invalid-feedback">Please enter your child's name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="childAge" class="form-label">Child's Age *</label>
+                <input type="text" class="form-control" id="childAge" name="childAge"
+                       placeholder="e.g. 3 years" required aria-required="true" />
+                <div class="invalid-feedback">Please enter your child's age.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="parentName" class="form-label">Parent / Guardian Name *</label>
+                <input type="text" class="form-control" id="parentName" name="parentName"
+                       placeholder="Your full name" required aria-required="true" />
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="parentPhone" class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" id="parentPhone" name="parentPhone"
+                       placeholder="+1 (555) 000-0000" required aria-required="true"
+                       pattern="[\+]?[\d\s\-\(\)]{7,15}" />
+                <div class="invalid-feedback">Please enter a valid phone number.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="preferredDate" class="form-label">Preferred Date *</label>
+                <input type="date" class="form-control" id="preferredDate" name="preferredDate"
+                       required aria-required="true" />
+                <div class="invalid-feedback">Please select a preferred date.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="doctorSelect" class="form-label">Select Doctor</label>
+                <select class="form-select" id="doctorSelect" name="doctorSelect" aria-label="Select a doctor">
+                  <option value="" selected>Any Available Doctor</option>
+                  <option value="dr-reyes">Dr. Maria Reyes – General Pediatrics</option>
+                  <option value="dr-chen">Dr. Alan Chen – Allergy &amp; Immunology</option>
+                  <option value="dr-patel">Dr. Priya Patel – Neonatology</option>
+                  <option value="dr-kim">Dr. James Kim – Developmental Medicine</option>
+                  <option value="dr-hassan">Dr. Sara Hassan – Pediatric Nutrition</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="appointmentNotes" class="form-label">Notes / Symptoms (optional)</label>
+                <textarea class="form-control" id="appointmentNotes" name="appointmentNotes"
+                          rows="3" placeholder="Describe any symptoms or special requirements…"
+                          aria-label="Additional notes for appointment"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-submit-appt">
+                  <i class="fas fa-paper-plane me-2"></i>Confirm Appointment
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Col 1: Brand -->
+      <div class="col-lg-4 col-md-6">
+        <span class="footer-brand">PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span>
+        <p class="footer-about">
+          PediaCare is a premier pediatric clinic dedicated to nurturing the health, growth, and happiness of children from birth through adolescence. Our board-certified team combines medical excellence with heartfelt compassion.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+          <li><a href="home2.html"><i class="fas fa-chevron-right fa-xs"></i> Home 2</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          <li><a href="parent-dashboard.html"><i class="fas fa-chevron-right fa-xs"></i> Parent Dashboard</a></li>
+          <li><a href="#appointment"><i class="fas fa-chevron-right fa-xs"></i> Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> General Pediatrics</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Neonatology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Developmental Medicine</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Pediatric Nutrition</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Allergy &amp; Immunology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Vaccinations</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Wellness Programs</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact + Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Wellness Blvd, Suite 200<br>Health City, CA 90001</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1-800-PEDIACARE<br>+1 (555) 234-5678</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>hello@pediacare.com<br>appointments@pediacare.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Open 24/7 · 365 Days a Year</span>
+        </div>
+
+        <h4 class="footer-heading mt-4">Newsletter</h4>
+        <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:.8rem;">Get parenting tips & clinic news.</p>
+        <form class="newsletter-form d-flex" aria-label="Newsletter signup form" onsubmit="return handleNewsletter(event)">
+          <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter" required />
+          <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p>© 2025 PediaCare Medical Group. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+        <a href="#">HIPAA Notice</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" aria-label="Back to top" title="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ===================== CONFIRMATION MODAL ===================== -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog"
+     aria-labelledby="confirmModalTitle" aria-modal="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-confirm">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="confirmModalTitle">Appointment Confirmed!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span class="confirm-emoji" aria-hidden="true"><i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i></span>
+        <h4 class="confirm-title">You're All Set!</h4>
+        <p class="confirm-sub">
+          Thank you for booking with PediaCare! Your appointment request has been received. Our team will contact you within 24 hours to confirm your appointment details.<br><br>
+          <strong>We look forward to meeting your little one! <i class="fa-solid fa-star" aria-hidden="true"></i></strong>
+        </p>
+      </div>
+      <div class="modal-footer border-0 justify-content-center pb-3">
+        <button type="button" class="btn-learn-more" data-bs-dismiss="modal">
+          <i class="fas fa-check me-1"></i> Got It!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SCRIPTS ===================== -->
+<!-- Bootstrap 5.3 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Swiper.js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Shared JS -->
+<script src="assets/js/main.js"></script>
+
+<script>
+  // ===== AOS INIT =====
+  AOS.init({
+    duration: 700,
+    once: true,
+    easing: 'ease-out-cubic',
+    offset: 60
+  });
+
+  // ===== NAVBAR SCROLL =====
+  const navbar = document.getElementById('mainNavbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ===== DARK MODE TOGGLE =====
+  const darkToggle   = document.getElementById('darkModeToggle');
+  const darkIcon     = document.getElementById('darkModeIcon');
+  const htmlEl       = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    localStorage.setItem('pediacare-theme', theme);
+    if (theme === 'dark') {
+      darkIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      darkIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+  }
+
+  // Load saved preference
+  const savedTheme = localStorage.getItem('pediacare-theme') || 'light';
+  applyTheme(savedTheme);
+
+  darkToggle.addEventListener('click', () => {
+    const current = htmlEl.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  // ===== RTL TOGGLE =====
+  document.getElementById('rtlToggle').addEventListener('click', () => {
+    const current = htmlEl.getAttribute('dir');
+    htmlEl.setAttribute('dir', current === 'rtl' ? 'ltr' : 'rtl');
+  });
+
+  // ===== BACK TO TOP =====
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ===== SWIPER TESTIMONIALS =====
+  new Swiper('.swiper-testimonials', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    breakpoints: {
+      640:  { slidesPerView: 1 },
+      768:  { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    },
+    a11y: {
+      prevSlideMessage: 'Previous testimonial',
+      nextSlideMessage: 'Next testimonial'
+    }
+  });
+
+  // ===== COUNTER ANIMATION =====
+  function animateCounter(el) {
+    // Handle decimal
+    if (el.dataset.counterDecimal) {
+      el.textContent = el.dataset.counterDecimal + (el.dataset.suffix || '');
+      return;
+    }
+    const target   = parseInt(el.dataset.counter, 10);
+    const suffix   = el.dataset.suffix || '';
+    const duration = 1800;
+    const step     = Math.ceil(target / (duration / 16));
+    let   current  = 0;
+
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = current.toLocaleString() + suffix;
+    }, 16);
+  }
+
+  // Observe stats bar
+  const counters = document.querySelectorAll('[data-counter], [data-counter-decimal]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  // ===== APPOINTMENT FORM VALIDATION =====
+  const apptForm = document.getElementById('appointmentForm');
+  const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+
+  // Set min date to today
+  const dateInput = document.getElementById('preferredDate');
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', today);
+
+  apptForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!this.checkValidity()) {
+      this.classList.add('was-validated');
+      // Focus first invalid
+      const firstInvalid = this.querySelector(':invalid');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    this.classList.add('was-validated');
+    // Show success modal
+    confirmModal.show();
+    // Reset form
+    this.reset();
+    this.classList.remove('was-validated');
+  });
+
+  // ===== NEWSLETTER =====
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const input = e.target.querySelector('input[type="email"]');
+    if (input && input.value) {
+      input.value = '';
+      // Simple feedback
+      const btn = e.target.querySelector('button');
+      const origHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i>';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => {
+        btn.innerHTML = origHTML;
+        btn.style.background = '';
+      }, 2500);
+    }
+    return false;
+  }
+
+  // ===== SMOOTH SCROLL for anchor links =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80; // navbar height
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        // Close mobile nav if open
+        const navCollapse = document.getElementById('navbarMain');
+        if (navCollapse.classList.contains('show')) {
+          new bootstrap.Collapse(navCollapse, { toggle: false }).hide();
+        }
+      }
+    });
+  });
+
+  // ===== ACTIVE NAV LINK on scroll =====
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 120) {
+        current = section.id;
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') && link.getAttribute('href').includes(current)) {
+        link.classList.add('active');
+      }
+    });
+  }, { passive: true });
+</script>
+
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>

@@ -1,0 +1,2727 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Meta -->
+  <title>Age-Specific Pediatric Care | PediaCare – Specialized Child Wellness</title>
+  <meta name="description" content="PediaCare offers specialized pediatric care for every stage of childhood — from newborn to school-age. Expert doctors, vaccination schedules, developmental milestone tracking, and wellness packages." />
+  <meta name="keywords" content="pediatric care, newborn care, infant care, toddler care, child wellness, vaccination schedule, child development milestones, pediatric specialists" />
+  <meta name="author" content="PediaCare" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.pediacare.com/age-specific-care" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Specialized Care for Every Stage of Childhood | PediaCare" />
+  <meta property="og:description" content="Expert pediatric care tailored to your child's unique developmental stage — newborn through school-age." />
+  <meta property="og:image" content="https://images.pexels.com/photos/39192346/pexels-photo-39192346.jpeg?auto=compress&cs=tinysrgb&w=1200&h=780&fit=crop&crop=faces&q=80" />
+  <meta property="og:url" content="https://www.pediacare.com/age-specific-care" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Specialized Pediatric Care by Age Group | PediaCare" />
+  <meta name="twitter:description" content="From newborn to school-age — expert pediatric care tailored to every stage." />
+  <meta name="twitter:image" content="https://images.pexels.com/photos/39192346/pexels-photo-39192346.jpeg?auto=compress&cs=tinysrgb&w=1200&h=780&fit=crop&crop=faces&q=80" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "PediaCare",
+    "description": "Specialized pediatric care for every stage of childhood",
+    "url": "https://www.pediacare.com",
+    "medicalSpecialty": ["Pediatrics", "Neonatology", "Developmental Pediatrics"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Wellness Blvd",
+      "addressLocality": "Child City",
+      "addressRegion": "CA",
+      "postalCode": "90210",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-800-PEDIACARE",
+    "openingHours": "Mo-Su 08:00-20:00"
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Swiper.js -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* =============================================
+       HOME2 — Age-Specific Care Page Styles
+    ============================================= */
+
+    :root {
+      --sky: #A8D8EA;
+      --mint: #B8D8C0;
+      --peach: #FFD6C2;
+      --cream: #FFF9F2;
+      --navy: #34445C;
+      --sky-dark: #7EC8E3;
+      --mint-dark: #90C49A;
+      --peach-dark: #FFC0A0;
+      --text-main: #2d3a4a;
+      --text-muted: #566274;
+      --white: #fff;
+      --card-radius: 1.25rem;
+      --transition: 0.35s cubic-bezier(.4,0,.2,1);
+    }
+
+    [data-theme="dark"] {
+      --cream: #1a2233;
+      --white: #1e2a3a;
+      --text-main: #e8f0fe;
+      --text-muted: #A8B8CC;
+      --navy: #A8D8EA;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+    }
+
+    /* ---- NAVBAR ---- */
+    .pedia-navbar {
+      background: rgba(255,249,242,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(168,216,234,0.3);
+      padding: 0.6rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1050;
+      transition: box-shadow 0.3s;
+    }
+    [data-theme="dark"] .pedia-navbar {
+      background: rgba(26,34,51,0.97);
+      border-bottom-color: rgba(168,216,234,0.15);
+    }
+    .pedia-navbar.scrolled { box-shadow: 0 4px 24px rgba(52,68,92,0.12); }
+    .navbar-brand {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+      text-decoration: none;
+    }
+    .navbar-brand span { color: #A8D8EA; }
+    .nav-link {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      color: var(--text-main) !important;
+      padding: 0.4rem 0.9rem !important;
+      border-radius: 0.5rem;
+      transition: background var(--transition), color var(--transition);
+    }
+    .nav-link:hover, .nav-link.active {
+      background: rgba(168,216,234,0.25);
+      color: var(--navy) !important;
+    }
+    .btn-nav-appt {
+      background: linear-gradient(135deg, #A8D8EA, #B8D8C0);
+      color: var(--navy) !important;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.45rem 1.3rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-nav-appt:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(168,216,234,0.5); }
+    .dark-toggle {
+      background: none;
+      border: 2px solid rgba(168,216,234,0.5);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      color: var(--navy);
+    }
+    .dark-toggle:hover { background: rgba(168,216,234,0.2); }
+
+    /* ---- SECTION HELPERS ---- */
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--sky-dark);
+      margin-bottom: 0.4rem;
+    }
+    .section-title-h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+    }
+
+    /* ============================================================
+       SECTION 1 — HERO
+    ============================================================ */
+    .hero2 {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #FFF9F2 0%, #EDF7FB 50%, #EBF5EE 100%);
+    }
+    [data-theme="dark"] .hero2 { background: linear-gradient(135deg, #1a2233 0%, #1e2d3d 50%, #1e2b2a 100%); }
+
+    /* Particle canvas */
+    #particles-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    .blob-1 { width: 400px; height: 400px; background: #A8D8EA; top: -100px; left: -120px; animation-delay: 0s; }
+    .blob-2 { width: 300px; height: 300px; background: #FFD6C2; bottom: -60px; right: 10%; animation-delay: 2.5s; }
+    .blob-3 { width: 250px; height: 250px; background: #B8D8C0; top: 30%; right: -60px; animation-delay: 5s; }
+    @keyframes blobFloat {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero2-content { position: relative; z-index: 2; }
+
+    .hero2-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(168,216,234,0.25);
+      border: 1px solid rgba(168,216,234,0.5);
+      border-radius: 2rem;
+      padding: 0.35rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    .hero2-badge .dot { width:8px;height:8px;border-radius:50%;background:#27ae60;animation:pulse2 1.5s infinite; }
+    @keyframes pulse2 {
+      0%,100%{box-shadow:0 0 0 0 rgba(39,174,96,0.6);}
+      50%{box-shadow:0 0 0 7px rgba(39,174,96,0);}
+    }
+
+    .hero2-title {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero2-title span { color: #A8D8EA; }
+
+    .hero2-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* Age filter buttons in hero */
+    .age-filter-group { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; }
+    .age-filter-btn {
+      border: 2px solid rgba(52,68,92,0.2);
+      background: white;
+      border-radius: 2rem;
+      padding: 0.4rem 1.1rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      color: var(--navy);
+    }
+    [data-theme="dark"] .age-filter-btn { background: rgba(255,255,255,0.08); border-color: rgba(168,216,234,0.3); color: var(--text-main); }
+    .age-filter-btn:hover, .age-filter-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    .hero2-img-wrap {
+      position: relative;
+      z-index: 2;
+    }
+    .hero2-img-wrap img {
+      border-radius: 2rem;
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 20px 60px rgba(52,68,92,0.18);
+      object-fit: cover;
+      height: 440px;
+    }
+    .hero2-float-badge {
+      position: absolute;
+      background: white;
+      border-radius: 1rem;
+      padding: 0.6rem 1rem;
+      box-shadow: 0 8px 30px rgba(52,68,92,0.14);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--navy);
+      animation: floatBadge 3s ease-in-out infinite;
+    }
+    [data-theme="dark"] .hero2-float-badge { background: #2a3a50; }
+    .hero2-float-badge:nth-child(2) { top: 15%; right: -20px; animation-delay: 0s; }
+    .hero2-float-badge:nth-child(3) { bottom: 20%; left: -20px; animation-delay: 1.5s; }
+    @keyframes floatBadge {
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-10px);}
+    }
+    .hero2-float-badge .badge-icon { font-size: 1.3rem; }
+
+    /* ============================================================
+       SECTION 2 — AGE-GROUP CARDS (Filterable)
+    ============================================================ */
+    .age-cards-section {
+      padding: 5rem 0;
+      background: var(--cream);
+    }
+
+    .specialty-card {
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .specialty-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(52,68,92,0.15);
+    }
+    .specialty-card.hidden { display: none; }
+
+    .specialty-card-header {
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .specialty-card-icon {
+      font-size: 2.4rem;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.6);
+      border-radius: 1rem;
+    }
+    .specialty-card-age {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.7;
+    }
+    .specialty-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0;
+    }
+
+    .specialty-card-body {
+      padding: 0 1.5rem 1.5rem;
+      flex-grow: 1;
+    }
+    .specialty-card-services {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+    }
+    .specialty-card-services li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0;
+      font-size: 0.9rem;
+      color: var(--navy);
+      border-bottom: 1px solid rgba(52,68,92,0.08);
+    }
+    .specialty-card-services li:last-child { border-bottom: none; }
+    .specialty-card-services li::before {
+      content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      display: inline-flex;
+      width: 18px;
+      height: 18px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #27ae60;
+      flex-shrink: 0;
+    }
+
+    .specialty-card-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .btn-card-cta {
+      background: rgba(52,68,92,0.12);
+      color: var(--navy);
+      border: none;
+      border-radius: 2rem;
+      padding: 0.5rem 1.3rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-card-cta:hover { background: var(--navy); color: #fff; }
+
+    /* ============================================================
+       SECTION 3 — VACCINATION TIMELINE
+    ============================================================ */
+    .vaccine-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #EDF7FB 0%, #EBF5EE 100%);
+    }
+    [data-theme="dark"] .vaccine-section { background: linear-gradient(135deg, #1b2b3a 0%, #1b2b2a 100%); }
+
+    /* Horizontal timeline */
+    .vaccine-timeline-wrap {
+      overflow-x: auto;
+      padding-bottom: 1.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: #A8D8EA transparent;
+    }
+    .vaccine-timeline {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      min-width: 900px;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+    .vaccine-timeline::before {
+      content: '';
+      position: absolute;
+      top: 55px;
+      left: 60px;
+      right: 60px;
+      height: 4px;
+      background: linear-gradient(to right, #A8D8EA, #B8D8C0, #FFD6C2, #A8D8EA);
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .vt-point {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .vt-dot {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 3px var(--dot-color, #A8D8EA);
+      background: var(--dot-color, #A8D8EA);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 0.6rem;
+    }
+    .vt-point:hover .vt-dot { transform: scale(1.4); box-shadow: 0 0 0 5px var(--dot-color, #A8D8EA); }
+
+    .vt-age {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+    .vt-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 90px;
+      line-height: 1.4;
+    }
+
+    /* Tooltip */
+    .vt-tooltip {
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%) translateY(5px);
+      background: var(--navy);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.78rem;
+      width: 180px;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 10;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .vt-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: var(--navy);
+    }
+    .vt-point:hover .vt-tooltip { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .vt-tooltip strong { display: block; margin-bottom: 0.3rem; font-size: 0.82rem; color: #A8D8EA; }
+
+    /* Mobile vertical timeline */
+    @media (max-width: 768px) {
+      .vaccine-timeline { flex-direction: column; align-items: flex-start; min-width: unset; padding: 1rem; }
+      .vaccine-timeline::before { top: 20px; bottom: 20px; left: 24px; right: auto; width: 4px; height: auto; }
+      .vt-point { flex-direction: row; align-items: center; gap: 1rem; width: 100%; margin-bottom: 1.5rem; }
+      .vt-dot { margin-bottom: 0; flex-shrink: 0; }
+      .vt-tooltip { bottom: auto; top: -20px; left: 110%; transform: none; }
+      .vt-tooltip::after { top: 50%; left: -12px; transform: translateY(-50%); border-top-color: transparent; border-right-color: var(--navy); }
+    }
+
+    /* ============================================================
+       SECTION 4 — MILESTONES
+    ============================================================ */
+    .milestone-section {
+      padding: 5rem 0;
+      background: var(--cream);
+    }
+
+    .milestone-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      height: 100%;
+      border-top: 4px solid var(--accent, #A8D8EA);
+      box-shadow: 0 4px 20px rgba(52,68,92,0.07);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    [data-theme="dark"] .milestone-card { background: #1e2d3d; }
+    .milestone-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(52,68,92,0.14); }
+
+    .milestone-icon {
+      width: 56px; height: 56px;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background: var(--accent, #A8D8EA);
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .milestone-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .milestone-list { list-style: none; padding: 0; margin: 0; }
+    .milestone-list li {
+      padding: 0.35rem 0;
+      border-bottom: 1px dashed rgba(52,68,92,0.1);
+      font-size: 0.88rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+    .milestone-list li:last-child { border-bottom: none; }
+    .milestone-list .age-tag {
+      background: var(--accent, #A8D8EA);
+      border-radius: 0.4rem;
+      padding: 0.1rem 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Progress bar visual */
+    .milestone-progress-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, var(--accent, #A8D8EA), rgba(168,216,234,0.3));
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .milestone-progress-bar::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+      animation: shimmer 2s infinite;
+    }
+    @keyframes shimmer { 0%{transform:translateX(-100%)}100%{transform:translateX(100%)} }
+
+    /* FAQ Accordion */
+    .milestone-faq { margin-top: 3.5rem; }
+    .milestone-faq .accordion-button {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+      background: white;
+    }
+    [data-theme="dark"] .milestone-faq .accordion-button { background: #1e2d3d; color: var(--text-main); }
+    .milestone-faq .accordion-button:not(.collapsed) {
+      background: rgba(168,216,234,0.15);
+      color: var(--navy);
+      box-shadow: none;
+    }
+    .milestone-faq .accordion-item {
+      border: 1px solid rgba(168,216,234,0.3);
+      border-radius: 0.75rem !important;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    .milestone-faq .accordion-body { font-size: 0.93rem; color: var(--text-muted); background: white; }
+    [data-theme="dark"] .milestone-faq .accordion-body { background: #1a2a3a; }
+    .milestone-faq .accordion-button::after { filter: hue-rotate(180deg); }
+
+    /* ============================================================
+       SECTION 5 — SPECIALIST DOCTORS (Flip Cards)
+    ============================================================ */
+    .doctors-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #EBF5EE 0%, #EDF7FB 100%);
+    }
+    [data-theme="dark"] .doctors-section { background: linear-gradient(135deg, #1b2b2a 0%, #1b2b3a 100%); }
+
+    .doctor-flip-wrap {
+      perspective: 1000px;
+      height: 400px;
+    }
+    .doctor-flip-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+    }
+    .doctor-flip-wrap:hover .doctor-flip-card { transform: rotateY(180deg); }
+
+    .doctor-flip-front,
+    .doctor-flip-back {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--card-radius);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .doctor-flip-front {
+      background: white;
+      box-shadow: 0 4px 20px rgba(52,68,92,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    [data-theme="dark"] .doctor-flip-front { background: #1e2d3d; }
+
+    .doctor-photo {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #A8D8EA;
+      margin-bottom: 1rem;
+      transition: transform 0.3s;
+    }
+    .doctor-flip-front:hover .doctor-photo { transform: scale(1.05); }
+    .doctor-name { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 0.2rem; }
+    .doctor-specialty {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      background: rgba(168,216,234,0.2);
+      border-radius: 1rem;
+      padding: 0.2rem 0.7rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .doctor-exp {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+    .doctor-stars { color: #f9c531; font-size: 0.9rem; margin-bottom: 1rem; }
+    .btn-book-sm {
+      background: linear-gradient(135deg, #A8D8EA, #B8D8C0);
+      border: none;
+      color: var(--navy);
+      font-weight: 700;
+      border-radius: 2rem;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .btn-book-sm:hover { transform: scale(1.05); }
+
+    .doctor-flip-back {
+      background: linear-gradient(135deg, var(--navy) 0%, #2a3a50 100%);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+    .back-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #A8D8EA;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .avail-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 1rem;
+    }
+    .avail-day {
+      aspect-ratio: 1;
+      border-radius: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .avail-day.hdr { background: transparent; color: rgba(255,255,255,0.78); font-size: 0.6rem; }
+    .avail-day.empty { background: transparent; }
+    .avail-day.open { background: rgba(168,216,234,0.2); color: #EAF7FC; }
+    .avail-day.open:hover { background: rgba(168,216,234,0.4); }
+    .avail-day.booked { background: rgba(255,214,194,0.2); color: #FFD6C2; text-decoration: line-through; }
+    .avail-day.today { background: #A8D8EA; color: var(--navy); font-weight: 900; }
+    .avail-slots { font-size: 0.78rem; color: rgba(255,255,255,0.85); margin-bottom: 0.8rem; }
+    .btn-book-back {
+      background: linear-gradient(135deg, #A8D8EA, #B8D8C0);
+      border: none;
+      color: var(--navy);
+      font-weight: 700;
+      border-radius: 2rem;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    /* ============================================================
+       SECTION 6 — PACKAGES + NEWSLETTER
+    ============================================================ */
+    .packages-section {
+      padding: 5rem 0;
+      background: var(--cream);
+    }
+
+    /* Pricing table */
+    .pricing-table {
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(52,68,92,0.1);
+      border: none;
+    }
+    .pricing-table thead th {
+      padding: 1.4rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      text-align: center;
+      color: var(--navy);
+      position: relative;
+    }
+    .pricing-table thead th:first-child { background: white; text-align: left; }
+    [data-theme="dark"] .pricing-table thead th:first-child { background: #1e2d3d; }
+    .col-basic { background: rgba(168,216,234,0.15); }
+    .col-premium { background: var(--navy); color: white !important; }
+    .col-elite { background: rgba(184,216,192,0.2); }
+    .popular-badge {
+      position: absolute;
+      top: -1px; left: 50%; transform: translateX(-50%);
+      background: #FFD6C2;
+      color: var(--navy);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 0 0 0.75rem 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .pricing-table tbody td {
+      padding: 0.9rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      border-color: rgba(168,216,234,0.2);
+      text-align: center;
+      vertical-align: middle;
+    }
+    .pricing-table tbody td:first-child { text-align: left; font-weight: 600; color: var(--navy); }
+    .pricing-table .row-price td { font-weight: 800; font-family: 'Nunito', sans-serif; font-size: 1.15rem; padding-top: 1.2rem; }
+    .col-premium-cell { background: rgba(52,68,92,0.05); }
+    .pricing-table .check-yes { color: #27ae60; font-size: 1.1rem; }
+    .pricing-table .check-no { color: rgba(52,68,92,0.25); }
+    .btn-pricing {
+      border: none;
+      border-radius: 2rem;
+      padding: 0.5rem 1.3rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-pricing:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(52,68,92,0.15); }
+    .btn-basic-cta { background: rgba(168,216,234,0.3); color: var(--navy); }
+    .btn-premium-cta { background: linear-gradient(135deg, #A8D8EA, #B8D8C0); color: var(--navy); }
+    .btn-elite-cta { background: rgba(184,216,192,0.3); color: var(--navy); }
+
+    /* Newsletter */
+    .newsletter-wrap {
+      background: linear-gradient(135deg, var(--navy) 0%, #2a3a50 100%);
+      border-radius: var(--card-radius);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .newsletter-wrap::before {
+      content: '\f0e0'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      position: absolute;
+      right: -20px;
+      bottom: -30px;
+      font-size: 160px;
+      opacity: 0.05;
+      line-height: 1;
+    }
+    .newsletter-title { font-size: 1.8rem; color: white; margin-bottom: 0.5rem; }
+    .newsletter-subtitle { color: rgba(255,255,255,0.82); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .newsletter-form .form-control {
+      border: none;
+      border-radius: 2rem;
+      padding: 0.7rem 1.3rem;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.12);
+      color: white;
+    }
+    .newsletter-form .form-control::placeholder { color: rgba(255,255,255,0.78); }
+    .newsletter-form .form-control:focus { outline: none; box-shadow: 0 0 0 3px rgba(168,216,234,0.4); background: rgba(255,255,255,0.18); }
+    .btn-newsletter {
+      background: linear-gradient(135deg, #A8D8EA, #B8D8C0);
+      border: none;
+      border-radius: 2rem;
+      padding: 0.7rem 1.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-newsletter:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(168,216,234,0.4); }
+    .trust-badges { margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.82);
+    }
+    .trust-badge i { color: #B8D8C0; }
+
+    /* Newsletter illustration */
+    .newsletter-illo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .illo-emoji { font-size: 5rem; animation: bobble 3s ease-in-out infinite; }
+    @keyframes bobble { 0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)} }
+    .illo-text { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 0.5rem; text-align: center; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .pedia-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      padding: 4rem 0 2rem;
+    }
+    [data-theme="dark"] .pedia-footer { background: #111a26; }
+
+    .footer-brand {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+    .footer-brand span { color: #A8D8EA; }
+    .footer-desc { font-size: 0.88rem; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 280px; }
+
+    .footer-heading { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: #A8D8EA; font-weight: 700; margin-bottom: 1rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #A8D8EA; }
+
+    .footer-social { display: flex; gap: 0.75rem; margin-top: 1.2rem; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .footer-social a:hover { background: #A8D8EA; color: var(--navy); transform: translateY(-3px); }
+
+    .footer-divider { border-color: rgba(255,255,255,0.1); margin: 2rem 0 1.5rem; }
+    .footer-bottom { font-size: 0.82rem; color: rgba(255,255,255,0.78); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-bottom a { color: rgba(255,255,255,0.78); text-decoration: none; }
+    .footer-bottom a:hover { color: #A8D8EA; }
+
+    /* ============================================================
+       BACK TO TOP
+    ============================================================ */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--navy);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(52,68,92,0.3);
+    }
+    #back-to-top.visible { opacity: 1; transform: translateY(0); }
+    #back-to-top:hover { background: #A8D8EA; color: var(--navy); transform: translateY(-3px); }
+
+    /* Responsive tweaks */
+    @media (max-width: 991px) {
+      .hero2-img-wrap img { max-width: 100%; height: 300px; margin-top: 2rem; }
+      .hero2-float-badge:nth-child(2) { right: 0; }
+      .hero2-float-badge:nth-child(3) { left: 0; }
+    }
+    @media (max-width: 576px) {
+      .doctor-flip-wrap { height: 360px; }
+      .newsletter-wrap { padding: 2rem 1.5rem; }
+    }
+  
+/* ===== HOME NAVBAR + FOOTER (SHARED) ===== */
+header, footer {
+  --sky-blue: #A8D8EA;
+  --cream: #FFF9F2;
+  --navy: #34445C;
+  --text-dark: #2c3e50;
+  --text-muted: #566274;
+  --shadow-md: 0 8px 30px rgba(52,68,92,.14);
+  --radius-sm: 0.5rem;
+  --transition: all .3s cubic-bezier(.4,0,.2,1);
+  --font-heading: 'Nunito', sans-serif;
+  --bg-card: #ffffff;
+  --text-body: var(--text-dark);
+}
+[data-theme="dark"] header, [data-theme="dark"] footer {
+  --bg-card: #243046;
+  --text-muted: #A8B8CC;
+  --navy: #A8D8EA;
+  --cream: #1a2233;
+  --text-body: #e8edf5;
+}
+/* ===== NAVBAR ===== */
+    header .navbar {
+      background: rgba(255,249,242,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,216,234,.3);
+      padding: .9rem 0;
+      transition: var(--transition);
+      z-index: 1050;
+    }
+    [data-theme="dark"] header .navbar {
+      background: rgba(26,34,51,.97);
+      border-color: rgba(168,216,234,.15);
+    }
+    header .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    header .navbar-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+      letter-spacing: -.5px;
+    }
+    [data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+    header .nav-link {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--text-dark) !important;
+      padding: .4rem .85rem !important;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    [data-theme="dark"] header .nav-link { color: #e8edf5 !important; }
+    header .nav-link:hover, header .nav-link.active {
+      background: var(--sky-blue);
+      color: var(--navy) !important;
+    }
+    header .btn-appointment {
+      background: linear-gradient(135deg, #34445C, #A8D8EA);
+      color: #fff !important;
+      border: none;
+      border-radius: 30px;
+      padding: .5rem 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(52,68,92,.25);
+    }
+    header .btn-appointment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52,68,92,.35);
+    }
+    header .toggle-btn {
+      background: none;
+      border: 2px solid rgba(168,216,234,.6);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    [data-theme="dark"] header .toggle-btn { color: var(--sky-blue); border-color: rgba(168,216,234,.4); }
+    header .toggle-btn:hover { background: var(--sky-blue); color: var(--navy); }
+
+    
+/* ===== FOOTER ===== */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid rgba(168,216,234,.3);
+      padding: 70px 0 0;
+    }
+    [data-theme="dark"] footer { background: #141c2b; }
+    footer .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: .9rem;
+      display: block;
+    }
+    [data-theme="dark"] footer .footer-brand { color: var(--sky-blue); }
+    footer .footer-about {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    footer .footer-social a {
+      width: 38px; height: 38px;
+      background: rgba(168,216,234,.2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      text-decoration: none;
+      margin-right: .4rem;
+    }
+    [data-theme="dark"] footer .footer-social a { color: var(--sky-blue); background: rgba(168,216,234,.1); }
+    footer .footer-social a:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    footer .footer-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] footer .footer-heading { color: #e8edf5; }
+    footer .footer-links { list-style: none; padding: 0; }
+    footer .footer-links li { margin-bottom: .6rem; }
+    footer .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    footer .footer-links a:hover { color: var(--navy); transform: translateX(4px); }
+    [data-theme="dark"] footer .footer-links a:hover { color: var(--sky-blue); }
+    footer .footer-contact-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: .9rem;
+    }
+    footer .footer-contact-item i {
+      color: var(--sky-blue);
+      font-size: 1rem;
+      margin-top: .15rem;
+      flex-shrink: 0;
+    }
+    footer .newsletter-form .form-control {
+      border-radius: 30px 0 0 30px;
+      border: 2px solid rgba(168,216,234,.4);
+      background: var(--bg-card);
+      color: var(--text-body);
+      padding: .6rem 1.2rem;
+    }
+    footer .newsletter-form .form-control:focus { border-color: var(--sky-blue); box-shadow: none; }
+    footer .newsletter-form .btn-newsletter {
+      border-radius: 0 30px 30px 0;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: .6rem 1.2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: var(--transition);
+    }
+    footer .newsletter-form .btn-newsletter:hover { background: #A8D8EA; color: var(--navy); }
+    footer .footer-bottom {
+      background: rgba(52,68,92,.06);
+      border-top: 1px solid rgba(168,216,234,.2);
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+    }
+    [data-theme="dark"] footer .footer-bottom { background: rgba(0,0,0,.2); }
+    footer .footer-bottom p { color: var(--text-muted); font-size: .85rem; margin: 0; }
+    footer .footer-bottom a { color: var(--sky-blue); text-decoration: none; font-weight: 600; }
+    footer .footer-bottom a:hover { text-decoration: underline; }
+
+    
+/* ===== NAVBAR TOGGLER CUSTOM ===== */
+    header .navbar-toggler { border: 2px solid rgba(168,216,234,.5); border-radius: var(--radius-sm); }
+    header .navbar-toggler:focus { box-shadow: none; }
+    [data-theme="dark"] header .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+header .navbar { color: var(--text-dark) !important; }
+footer { color: var(--text-dark) !important; font-size: 16px !important; }
+footer .footer-bottom { font-size: 14px !important; }body { padding-top: 0 !important; }
+header .navbar { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; }.hero2 { padding-top: 72px !important; }
+section[id] { scroll-margin-top: 80px !important; }
+button.back-to-top:not(#back-to-top) { display: none !important; }/* ===== HOME NAVBAR OVERRIDE ===== */
+header .navbar {
+  background: rgba(255,249,242,.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(168,216,234,.3) !important;
+  padding: .9rem 0 !important;
+}
+[data-theme="dark"] header .navbar {
+  background: rgba(26,34,51,.97) !important;
+  border-color: rgba(168,216,234,.15) !important;
+}
+header .navbar-brand {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  color: var(--navy) !important;
+  letter-spacing: -.5px !important;
+}
+[data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+header .navbar-nav .nav-link {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: .92rem !important;
+  color: var(--text-dark) !important;
+  padding: .4rem .85rem !important;
+  border-radius: 20px !important;
+}
+[data-theme="dark"] header .navbar-nav .nav-link { color: #e8edf5 !important; }
+header .navbar-nav .nav-link:hover,
+header .navbar-nav .nav-link.active {
+  background: var(--sky-blue) !important;
+  color: var(--navy) !important;
+}
+/* ===== ACCESSIBLE FOOTER CONTRAST ===== */
+footer { background: var(--cream) !important; color: var(--text-dark) !important; }
+footer .footer-about, footer .footer-contact-item, footer .footer-links a,
+footer .footer-bottom, footer .footer-bottom p, footer .footer-bottom a,
+footer .footer-bottom-links a { color: #566274 !important; }
+footer .footer-social a { color: #34445C !important; background: rgba(52,68,92,0.08) !important; border-color: rgba(52,68,92,0.15) !important; }
+footer .footer-newsletter input { background: rgba(52,68,92,0.06) !important; border-color: rgba(52,68,92,0.2) !important; color: #34445C !important; }
+footer .footer-newsletter input::placeholder { color: #566274 !important; }
+[data-theme="dark"] footer { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-about, [data-theme="dark"] footer .footer-contact-item,
+[data-theme="dark"] footer .footer-links a, [data-theme="dark"] footer .footer-bottom,
+[data-theme="dark"] footer .footer-bottom p, [data-theme="dark"] footer .footer-bottom a,
+[data-theme="dark"] footer .footer-bottom-links a { color: #A8B8CC !important; }
+[data-theme="dark"] footer .footer-social a { color: #A8D8EA !important; background: rgba(168,216,234,0.1) !important; border-color: rgba(168,216,234,0.2) !important; }
+[data-theme="dark"] footer .footer-newsletter input { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-newsletter input::placeholder { color: #A8B8CC !important; }/* ===== HOME2 SECTION CONTRAST FIXES ===== */
+.hero2-title span { color: #1D6C8C !important; }
+.section-label { color: #1D6C8C !important; }
+.doctor-stars { color: #8A6200 !important; }
+.doctor-flip-back { color: #E8F0F8 !important; }
+.pricing-table thead th.col-premium { background: #34445C !important; color: #FFFFFF !important; }
+.pricing-table .check-no { color: #566274 !important; }
+.newsletter-wrap { color: #F4F8FC !important; }
+[data-theme="dark"] .hero2-title span,
+[data-theme="dark"] .section-label { color: #7EC8E3 !important; }
+[data-theme="dark"] .doctor-stars { color: #FFC94D !important; }
+[data-theme="dark"] .pricing-table .check-no { color: #A8B8CC !important; }
+/* ===== HOME2 DARK CONTRAST FIXES ===== */
+[data-theme="dark"] .hero2-subtitle,
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] .accordion-body,
+[data-theme="dark"] .vt-label,
+[data-theme="dark"] .doctor-exp,
+[data-theme="dark"] .doctor-specialty { color: #A8B8CC !important; }
+[data-theme="dark"] .hero2-badge { background: #23344A !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,0.3) !important; }
+[data-theme="dark"] .age-filter-btn { background: #23344A !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,0.3) !important; }
+[data-theme="dark"] .age-filter-btn.active { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .btn.btn-lg { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .specialty-card { background: #1E2D3D !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,0.15) !important; }
+[data-theme="dark"] .specialty-card-header { background: rgba(168,216,234,0.12) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .specialty-card-age,
+[data-theme="dark"] .specialty-card-title,
+[data-theme="dark"] .btn-card-cta { color: #A8D8EA !important; }
+[data-theme="dark"] .specialty-card-body,
+[data-theme="dark"] .specialty-card-services { color: #A8B8CC !important; }
+[data-theme="dark"] .vt-tooltip { background: #1E2D3D !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .vt-age { color: #E8F0F8 !important; }
+[data-theme="dark"] .milestone-faq .accordion-button { background: #1E2D3D !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .doctor-flip-back { background: linear-gradient(135deg, #1b2b3a 0%, #23344a 100%) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { color: #17243A !important; }
+[data-theme="dark"] .btn-book-sm,
+[data-theme="dark"] .btn-book-back,
+[data-theme="dark"] .btn-newsletter,
+[data-theme="dark"] .btn-premium-cta { color: #17243A !important; }
+[data-theme="dark"] .pricing-table { background: #1E2D3D !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .pricing-table thead th { background: #23344A !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .pricing-table tbody td { background: rgba(255,255,255,0.04) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .pricing-table tbody td:first-child { color: #E8F0F8 !important; }
+[data-theme="dark"] .newsletter-wrap { background: linear-gradient(135deg, #1b2b3a 0%, #23344a 100%) !important; color: #E8F0F8 !important; }/* ===== HOME2 DARK CONTRAST PASS 2 ===== */
+[data-theme="dark"] .milestone-list .age-tag { background: rgba(168,216,234,0.15) !important; color: #A8D8EA !important; }
+[data-theme="dark"] .popular-badge { color: #17243A !important; }
+[data-theme="dark"] .pricing-table strong { color: #E8F0F8 !important; }
+[data-theme="dark"] .pricing-table tbody td[style] { color: #A8D8EA !important; }
+[data-theme="dark"] .btn-basic-cta,
+[data-theme="dark"] .btn-elite-cta { color: #E8F0F8 !important; }
+[data-theme="dark"] .doctor-specialty { color: #C8D6E8 !important; }
+[data-theme="dark"] .doctor-stars small { color: #A8B8CC !important; }/* ===== DOCTOR BACK CTA ALIGNMENT ===== */
+.doctor-flip-back { padding: 1.25rem !important; }
+.back-title { margin-bottom: 0.6rem !important; font-size: 0.82rem !important; }
+.avail-grid { gap: 3px !important; margin-bottom: 0.6rem !important; }
+.avail-day { aspect-ratio: auto !important; height: 34px !important; font-size: 0.6rem !important; }
+.avail-slots { margin-bottom: 0.6rem !important; }
+.btn-book-back {
+  width: auto !important;
+  min-width: 190px;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  padding: 0.55rem 1.4rem !important;
+  margin-top: auto !important;
+}/* ===== IMMUNIZATION TIMELINE ALIGNMENT ===== */
+@media (min-width: 769px) {
+  .vaccine-timeline::before {
+    top: 40px !important;
+    left: 6.65% !important;
+    right: 6.7% !important;
+  }
+  .vt-point { justify-content: flex-start; }
+  .vt-age, .vt-label { margin-left: auto !important; margin-right: auto !important; }
+}/* ===== DARK NAVLINK CONTRAST ===== */
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] header .nav-link:hover,
+[data-theme="dark"] header .nav-link.active,
+[data-theme="dark"] header .navbar-nav .nav-link:hover,
+[data-theme="dark"] header .navbar-nav .nav-link.active {
+  background: #A8D8EA !important;
+  color: #17243A !important;
+}/* ===== PROFILE ICON CONTRAST ===== */
+.profile-menu .dropdown-item i { color: #34445C !important; }
+[data-theme="dark"] .profile-nav .profile-toggle { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-nav .profile-toggle:hover,
+[data-theme="dark"] .profile-nav .profile-toggle[aria-expanded="true"] { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .profile-menu { background: #1E2D3D !important; border: 1px solid rgba(168,216,234,0.15) !important; }
+[data-theme="dark"] .profile-menu .dropdown-item { color: #E8F0F8 !important; }
+[data-theme="dark"] .profile-menu .dropdown-item:hover { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-menu .dropdown-item i { color: #A8D8EA !important; }[data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: #17243A !important; }
+[data-theme="dark"] #copyLabel { color: #17243A !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html" aria-label="PediaCare Home">
+        PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+      </a>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMain" aria-controls="navbarMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto gap-1" role="list">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="home2.html" aria-current="page">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <!-- Dark mode toggle -->
+          <button class="toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fas fa-moon" id="darkModeIcon"></i>
+          </button>
+          <!-- RTL toggle -->
+          <button class="toggle-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL">
+            <span style="font-size:.62rem;font-weight:800;letter-spacing:.02em;line-height:1">RTL</span>
+          </button>
+          
+          <div class="dropdown profile-nav">
+            <a class="nav-link profile-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+              <i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end profile-menu">
+              <li><a class="dropdown-item" href="parent-dashboard.html"><i class="fa-solid fa-user me-2"></i>User Dashboard</a></li>
+              <li><a class="dropdown-item" href="admin-dashboard.html"><i class="fa-solid fa-user-shield me-2"></i>Admin Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ============================================================
+     SECTION 1 — HERO
+============================================================ -->
+<section class="hero2" id="hero" aria-label="Hero — Specialized Pediatric Care">
+  <!-- Particle canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Background blobs -->
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Left: Text -->
+      <div class="col-lg-6 hero2-content" data-aos="fade-right" data-aos-duration="800">
+        <div class="hero2-badge">
+          <span class="dot" aria-hidden="true"></span>
+          Specialized Pediatric Care
+        </div>
+
+        <h1 class="hero2-title">
+          Specialized Care for<br/>
+          <span>Every Stage</span> of Childhood
+        </h1>
+
+        <p class="hero2-subtitle">
+          From newborn to school-age — expert pediatric care tailored to your child's unique needs at every milestone of growth.
+        </p>
+
+        <!-- Age filter buttons -->
+        <div class="age-filter-group" role="group" aria-label="Filter by age group">
+          <button class="age-filter-btn active" data-filter="all" aria-pressed="true">All Ages</button>
+          <button class="age-filter-btn" data-filter="newborn" aria-pressed="false"><i class="fa-solid fa-baby" aria-hidden="true"></i> Newborn</button>
+          <button class="age-filter-btn" data-filter="infant" aria-pressed="false"><i class="fa-solid fa-baby-carriage" aria-hidden="true"></i> Infant</button>
+          <button class="age-filter-btn" data-filter="toddler" aria-pressed="false"><i class="fa-solid fa-shapes" aria-hidden="true"></i> Toddler</button>
+          <button class="age-filter-btn" data-filter="school-age" aria-pressed="false"><i class="fa-solid fa-book-open" aria-hidden="true"></i> School-Age</button>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#age-cards" class="btn btn-lg" style="background:linear-gradient(135deg,#A8D8EA,#B8D8C0);color:var(--navy);font-weight:800;border-radius:3rem;border:none;padding:.7rem 2rem;" role="button">
+            Explore Care <i class="fas fa-arrow-down ms-2"></i>
+          </a>
+          <a href="#vaccine-timeline" class="btn btn-lg" style="border:2px solid rgba(52,68,92,0.2);color:var(--navy);font-weight:700;border-radius:3rem;background:transparent;" role="button">
+            Vaccine Schedule <i class="fas fa-syringe ms-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+        <div class="hero2-img-wrap position-relative">
+          <img
+            src="https://images.pexels.com/photos/39192346/pexels-photo-39192346.jpeg?auto=compress&cs=tinysrgb&w=700&h=455&fit=crop&crop=faces&q=80"
+            alt="Pediatrician examining a young girl with her mother"
+            loading="eager"
+          />
+
+          <!-- Floating badges -->
+          <div class="hero2-float-badge" aria-hidden="true">
+            <span class="badge-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></span>
+            <div>
+              <div style="font-size:.7rem;opacity:.7;">Trusted by</div>
+              <div>10,000+ Families</div>
+            </div>
+          </div>
+
+          <div class="hero2-float-badge" aria-hidden="true">
+            <span class="badge-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span>
+            <div>
+              <div style="font-size:.7rem;opacity:.7;">Expert Specialists</div>
+              <div>6 Age Groups</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 2 — AGE-GROUP SPECIALTY CARDS
+============================================================ -->
+<section class="age-cards-section" id="age-cards" aria-label="Age-Specific Care Programs">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-label">Care by Age</div>
+      <h2 class="section-title-h2">Care Designed for Their Stage</h2>
+      <p class="section-subtitle mx-auto">Every age group has unique needs. Our specialists are trained for each stage of childhood.</p>
+    </div>
+
+    <div class="row g-4" id="specialty-cards-grid">
+
+      <!-- Card 1: Newborn -->
+      <div class="col-md-6 col-lg-4 specialty-card-wrap" data-category="newborn" data-aos="fade-up" data-aos-delay="0">
+        <article class="specialty-card" style="background:#FFD6C2;" aria-label="Newborn Care">
+          <img src="https://images.pexels.com/photos/33919289/pexels-photo-33919289.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&q=80" alt="Newborn baby care" class="specialty-card-img" loading="lazy" />
+          <div class="specialty-card-header">
+            <div class="specialty-card-icon" aria-hidden="true"><i class="fa-solid fa-baby" aria-hidden="true"></i></div>
+            <div>
+              <div class="specialty-card-age">0–28 Days</div>
+              <h3 class="specialty-card-title">Newborn Care</h3>
+            </div>
+          </div>
+          <div class="specialty-card-body">
+            <ul class="specialty-card-services" aria-label="Services included">
+              <li>Birth assessments &amp; APGAR scoring</li>
+              <li>Weight monitoring &amp; growth tracking</li>
+              <li>Jaundice screening &amp; phototherapy</li>
+              <li>Breastfeeding &amp; feeding support</li>
+            </ul>
+            <a href="#" class="btn-card-cta" role="button">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 2: Infant -->
+      <div class="col-md-6 col-lg-4 specialty-card-wrap" data-category="infant" data-aos="fade-up" data-aos-delay="80">
+        <article class="specialty-card" style="background:#A8D8EA;" aria-label="Infant Care">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&h=300&fit=crop&q=80&auto=format" alt="Infant wellness care" class="specialty-card-img" loading="lazy" />
+          <div class="specialty-card-header">
+            <div class="specialty-card-icon" aria-hidden="true"><i class="fa-solid fa-baby-carriage" aria-hidden="true"></i></div>
+            <div>
+              <div class="specialty-card-age">1–12 Months</div>
+              <h3 class="specialty-card-title">Infant Care</h3>
+            </div>
+          </div>
+          <div class="specialty-card-body">
+            <ul class="specialty-card-services" aria-label="Services included">
+              <li>Monthly wellness checks</li>
+              <li>Developmental milestone tracking</li>
+              <li>Solid food introduction guidance</li>
+              <li>Sleep coaching &amp; routine support</li>
+            </ul>
+            <a href="#" class="btn-card-cta" role="button">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 3: Toddler -->
+      <div class="col-md-6 col-lg-4 specialty-card-wrap" data-category="toddler" data-aos="fade-up" data-aos-delay="160">
+        <article class="specialty-card" style="background:#B8D8C0;" aria-label="Toddler Care">
+          <img src="https://images.pexels.com/photos/3875196/pexels-photo-3875196.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Toddler developmental milestones" class="specialty-card-img" loading="lazy" />
+          <div class="specialty-card-header">
+            <div class="specialty-card-icon" aria-hidden="true"><i class="fa-solid fa-shapes" aria-hidden="true"></i></div>
+            <div>
+              <div class="specialty-card-age">1–3 Years</div>
+              <h3 class="specialty-card-title">Toddler Care</h3>
+            </div>
+          </div>
+          <div class="specialty-card-body">
+            <ul class="specialty-card-services" aria-label="Services included">
+              <li>Developmental assessments</li>
+              <li>Speech therapy referrals</li>
+              <li>Dental health check-ups</li>
+              <li>Behavior guidance &amp; support</li>
+            </ul>
+            <a href="#" class="btn-card-cta" role="button">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 4: Preschool -->
+      <div class="col-md-6 col-lg-4 specialty-card-wrap" data-category="toddler" data-aos="fade-up" data-aos-delay="0">
+        <article class="specialty-card" style="background:#FFD6C2;" aria-label="Preschool Care">
+          <img src="https://images.pexels.com/photos/5998446/pexels-photo-5998446.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="Preschool child wellness" class="specialty-card-img" loading="lazy" />
+          <div class="specialty-card-header">
+            <div class="specialty-card-icon" aria-hidden="true"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+            <div>
+              <div class="specialty-card-age">3–5 Years</div>
+              <h3 class="specialty-card-title">Preschool Care</h3>
+            </div>
+          </div>
+          <div class="specialty-card-body">
+            <ul class="specialty-card-services" aria-label="Services included">
+              <li>School readiness assessment</li>
+              <li>Vision &amp; hearing screening</li>
+              <li>Social skills development</li>
+              <li>Immunization schedule updates</li>
+            </ul>
+            <a href="#" class="btn-card-cta" role="button">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 5: School-Age -->
+      <div class="col-md-6 col-lg-4 specialty-card-wrap" data-category="school-age" data-aos="fade-up" data-aos-delay="80">
+        <article class="specialty-card" style="background:#A8D8EA;" aria-label="School-Age Care">
+          <img src="https://images.pexels.com/photos/13198518/pexels-photo-13198518.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&crop=faces&q=80" alt="School-age child health" class="specialty-card-img" loading="lazy" />
+          <div class="specialty-card-header">
+            <div class="specialty-card-icon" aria-hidden="true"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
+            <div>
+              <div class="specialty-card-age">6–12 Years</div>
+              <h3 class="specialty-card-title">School-Age Care</h3>
+            </div>
+          </div>
+          <div class="specialty-card-body">
+            <ul class="specialty-card-services" aria-label="Services included">
+              <li>Annual wellness checkups</li>
+              <li>Sports physicals &amp; clearances</li>
+              <li>ADHD screening &amp; support</li>
+              <li>Mental wellness &amp; counseling</li>
+            </ul>
+            <a href="#" class="btn-card-cta" role="button">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 6: Vaccination -->
+      <div class="col-md-6 col-lg-4 specialty-card-wrap" data-category="all" data-aos="fade-up" data-aos-delay="160">
+        <article class="specialty-card" style="background:#B8D8C0;" aria-label="Vaccination Program">
+          <img src="https://images.pexels.com/photos/20471645/pexels-photo-20471645.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop&q=80" alt="Child vaccination program" class="specialty-card-img" loading="lazy" />
+          <div class="specialty-card-header">
+            <div class="specialty-card-icon" aria-hidden="true"><i class="fa-solid fa-syringe" aria-hidden="true"></i></div>
+            <div>
+              <div class="specialty-card-age">All Ages</div>
+              <h3 class="specialty-card-title">Vaccination Program</h3>
+            </div>
+          </div>
+          <div class="specialty-card-body">
+            <ul class="specialty-card-services" aria-label="Services included">
+              <li>Full immunization schedule</li>
+              <li>Catch-up vaccine programs</li>
+              <li>Travel &amp; international vaccines</li>
+              <li>School immunization records</li>
+            </ul>
+            <a href="#" class="btn-card-cta" role="button">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </article>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 3 — VACCINATION TIMELINE
+============================================================ -->
+<section class="vaccine-section" id="vaccine-timeline" aria-label="Vaccination Schedule Timeline">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-label">Immunization</div>
+      <h2 class="section-title-h2">Complete Vaccination Journey</h2>
+      <p class="section-subtitle mx-auto">Track every important vaccine from birth through 12 years — keeping your child protected at every milestone.</p>
+    </div>
+
+    <div class="vaccine-timeline-wrap" data-aos="fade-up" data-aos-delay="100" role="region" aria-label="Interactive vaccination timeline">
+      <div class="vaccine-timeline" role="list">
+
+        <!-- Birth -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="Birth: BCG, Hepatitis B">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>At Birth</strong>
+            BCG (Tuberculosis)<br/>
+            Hepatitis B – 1st dose<br/>
+            OPV-0 (Oral Polio)
+          </div>
+          <div class="vt-dot" style="--dot-color:#FFD6C2;"></div>
+          <div class="vt-age">Birth</div>
+          <div class="vt-label">BCG<br/>Hep B</div>
+        </div>
+
+        <!-- 2 months -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="2 months: DTaP, Hib, IPV, Pneumococcal">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>2 Months</strong>
+            DTaP (Diphtheria, Tetanus, Pertussis)<br/>
+            Hib (Haemophilus influenzae)<br/>
+            IPV (Polio – Inactivated)<br/>
+            PCV13 (Pneumococcal)
+          </div>
+          <div class="vt-dot" style="--dot-color:#A8D8EA;"></div>
+          <div class="vt-age">2 Mo</div>
+          <div class="vt-label">DTaP<br/>Hib · IPV</div>
+        </div>
+
+        <!-- 4 months -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="4 months: DTaP, Hib, IPV, Rotavirus">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>4 Months</strong>
+            DTaP – 2nd dose<br/>
+            Hib – 2nd dose<br/>
+            IPV – 2nd dose<br/>
+            Rotavirus – 2nd dose
+          </div>
+          <div class="vt-dot" style="--dot-color:#B8D8C0;"></div>
+          <div class="vt-age">4 Mo</div>
+          <div class="vt-label">DTaP<br/>Rotavirus</div>
+        </div>
+
+        <!-- 6 months -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="6 months: Influenza, Hepatitis B, DTaP">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>6 Months</strong>
+            DTaP – 3rd dose<br/>
+            Hep B – 3rd dose<br/>
+            Influenza (annual)<br/>
+            PCV13 – 3rd dose
+          </div>
+          <div class="vt-dot" style="--dot-color:#FFD6C2;"></div>
+          <div class="vt-age">6 Mo</div>
+          <div class="vt-label">Flu<br/>Hep B · DTaP</div>
+        </div>
+
+        <!-- 12 months -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="12 months: MMR, Varicella, Hepatitis A">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>12 Months</strong>
+            MMR (Measles, Mumps, Rubella)<br/>
+            Varicella (Chickenpox)<br/>
+            Hepatitis A – 1st dose<br/>
+            PCV13 – 4th dose
+          </div>
+          <div class="vt-dot" style="--dot-color:#A8D8EA;"></div>
+          <div class="vt-age">12 Mo</div>
+          <div class="vt-label">MMR<br/>Varicella</div>
+        </div>
+
+        <!-- 15 months -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="15 months: Hib, DTaP booster">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>15 Months</strong>
+            Hib – final dose<br/>
+            DTaP – 4th dose booster<br/>
+            PCV13 booster
+          </div>
+          <div class="vt-dot" style="--dot-color:#B8D8C0;"></div>
+          <div class="vt-age">15 Mo</div>
+          <div class="vt-label">Hib<br/>DTaP boost</div>
+        </div>
+
+        <!-- 18 months -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="18 months: Hepatitis A 2nd dose">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>18 Months</strong>
+            Hepatitis A – 2nd dose<br/>
+            Flu (annual repeat)
+          </div>
+          <div class="vt-dot" style="--dot-color:#FFD6C2;"></div>
+          <div class="vt-age">18 Mo</div>
+          <div class="vt-label">Hep A<br/>Flu</div>
+        </div>
+
+        <!-- 4–6 years -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="4-6 years: DTaP booster, MMR booster, IPV booster">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>4–6 Years</strong>
+            DTaP – 5th dose (booster)<br/>
+            MMR – 2nd dose<br/>
+            Varicella – 2nd dose<br/>
+            IPV – 4th dose
+          </div>
+          <div class="vt-dot" style="--dot-color:#A8D8EA;"></div>
+          <div class="vt-age">4–6 Yrs</div>
+          <div class="vt-label">DTaP<br/>MMR · IPV</div>
+        </div>
+
+        <!-- 11–12 years -->
+        <div class="vt-point" role="listitem" tabindex="0" aria-label="11-12 years: Tdap, HPV, Meningococcal">
+          <div class="vt-tooltip" role="tooltip">
+            <strong>11–12 Years</strong>
+            Tdap (Tetanus, Diphtheria, Pertussis)<br/>
+            HPV (Human Papillomavirus)<br/>
+            Meningococcal (MCV4)<br/>
+            Annual Influenza
+          </div>
+          <div class="vt-dot" style="--dot-color:#B8D8C0;"></div>
+          <div class="vt-age">11–12 Yrs</div>
+          <div class="vt-label">Tdap<br/>HPV · MCV4</div>
+        </div>
+
+      </div><!-- /vaccine-timeline -->
+    </div>
+
+    <!-- Legend -->
+    <div class="d-flex justify-content-center flex-wrap gap-3 mt-4" data-aos="fade-up" data-aos-delay="200" aria-label="Timeline legend">
+      <div class="d-flex align-items-center gap-2 fs-sm">
+        <span style="width:12px;height:12px;border-radius:50%;background:#FFD6C2;display:inline-block;"></span>
+        <small>Birth/Newborn Vaccines</small>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <span style="width:12px;height:12px;border-radius:50%;background:#A8D8EA;display:inline-block;"></span>
+        <small>Infant/Toddler Vaccines</small>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <span style="width:12px;height:12px;border-radius:50%;background:#B8D8C0;display:inline-block;"></span>
+        <small>Childhood/Pre-teen Vaccines</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 4 — MILESTONES
+============================================================ -->
+<section class="milestone-section" id="milestones" aria-label="Child Development Milestones">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-label">Development</div>
+      <h2 class="section-title-h2">Tracking Your Child's Development</h2>
+      <p class="section-subtitle mx-auto">Understanding what's typical at each stage helps you celebrate progress and spot any concerns early.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Physical Growth -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="milestone-card" style="--accent:#FFD6C2;">
+          <div class="milestone-icon" style="background:#FFD6C2;" aria-hidden="true"><i class="fa-solid fa-ruler" aria-hidden="true"></i></div>
+          <h3 class="milestone-title">Physical Growth</h3>
+          <ul class="milestone-list" aria-label="Physical growth milestones">
+            <li><span class="age-tag" style="background:#FFD6C2;">0–3 mo</span>Gains 150–210g/week</li>
+            <li><span class="age-tag" style="background:#FFD6C2;">6 mo</span>Birth weight doubles</li>
+            <li><span class="age-tag" style="background:#FFD6C2;">1 yr</span>Birth weight triples</li>
+            <li><span class="age-tag" style="background:#FFD6C2;">2 yrs</span>Approx. half adult height</li>
+            <li><span class="age-tag" style="background:#FFD6C2;">5 yrs</span>Steady 5–6 cm/year growth</li>
+          </ul>
+          <div class="milestone-progress-bar" style="--accent:#FFD6C2;" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Cognitive Development -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+        <div class="milestone-card" style="--accent:#A8D8EA;">
+          <div class="milestone-icon" style="background:#A8D8EA;" aria-hidden="true"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
+          <h3 class="milestone-title">Cognitive Development</h3>
+          <ul class="milestone-list" aria-label="Cognitive development milestones">
+            <li><span class="age-tag" style="background:#A8D8EA;">2 mo</span>Tracks objects with eyes</li>
+            <li><span class="age-tag" style="background:#A8D8EA;">6 mo</span>Explores objects by mouth</li>
+            <li><span class="age-tag" style="background:#A8D8EA;">1 yr</span>Object permanence achieved</li>
+            <li><span class="age-tag" style="background:#A8D8EA;">2 yrs</span>Symbolic &amp; pretend play</li>
+            <li><span class="age-tag" style="background:#A8D8EA;">5 yrs</span>Basic reading &amp; math skills</li>
+          </ul>
+          <div class="milestone-progress-bar" style="--accent:#A8D8EA;" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Social & Emotional -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+        <div class="milestone-card" style="--accent:#B8D8C0;">
+          <div class="milestone-icon" style="background:#B8D8C0;" aria-hidden="true"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+          <h3 class="milestone-title">Social &amp; Emotional</h3>
+          <ul class="milestone-list" aria-label="Social and emotional milestones">
+            <li><span class="age-tag" style="background:#B8D8C0;">1 mo</span>Responds to caregiver voice</li>
+            <li><span class="age-tag" style="background:#B8D8C0;">2 mo</span>First social smile</li>
+            <li><span class="age-tag" style="background:#B8D8C0;">9 mo</span>Stranger anxiety begins</li>
+            <li><span class="age-tag" style="background:#B8D8C0;">2 yrs</span>Parallel play with peers</li>
+            <li><span class="age-tag" style="background:#B8D8C0;">4 yrs</span>Cooperative play &amp; empathy</li>
+          </ul>
+          <div class="milestone-progress-bar" style="--accent:#B8D8C0;" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Language & Communication -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+        <div class="milestone-card" style="--accent:#FFD6C2;">
+          <div class="milestone-icon" style="background:#FFD6C2;" aria-hidden="true"><i class="fa-solid fa-comments" aria-hidden="true"></i></div>
+          <h3 class="milestone-title">Language &amp; Communication</h3>
+          <ul class="milestone-list" aria-label="Language milestones">
+            <li><span class="age-tag" style="background:#FFD6C2;">2 mo</span>Cooing &amp; vowel sounds</li>
+            <li><span class="age-tag" style="background:#FFD6C2;">6 mo</span>Babbling (ba-ba, da-da)</li>
+            <li><span class="age-tag" style="background:#FFD6C2;">1 yr</span>First meaningful words</li>
+            <li><span class="age-tag" style="background:#FFD6C2;">2 yrs</span>50+ words, 2-word phrases</li>
+            <li><span class="age-tag" style="background:#FFD6C2;">5 yrs</span>Full sentences, storytelling</li>
+          </ul>
+          <div class="milestone-progress-bar" style="--accent:#FFD6C2;" aria-hidden="true"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="milestone-faq" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="text-center mb-4" style="font-size:1.5rem;color:var(--navy);">
+        <i class="fas fa-question-circle me-2" style="color:#A8D8EA;"></i>When Should I Be Concerned?
+      </h3>
+      <div class="accordion" id="milestoneFaq" role="list">
+
+        <div class="accordion-item" role="listitem">
+          <h4 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+              My baby isn't smiling by 3 months — is that normal?
+            </button>
+          </h4>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#milestoneFaq">
+            <div class="accordion-body">
+              Most babies smile socially between 6–8 weeks. If your baby hasn't smiled by 3 months, it's worth a check-up with our pediatrician. It could be related to vision, hearing, or developmental factors — all of which we can assess early for the best outcomes.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <h4 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+              When should my toddler be speaking in sentences?
+            </button>
+          </h4>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#milestoneFaq">
+            <div class="accordion-body">
+              Most toddlers speak in 2-word phrases by 24 months and simple sentences by 36 months. If your child isn't hitting these markers, our speech therapy referral program can help evaluate and address language delays early.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <h4 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+              My 5-year-old struggles to focus — could it be ADHD?
+            </button>
+          </h4>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#milestoneFaq">
+            <div class="accordion-body">
+              Some attention challenges are developmentally normal, but persistent difficulty focusing, impulsiveness, or hyperactivity warrants assessment. Our school-age ADHD screening program uses validated tools and a multidisciplinary approach to provide accurate diagnosis and personalized support plans.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <h4 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+              How often should my child have wellness checkups?
+            </button>
+          </h4>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#milestoneFaq">
+            <div class="accordion-body">
+              We recommend checkups at: 1 week, 1 month, 2 months, 4 months, 6 months, 9 months, 12 months, 15 months, 18 months, 24 months, then annually from age 3 onward. Each visit includes developmental screening, vaccinations if due, and parent guidance.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 5 — SPECIALIST DOCTORS
+============================================================ -->
+<section class="doctors-section" id="specialists" aria-label="Our Pediatric Specialists">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-label">Our Team</div>
+      <h2 class="section-title-h2">Meet Our Pediatric Specialists</h2>
+      <p class="section-subtitle mx-auto">Expert physicians dedicated to your child's health at every stage — hover to check availability.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Dr. Sarah Johnson -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="doctor-flip-wrap" role="article" aria-label="Dr. Sarah Johnson — Neonatologist">
+          <div class="doctor-flip-card">
+            <div class="doctor-flip-front">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=195&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Sarah Johnson" class="doctor-photo" loading="lazy" />
+              <div class="doctor-name">Dr. Sarah Johnson</div>
+              <div class="doctor-specialty">Neonatologist</div>
+              <div class="doctor-exp"><i class="fas fa-clock me-1" aria-hidden="true"></i>12 Years Experience</div>
+              <div class="doctor-stars" aria-label="Rating: 4.9 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small style="color:var(--text-muted);">4.9</small>
+              </div>
+              <button class="btn-book-sm" aria-label="Book appointment with Dr. Sarah Johnson">
+                <i class="fas fa-calendar-plus me-1"></i>Book Now
+              </button>
+            </div>
+            <div class="doctor-flip-back" aria-label="Availability for Dr. Sarah Johnson">
+              <div class="back-title"><i class="fas fa-calendar-alt"></i>November 2026 Availability</div>
+              <div class="avail-grid" aria-label="Calendar grid">
+                <div class="avail-day hdr">S</div><div class="avail-day hdr">M</div><div class="avail-day hdr">T</div><div class="avail-day hdr">W</div><div class="avail-day hdr">T</div><div class="avail-day hdr">F</div><div class="avail-day hdr">S</div>
+                <div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day open">1</div><div class="avail-day open">2</div>
+                <div class="avail-day booked">3</div><div class="avail-day open">4</div><div class="avail-day open">5</div><div class="avail-day booked">6</div><div class="avail-day open">7</div><div class="avail-day open">8</div><div class="avail-day open">9</div>
+                <div class="avail-day open">10</div><div class="avail-day booked">11</div><div class="avail-day open">12</div><div class="avail-day open">13</div><div class="avail-day booked">14</div><div class="avail-day open">15</div><div class="avail-day open">16</div>
+                <div class="avail-day booked">17</div><div class="avail-day today">18</div><div class="avail-day open">19</div><div class="avail-day open">20</div><div class="avail-day open">21</div><div class="avail-day booked">22</div><div class="avail-day open">23</div>
+              </div>
+              <div class="avail-slots"><i class="fas fa-circle me-1" style="color:#A8D8EA;font-size:.6rem;"></i>14 slots available this month</div>
+              <button class="btn-book-back" aria-label="Schedule with Dr. Sarah Johnson">
+                <i class="fas fa-calendar-check me-1"></i>Schedule Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dr. Michael Chen -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="doctor-flip-wrap" role="article" aria-label="Dr. Michael Chen — Pediatric Nutritionist">
+          <div class="doctor-flip-card">
+            <div class="doctor-flip-front">
+              <img src="https://images.pexels.com/photos/12660379/pexels-photo-12660379.jpeg?auto=compress&cs=tinysrgb&w=300&h=195&fit=crop&crop=faces&q=80" alt="Dr. Michael Chen" class="doctor-photo" loading="lazy" />
+              <div class="doctor-name">Dr. Michael Chen</div>
+              <div class="doctor-specialty">Pediatric Nutritionist</div>
+              <div class="doctor-exp"><i class="fas fa-clock me-1" aria-hidden="true"></i>8 Years Experience</div>
+              <div class="doctor-stars" aria-label="Rating: 4.8 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small style="color:var(--text-muted);">4.8</small>
+              </div>
+              <button class="btn-book-sm" aria-label="Book appointment with Dr. Michael Chen">
+                <i class="fas fa-calendar-plus me-1"></i>Book Now
+              </button>
+            </div>
+            <div class="doctor-flip-back" aria-label="Availability for Dr. Michael Chen">
+              <div class="back-title"><i class="fas fa-calendar-alt"></i>November 2026 Availability</div>
+              <div class="avail-grid" aria-label="Calendar grid">
+                <div class="avail-day hdr">S</div><div class="avail-day hdr">M</div><div class="avail-day hdr">T</div><div class="avail-day hdr">W</div><div class="avail-day hdr">T</div><div class="avail-day hdr">F</div><div class="avail-day hdr">S</div>
+                <div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day booked">1</div><div class="avail-day open">2</div>
+                <div class="avail-day open">3</div><div class="avail-day booked">4</div><div class="avail-day open">5</div><div class="avail-day open">6</div><div class="avail-day booked">7</div><div class="avail-day open">8</div><div class="avail-day booked">9</div>
+                <div class="avail-day open">10</div><div class="avail-day open">11</div><div class="avail-day booked">12</div><div class="avail-day open">13</div><div class="avail-day open">14</div><div class="avail-day booked">15</div><div class="avail-day open">16</div>
+                <div class="avail-day open">17</div><div class="avail-day today">18</div><div class="avail-day booked">19</div><div class="avail-day open">20</div><div class="avail-day open">21</div><div class="avail-day open">22</div><div class="avail-day booked">23</div>
+              </div>
+              <div class="avail-slots"><i class="fas fa-circle me-1" style="color:#A8D8EA;font-size:.6rem;"></i>12 slots available this month</div>
+              <button class="btn-book-back" aria-label="Schedule with Dr. Michael Chen">
+                <i class="fas fa-calendar-check me-1"></i>Schedule Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dr. Priya Sharma -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+        <div class="doctor-flip-wrap" role="article" aria-label="Dr. Priya Sharma — Developmental Pediatrics">
+          <div class="doctor-flip-card">
+            <div class="doctor-flip-front">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&h=195&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Priya Sharma" class="doctor-photo" loading="lazy" />
+              <div class="doctor-name">Dr. Priya Sharma</div>
+              <div class="doctor-specialty">Developmental Pediatrics</div>
+              <div class="doctor-exp"><i class="fas fa-clock me-1" aria-hidden="true"></i>10 Years Experience</div>
+              <div class="doctor-stars" aria-label="Rating: 5 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small style="color:var(--text-muted);">5.0</small>
+              </div>
+              <button class="btn-book-sm" aria-label="Book appointment with Dr. Priya Sharma">
+                <i class="fas fa-calendar-plus me-1"></i>Book Now
+              </button>
+            </div>
+            <div class="doctor-flip-back" aria-label="Availability for Dr. Priya Sharma">
+              <div class="back-title"><i class="fas fa-calendar-alt"></i>November 2026 Availability</div>
+              <div class="avail-grid" aria-label="Calendar grid">
+                <div class="avail-day hdr">S</div><div class="avail-day hdr">M</div><div class="avail-day hdr">T</div><div class="avail-day hdr">W</div><div class="avail-day hdr">T</div><div class="avail-day hdr">F</div><div class="avail-day hdr">S</div>
+                <div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day open">1</div><div class="avail-day booked">2</div>
+                <div class="avail-day open">3</div><div class="avail-day open">4</div><div class="avail-day booked">5</div><div class="avail-day open">6</div><div class="avail-day open">7</div><div class="avail-day booked">8</div><div class="avail-day open">9</div>
+                <div class="avail-day booked">10</div><div class="avail-day open">11</div><div class="avail-day open">12</div><div class="avail-day booked">13</div><div class="avail-day open">14</div><div class="avail-day open">15</div><div class="avail-day open">16</div>
+                <div class="avail-day open">17</div><div class="avail-day today">18</div><div class="avail-day open">19</div><div class="avail-day booked">20</div><div class="avail-day open">21</div><div class="avail-day open">22</div><div class="avail-day open">23</div>
+              </div>
+              <div class="avail-slots"><i class="fas fa-circle me-1" style="color:#A8D8EA;font-size:.6rem;"></i>16 slots available this month</div>
+              <button class="btn-book-back" aria-label="Schedule with Dr. Priya Sharma">
+                <i class="fas fa-calendar-check me-1"></i>Schedule Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dr. James Wilson -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="doctor-flip-wrap" role="article" aria-label="Dr. James Wilson — Allergy & Immunology">
+          <div class="doctor-flip-card">
+            <div class="doctor-flip-front">
+              <img src="https://images.pexels.com/photos/32160037/pexels-photo-32160037.jpeg?auto=compress&cs=tinysrgb&w=300&h=195&fit=crop&crop=faces&q=80" alt="Dr. James Wilson" class="doctor-photo" loading="lazy" />
+              <div class="doctor-name">Dr. James Wilson</div>
+              <div class="doctor-specialty">Allergy &amp; Immunology</div>
+              <div class="doctor-exp"><i class="fas fa-clock me-1" aria-hidden="true"></i>15 Years Experience</div>
+              <div class="doctor-stars" aria-label="Rating: 4.7 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-regular fa-star" aria-hidden="true"></i> <small style="color:var(--text-muted);">4.7</small>
+              </div>
+              <button class="btn-book-sm" aria-label="Book appointment with Dr. James Wilson">
+                <i class="fas fa-calendar-plus me-1"></i>Book Now
+              </button>
+            </div>
+            <div class="doctor-flip-back" aria-label="Availability for Dr. James Wilson">
+              <div class="back-title"><i class="fas fa-calendar-alt"></i>November 2026 Availability</div>
+              <div class="avail-grid" aria-label="Calendar grid">
+                <div class="avail-day hdr">S</div><div class="avail-day hdr">M</div><div class="avail-day hdr">T</div><div class="avail-day hdr">W</div><div class="avail-day hdr">T</div><div class="avail-day hdr">F</div><div class="avail-day hdr">S</div>
+                <div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day booked">1</div><div class="avail-day booked">2</div>
+                <div class="avail-day open">3</div><div class="avail-day open">4</div><div class="avail-day open">5</div><div class="avail-day open">6</div><div class="avail-day booked">7</div><div class="avail-day open">8</div><div class="avail-day open">9</div>
+                <div class="avail-day booked">10</div><div class="avail-day open">11</div><div class="avail-day booked">12</div><div class="avail-day open">13</div><div class="avail-day open">14</div><div class="avail-day booked">15</div><div class="avail-day open">16</div>
+                <div class="avail-day open">17</div><div class="avail-day today">18</div><div class="avail-day open">19</div><div class="avail-day open">20</div><div class="avail-day booked">21</div><div class="avail-day open">22</div><div class="avail-day open">23</div>
+              </div>
+              <div class="avail-slots"><i class="fas fa-circle me-1" style="color:#A8D8EA;font-size:.6rem;"></i>13 slots available this month</div>
+              <button class="btn-book-back" aria-label="Schedule with Dr. James Wilson">
+                <i class="fas fa-calendar-check me-1"></i>Schedule Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dr. Emma Davis -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="doctor-flip-wrap" role="article" aria-label="Dr. Emma Davis — Child Psychology">
+          <div class="doctor-flip-card">
+            <div class="doctor-flip-front">
+              <img src="https://images.pexels.com/photos/8459997/pexels-photo-8459997.jpeg?auto=compress&cs=tinysrgb&w=300&h=195&fit=crop&crop=faces&q=80" alt="Dr. Emma Davis" class="doctor-photo" loading="lazy" />
+              <div class="doctor-name">Dr. Emma Davis</div>
+              <div class="doctor-specialty">Child Psychology</div>
+              <div class="doctor-exp"><i class="fas fa-clock me-1" aria-hidden="true"></i>9 Years Experience</div>
+              <div class="doctor-stars" aria-label="Rating: 4.9 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small style="color:var(--text-muted);">4.9</small>
+              </div>
+              <button class="btn-book-sm" aria-label="Book appointment with Dr. Emma Davis">
+                <i class="fas fa-calendar-plus me-1"></i>Book Now
+              </button>
+            </div>
+            <div class="doctor-flip-back" aria-label="Availability for Dr. Emma Davis">
+              <div class="back-title"><i class="fas fa-calendar-alt"></i>November 2026 Availability</div>
+              <div class="avail-grid" aria-label="Calendar grid">
+                <div class="avail-day hdr">S</div><div class="avail-day hdr">M</div><div class="avail-day hdr">T</div><div class="avail-day hdr">W</div><div class="avail-day hdr">T</div><div class="avail-day hdr">F</div><div class="avail-day hdr">S</div>
+                <div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day open">1</div><div class="avail-day open">2</div>
+                <div class="avail-day open">3</div><div class="avail-day booked">4</div><div class="avail-day open">5</div><div class="avail-day booked">6</div><div class="avail-day open">7</div><div class="avail-day open">8</div><div class="avail-day booked">9</div>
+                <div class="avail-day open">10</div><div class="avail-day open">11</div><div class="avail-day open">12</div><div class="avail-day open">13</div><div class="avail-day booked">14</div><div class="avail-day open">15</div><div class="avail-day open">16</div>
+                <div class="avail-day booked">17</div><div class="avail-day today">18</div><div class="avail-day open">19</div><div class="avail-day open">20</div><div class="avail-day open">21</div><div class="avail-day booked">22</div><div class="avail-day open">23</div>
+              </div>
+              <div class="avail-slots"><i class="fas fa-circle me-1" style="color:#A8D8EA;font-size:.6rem;"></i>17 slots available this month</div>
+              <button class="btn-book-back" aria-label="Schedule with Dr. Emma Davis">
+                <i class="fas fa-calendar-check me-1"></i>Schedule Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dr. Robert Kim -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+        <div class="doctor-flip-wrap" role="article" aria-label="Dr. Robert Kim — General Pediatrics">
+          <div class="doctor-flip-card">
+            <div class="doctor-flip-front">
+              <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=300&h=195&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Robert Kim" class="doctor-photo" loading="lazy" />
+              <div class="doctor-name">Dr. Robert Kim</div>
+              <div class="doctor-specialty">General Pediatrics</div>
+              <div class="doctor-exp"><i class="fas fa-clock me-1" aria-hidden="true"></i>20 Years Experience</div>
+              <div class="doctor-stars" aria-label="Rating: 5 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small style="color:var(--text-muted);">5.0</small>
+              </div>
+              <button class="btn-book-sm" aria-label="Book appointment with Dr. Robert Kim">
+                <i class="fas fa-calendar-plus me-1"></i>Book Now
+              </button>
+            </div>
+            <div class="doctor-flip-back" aria-label="Availability for Dr. Robert Kim">
+              <div class="back-title"><i class="fas fa-calendar-alt"></i>November 2026 Availability</div>
+              <div class="avail-grid" aria-label="Calendar grid">
+                <div class="avail-day hdr">S</div><div class="avail-day hdr">M</div><div class="avail-day hdr">T</div><div class="avail-day hdr">W</div><div class="avail-day hdr">T</div><div class="avail-day hdr">F</div><div class="avail-day hdr">S</div>
+                <div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day empty"></div><div class="avail-day open">1</div><div class="avail-day open">2</div>
+                <div class="avail-day booked">3</div><div class="avail-day open">4</div><div class="avail-day booked">5</div><div class="avail-day open">6</div><div class="avail-day open">7</div><div class="avail-day open">8</div><div class="avail-day booked">9</div>
+                <div class="avail-day open">10</div><div class="avail-day open">11</div><div class="avail-day open">12</div><div class="avail-day booked">13</div><div class="avail-day open">14</div><div class="avail-day open">15</div><div class="avail-day open">16</div>
+                <div class="avail-day open">17</div><div class="avail-day today">18</div><div class="avail-day open">19</div><div class="avail-day booked">20</div><div class="avail-day open">21</div><div class="avail-day open">22</div><div class="avail-day open">23</div>
+              </div>
+              <div class="avail-slots"><i class="fas fa-circle me-1" style="color:#A8D8EA;font-size:.6rem;"></i>18 slots available this month</div>
+              <button class="btn-book-back" aria-label="Schedule with Dr. Robert Kim">
+                <i class="fas fa-calendar-check me-1"></i>Schedule Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 6 — PACKAGES + NEWSLETTER
+============================================================ -->
+<section class="packages-section" id="packages" aria-label="Wellness Packages and Newsletter">
+  <div class="container">
+
+    <!-- 6A: Pricing Table -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-label">Wellness Plans</div>
+      <h2 class="section-title-h2">Child Wellness Packages</h2>
+      <p class="section-subtitle mx-auto">Comprehensive care plans designed to grow with your child. Choose what fits your family best.</p>
+    </div>
+
+    <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
+      <table class="pricing-table table table-bordered align-middle" aria-label="Wellness package comparison">
+        <thead>
+          <tr>
+            <th scope="col" style="width:35%;">Feature</th>
+            <th scope="col" class="col-basic">Basic</th>
+            <th scope="col" class="col-premium" style="position:relative;">
+              <span class="popular-badge" aria-label="Most Popular plan"><i class="fa-solid fa-star" aria-hidden="true"></i> Most Popular</span>
+              Premium
+            </th>
+            <th scope="col" class="col-elite">Elite</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><i class="fas fa-calendar-check me-2" style="color:#A8D8EA;" aria-hidden="true"></i>Monthly Visits</td>
+            <td class="col-basic-cell">1 Visit</td>
+            <td class="col-premium-cell"><strong>2 Visits</strong></td>
+            <td class="col-elite-cell">4 Visits</td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-syringe me-2" style="color:#A8D8EA;" aria-hidden="true"></i>Vaccinations</td>
+            <td class="col-basic-cell">Standard</td>
+            <td class="col-premium-cell"><strong>Full Schedule</strong></td>
+            <td class="col-elite-cell">Full + Travel</td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-chart-line me-2" style="color:#A8D8EA;" aria-hidden="true"></i>Growth Tracking</td>
+            <td class="col-basic-cell"><span class="check-no" aria-label="Not included">—</span></td>
+            <td class="col-premium-cell"><span class="check-yes" aria-label="Included"><i class="fa-solid fa-check" aria-hidden="true"></i></span></td>
+            <td class="col-elite-cell"><span class="check-yes" aria-label="Included"><i class="fa-solid fa-check" aria-hidden="true"></i></span></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-headset me-2" style="color:#A8D8EA;" aria-hidden="true"></i>24/7 Support</td>
+            <td class="col-basic-cell"><span class="check-no" aria-label="Not included">—</span></td>
+            <td class="col-premium-cell"><span class="check-no" aria-label="Not included">—</span></td>
+            <td class="col-elite-cell"><span class="check-yes" aria-label="Included"><i class="fa-solid fa-check" aria-hidden="true"></i></span></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-stethoscope me-2" style="color:#A8D8EA;" aria-hidden="true"></i>Specialist Access</td>
+            <td class="col-basic-cell"><span class="check-no" aria-label="Not included">—</span></td>
+            <td class="col-premium-cell"><span class="check-yes" aria-label="Included"><i class="fa-solid fa-check" aria-hidden="true"></i></span></td>
+            <td class="col-elite-cell"><span class="check-yes" aria-label="Included"><i class="fa-solid fa-check" aria-hidden="true"></i></span></td>
+          </tr>
+          <tr class="row-price">
+            <td><i class="fas fa-tag me-2" style="color:#A8D8EA;" aria-hidden="true"></i>Monthly Price</td>
+            <td class="col-basic-cell" style="color:var(--navy);">$49/mo</td>
+            <td class="col-premium-cell" style="color:var(--navy);font-size:1.3rem;">$99/mo</td>
+            <td class="col-elite-cell" style="color:var(--navy);">$199/mo</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="col-basic-cell"><button class="btn-pricing btn-basic-cta" aria-label="Get started with Basic plan">Get Started</button></td>
+            <td class="col-premium-cell"><button class="btn-pricing btn-premium-cta" aria-label="Choose Premium plan">Choose Premium</button></td>
+            <td class="col-elite-cell"><button class="btn-pricing btn-elite-cta" aria-label="Get started with Elite plan">Go Elite</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 6B: Newsletter -->
+    <div class="newsletter-wrap" data-aos="fade-up" data-aos-delay="150" role="complementary" aria-label="Newsletter signup">
+      <div class="row align-items-center g-4">
+
+        <!-- Illustration -->
+        <div class="col-md-3 d-none d-md-flex newsletter-illo" aria-hidden="true">
+          <div>
+            <div class="illo-emoji"><i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i></div>
+            <div class="illo-text">Join 10,000+<br/>happy parents!</div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="col-md-9">
+          <h3 class="newsletter-title">Get Monthly Pediatric Tips</h3>
+          <p class="newsletter-subtitle">Delivered to your inbox — expert advice for every stage of your child's growth.</p>
+
+          <form class="newsletter-form" id="newsletterForm" novalidate aria-label="Newsletter signup form">
+            <div class="row g-3 mb-3">
+              <div class="col-sm-6">
+                <label for="newsletterName" class="visually-hidden">Your name</label>
+                <input type="text" class="form-control" id="newsletterName" placeholder="Your Name" autocomplete="given-name" required aria-required="true" />
+              </div>
+              <div class="col-sm-6">
+                <label for="newsletterEmail" class="visually-hidden">Your email address</label>
+                <input type="email" class="form-control" id="newsletterEmail" placeholder="Your Email Address" autocomplete="email" required aria-required="true" />
+              </div>
+            </div>
+            <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+              <i class="fas fa-paper-plane me-2"></i>Subscribe Now — It's Free!
+            </button>
+          </form>
+
+          <div class="trust-badges" aria-label="Trust indicators">
+            <div class="trust-badge">
+              <i class="fas fa-shield-alt" aria-hidden="true"></i>
+              <span>No spam, ever</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fas fa-times-circle" aria-hidden="true"></i>
+              <span>Unsubscribe anytime</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fas fa-users" aria-hidden="true"></i>
+              <span>10,000+ parents subscribed</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Col 1: Brand -->
+      <div class="col-lg-4 col-md-6">
+        <span class="footer-brand">PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span>
+        <p class="footer-about">
+          PediaCare is a premier pediatric clinic dedicated to nurturing the health, growth, and happiness of children from birth through adolescence. Our board-certified team combines medical excellence with heartfelt compassion.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+          <li><a href="home2.html"><i class="fas fa-chevron-right fa-xs"></i> Home 2</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          <li><a href="parent-dashboard.html"><i class="fas fa-chevron-right fa-xs"></i> Parent Dashboard</a></li>
+          <li><a href="#appointment"><i class="fas fa-chevron-right fa-xs"></i> Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> General Pediatrics</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Neonatology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Developmental Medicine</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Pediatric Nutrition</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Allergy &amp; Immunology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Vaccinations</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Wellness Programs</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact + Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Wellness Blvd, Suite 200<br>Health City, CA 90001</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1-800-PEDIACARE<br>+1 (555) 234-5678</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>hello@pediacare.com<br>appointments@pediacare.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Open 24/7 · 365 Days a Year</span>
+        </div>
+
+        <h4 class="footer-heading mt-4">Newsletter</h4>
+        <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:.8rem;">Get parenting tips & clinic news.</p>
+        <form class="newsletter-form d-flex" aria-label="Newsletter signup form" onsubmit="return handleNewsletter(event)">
+          <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter" required />
+          <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p>© 2025 PediaCare Medical Group. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+        <a href="#">HIPAA Notice</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Back to Top Button -->
+<button id="back-to-top" aria-label="Back to top" title="Back to top">
+  <i class="fas fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<!-- Bootstrap 5.3 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Shared JS -->
+<script src="assets/js/main.js"></script>
+
+<script>
+  /* =============================================
+     HOME2 — Page-Specific JavaScript
+  ============================================= */
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // ---- Init AOS ----
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 700, once: true, offset: 60 });
+    }
+
+    // ---- Navbar scroll behavior ----
+    const nav = (document.getElementById('mainNav') || document.createElement('span'));
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ---- Mobile menu toggle ----
+    const mobileBtn = (document.getElementById('mobileMenuToggle') || document.createElement('span'));
+    const mobileMenu = (document.getElementById('mobileMenu') || document.createElement('span'));
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.style.display === 'block';
+        mobileMenu.style.setProperty('display', isOpen ? 'none' : 'block', 'important');
+        mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+        mobileMenu.setAttribute('aria-hidden', String(isOpen));
+      });
+    }
+
+    // ---- Dark Mode Toggle ----
+    const darkToggle = (document.getElementById('darkToggle') || document.createElement('span'));
+    const darkIcon = (document.getElementById('darkIcon') || document.createElement('span'));
+    const html = document.documentElement;
+
+    // Persist preference
+    const savedTheme = localStorage.getItem('pediacare-theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    if (darkIcon) darkIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+    if (darkToggle) {
+      darkToggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('pediacare-theme', next);
+        if (darkIcon) darkIcon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      });
+    }
+
+    // ---- Age Filter (cards) ----
+    const filterBtns = document.querySelectorAll('.age-filter-btn');
+    const cardWraps = document.querySelectorAll('.specialty-card-wrap');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update active state
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        // Filter cards
+        cardWraps.forEach(wrap => {
+          const cat = wrap.dataset.category;
+          const show = filter === 'all' || cat === filter || cat === 'all';
+          wrap.style.display = show ? '' : 'none';
+          // Animate in
+          if (show) {
+            wrap.style.opacity = '0';
+            wrap.style.transform = 'translateY(20px)';
+            requestAnimationFrame(() => {
+              wrap.style.transition = 'opacity 0.4s, transform 0.4s';
+              wrap.style.opacity = '1';
+              wrap.style.transform = 'translateY(0)';
+            });
+          }
+        });
+      });
+    });
+
+    // ---- Particle Canvas ----
+    (function initParticles() {
+      const canvas = (document.getElementById('particles-canvas') || document.createElement('span'));
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      function resize() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      const colors = ['#A8D8EA', '#B8D8C0', '#FFD6C2', '#FFF9F2'];
+      const particles = Array.from({ length: 55 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 4 + 1.5,
+        dx: (Math.random() - 0.5) * 0.6,
+        dy: (Math.random() - 0.5) * 0.6,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: Math.random() * 0.5 + 0.2
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = p.alpha;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+
+          p.x += p.dx;
+          p.y += p.dy;
+
+          if (p.x < -p.r) p.x = canvas.width + p.r;
+          if (p.x > canvas.width + p.r) p.x = -p.r;
+          if (p.y < -p.r) p.y = canvas.height + p.r;
+          if (p.y > canvas.height + p.r) p.y = -p.r;
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // ---- Back to Top ----
+    const backToTop = (document.getElementById('back-to-top') || document.createElement('span'));
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // ---- Smooth scroll for anchor links ----
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ---- Newsletter form ----
+    const form = (document.getElementById('newsletterForm') || document.createElement('span'));
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = (document.getElementById('newsletterEmail') || document.createElement('span')).value.trim();
+        const name = (document.getElementById('newsletterName') || document.createElement('span')).value.trim();
+        if (!email || !name) {
+          alert('Please fill in both your name and email.');
+          return;
+        }
+        // Success feedback
+        form.innerHTML = '<div style="color:#B8D8C0;font-size:1.1rem;font-weight:700;padding:1rem 0;"><i class="fas fa-check-circle me-2"></i>You\'re subscribed! Welcome to the PediaCare family!</div>';
+      });
+    }
+
+    // ---- Timeline keyboard accessibility ----
+    document.querySelectorAll('.vt-point').forEach(point => {
+      point.addEventListener('focus', () => {
+        point.querySelector('.vt-tooltip').style.opacity = '1';
+        point.querySelector('.vt-tooltip').style.transform = 'translateX(-50%) translateY(0)';
+      });
+      point.addEventListener('blur', () => {
+        point.querySelector('.vt-tooltip').style.opacity = '';
+        point.querySelector('.vt-tooltip').style.transform = '';
+      });
+    });
+
+  }); // end DOMContentLoaded
+</script>
+
+
+<script>
+(function () {
+  const navbar = document.getElementById('mainNavbar');
+  if (navbar) {
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  const darkBtn = document.getElementById('darkModeToggle');
+  const darkIcon = document.getElementById('darkModeIcon');
+  const rtlBtn = document.getElementById('rtlToggle');
+  const htmlEl = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    try { localStorage.setItem('pediacare-theme', theme); } catch (e) {}
+    if (darkIcon) {
+      if (theme === 'dark') {
+        darkIcon.classList.remove('fa-moon');
+        darkIcon.classList.add('fa-sun');
+      } else {
+        darkIcon.classList.remove('fa-sun');
+        darkIcon.classList.add('fa-moon');
+      }
+    }
+  }
+
+  let saved = 'light';
+  try { saved = localStorage.getItem('pediacare-theme') || 'light'; } catch (e) {}
+  applyTheme(saved);
+
+  if (darkBtn) {
+    darkBtn.addEventListener('click', () => {
+      applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+  if (rtlBtn) {
+    rtlBtn.addEventListener('click', () => {
+      const cur = htmlEl.getAttribute('dir');
+      htmlEl.setAttribute('dir', cur === 'rtl' ? 'ltr' : 'rtl');
+    });
+  }
+
+  window.handleNewsletter = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const input = form.querySelector('input[type="email"]');
+    if (!input || !input.value) return false;
+    input.value = '';
+    const btn = form.querySelector('button');
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i>';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 2500);
+    }
+    return false;
+  };
+
+  document.querySelectorAll('#navbarMain a').forEach(a => {
+    a.addEventListener('click', () => {
+      const el = document.getElementById('navbarMain');
+      if (el && el.classList.contains('show') && window.bootstrap) {
+        bootstrap.Collapse.getOrCreateInstance(el).hide();
+      }
+    });
+  });
+})();
+</script>
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>

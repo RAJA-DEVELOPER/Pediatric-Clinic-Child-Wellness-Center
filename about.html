@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | PediaCare – Pediatric Clinic & Child Wellness Center</title>
+  <meta name="description" content="Learn about PediaCare's mission, vision, team of expert pediatricians, clinic locations, and 15+ years of compassionate pediatric care." />
+  <meta name="keywords" content="PediaCare about, pediatric clinic team, children's healthcare, pediatricians, clinic locations" />
+  <meta property="og:title" content="About PediaCare – Caring for Children Since 2009" />
+  <meta property="og:description" content="Meet the caring team behind PediaCare and discover our journey of 15+ years serving families." />
+  <meta property="og:image" content="https://images.pexels.com/photos/39192359/pexels-photo-39192359.jpeg?auto=compress&cs=tinysrgb&w=800&h=520&fit=crop&crop=faces&q=80" />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org MedicalOrganization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "PediaCare",
+    "url": "https://www.pediacare.example.com",
+    "logo": "https://www.pediacare.example.com/assets/img/logo.png",
+    "description": "PediaCare was founded on the belief that every child deserves world-class healthcare delivered with warmth, expertise, and a smile.",
+    "foundingDate": "2009",
+    "medicalSpecialty": "Pediatrics",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Downtown",
+        "addressRegion": "CA",
+        "postalCode": "90001"
+      }
+    ],
+    "telephone": "+1-800-PEDIACARE"
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    :root {
+      --sky-blue: #A8D8EA;
+      --mint-green: #B8D8C0;
+      --peach: #FFD6C2;
+      --cream: #FFF9F2;
+      --navy: #34445C;
+      --white: #ffffff;
+      --text-dark: #2d3748;
+      --text-muted: #566274;
+      --shadow-sm: 0 2px 8px rgba(52,68,92,.08);
+      --shadow-md: 0 8px 24px rgba(52,68,92,.12);
+      --shadow-lg: 0 16px 48px rgba(52,68,92,.16);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --transition: all .3s cubic-bezier(.4,0,.2,1);
+    }
+    [data-theme="dark"] {
+      --cream: #1a2234;
+      --white: #243047;
+      --text-dark: #e2e8f0;
+      --text-muted: #A8B8CC;
+      --navy: #A8D8EA;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.3);
+      --shadow-md: 0 8px 24px rgba(0,0,0,.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      transition: background .3s, color .3s;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Nunito', sans-serif; font-weight: 800; }
+
+    /* ───── NAVBAR ───── */
+    .navbar {
+      background: var(--white) !important;
+      box-shadow: var(--shadow-sm);
+      padding: .75rem 0;
+      transition: var(--transition);
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-md); }
+    .navbar-brand {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+    }
+    .nav-link {
+      font-weight: 600;
+      color: var(--text-dark) !important;
+      padding: .5rem .9rem !important;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .nav-link:hover, .nav-link.active { background: var(--sky-blue); color: var(--navy) !important; }
+    .btn-appt {
+      background: var(--navy);
+      color: #fff !important;
+      border-radius: 50px;
+      padding: .5rem 1.4rem !important;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+    .btn-appt:hover { background: var(--sky-blue); color: var(--navy) !important; transform: translateY(-2px); }
+    .toggle-btn {
+      background: var(--cream);
+      border: none;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      margin-left: .3rem;
+    }
+    .toggle-btn:hover { background: var(--sky-blue); transform: scale(1.1); }
+
+    /* ───── BREADCRUMB ───── */
+    .breadcrumb-wrap {
+      background: linear-gradient(135deg, var(--sky-blue) 0%, var(--mint-green) 100%);
+      padding: .6rem 0;
+    }
+    .breadcrumb-item, .breadcrumb-item a { color: var(--navy); font-weight: 600; font-size: .9rem; text-decoration: none; }
+    .breadcrumb-item.active { opacity: .75; }
+    .breadcrumb-item+.breadcrumb-item::before { color: var(--navy); }
+
+    /* ───── HERO ───── */
+    .about-hero {
+      background: linear-gradient(135deg, #e8f6fb 0%, #f0f9f1 50%, #fff5f0 100%);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+      min-height: 90vh;
+      display: flex; align-items: center;
+    }
+    [data-theme="dark"] .about-hero { background: linear-gradient(135deg, #1a2a3a 0%, #1e2d25 50%, #2d2018 100%); }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: .35;
+      animation: blobFloat 8s ease-in-out infinite alternate;
+    }
+    .blob-1 { width: 400px; height: 400px; background: var(--sky-blue); top: -100px; left: -100px; animation-delay: 0s; }
+    .blob-2 { width: 350px; height: 350px; background: var(--mint-green); bottom: -80px; right: -80px; animation-delay: -3s; }
+    .blob-3 { width: 250px; height: 250px; background: var(--peach); top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: -6s; }
+    @keyframes blobFloat { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(30px,20px) scale(1.08)} }
+    .floating-icon {
+      position: absolute;
+      font-size: 2rem;
+      opacity: .18;
+      animation: iconFloat 6s ease-in-out infinite alternate;
+    }
+    .floating-icon:nth-child(1){top:15%;left:8%;animation-delay:0s;color:var(--navy);}
+    .floating-icon:nth-child(2){top:30%;right:12%;animation-delay:-2s;color:var(--navy);}
+    .floating-icon:nth-child(3){bottom:25%;left:15%;animation-delay:-4s;color:var(--navy);}
+    .floating-icon:nth-child(4){bottom:15%;right:8%;animation-delay:-1s;color:var(--navy);}
+    .floating-icon:nth-child(5){top:10%;right:35%;animation-delay:-3s;color:var(--navy);}
+    @keyframes iconFloat { 0%{transform:translateY(0) rotate(0deg)} 100%{transform:translateY(-18px) rotate(10deg)} }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--white);
+      border: 2px solid var(--sky-blue);
+      border-radius: 50px;
+      padding: .4rem 1rem;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+    .stat-pill {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--white);
+      border-radius: 50px;
+      padding: .6rem 1.4rem;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--navy);
+      box-shadow: var(--shadow-md);
+      margin-right: .8rem;
+      margin-bottom: .8rem;
+    }
+    .stat-pill span { font-size: .8rem; font-weight: 600; color: var(--text-muted); display: block; }
+    .hero-img-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-img-wrap img { width: 100%; height: 480px; object-fit: cover; display: block; }
+    .hero-img-badge {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: .8rem 1.2rem;
+      box-shadow: var(--shadow-md);
+      display: flex; align-items: center; gap: .8rem;
+    }
+    .hero-img-badge .icon { font-size: 1.8rem; }
+    .hero-img-badge strong { font-family: 'Nunito',sans-serif; font-size: 1rem; color: var(--navy); display: block; }
+    .hero-img-badge small { color: var(--text-muted); font-size: .78rem; }
+
+    /* ───── SECTION COMMON ───── */
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .section-subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      background: var(--sky-blue);
+      color: var(--navy);
+      border-radius: 50px;
+      padding: .3rem .9rem;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+    section { padding: 90px 0; }
+
+    /* ───── MISSION VISION VALUES ───── */
+    .mvv-section { background: var(--white); }
+    [data-theme="dark"] .mvv-section { background: #1e2535; }
+    .mvv-card {
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .mvv-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .mvv-card.mission { background: var(--peach); }
+    .mvv-card.vision { background: var(--mint-green); }
+    .mvv-card.values { background: var(--sky-blue); }
+    .mvv-card-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .mvv-card h3 { font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem; }
+    .mvv-card p, .mvv-card ul { color: var(--navy); opacity: .85; line-height: 1.8; }
+    .mvv-card ul { list-style: none; padding: 0; }
+    .mvv-card ul li { padding: .3rem 0; display: flex; align-items: center; gap: .5rem; font-weight: 600; }
+    .mvv-card ul li::before { content: "\f054"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--navy); font-size: .7rem; }
+    .mvv-card-border {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 6px;
+      background: var(--navy);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+    .mvv-card.mission .mvv-card-border { background: #d4845a; }
+    .mvv-card.vision .mvv-card-border { background: #5a9a6e; }
+    .mvv-card.values .mvv-card-border { background: #4a9ec0; }
+
+    /* ───── TIMELINE ───── */
+    .timeline-section { background: var(--cream); }
+    [data-theme="dark"] .timeline-section { background: var(--cream); }
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--sky-blue), var(--mint-green), var(--peach));
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+    @media(max-width:767px){
+      .timeline::before { left: 24px; }
+    }
+    .timeline-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: calc(50% + 2rem);
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .timeline-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-right: 0;
+      padding-left: calc(50% + 2rem);
+    }
+    @media(max-width:767px){
+      .timeline-item, .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 60px;
+        padding-right: 0;
+      }
+    }
+    .timeline-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      max-width: 380px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+    [data-theme="dark"] .timeline-card { background: #1e2535; }
+    .timeline-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .timeline-year {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 800;
+      font-family: 'Nunito',sans-serif;
+      font-size: 1rem;
+      padding: .4rem .9rem;
+      border-radius: 50px;
+      margin-bottom: .8rem;
+    }
+    .timeline-icon {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px; height: 48px;
+      background: var(--white);
+      border: 3px solid var(--sky-blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--navy);
+      z-index: 2;
+      box-shadow: var(--shadow-sm);
+    }
+    @media(max-width:767px){
+      .timeline-icon { left: 24px; transform: translateY(-50%); }
+    }
+    .timeline-card h4 { font-size: 1.1rem; color: var(--navy); margin-bottom: .4rem; }
+    .timeline-card p { color: var(--text-muted); font-size: .92rem; line-height: 1.6; margin: 0; }
+
+    /* ───── TEAM ───── */
+    .team-section { background: var(--white); }
+    [data-theme="dark"] .team-section { background: #1e2535; }
+    .doctor-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      height: 100%;
+    }
+    [data-theme="dark"] .doctor-card { background: #243047; }
+    .doctor-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .doctor-card-img { position: relative; overflow: hidden; }
+    .doctor-card-img img { width: 100%; height: 240px; object-fit: cover; display: block; transition: var(--transition); }
+    .doctor-card:hover .doctor-card-img img { transform: scale(1.06); }
+    .doctor-specialty-badge {
+      position: absolute; bottom: 12px; left: 12px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50px;
+      padding: .25rem .75rem;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+    .doctor-card-body { padding: 1.2rem; }
+    .doctor-card-body h4 { font-size: 1.1rem; color: var(--navy); margin-bottom: .2rem; }
+    .doctor-card-body p { color: var(--text-muted); font-size: .88rem; margin: 0; }
+    .doctor-card-body .stars { color: #f59e0b; font-size: .9rem; }
+    .staff-card {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    [data-theme="dark"] .staff-card { background: #1a2234; }
+    .staff-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .staff-avatar {
+      display: block;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 3px solid var(--sky-blue);
+      margin: 0 auto 1rem;
+    }
+    .swiper-team .swiper-slide { height: auto; }
+    .swiper-pagination-bullet-active { background: var(--navy) !important; }
+    .btn-join {
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: .75rem 2rem;
+      font-weight: 700;
+      font-family: 'Nunito',sans-serif;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .5rem;
+      text-decoration: none;
+    }
+    .btn-join:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    /* ───── CERTIFICATIONS ───── */
+    .cert-section { background: linear-gradient(135deg, var(--cream) 0%, #eef8f5 100%); }
+    [data-theme="dark"] .cert-section { background: linear-gradient(135deg, #1a2234 0%, #1e2a25 100%); }
+    .cert-item {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      margin-bottom: .8rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    [data-theme="dark"] .cert-item { background: #1e2535; }
+    .cert-item:hover { transform: translateX(6px); box-shadow: var(--shadow-md); }
+    .cert-icon { font-size: 1.5rem; color: var(--navy); flex-shrink: 0; }
+    .cert-item strong { color: var(--navy); display: block; font-size: .95rem; }
+    .cert-item small { color: var(--text-muted); font-size: .82rem; }
+    .affil-box {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 1.4rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 2px dashed var(--sky-blue);
+      transition: var(--transition);
+      height: 100%;
+    }
+    [data-theme="dark"] .affil-box { background: #1e2535; }
+    .affil-box:hover { border-color: var(--navy); transform: translateY(-4px); }
+    .affil-box i { font-size: 2rem; color: var(--navy); margin-bottom: .6rem; display: block; }
+    .affil-box span { font-weight: 700; color: var(--navy); font-size: .88rem; }
+    .trust-badges { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2.5rem; }
+    .trust-badge {
+      display: flex; align-items: center; gap: .6rem;
+      background: var(--white);
+      border: 2px solid var(--mint-green);
+      border-radius: 50px;
+      padding: .6rem 1.4rem;
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--navy);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .trust-badge:hover { background: var(--mint-green); transform: scale(1.04); }
+
+    /* ───── LOCATIONS + FAQ ───── */
+    .location-faq-section { background: var(--white); }
+    [data-theme="dark"] .location-faq-section { background: #1e2535; }
+    .location-card {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    [data-theme="dark"] .location-card { background: #1a2234; }
+    .location-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .location-img-wrap {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .location-img-wrap .location-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .location-card:hover .location-img { transform: scale(1.06); }
+    .map-placeholder {
+      width: 100%; height: 180px;
+      background: var(--sky-blue);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder iframe { width: 100%; height: 100%; border: none; }
+    .map-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--sky-blue) 0%, var(--mint-green) 100%);
+      opacity: .9;
+      flex-direction: column; gap: .5rem;
+      color: var(--navy);
+    }
+    .map-overlay i { font-size: 2.5rem; }
+    .map-overlay span { font-weight: 700; font-size: .9rem; }
+    .location-body { padding: 1.4rem; display: flex; flex-direction: column; flex: 1; }
+    .location-body h4 { color: var(--navy); margin-bottom: .8rem; }
+    .location-info { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: .5rem; color: var(--text-muted); font-size: .9rem; }
+    .location-info i { color: var(--navy); flex-shrink: 0; margin-top: 2px; }
+    .btn-directions {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50px;
+      padding: .5rem 1.2rem;
+      font-size: .88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    .btn-directions:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-2px); }
+    [data-theme="dark"] .location-info { color: #A8B8CC !important; }
+    [data-theme="dark"] .location-info i { color: #A8D8EA !important; }
+    [data-theme="dark"] .map-overlay { background: linear-gradient(135deg, #2A5468 0%, #37546B 100%) !important; color: #EAF4F8 !important; }
+    [data-theme="dark"] .map-overlay i { color: #A8D8EA !important; }
+    [data-theme="dark"] .map-overlay span { color: #EAF4F8 !important; }
+    [data-theme="dark"] .btn-directions { background: #A8D8EA !important; color: #17243A !important; }
+    [data-theme="dark"] .btn-directions:hover { background: #EAF4F8 !important; color: #17243A !important; }
+    .accordion-button { font-family: 'Nunito',sans-serif; font-weight: 700; color: var(--navy); background: var(--cream); }
+    [data-theme="dark"] .accordion-button { background: #1a2234; color: var(--navy); }
+    .accordion-button:not(.collapsed) { background: var(--sky-blue); color: var(--navy); box-shadow: none; }
+    .accordion-button::after { filter: none; }
+    .accordion-item { border: none; margin-bottom: .6rem; border-radius: var(--radius-sm) !important; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .accordion-body { background: var(--white); color: var(--text-muted); line-height: 1.8; }
+    [data-theme="dark"] .accordion-body { background: #243047; }
+
+    /* ───── FOOTER ───── */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.8);
+      padding: 70px 0 0;
+    }
+    .footer-logo { font-family: 'Nunito',sans-serif; font-weight: 900; font-size: 1.6rem; color: #fff; }
+    .footer-desc { font-size: .9rem; line-height: 1.8; opacity: .75; margin-top: .6rem; }
+    .footer-heading { font-family: 'Nunito',sans-serif; font-weight: 800; color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: .5rem; }
+    .footer-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; transition: var(--transition); }
+    .footer-links a:hover { color: var(--sky-blue); padding-left: 4px; }
+    .footer-contact { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: .8rem; font-size: .9rem; }
+    .footer-contact i { color: var(--sky-blue); flex-shrink: 0; margin-top: 2px; }
+    .social-icons { display: flex; gap: .6rem; margin-top: 1rem; }
+    .social-icon {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    .social-icon:hover { background: var(--sky-blue); border-color: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    .newsletter-input {
+      display: flex; gap: .5rem;
+      margin-top: 1rem;
+    }
+    .newsletter-input input {
+      flex: 1;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.1);
+      color: #fff;
+      padding: .5rem 1rem;
+      font-size: .9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .newsletter-input input::placeholder { color: rgba(255,255,255,.5); }
+    .newsletter-input input:focus { border-color: var(--sky-blue); background: rgba(255,255,255,.15); }
+    .newsletter-input button {
+      background: var(--sky-blue);
+      border: none;
+      border-radius: 50px;
+      padding: .5rem 1.2rem;
+      color: var(--navy);
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    .newsletter-input button:hover { background: var(--mint-green); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      margin-top: 3rem;
+      padding: 1.2rem 0;
+      font-size: .85rem;
+      opacity: .65;
+    }
+
+    /* ───── BACK TO TOP ───── */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 46px; height: 46px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+      z-index: 1000;
+      box-shadow: var(--shadow-md);
+    }
+    .back-to-top.show { opacity: 1; transform: translateY(0); }
+    .back-to-top:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+
+    /* ───── UTILITIES ───── */
+    .gap-xs { gap: .5rem; }
+    .text-navy { color: var(--navy); }
+    @media(max-width:991px){
+      .about-hero { padding: 80px 0 60px; min-height: auto; }
+      .hero-img-wrap img { height: 320px; }
+    }
+    @media(max-width:767px){
+      section { padding: 60px 0; }
+      .timeline-item, .timeline-item:nth-child(even) { padding-left: 60px; padding-right: 0; justify-content: flex-start; }
+      .timeline::before { left: 24px; }
+      .timeline-icon { left: 0; top: 50%; transform: translateY(-50%); position: absolute; }
+    }
+    [dir="rtl"] .cert-item:hover { transform: translateX(-6px); }
+    [dir="rtl"] .footer-links a:hover { padding-left: 0; padding-right: 4px; }
+  
+/* ===== HOME NAVBAR + FOOTER (SHARED) ===== */
+header, footer {
+  --sky-blue: #A8D8EA;
+  --cream: #FFF9F2;
+  --navy: #34445C;
+  --text-dark: #2c3e50;
+  --text-muted: #566274;
+  --shadow-md: 0 8px 30px rgba(52,68,92,.14);
+  --radius-sm: 0.5rem;
+  --transition: all .3s cubic-bezier(.4,0,.2,1);
+  --font-heading: 'Nunito', sans-serif;
+  --bg-card: #ffffff;
+  --text-body: var(--text-dark);
+}
+[data-theme="dark"] header, [data-theme="dark"] footer {
+  --bg-card: #243046;
+  --text-muted: #A8B8CC;
+  --navy: #A8D8EA;
+  --cream: #1a2233;
+  --text-body: #e8edf5;
+}
+/* ===== NAVBAR ===== */
+    header .navbar {
+      background: rgba(255,249,242,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,216,234,.3);
+      padding: .9rem 0;
+      transition: var(--transition);
+      z-index: 1050;
+    }
+    [data-theme="dark"] header .navbar {
+      background: rgba(26,34,51,.97);
+      border-color: rgba(168,216,234,.15);
+    }
+    header .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    header .navbar-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+      letter-spacing: -.5px;
+    }
+    [data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+    header .nav-link {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--text-dark) !important;
+      padding: .4rem .85rem !important;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    [data-theme="dark"] header .nav-link { color: #e8edf5 !important; }
+    header .nav-link:hover, header .nav-link.active {
+      background: var(--sky-blue);
+      color: var(--navy) !important;
+    }
+    header .btn-appointment {
+      background: linear-gradient(135deg, #34445C, #A8D8EA);
+      color: #fff !important;
+      border: none;
+      border-radius: 30px;
+      padding: .5rem 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(52,68,92,.25);
+    }
+    header .btn-appointment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52,68,92,.35);
+    }
+    header .toggle-btn {
+      background: none;
+      border: 2px solid rgba(168,216,234,.6);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    [data-theme="dark"] header .toggle-btn { color: var(--sky-blue); border-color: rgba(168,216,234,.4); }
+    header .toggle-btn:hover { background: var(--sky-blue); color: var(--navy); }
+
+    
+/* ===== FOOTER ===== */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid rgba(168,216,234,.3);
+      padding: 70px 0 0;
+    }
+    [data-theme="dark"] footer { background: #141c2b; }
+    footer .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: .9rem;
+      display: block;
+    }
+    [data-theme="dark"] footer .footer-brand { color: var(--sky-blue); }
+    footer .footer-about {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    footer .footer-social a {
+      width: 38px; height: 38px;
+      background: rgba(168,216,234,.2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      text-decoration: none;
+      margin-right: .4rem;
+    }
+    [data-theme="dark"] footer .footer-social a { color: var(--sky-blue); background: rgba(168,216,234,.1); }
+    footer .footer-social a:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    footer .footer-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] footer .footer-heading { color: #e8edf5; }
+    footer .footer-links { list-style: none; padding: 0; }
+    footer .footer-links li { margin-bottom: .6rem; }
+    footer .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    footer .footer-links a:hover { color: var(--navy); transform: translateX(4px); }
+    [data-theme="dark"] footer .footer-links a:hover { color: var(--sky-blue); }
+    footer .footer-contact-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: .9rem;
+    }
+    footer .footer-contact-item i {
+      color: var(--sky-blue);
+      font-size: 1rem;
+      margin-top: .15rem;
+      flex-shrink: 0;
+    }
+    footer .newsletter-form .form-control {
+      border-radius: 30px 0 0 30px;
+      border: 2px solid rgba(168,216,234,.4);
+      background: var(--bg-card);
+      color: var(--text-body);
+      padding: .6rem 1.2rem;
+    }
+    footer .newsletter-form .form-control:focus { border-color: var(--sky-blue); box-shadow: none; }
+    footer .newsletter-form .btn-newsletter {
+      border-radius: 0 30px 30px 0;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: .6rem 1.2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: var(--transition);
+    }
+    footer .newsletter-form .btn-newsletter:hover { background: #A8D8EA; color: var(--navy); }
+    footer .footer-bottom {
+      background: rgba(52,68,92,.06);
+      border-top: 1px solid rgba(168,216,234,.2);
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+    }
+    [data-theme="dark"] footer .footer-bottom { background: rgba(0,0,0,.2); }
+    footer .footer-bottom p { color: var(--text-muted); font-size: .85rem; margin: 0; }
+    footer .footer-bottom a { color: var(--sky-blue); text-decoration: none; font-weight: 600; }
+    footer .footer-bottom a:hover { text-decoration: underline; }
+
+    
+/* ===== NAVBAR TOGGLER CUSTOM ===== */
+    header .navbar-toggler { border: 2px solid rgba(168,216,234,.5); border-radius: var(--radius-sm); }
+    header .navbar-toggler:focus { box-shadow: none; }
+    [data-theme="dark"] header .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+header .navbar { color: var(--text-dark) !important; }
+footer { color: var(--text-dark) !important; font-size: 16px !important; }
+footer .footer-bottom { font-size: 14px !important; }body { padding-top: 72px !important; }
+header .navbar { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; }/* ===== HOME NAVBAR OVERRIDE ===== */
+header .navbar {
+  background: rgba(255,249,242,.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(168,216,234,.3) !important;
+  padding: .9rem 0 !important;
+}
+[data-theme="dark"] header .navbar {
+  background: rgba(26,34,51,.97) !important;
+  border-color: rgba(168,216,234,.15) !important;
+}
+header .navbar-brand {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  color: var(--navy) !important;
+  letter-spacing: -.5px !important;
+}
+[data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+header .navbar-nav .nav-link {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: .92rem !important;
+  color: var(--text-dark) !important;
+  padding: .4rem .85rem !important;
+  border-radius: 20px !important;
+}
+[data-theme="dark"] header .navbar-nav .nav-link { color: #e8edf5 !important; }
+header .navbar-nav .nav-link:hover,
+header .navbar-nav .nav-link.active {
+  background: var(--sky-blue) !important;
+  color: var(--navy) !important;
+}
+/* ===== ACCESSIBLE FOOTER CONTRAST ===== */
+footer { background: var(--cream) !important; color: var(--text-dark) !important; }
+footer .footer-about, footer .footer-contact-item, footer .footer-links a,
+footer .footer-bottom, footer .footer-bottom p, footer .footer-bottom a,
+footer .footer-bottom-links a { color: #566274 !important; }
+footer .footer-social a { color: #34445C !important; background: rgba(52,68,92,0.08) !important; border-color: rgba(52,68,92,0.15) !important; }
+footer .footer-newsletter input { background: rgba(52,68,92,0.06) !important; border-color: rgba(52,68,92,0.2) !important; color: #34445C !important; }
+footer .footer-newsletter input::placeholder { color: #566274 !important; }
+[data-theme="dark"] footer { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-about, [data-theme="dark"] footer .footer-contact-item,
+[data-theme="dark"] footer .footer-links a, [data-theme="dark"] footer .footer-bottom,
+[data-theme="dark"] footer .footer-bottom p, [data-theme="dark"] footer .footer-bottom a,
+[data-theme="dark"] footer .footer-bottom-links a { color: #A8B8CC !important; }
+[data-theme="dark"] footer .footer-social a { color: #A8D8EA !important; background: rgba(168,216,234,0.1) !important; border-color: rgba(168,216,234,0.2) !important; }
+[data-theme="dark"] footer .footer-newsletter input { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-newsletter input::placeholder { color: #A8B8CC !important; }/* ===== DARK NAVLINK CONTRAST ===== */
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] header .nav-link:hover,
+[data-theme="dark"] header .nav-link.active,
+[data-theme="dark"] header .navbar-nav .nav-link:hover,
+[data-theme="dark"] header .navbar-nav .nav-link.active {
+  background: #A8D8EA !important;
+  color: #17243A !important;
+}/* ===== PROFILE ICON CONTRAST ===== */
+.profile-menu .dropdown-item i { color: #34445C !important; }
+[data-theme="dark"] .profile-nav .profile-toggle { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-nav .profile-toggle:hover,
+[data-theme="dark"] .profile-nav .profile-toggle[aria-expanded="true"] { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .profile-menu { background: #1E2D3D !important; border: 1px solid rgba(168,216,234,0.15) !important; }
+[data-theme="dark"] .profile-menu .dropdown-item { color: #E8F0F8 !important; }
+[data-theme="dark"] .profile-menu .dropdown-item:hover { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-menu .dropdown-item i { color: #A8D8EA !important; }[data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: #17243A !important; }
+[data-theme="dark"] #copyLabel { color: #17243A !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     STICKY NAVBAR
+═══════════════════════════════════════ -->
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html" aria-label="PediaCare Home">
+        PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+      </a>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMain" aria-controls="navbarMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto gap-1" role="list">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <!-- Dark mode toggle -->
+          <button class="toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fas fa-moon" id="darkModeIcon"></i>
+          </button>
+          <!-- RTL toggle -->
+          <button class="toggle-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL">
+            <span style="font-size:.62rem;font-weight:800;letter-spacing:.02em;line-height:1">RTL</span>
+          </button>
+          
+          <div class="dropdown profile-nav">
+            <a class="nav-link profile-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+              <i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end profile-menu">
+              <li><a class="dropdown-item" href="parent-dashboard.html"><i class="fa-solid fa-user me-2"></i>User Dashboard</a></li>
+              <li><a class="dropdown-item" href="admin-dashboard.html"><i class="fa-solid fa-user-shield me-2"></i>Admin Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════
+     BREADCRUMB
+═══════════════════════════════════════ -->
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 py-1">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">About Us</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 1 — PAGE HERO
+═══════════════════════════════════════ -->
+<section class="about-hero" aria-labelledby="heroHeading">
+  <!-- Background blobs -->
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+  <!-- Floating icons -->
+  <i class="floating-icon fa-solid fa-stethoscope" aria-hidden="true"></i>
+  <i class="floating-icon fa-solid fa-heart-pulse" aria-hidden="true"></i>
+  <i class="floating-icon fa-solid fa-syringe" aria-hidden="true"></i>
+  <i class="floating-icon fa-solid fa-baby" aria-hidden="true"></i>
+  <i class="floating-icon fa-solid fa-pills" aria-hidden="true"></i>
+
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="hero-badge">
+          <i class="fa-solid fa-award" style="color:var(--navy)"></i>
+          Best Pediatric Clinic 2019 & 2023
+        </span>
+        <h1 class="hero-title" id="heroHeading">
+          Caring for Children<br><span style="color:var(--sky-blue);-webkit-text-stroke:1px var(--navy)">Since 2009 <i class="fa-solid fa-star" aria-hidden="true"></i></span>
+        </h1>
+        <p class="hero-subtitle">
+          PediaCare was founded on the belief that every child deserves world-class healthcare delivered with warmth, expertise, and a smile. For over 15 years, we've been the trusted healthcare partner for thousands of families.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mb-4">
+          <div class="stat-pill">
+            <i class="fa-solid fa-clock" style="color:var(--navy);font-size:1.5rem"></i>
+            <div>
+              <strong>15+</strong>
+              <span>Years of Care</span>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <i class="fa-solid fa-location-dot" style="color:var(--navy);font-size:1.5rem"></i>
+            <div>
+              <strong>3</strong>
+              <span>Clinic Locations</span>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#our-story" class="btn-join">
+            <i class="fa-solid fa-timeline"></i>Our Journey
+          </a>
+          <a href="#team" class="btn-join" style="background:var(--sky-blue);color:var(--navy)">
+            <i class="fa-solid fa-user-doctor"></i>Meet the Team
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+        <div class="hero-img-wrap">
+          <img src="https://images.pexels.com/photos/39192359/pexels-photo-39192359.jpeg?auto=compress&cs=tinysrgb&w=800&h=520&fit=crop&crop=faces&q=80"
+               alt="PediaCare pediatrician consulting with a young patient and family"
+               loading="eager" width="800" height="480" />
+          <div class="hero-img-badge">
+            <span class="icon"><i class="fa-solid fa-hospital" aria-hidden="true"></i></span>
+            <div>
+              <strong>5,000+ Families Served</strong>
+              <small>Across 3 clinic locations</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 2 — MISSION, VISION & VALUES
+═══════════════════════════════════════ -->
+<section class="mvv-section" id="mission" aria-labelledby="mvvHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Our Foundation</span>
+      <h2 class="section-title" id="mvvHeading">Mission, Vision & Values</h2>
+      <p class="section-subtitle">The core principles that guide every interaction, every decision, and every moment of care.</p>
+    </div>
+    <div class="row g-4">
+      <!-- Mission -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="mvv-card mission">
+          <span class="mvv-card-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+          <h3>Our Mission</h3>
+          <p>To provide compassionate, evidence-based pediatric care that empowers families and helps every child reach their full potential.</p>
+          <div class="mvv-card-border"></div>
+        </div>
+      </div>
+      <!-- Vision -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="mvv-card vision">
+          <span class="mvv-card-icon"><i class="fa-solid fa-binoculars" aria-hidden="true"></i></span>
+          <h3>Our Vision</h3>
+          <p>To be the most trusted pediatric healthcare partner for families across the region, setting the gold standard in compassionate, innovative pediatric care.</p>
+          <div class="mvv-card-border"></div>
+        </div>
+      </div>
+      <!-- Values -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="mvv-card values">
+          <span class="mvv-card-icon"><i class="fa-solid fa-gem" aria-hidden="true"></i></span>
+          <h3>Our Values</h3>
+          <ul>
+            <li>Compassion</li>
+            <li>Excellence</li>
+            <li>Integrity</li>
+            <li>Innovation</li>
+            <li>Family-Centered Care</li>
+          </ul>
+          <div class="mvv-card-border"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 3 — OUR STORY TIMELINE
+═══════════════════════════════════════ -->
+<section class="timeline-section" id="our-story" aria-labelledby="timelineHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Our History</span>
+      <h2 class="section-title" id="timelineHeading">Our Journey</h2>
+      <p class="section-subtitle">From a single clinic to a regional healthcare leader — a story written one family at a time.</p>
+    </div>
+
+    <div class="timeline" role="list" aria-label="PediaCare milestones timeline">
+
+      <!-- 2009 -->
+      <div class="timeline-item" role="listitem" data-aos="fade-right">
+        <div class="timeline-card">
+          <span class="timeline-year">2009</span>
+          <h4><i class="fa-solid fa-building me-2 text-navy"></i>The Beginning</h4>
+          <p>Founded by Dr. Robert Kim with a single clinic and a vision to bring world-class pediatric care to every family in the region.</p>
+        </div>
+        <div class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></div>
+      </div>
+
+      <!-- 2011 -->
+      <div class="timeline-item" role="listitem" data-aos="fade-left">
+        <div class="timeline-card">
+          <span class="timeline-year">2011</span>
+          <h4><i class="fa-solid fa-syringe me-2 text-navy"></i>Vaccination Expansion</h4>
+          <p>Expanded our vaccination program to serve 500+ families, partnering with the National Immunization Program for comprehensive immunization services.</p>
+        </div>
+        <div class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-syringe"></i></div>
+      </div>
+
+      <!-- 2013 -->
+      <div class="timeline-item" role="listitem" data-aos="fade-right">
+        <div class="timeline-card">
+          <span class="timeline-year">2013</span>
+          <h4><i class="fa-solid fa-location-dot me-2 text-navy"></i>Second Location</h4>
+          <p>Opened our second clinic location and added a dedicated Developmental Pediatrics department to support children with special developmental needs.</p>
+        </div>
+        <div class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></div>
+      </div>
+
+      <!-- 2016 -->
+      <div class="timeline-item" role="listitem" data-aos="fade-left">
+        <div class="timeline-card">
+          <span class="timeline-year">2016</span>
+          <h4><i class="fa-solid fa-laptop-medical me-2 text-navy"></i>Digital Innovation</h4>
+          <p>Launched our digital parent portal and telemedicine services, making quality pediatric care accessible from anywhere at any time.</p>
+        </div>
+        <div class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-laptop-medical"></i></div>
+      </div>
+
+      <!-- 2019 -->
+      <div class="timeline-item" role="listitem" data-aos="fade-right">
+        <div class="timeline-card">
+          <span class="timeline-year">2019</span>
+          <h4><i class="fa-solid fa-trophy me-2 text-navy"></i>Regional Recognition</h4>
+          <p>Received the prestigious "Best Pediatric Clinic" regional award, recognizing our commitment to clinical excellence and patient-centered care.</p>
+        </div>
+        <div class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-trophy"></i></div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="timeline-item" role="listitem" data-aos="fade-left">
+        <div class="timeline-card">
+          <span class="timeline-year">2022</span>
+          <h4><i class="fa-solid fa-hospital me-2 text-navy"></i>Third Location & 5000 Families</h4>
+          <p>Opened our third clinic location at Northgate Center and celebrated a milestone of 5,000+ families trusting PediaCare with their children's health.</p>
+        </div>
+        <div class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-hospital"></i></div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="timeline-item" role="listitem" data-aos="fade-right">
+        <div class="timeline-card">
+          <span class="timeline-year" style="background:linear-gradient(135deg,var(--sky-blue),var(--navy));color:#fff">2024</span>
+          <h4><i class="fa-solid fa-robot me-2 text-navy"></i>AI-Powered Care</h4>
+          <p>Launched our AI-powered growth tracking system, providing parents with real-time insights into their child's developmental progress and health trends.</p>
+        </div>
+        <div class="timeline-icon" aria-hidden="true" style="border-color:var(--peach)"><i class="fa-solid fa-robot"></i></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 4 — MEET OUR TEAM
+═══════════════════════════════════════ -->
+<section class="team-section" id="team" aria-labelledby="teamHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Our Experts</span>
+      <h2 class="section-title" id="teamHeading">The Faces Behind the Care</h2>
+      <p class="section-subtitle">Our board-certified pediatricians bring decades of experience and genuine passion for children's health.</p>
+    </div>
+
+    <!-- Desktop Grid -->
+    <div class="row g-4 d-none d-lg-flex" aria-label="Doctor cards">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="doctor-card">
+          <div class="doctor-card-img">
+            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Robert Kim - Founding Pediatrician" loading="lazy" width="400" height="240" />
+            <span class="doctor-specialty-badge">General Pediatrics</span>
+          </div>
+          <div class="doctor-card-body">
+            <h4>Dr. Robert Kim</h4>
+            <p class="text-muted mb-1">Founder & Chief Pediatrician</p>
+            <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small class="text-muted">(4.9)</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+        <div class="doctor-card">
+          <div class="doctor-card-img">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Sarah Johnson - Developmental Pediatrician" loading="lazy" width="400" height="240" />
+            <span class="doctor-specialty-badge">Developmental Pediatrics</span>
+          </div>
+          <div class="doctor-card-body">
+            <h4>Dr. Sarah Johnson</h4>
+            <p class="text-muted mb-1">Developmental Pediatrician</p>
+            <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small class="text-muted">(4.8)</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+        <div class="doctor-card">
+          <div class="doctor-card-img">
+            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Maria Gonzalez - Pediatric Allergist" loading="lazy" width="400" height="240" />
+            <span class="doctor-specialty-badge">Allergy & Immunology</span>
+          </div>
+          <div class="doctor-card-body">
+            <h4>Dr. Maria Gonzalez</h4>
+            <p class="text-muted mb-1">Pediatric Allergist</p>
+            <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small class="text-muted">(4.9)</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="240">
+        <div class="doctor-card">
+          <div class="doctor-card-img">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. James Lee - Pediatric Cardiologist" loading="lazy" width="400" height="240" />
+            <span class="doctor-specialty-badge">Pediatric Cardiology</span>
+          </div>
+          <div class="doctor-card-body">
+            <h4>Dr. James Lee</h4>
+            <p class="text-muted mb-1">Pediatric Cardiologist</p>
+            <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small class="text-muted">(4.9)</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="320">
+        <div class="doctor-card">
+          <div class="doctor-card-img">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Priya Sharma - Neonatologist" loading="lazy" width="400" height="240" />
+            <span class="doctor-specialty-badge">Neonatology</span>
+          </div>
+          <div class="doctor-card-body">
+            <h4>Dr. Priya Sharma</h4>
+            <p class="text-muted mb-1">Neonatologist</p>
+            <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small class="text-muted">(5.0)</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="doctor-card">
+          <div class="doctor-card-img">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Ahmed Hassan - Child Neurologist" loading="lazy" width="400" height="240" />
+            <span class="doctor-specialty-badge">Child Neurology</span>
+          </div>
+          <div class="doctor-card-body">
+            <h4>Dr. Ahmed Hassan</h4>
+            <p class="text-muted mb-1">Child Neurologist</p>
+            <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i> <small class="text-muted">(4.8)</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Swiper -->
+    <div class="swiper swiper-team d-lg-none" aria-label="Doctor carousel">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="doctor-card">
+            <div class="doctor-card-img">
+              <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Robert Kim" loading="lazy" width="400" height="240" />
+              <span class="doctor-specialty-badge">General Pediatrics</span>
+            </div>
+            <div class="doctor-card-body">
+              <h4>Dr. Robert Kim</h4>
+              <p class="text-muted mb-1">Founder & Chief Pediatrician</p>
+              <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="doctor-card">
+            <div class="doctor-card-img">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Sarah Johnson" loading="lazy" width="400" height="240" />
+              <span class="doctor-specialty-badge">Developmental Pediatrics</span>
+            </div>
+            <div class="doctor-card-body">
+              <h4>Dr. Sarah Johnson</h4>
+              <p class="text-muted mb-1">Developmental Pediatrician</p>
+              <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="doctor-card">
+            <div class="doctor-card-img">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Maria Gonzalez" loading="lazy" width="400" height="240" />
+              <span class="doctor-specialty-badge">Allergy & Immunology</span>
+            </div>
+            <div class="doctor-card-body">
+              <h4>Dr. Maria Gonzalez</h4>
+              <p class="text-muted mb-1">Pediatric Allergist</p>
+              <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="doctor-card">
+            <div class="doctor-card-img">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. James Lee" loading="lazy" width="400" height="240" />
+              <span class="doctor-specialty-badge">Pediatric Cardiology</span>
+            </div>
+            <div class="doctor-card-body">
+              <h4>Dr. James Lee</h4>
+              <p class="text-muted mb-1">Pediatric Cardiologist</p>
+              <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="doctor-card">
+            <div class="doctor-card-img">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Priya Sharma" loading="lazy" width="400" height="240" />
+              <span class="doctor-specialty-badge">Neonatology</span>
+            </div>
+            <div class="doctor-card-body">
+              <h4>Dr. Priya Sharma</h4>
+              <p class="text-muted mb-1">Neonatologist</p>
+              <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="doctor-card">
+            <div class="doctor-card-img">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=260&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Ahmed Hassan" loading="lazy" width="400" height="240" />
+              <span class="doctor-specialty-badge">Child Neurology</span>
+            </div>
+            <div class="doctor-card-body">
+              <h4>Dr. Ahmed Hassan</h4>
+              <p class="text-muted mb-1">Child Neurologist</p>
+              <div class="stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination mt-3"></div>
+    </div>
+
+    <!-- Support Staff -->
+    <div class="mt-5">
+      <h3 class="text-center mb-4" style="color:var(--navy)" data-aos="fade-up">Our Support Staff</h3>
+      <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-md-4">
+          <div class="staff-card">
+            <img src="https://images.pexels.com/photos/18252404/pexels-photo-18252404.jpeg?auto=compress&cs=tinysrgb&w=200&h=130&fit=crop&crop=faces&q=80" alt="Lisa Park - Nurse Manager" class="staff-avatar" loading="lazy" />
+            <h5 style="color:var(--navy)">Lisa Park</h5>
+            <p style="color:var(--text-muted);font-size:.9rem">Nurse Manager</p>
+            <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">12 years experience in pediatric nursing care coordination.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="staff-card">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=130&fit=crop&crop=faces&q=80&auto=format" alt="Maria Chen - Head of Reception" class="staff-avatar" loading="lazy" />
+            <h5 style="color:var(--navy)">Maria Chen</h5>
+            <p style="color:var(--text-muted);font-size:.9rem">Head of Reception</p>
+            <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Your first point of contact — always warm, always helpful.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="staff-card">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=130&fit=crop&crop=faces&q=80&auto=format" alt="David Torres - Child Life Specialist" class="staff-avatar" loading="lazy" />
+            <h5 style="color:var(--navy)">David Torres</h5>
+            <p style="color:var(--text-muted);font-size:.9rem">Child Life Specialist</p>
+            <p style="color:var(--text-muted);font-size:.85rem;margin-top:.5rem">Dedicated to reducing fear and stress for young patients through play therapy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Join CTA -->
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="careers.html" class="btn-join" id="appointment">
+        <i class="fa-solid fa-briefcase-medical"></i>Join Our Team
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 5 — CERTIFICATIONS & AFFILIATIONS
+═══════════════════════════════════════ -->
+<section class="cert-section" aria-labelledby="certHeading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Quality Assured</span>
+      <h2 class="section-title" id="certHeading">Trusted & Accredited</h2>
+      <p class="section-subtitle">Our certifications and affiliations demonstrate our unwavering commitment to quality, safety, and excellence in pediatric care.</p>
+    </div>
+
+    <div class="row g-5 align-items-start">
+      <!-- Certifications -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <h3 class="text-navy mb-4" style="font-size:1.4rem"><i class="fa-solid fa-certificate me-2" style="color:var(--sky-blue)"></i>Certifications</h3>
+        <div class="cert-item">
+          <i class="fa-solid fa-shield-halved cert-icon" style="color:#2c7be5"></i>
+          <div>
+            <strong>JCAHO Accredited</strong>
+            <small>Joint Commission on Accreditation of Healthcare Organizations</small>
+          </div>
+        </div>
+        <div class="cert-item">
+          <i class="fa-solid fa-user-doctor cert-icon" style="color:#27ae60"></i>
+          <div>
+            <strong>AAP Member Clinic</strong>
+            <small>American Academy of Pediatrics Official Member</small>
+          </div>
+        </div>
+        <div class="cert-item">
+          <i class="fa-solid fa-award cert-icon" style="color:#e67e22"></i>
+          <div>
+            <strong>ISO 9001:2015 Certified</strong>
+            <small>International Quality Management Standard</small>
+          </div>
+        </div>
+        <div class="cert-item">
+          <i class="fa-solid fa-stethoscope cert-icon" style="color:#9b59b6"></i>
+          <div>
+            <strong>Board-Certified Pediatricians</strong>
+            <small>All physicians are ABP Board Certified</small>
+          </div>
+        </div>
+        <div class="cert-item">
+          <i class="fa-solid fa-lock cert-icon" style="color:#e74c3c"></i>
+          <div>
+            <strong>HIPAA Compliant</strong>
+            <small>Patient data protected under federal HIPAA regulations</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Affiliations -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <h3 class="text-navy mb-4" style="font-size:1.4rem"><i class="fa-solid fa-handshake me-2" style="color:var(--mint-green)"></i>Affiliations</h3>
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="affil-box">
+              <i class="fa-solid fa-stethoscope"></i>
+              <span>American Academy of Pediatrics</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="affil-box">
+              <i class="fa-solid fa-globe"></i>
+              <span>World Health Organization</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="affil-box">
+              <i class="fa-solid fa-hospital"></i>
+              <span>Children's Hospital Network</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="affil-box">
+              <i class="fa-solid fa-syringe"></i>
+              <span>National Immunization Program</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="trust-badges" data-aos="fade-up" role="list" aria-label="Trust and quality badges">
+      <div class="trust-badge" role="listitem">
+        <i class="fa-solid fa-clock" style="color:var(--navy)"></i>24/7 Emergency
+      </div>
+      <div class="trust-badge" role="listitem">
+        <i class="fa-solid fa-language" style="color:var(--navy)"></i>Bilingual Staff
+      </div>
+      <div class="trust-badge" role="listitem">
+        <i class="fa-solid fa-video" style="color:var(--navy)"></i>Telemedicine Available
+      </div>
+      <div class="trust-badge" role="listitem">
+        <i class="fa-solid fa-id-card" style="color:var(--navy)"></i>Insurance Accepted
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 6 — LOCATIONS + FAQ
+═══════════════════════════════════════ -->
+<section class="location-faq-section" aria-labelledby="locationsHeading">
+  <div class="container">
+    <!-- Locations -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title" id="locationsHeading">Our Clinic Locations</h2>
+      <p class="section-subtitle">Three conveniently located clinics to serve your family wherever you are.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <!-- Downtown -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="location-card">
+          <div class="location-img-wrap">
+            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&h=260&fit=crop&q=80&auto=format" alt="Downtown Clinic Building" class="location-img" loading="lazy" />
+            <div class="map-overlay">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Downtown Clinic</span>
+            </div>
+          </div>
+          <div class="location-body">
+            <h4><i class="fa-solid fa-city me-2" style="color:var(--sky-blue)"></i>Downtown Clinic</h4>
+            <div class="location-info">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>123 Main Street, Suite 200, Downtown, CA 90001</span>
+            </div>
+            <div class="location-info">
+              <i class="fa-solid fa-phone"></i>
+              <span>(800) 123-4567</span>
+            </div>
+            <div class="location-info">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon–Fri: 8AM–7PM | Sat: 9AM–3PM</span>
+            </div>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-directions">
+              <i class="fa-solid fa-route"></i>Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Westside -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="location-card">
+          <div class="location-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&h=260&fit=crop&q=80&auto=format" alt="Westside Branch reception area" class="location-img" loading="lazy" />
+            <div class="map-overlay" style="background:linear-gradient(135deg,var(--mint-green),var(--peach))">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Westside Branch</span>
+            </div>
+          </div>
+          <div class="location-body">
+            <h4><i class="fa-solid fa-house-medical me-2" style="color:var(--mint-green)"></i>Westside Branch</h4>
+            <div class="location-info">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>456 Westside Blvd, Westside, CA 90025</span>
+            </div>
+            <div class="location-info">
+              <i class="fa-solid fa-phone"></i>
+              <span>(800) 234-5678</span>
+            </div>
+            <div class="location-info">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon–Fri: 9AM–6PM | Sat: 10AM–2PM</span>
+            </div>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-directions" style="background:var(--mint-green);color:var(--navy)">
+              <i class="fa-solid fa-route"></i>Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Northgate -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="location-card">
+          <div class="location-img-wrap">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&h=260&fit=crop&q=80&auto=format" alt="Northgate Center Facility" class="location-img" loading="lazy" />
+            <div class="map-overlay" style="background:linear-gradient(135deg,var(--peach),var(--sky-blue))">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Northgate Center</span>
+            </div>
+          </div>
+          <div class="location-body">
+            <h4><i class="fa-solid fa-star-of-life me-2" style="color:var(--peach)"></i>Northgate Center</h4>
+            <div class="location-info">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>789 Northgate Ave, Northgate, CA 90068</span>
+            </div>
+            <div class="location-info">
+              <i class="fa-solid fa-phone"></i>
+              <span>(800) 345-6789</span>
+            </div>
+            <div class="location-info">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon–Sat: 8AM–8PM | Sun: 10AM–4PM</span>
+            </div>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-directions" style="background:var(--peach);color:var(--navy)">
+              <i class="fa-solid fa-route"></i>Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-8">
+        <div class="text-center mb-4" data-aos="fade-up">
+          <span class="section-label">Help Center</span>
+          <h3 class="section-title" style="font-size:2rem">Frequently Asked Questions</h3>
+        </div>
+        <div class="accordion" id="aboutFaq" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                <i class="fa-solid fa-child-reaching me-2" style="color:var(--sky-blue)"></i>What ages do you treat?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#aboutFaq">
+              <div class="accordion-body">
+                PediaCare serves patients from birth (newborns) through 18 years of age. Our specialized neonatology team handles premature and high-risk newborns, while our adolescent health specialists provide age-appropriate care for teens. We believe in long-term relationships with families, so we strive to be your child's healthcare home from their first breath through young adulthood.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                <i class="fa-solid fa-id-card me-2" style="color:var(--mint-green)"></i>Do you accept insurance?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#aboutFaq">
+              <div class="accordion-body">
+                Yes! PediaCare accepts most major insurance plans including Blue Cross Blue Shield, Aetna, Cigna, United Healthcare, Humana, Medicare, and many more. We also offer flexible self-pay pricing and payment plans for uninsured families. Please call our reception or use our online insurance verification tool to confirm your specific plan is accepted before your visit.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                <i class="fa-solid fa-calendar-check me-2" style="color:var(--peach)"></i>How do I book an appointment?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#aboutFaq">
+              <div class="accordion-body">
+                Appointments can be booked through our online patient portal, by calling any of our three clinic locations, or by using the "Book Appointment" button at the top of our website. For urgent same-day needs, please call directly — we reserve slots for sick children who need to be seen quickly. Telemedicine appointments can also be booked directly through our portal.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                <i class="fa-solid fa-clipboard-list me-2" style="color:var(--sky-blue)"></i>What should I bring to the first visit?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#aboutFaq">
+              <div class="accordion-body">
+                For your child's first visit, please bring your insurance card and a valid photo ID, your child's previous medical records and vaccination history, any current medications (or a written list with dosages), and your completed new patient registration forms (available online). Arriving 15 minutes early helps us get everything set up so the doctor can spend maximum time with your child.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                <i class="fa-solid fa-video me-2" style="color:var(--navy)"></i>Do you offer telemedicine?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#aboutFaq">
+              <div class="accordion-body">
+                Absolutely! PediaCare offers secure, HIPAA-compliant telemedicine consultations for a wide range of non-emergency concerns including follow-up visits, medication reviews, behavioral questions, and minor illness guidance. Telehealth appointments are available 7 days a week, including evenings. Book through our patient portal, download our app, or call us to schedule your virtual visit from the comfort of home.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Col 1: Brand -->
+      <div class="col-lg-4 col-md-6">
+        <span class="footer-brand">PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span>
+        <p class="footer-about">
+          PediaCare is a premier pediatric clinic dedicated to nurturing the health, growth, and happiness of children from birth through adolescence. Our board-certified team combines medical excellence with heartfelt compassion.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+          <li><a href="home2.html"><i class="fas fa-chevron-right fa-xs"></i> Home 2</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          <li><a href="parent-dashboard.html"><i class="fas fa-chevron-right fa-xs"></i> Parent Dashboard</a></li>
+          <li><a href="#appointment"><i class="fas fa-chevron-right fa-xs"></i> Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> General Pediatrics</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Neonatology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Developmental Medicine</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Pediatric Nutrition</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Allergy &amp; Immunology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Vaccinations</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Wellness Programs</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact + Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Wellness Blvd, Suite 200<br>Health City, CA 90001</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1-800-PEDIACARE<br>+1 (555) 234-5678</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>hello@pediacare.com<br>appointments@pediacare.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Open 24/7 · 365 Days a Year</span>
+        </div>
+
+        <h4 class="footer-heading mt-4">Newsletter</h4>
+        <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:.8rem;">Get parenting tips & clinic news.</p>
+        <form class="newsletter-form d-flex" aria-label="Newsletter signup form" onsubmit="return handleNewsletter(event)">
+          <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter" required />
+          <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p>© 2025 PediaCare Medical Group. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+        <a href="#">HIPAA Notice</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  // AOS init
+  AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic', offset: 60 });
+
+  // Navbar scroll
+  const nav = (document.getElementById('mainNav') || document.createElement('span'));
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Dark mode toggle
+  const darkToggle = (document.getElementById('darkToggle') || document.createElement('span'));
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('pediacare-theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+  (darkToggle.querySelector('i') || document.createElement('i')).className = savedTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+
+  darkToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('pediacare-theme', next);
+    (darkToggle.querySelector('i') || document.createElement('i')).className = next === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+  });
+
+  // RTL toggle
+  (document.getElementById('rtlToggle') || document.createElement('span')).addEventListener('click', () => {
+    const current = html.getAttribute('dir');
+    html.setAttribute('dir', current === 'rtl' ? 'ltr' : 'rtl');
+  });
+
+  // Back to top
+  const btt = (document.getElementById('backToTop') || document.createElement('span'));
+  window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 300));
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Swiper for mobile team
+  if (window.innerWidth < 992) {
+    new Swiper('.swiper-team', {
+      slidesPerView: 1.1,
+      spaceBetween: 16,
+      centeredSlides: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: {
+        576: { slidesPerView: 2.1, centeredSlides: false }
+      }
+    });
+  }
+</script>
+
+<script>
+(function () {
+  const navbar = document.getElementById('mainNavbar');
+  if (navbar) {
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  const darkBtn = document.getElementById('darkModeToggle');
+  const darkIcon = document.getElementById('darkModeIcon');
+  const rtlBtn = document.getElementById('rtlToggle');
+  const htmlEl = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    try { localStorage.setItem('pediacare-theme', theme); } catch (e) {}
+    if (darkIcon) {
+      if (theme === 'dark') {
+        darkIcon.classList.remove('fa-moon');
+        darkIcon.classList.add('fa-sun');
+      } else {
+        darkIcon.classList.remove('fa-sun');
+        darkIcon.classList.add('fa-moon');
+      }
+    }
+  }
+
+  let saved = 'light';
+  try { saved = localStorage.getItem('pediacare-theme') || 'light'; } catch (e) {}
+  applyTheme(saved);
+
+  if (darkBtn) {
+    darkBtn.addEventListener('click', () => {
+      applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+  if (rtlBtn) {
+    rtlBtn.addEventListener('click', () => {
+      const cur = htmlEl.getAttribute('dir');
+      htmlEl.setAttribute('dir', cur === 'rtl' ? 'ltr' : 'rtl');
+    });
+  }
+
+  window.handleNewsletter = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const input = form.querySelector('input[type="email"]');
+    if (!input || !input.value) return false;
+    input.value = '';
+    const btn = form.querySelector('button');
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i>';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 2500);
+    }
+    return false;
+  };
+
+  document.querySelectorAll('#navbarMain a').forEach(a => {
+    a.addEventListener('click', () => {
+      const el = document.getElementById('navbarMain');
+      if (el && el.classList.contains('show') && window.bootstrap) {
+        bootstrap.Collapse.getOrCreateInstance(el).hide();
+      }
+    });
+  });
+})();
+</script>
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>

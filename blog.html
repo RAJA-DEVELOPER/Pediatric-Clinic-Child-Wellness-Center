@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Health Blog | PediaCare</title>
+  <meta name="description" content="Expert pediatric health articles, parenting tips, and child wellness guides from PediaCare's team of pediatricians." />
+  <meta name="keywords" content="pediatric blog, parenting tips, child health, vaccines, nutrition, development milestones" />
+  <meta property="og:title" content="Pediatric Health & Parenting Insights | PediaCare Blog" />
+  <meta property="og:description" content="Expert-backed pediatric health articles and parenting guides from PediaCare's team of specialists." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    :root {
+      --sky-blue: #A8D8EA; --mint-green: #B8D8C0; --peach: #FFD6C2; --cream: #FFF9F2; --navy: #34445C;
+      --sky-blue-dark: #7EC8E3; --mint-dark: #8EC89A; --peach-dark: #FFB89A;
+      --text-dark: #2d3748; --text-muted: #566274; --white: #ffffff;
+      --shadow-sm: 0 2px 10px rgba(52,68,92,0.08); --shadow-md: 0 8px 30px rgba(52,68,92,0.12);
+      --shadow-lg: 0 20px 60px rgba(52,68,92,0.15);
+      --radius-sm: 12px; --radius-md: 20px; --radius-lg: 32px; --transition: all 0.3s ease;
+    }
+    [data-theme="dark"] { --cream: #1a2234; --white: #243047; --text-dark: #e2e8f0; --text-muted: #A8B8CC; --navy: #A8D8EA; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Quicksand', sans-serif; background: var(--cream); color: var(--text-dark); }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Nunito', sans-serif; }
+
+    /* NAVBAR */
+    .navbar { background: rgba(255,249,242,0.95) !important; backdrop-filter: blur(12px); box-shadow: var(--shadow-sm); padding: 12px 0; }
+    [data-theme="dark"] .navbar { background: rgba(26,34,52,0.95) !important; }
+    .navbar-brand { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--navy) !important; }
+    .navbar-brand span { color: var(--sky-blue-dark); }
+    .nav-link { font-weight: 600; color: var(--text-dark) !important; padding: 8px 14px !important; border-radius: 8px; transition: var(--transition); }
+    .nav-link:hover, .nav-link.active { background: var(--sky-blue); color: var(--navy) !important; }
+    .btn-appointment { background: linear-gradient(135deg, var(--navy), #4a6080); color: white !important; border-radius: 50px; padding: 8px 22px !important; font-weight: 700; border: none; }
+    .btn-appointment:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(52,68,92,0.35); color: white !important; }
+    .theme-toggle { background: none; border: 2px solid var(--sky-blue); border-radius: 50px; padding: 5px 12px; cursor: pointer; color: var(--navy); font-weight: 600; font-size: 0.85rem; }
+
+    /* HERO */
+    .blog-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #4a6080 40%, var(--sky-blue-dark) 100%);
+      padding: 100px 0 70px; position: relative; overflow: hidden;
+    }
+    .blog-hero::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(168,216,234,0.25), transparent 70%);
+      border-radius: 50%;
+    }
+    .blog-hero::after {
+      content: ''; position: absolute; bottom: -60px; left: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(184,216,192,0.2), transparent 70%);
+      border-radius: 50%;
+    }
+    .breadcrumb-item a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; }
+    .breadcrumb-item a:hover { color: white; }
+    .breadcrumb-item.active { color: rgba(255,255,255,0.9); }
+    .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.78); }
+    .blog-hero-title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; color: white; line-height: 1.2; margin-bottom: 12px; }
+    .blog-hero-sub { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 36px; }
+    .search-bar-wrap { position: relative; max-width: 580px; margin: 0 auto; }
+    .search-bar { padding: 16px 60px 16px 24px; border: none; border-radius: 50px; font-size: 1rem; font-family: 'Quicksand', sans-serif; font-weight: 600; width: 100%; box-shadow: var(--shadow-lg); background: white; color: var(--text-dark); }
+    .search-bar:focus { outline: 2px solid var(--sky-blue-dark); }
+    .search-btn { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: linear-gradient(135deg, var(--navy), #4a6080); border: none; border-radius: 50px; padding: 10px 20px; color: white; cursor: pointer; transition: var(--transition); font-weight: 700; font-size: 0.9rem; }
+    .search-btn:hover { transform: translateY(calc(-50% - 2px)); box-shadow: 0 6px 20px rgba(52,68,92,0.4); }
+    .cat-filter-tabs { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+    .cat-tab { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); border: 2px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 8px 20px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: var(--transition); font-family: 'Quicksand', sans-serif; }
+    .cat-tab.active, .cat-tab:hover { background: white; color: var(--navy); border-color: white; }
+
+    /* FEATURED */
+    .featured-section { padding: 84px 0 88px; background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%); }
+    [data-theme="dark"] .featured-section { background: linear-gradient(180deg, #162033 0%, #1f2d44 100%); }
+    .featured-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 34px; }
+    .featured-eyebrow { display: inline-flex; align-items: center; gap: 8px; color: #1D6C8C; font-size: 0.75rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 8px; }
+    .featured-eyebrow::before { content: ''; width: 26px; height: 2px; border-radius: 2px; background: var(--sky-blue-dark); }
+    [data-theme="dark"] .featured-eyebrow { color: #7EC8E3; }
+    .featured-view-all { display: inline-flex; align-items: center; gap: 6px; color: var(--sky-blue-dark); font-weight: 700; text-decoration: none; border-bottom: 2px solid transparent; transition: var(--transition); }
+    .featured-view-all:hover { color: var(--navy); border-bottom-color: var(--sky-blue-dark); }
+    [data-theme="dark"] .featured-view-all { color: #A8D8EA; }
+    .featured-card { display: grid; grid-template-columns: 1.05fr 0.95fr; border-radius: 28px; overflow: hidden; background: #fff; border: 1px solid rgba(168,216,234,0.35); box-shadow: 0 24px 60px rgba(52,68,92,0.14); transition: transform 0.35s ease, box-shadow 0.35s ease; }
+    [data-theme="dark"] .featured-card { background: #243047; border-color: rgba(168,216,234,0.18); }
+    .featured-card:hover { transform: translateY(-6px); box-shadow: 0 32px 70px rgba(52,68,92,0.22); }
+    .featured-media { position: relative; height: 460px; overflow: hidden; }
+    .featured-img { width: 100%; height: 100% !important; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .featured-card:hover .featured-img { transform: scale(1.05); }
+    .featured-ribbon { position: absolute; top: 22px; left: 22px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.94); color: #17243A; border-radius: 50px; padding: 8px 16px; font-size: 0.75rem; font-weight: 800; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .featured-overlay { position: static; display: flex; flex-direction: column; justify-content: center; padding: 46px 42px; color: var(--text-dark); background: linear-gradient(135deg, #FFF9F2 0%, #EDF7FB 100%); }
+    [data-theme="dark"] .featured-overlay { background: linear-gradient(135deg, #1e2d44 0%, #243047 100%); color: #E8F0F8; }
+    .featured-category { display: inline-flex; align-items: center; gap: 6px; background: var(--sky-blue-dark); color: var(--navy); font-weight: 700; font-size: 0.75rem; padding: 5px 14px; border-radius: 50px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .featured-title { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 900; margin-bottom: 14px; line-height: 1.22; color: var(--navy); }
+    [data-theme="dark"] .featured-title { color: #EAF4F8; }
+    .featured-excerpt { color: var(--text-muted); opacity: 1; font-size: 0.96rem; line-height: 1.75; margin-bottom: 20px; }
+    .article-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; font-size: 0.82rem; color: var(--text-muted); opacity: 1; margin-bottom: 20px; }
+    .article-meta img { width: 38px; height: 38px; border-radius: 50%; border: 2px solid rgba(168,216,234,0.6); object-fit: cover; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .tag-pill { display: inline-block; background: rgba(168,216,234,0.22); color: #2a6a8a; border: 1px solid rgba(168,216,234,0.5); border-radius: 50px; padding: 4px 14px; font-size: 0.75rem; }
+    [data-theme="dark"] .tag-pill { background: rgba(168,216,234,0.12); color: #A8D8EA; border-color: rgba(168,216,234,0.3); }
+    .btn-read-article { align-self: flex-start; background: var(--navy); color: #fff; border-radius: 50px; padding: 12px 28px; font-weight: 800; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); font-family: 'Quicksand', sans-serif; }
+    .btn-read-article:hover { background: var(--sky-blue-dark); color: #17243A; transform: translateY(-2px); }
+    @media (max-width: 991px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-media { height: 300px; }
+      .featured-overlay { padding: 34px 30px !important; }
+    }
+    @media (max-width: 576px) {
+      .featured-heading { align-items: flex-start; flex-direction: column; }
+      .featured-media { height: 220px; }
+      .featured-ribbon { top: 14px; left: 14px; padding: 6px 12px; font-size: 0.7rem; }
+      .featured-overlay { padding: 26px 20px !important; }
+      .featured-title { font-size: 1.55rem !important; }
+      .featured-excerpt { font-size: 0.9rem; }
+    }
+
+    /* BLOG GRID */
+    .blog-grid-section { padding: 80px 0; background: var(--cream); }
+    .blog-card { background: white; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); height: 100%; cursor: pointer; }
+    [data-theme="dark"] .blog-card { background: #243047; }
+    .blog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+    .blog-card-img { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .blog-card:hover .blog-card-img { transform: scale(1.05); }
+    .blog-card-img-wrap { overflow: hidden; }
+    .blog-card-body { padding: 20px; }
+    .cat-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .cat-nutrition { background: rgba(184,216,192,0.4); color: #3a7a42; }
+    .cat-safety { background: rgba(255,214,194,0.5); color: #c05a2a; }
+    .cat-development { background: rgba(168,216,234,0.4); color: #2a6a8a; }
+    .cat-mental { background: rgba(220,180,240,0.4); color: #7a3aa0; }
+    .cat-vaccines { background: rgba(255,230,100,0.4); color: #8a6a00; }
+    .blog-card-title { font-weight: 800; color: var(--navy); font-size: 1rem; margin-bottom: 8px; line-height: 1.4; }
+    .blog-card-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+    .blog-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid rgba(168,216,234,0.3); }
+    .blog-author-mini { display: flex; align-items: center; gap: 8px; }
+    .blog-author-mini img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 2px solid var(--sky-blue); }
+    .blog-author-mini span { font-weight: 700; font-size: 0.8rem; color: var(--text-dark); }
+    .blog-meta-mini { font-size: 0.75rem; color: var(--text-muted); }
+    .heart-btn { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 1rem; transition: var(--transition); padding: 4px; }
+    .heart-btn:hover, .heart-btn.liked { color: #e74c3c; }
+
+    /* NEWSLETTER + SIDEBAR */
+    .newsletter-section { padding: 80px 0; background: white; }
+    [data-theme="dark"] .newsletter-section { background: #1f2d44; }
+    .newsletter-card { background: linear-gradient(135deg, var(--navy) 0%, #4a6080 100%); border-radius: var(--radius-lg); padding: 48px; color: white; }
+    .newsletter-title { font-size: 1.8rem; font-weight: 900; margin-bottom: 10px; color: #fff; }
+    .newsletter-sub { color: rgba(255,255,255,0.88); margin-bottom: 24px; }
+    .newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; }
+    .newsletter-input { flex: 1; min-width: 200px; padding: 14px 20px; border: none; border-radius: 50px; font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 0.95rem; }
+    .newsletter-btn { background: var(--sky-blue-dark); color: #17243A; border: none; border-radius: 50px; padding: 14px 28px; font-weight: 800; font-family: 'Quicksand', sans-serif; cursor: pointer; transition: var(--transition); white-space: nowrap; }
+    .newsletter-btn:hover { background: white; color: #17243A; transform: translateY(-2px); }
+    .newsletter-input { color: #34445C; }
+    .tips-preview { margin-top: 24px; }
+    .tip-card { background: rgba(255,255,255,0.1); border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 10px; display: flex; gap: 12px; align-items: flex-start; }
+    .tip-card-icon { font-size: 1.3rem; }
+    .tip-card-text { font-size: 0.85rem; opacity: 0.9; line-height: 1.5; }
+    .sidebar-card { background: var(--cream); border-radius: var(--radius-md); padding: 24px; margin-bottom: 24px; }
+    [data-theme="dark"] .sidebar-card { background: #243047; }
+    .sidebar-title { font-weight: 800; color: var(--navy); margin-bottom: 16px; font-size: 1rem; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-pill-sidebar { background: rgba(168,216,234,0.3); color: var(--navy); border-radius: 50px; padding: 5px 14px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+    .tag-pill-sidebar:hover { background: var(--sky-blue); }
+    .recent-post-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid rgba(168,216,234,0.3); }
+    .recent-post-item:last-child { border-bottom: none; }
+    .recent-post-img { width: 60px; height: 50px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+    .recent-post-title { font-weight: 700; font-size: 0.85rem; color: var(--navy); line-height: 1.4; margin-bottom: 4px; }
+    .recent-post-date { font-size: 0.75rem; color: var(--text-muted); }
+    .author-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(168,216,234,0.3); }
+    .author-item:last-child { border-bottom: none; }
+    .author-item img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 3px solid var(--sky-blue); }
+    .author-item-name { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+    .author-item-posts { font-size: 0.75rem; color: var(--text-muted); }
+    .btn-ask-pedia { display: block; background: linear-gradient(135deg, var(--mint-green), var(--mint-dark)); color: var(--navy); text-align: center; border-radius: 50px; padding: 12px; font-weight: 800; text-decoration: none; transition: var(--transition); border: none; width: 100%; font-family: 'Quicksand', sans-serif; }
+    .btn-ask-pedia:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); color: var(--navy); }
+
+    /* CATEGORIES */
+    .categories-section { padding: 80px 0; background: var(--cream); }
+    .section-title-main { font-size: 2.2rem; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+    .section-subtitle-main { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 50px; }
+    .cat-showcase-card {
+      background: white; border-radius: var(--radius-md); padding: 36px 28px;
+      text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);
+      border: 2px solid transparent; height: 100%; cursor: pointer; position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .cat-showcase-card { background: #243047; }
+    .cat-showcase-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--sky-blue), var(--mint-green));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+    }
+    .cat-showcase-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--sky-blue); }
+    .cat-showcase-card:hover::before { transform: scaleX(1); }
+    .cat-showcase-icon { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+    .cat-showcase-title { font-weight: 800; font-size: 1.1rem; color: var(--navy); margin-bottom: 8px; }
+    .cat-showcase-count { font-size: 0.85rem; color: var(--text-muted); }
+    .cat-showcase-count strong { color: var(--sky-blue-dark); font-weight: 800; }
+
+    /* LOAD MORE + SUBSCRIBE */
+    .loadmore-section { padding: 60px 0 80px; background: white; }
+    [data-theme="dark"] .loadmore-section { background: #1f2d44; }
+    .btn-load-more { background: linear-gradient(135deg, var(--navy), #4a6080); color: white; border: none; border-radius: 50px; padding: 14px 42px; font-weight: 700; font-family: 'Quicksand', sans-serif; font-size: 1rem; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 10px; }
+    .btn-load-more:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .subscribe-cta { background: linear-gradient(135deg, var(--sky-blue) 0%, var(--mint-green) 100%); border-radius: var(--radius-lg); padding: 60px; text-align: center; margin-top: 60px; }
+    .subscribe-cta h3 { font-size: 2rem; font-weight: 900; color: var(--navy); margin-bottom: 10px; }
+    .subscribe-cta p { color: var(--navy); opacity: 0.75; margin-bottom: 30px; font-size: 1.05rem; }
+    .sub-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .sub-input { flex: 1; min-width: 220px; padding: 14px 22px; border: 2px solid rgba(255,255,255,0.6); border-radius: 50px; font-family: 'Quicksand', sans-serif; font-weight: 600; background: white; }
+    .sub-btn { background: var(--navy); color: white; border: none; border-radius: 50px; padding: 14px 28px; font-weight: 800; font-family: 'Quicksand', sans-serif; cursor: pointer; transition: var(--transition); }
+    .sub-btn:hover { background: #4a6080; transform: translateY(-2px); }
+
+    /* FOOTER */
+    .footer { background: var(--navy); color: rgba(255,255,255,0.8); padding: 70px 0 30px; }
+    .footer-brand { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.6rem; color: white; margin-bottom: 12px; }
+    .footer-desc { font-size: 0.9rem; line-height: 1.8; opacity: 0.75; margin-bottom: 20px; }
+    .footer-title { font-family: 'Nunito', sans-serif; font-weight: 800; color: white; margin-bottom: 20px; font-size: 1rem; }
+    .footer-link { display: block; color: rgba(255,255,255,0.82); text-decoration: none; padding: 4px 0; font-size: 0.9rem; transition: var(--transition); }
+    .footer-link:hover { color: var(--sky-blue); padding-left: 6px; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.9rem; }
+    .footer-contact-item i { color: var(--sky-blue); margin-top: 2px; }
+    .footer-social a { width: 38px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: white; margin-right: 8px; transition: var(--transition); font-size: 0.9rem; }
+    .footer-social a:hover { background: var(--sky-blue-dark); color: var(--navy); transform: translateY(-3px); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; padding-top: 20px; text-align: center; font-size: 0.85rem; opacity: 0.6; }
+
+    @media (max-width: 768px) {
+      .featured-overlay { padding: 24px; }
+      .newsletter-card { padding: 30px 20px; }
+      .subscribe-cta { padding: 40px 20px; }
+    }
+  
+/* ===== HOME NAVBAR + FOOTER (SHARED) ===== */
+header, footer {
+  --sky-blue: #A8D8EA;
+  --cream: #FFF9F2;
+  --navy: #34445C;
+  --text-dark: #2c3e50;
+  --text-muted: #566274;
+  --shadow-md: 0 8px 30px rgba(52,68,92,.14);
+  --radius-sm: 0.5rem;
+  --transition: all .3s cubic-bezier(.4,0,.2,1);
+  --font-heading: 'Nunito', sans-serif;
+  --bg-card: #ffffff;
+  --text-body: var(--text-dark);
+}
+[data-theme="dark"] header, [data-theme="dark"] footer {
+  --bg-card: #243046;
+  --text-muted: #A8B8CC;
+  --navy: #A8D8EA;
+  --cream: #1a2233;
+  --text-body: #e8edf5;
+}
+/* ===== NAVBAR ===== */
+    header .navbar {
+      background: rgba(255,249,242,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,216,234,.3);
+      padding: .9rem 0;
+      transition: var(--transition);
+      z-index: 1050;
+    }
+    [data-theme="dark"] header .navbar {
+      background: rgba(26,34,51,.97);
+      border-color: rgba(168,216,234,.15);
+    }
+    header .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    header .navbar-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+      letter-spacing: -.5px;
+    }
+    [data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+    header .nav-link {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--text-dark) !important;
+      padding: .4rem .85rem !important;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    [data-theme="dark"] header .nav-link { color: #e8edf5 !important; }
+    header .nav-link:hover, header .nav-link.active {
+      background: var(--sky-blue);
+      color: var(--navy) !important;
+    }
+    header .btn-appointment {
+      background: linear-gradient(135deg, #34445C, #A8D8EA);
+      color: #fff !important;
+      border: none;
+      border-radius: 30px;
+      padding: .5rem 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(52,68,92,.25);
+    }
+    header .btn-appointment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52,68,92,.35);
+    }
+    header .toggle-btn {
+      background: none;
+      border: 2px solid rgba(168,216,234,.6);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    [data-theme="dark"] header .toggle-btn { color: var(--sky-blue); border-color: rgba(168,216,234,.4); }
+    header .toggle-btn:hover { background: var(--sky-blue); color: var(--navy); }
+
+    
+/* ===== FOOTER ===== */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid rgba(168,216,234,.3);
+      padding: 70px 0 0;
+    }
+    [data-theme="dark"] footer { background: #141c2b; }
+    footer .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: .9rem;
+      display: block;
+    }
+    [data-theme="dark"] footer .footer-brand { color: var(--sky-blue); }
+    footer .footer-about {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    footer .footer-social a {
+      width: 38px; height: 38px;
+      background: rgba(168,216,234,.2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      text-decoration: none;
+      margin-right: .4rem;
+    }
+    [data-theme="dark"] footer .footer-social a { color: var(--sky-blue); background: rgba(168,216,234,.1); }
+    footer .footer-social a:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    footer .footer-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] footer .footer-heading { color: #e8edf5; }
+    footer .footer-links { list-style: none; padding: 0; }
+    footer .footer-links li { margin-bottom: .6rem; }
+    footer .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    footer .footer-links a:hover { color: var(--navy); transform: translateX(4px); }
+    [data-theme="dark"] footer .footer-links a:hover { color: var(--sky-blue); }
+    footer .footer-contact-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: .9rem;
+    }
+    footer .footer-contact-item i {
+      color: var(--sky-blue);
+      font-size: 1rem;
+      margin-top: .15rem;
+      flex-shrink: 0;
+    }
+    footer .newsletter-form .form-control {
+      border-radius: 30px 0 0 30px;
+      border: 2px solid rgba(168,216,234,.4);
+      background: var(--bg-card);
+      color: var(--text-body);
+      padding: .6rem 1.2rem;
+    }
+    footer .newsletter-form .form-control:focus { border-color: var(--sky-blue); box-shadow: none; }
+    footer .newsletter-form .btn-newsletter {
+      border-radius: 0 30px 30px 0;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: .6rem 1.2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: var(--transition);
+    }
+    footer .newsletter-form .btn-newsletter:hover { background: #A8D8EA; color: var(--navy); }
+    footer .footer-bottom {
+      background: rgba(52,68,92,.06);
+      border-top: 1px solid rgba(168,216,234,.2);
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+    }
+    [data-theme="dark"] footer .footer-bottom { background: rgba(0,0,0,.2); }
+    footer .footer-bottom p { color: var(--text-muted); font-size: .85rem; margin: 0; }
+    footer .footer-bottom a { color: var(--sky-blue); text-decoration: none; font-weight: 600; }
+    footer .footer-bottom a:hover { text-decoration: underline; }
+
+    
+/* ===== NAVBAR TOGGLER CUSTOM ===== */
+    header .navbar-toggler { border: 2px solid rgba(168,216,234,.5); border-radius: var(--radius-sm); }
+    header .navbar-toggler:focus { box-shadow: none; }
+    [data-theme="dark"] header .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+header .navbar { color: var(--text-dark) !important; }
+footer { color: var(--text-dark) !important; font-size: 16px !important; }
+footer .footer-bottom { font-size: 14px !important; }body { padding-top: 72px !important; }
+header .navbar { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; }/* ===== HOME NAVBAR OVERRIDE ===== */
+header .navbar {
+  background: rgba(255,249,242,.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(168,216,234,.3) !important;
+  padding: .9rem 0 !important;
+}
+[data-theme="dark"] header .navbar {
+  background: rgba(26,34,51,.97) !important;
+  border-color: rgba(168,216,234,.15) !important;
+}
+header .navbar-brand {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  color: var(--navy) !important;
+  letter-spacing: -.5px !important;
+}
+[data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+header .navbar-nav .nav-link {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: .92rem !important;
+  color: var(--text-dark) !important;
+  padding: .4rem .85rem !important;
+  border-radius: 20px !important;
+}
+[data-theme="dark"] header .navbar-nav .nav-link { color: #e8edf5 !important; }
+header .navbar-nav .nav-link:hover,
+header .navbar-nav .nav-link.active {
+  background: var(--sky-blue) !important;
+  color: var(--navy) !important;
+}
+/* ===== ACCESSIBLE FOOTER CONTRAST ===== */
+footer { background: var(--cream) !important; color: var(--text-dark) !important; }
+footer .footer-about, footer .footer-contact-item, footer .footer-links a,
+footer .footer-bottom, footer .footer-bottom p, footer .footer-bottom a,
+footer .footer-bottom-links a { color: #566274 !important; }
+footer .footer-social a { color: #34445C !important; background: rgba(52,68,92,0.08) !important; border-color: rgba(52,68,92,0.15) !important; }
+footer .footer-newsletter input { background: rgba(52,68,92,0.06) !important; border-color: rgba(52,68,92,0.2) !important; color: #34445C !important; }
+footer .footer-newsletter input::placeholder { color: #566274 !important; }
+[data-theme="dark"] footer { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-about, [data-theme="dark"] footer .footer-contact-item,
+[data-theme="dark"] footer .footer-links a, [data-theme="dark"] footer .footer-bottom,
+[data-theme="dark"] footer .footer-bottom p, [data-theme="dark"] footer .footer-bottom a,
+[data-theme="dark"] footer .footer-bottom-links a { color: #A8B8CC !important; }
+[data-theme="dark"] footer .footer-social a { color: #A8D8EA !important; background: rgba(168,216,234,0.1) !important; border-color: rgba(168,216,234,0.2) !important; }
+[data-theme="dark"] footer .footer-newsletter input { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-newsletter input::placeholder { color: #A8B8CC !important; }/* ===== DARK NAVLINK CONTRAST ===== */
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] header .nav-link:hover,
+[data-theme="dark"] header .nav-link.active,
+[data-theme="dark"] header .navbar-nav .nav-link:hover,
+[data-theme="dark"] header .navbar-nav .nav-link.active {
+  background: #A8D8EA !important;
+  color: #17243A !important;
+}/* ===== PROFILE ICON CONTRAST ===== */
+.profile-menu .dropdown-item i { color: #34445C !important; }
+[data-theme="dark"] .profile-nav .profile-toggle { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-nav .profile-toggle:hover,
+[data-theme="dark"] .profile-nav .profile-toggle[aria-expanded="true"] { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .profile-menu { background: #1E2D3D !important; border: 1px solid rgba(168,216,234,0.15) !important; }
+[data-theme="dark"] .profile-menu .dropdown-item { color: #E8F0F8 !important; }
+[data-theme="dark"] .profile-menu .dropdown-item:hover { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-menu .dropdown-item i { color: #A8D8EA !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html" aria-label="PediaCare Home">
+        PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+      </a>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMain" aria-controls="navbarMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto gap-1" role="list">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="blog.html" aria-current="page">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <!-- Dark mode toggle -->
+          <button class="toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fas fa-moon" id="darkModeIcon"></i>
+          </button>
+          <!-- RTL toggle -->
+          <button class="toggle-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL">
+            <span style="font-size:.62rem;font-weight:800;letter-spacing:.02em;line-height:1">RTL</span>
+          </button>
+          
+          <div class="dropdown profile-nav">
+            <a class="nav-link profile-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+              <i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end profile-menu">
+              <li><a class="dropdown-item" href="parent-dashboard.html"><i class="fa-solid fa-user me-2"></i>User Dashboard</a></li>
+              <li><a class="dropdown-item" href="admin-dashboard.html"><i class="fa-solid fa-user-shield me-2"></i>Admin Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════
+     SECTION 1: BLOG HERO + SEARCH
+═══════════════════════════════════ -->
+<section class="blog-hero" aria-labelledby="blogHeroTitle">
+  <div class="container position-relative" style="z-index:2">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+      </ol>
+    </nav>
+
+    <div class="text-center">
+      <div data-aos="fade-down">
+        <span style="display:inline-block;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:6px 18px;font-size:0.82rem;font-weight:700;margin-bottom:16px;letter-spacing:0.5px;">
+          <i class="fa-solid fa-book-open" aria-hidden="true"></i> Expert Pediatric Insights
+        </span>
+      </div>
+      <h1 class="blog-hero-title" id="blogHeroTitle" data-aos="fade-up">Pediatric Health &amp; Parenting Insights</h1>
+      <p class="blog-hero-sub" data-aos="fade-up" data-aos-delay="100">Evidence-based articles from our team of specialist pediatricians — for every stage of your child's journey</p>
+
+      <!-- Search Bar -->
+      <div class="search-bar-wrap" data-aos="fade-up" data-aos-delay="200">
+        <label for="blogSearch" class="visually-hidden">Search articles</label>
+        <input type="search" id="blogSearch" class="search-bar" placeholder="Search articles, topics, or symptoms..." aria-label="Search pediatric articles" />
+        <button class="search-btn" type="button" aria-label="Submit search"><i class="fas fa-search me-1"></i>Search</button>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="cat-filter-tabs" data-aos="fade-up" data-aos-delay="300" role="tablist" aria-label="Blog category filter">
+        <button class="cat-tab active" role="tab" aria-selected="true" onclick="filterCategory(this,'all')">All</button>
+        <button class="cat-tab" role="tab" aria-selected="false" onclick="filterCategory(this,'Nutrition')"><i class="fa-solid fa-carrot" aria-hidden="true"></i> Nutrition</button>
+        <button class="cat-tab" role="tab" aria-selected="false" onclick="filterCategory(this,'Vaccines')"><i class="fa-solid fa-syringe" aria-hidden="true"></i> Vaccines</button>
+        <button class="cat-tab" role="tab" aria-selected="false" onclick="filterCategory(this,'Development')"><i class="fa-solid fa-brain" aria-hidden="true"></i> Development</button>
+        <button class="cat-tab" role="tab" aria-selected="false" onclick="filterCategory(this,'Safety')"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Safety</button>
+        <button class="cat-tab" role="tab" aria-selected="false" onclick="filterCategory(this,'Mental Health')"><i class="fa-solid fa-heart" aria-hidden="true"></i> Mental Health</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 2: FEATURED ARTICLE
+═══════════════════════════════════ -->
+<section class="featured-section" aria-labelledby="featuredSectionTitle">
+  <div class="container">
+    <div class="featured-heading" data-aos="fade-up">
+      <div>
+        <span class="featured-eyebrow">Editor's Pick</span>
+        <h2 class="section-title-main mb-0" id="featuredSectionTitle">Featured Article</h2>
+      </div>
+      <a href="blog-details.html" class="featured-view-all">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="featured-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="featured-media">
+        <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=900&h=585&fit=crop&q=80&auto=format"
+             alt="Complete Guide to Vaccination Schedule 2024" class="featured-img" loading="eager" />
+        <span class="featured-ribbon"><i class="fas fa-star"></i> Editor's Pick</span>
+      </div>
+      <div class="featured-overlay">
+        <span class="featured-category"><i class="fas fa-syringe me-1"></i>Vaccines &amp; Prevention</span>
+        <h2 class="featured-title">Complete Guide to Your Child's Vaccination Schedule in 2024</h2>
+        <div class="article-meta">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Sarah Johnson" />
+          <span><strong>Dr. Sarah Johnson</strong></span>
+          <span><i class="fas fa-calendar me-1"></i>Nov 10, 2026</span>
+          <span><i class="fas fa-clock me-1"></i>8 min read</span>
+        </div>
+        <p class="featured-excerpt">Everything you need to know about keeping your child protected — from the first dose at birth to boosters in adolescence. Our comprehensive guide breaks down every recommended vaccine, why it matters, and what to expect.</p>
+        <div class="tag-row">
+          <span class="tag-pill">Vaccines</span>
+          <span class="tag-pill">Prevention</span>
+          <span class="tag-pill">Child Health</span>
+        </div>
+        <a href="blog-details.html" class="btn-read-article"><i class="fas fa-book-open"></i>Read Full Article<i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 3: BLOG GRID (9 posts)
+═══════════════════════════════════ -->
+<section class="blog-grid-section" aria-labelledby="blogGridTitle">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5" data-aos="fade-up">
+      <h2 class="section-title-main mb-0" id="blogGridTitle">Latest Articles</h2>
+      <span style="color:var(--text-muted);font-size:0.9rem;font-weight:600;">Showing 9 of 129 articles</span>
+    </div>
+
+    <div class="row g-4" id="blogGrid">
+      <!-- Post 1 -->
+      <div class="col-md-6 col-lg-4" data-category="Nutrition" data-aos="fade-up" data-aos-delay="50">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.pexels.com/photos/3376787/pexels-photo-3376787.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+                 alt="Signs Your Baby is Hitting Developmental Milestones" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-nutrition">Nutrition</span>
+            <h3 class="blog-card-title">Signs Your Baby is Hitting Developmental Milestones</h3>
+            <p class="blog-card-excerpt">Every baby is unique — but there are key markers to watch for in the first year of life that signal healthy growth and development.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Priya Sharma" />
+                <div>
+                  <span class="d-block">Dr. Priya Sharma</span>
+                  <div class="blog-meta-mini">Nov 5 · 5 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="col-md-6 col-lg-4" data-category="Nutrition" data-aos="fade-up" data-aos-delay="100">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.pexels.com/photos/7447271/pexels-photo-7447271.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+                 alt="5 Foods That Boost Your Toddler's Brain Development" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-nutrition">Nutrition</span>
+            <h3 class="blog-card-title">5 Foods That Boost Your Toddler's Brain Development</h3>
+            <p class="blog-card-excerpt">The right foods in the first three years can shape your toddler's cognitive development for life. Here's what to put on the plate.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.pexels.com/photos/19438566/pexels-photo-19438566.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Dr. Rajan Mehta" />
+                <div>
+                  <span class="d-block">Dr. Rajan Mehta</span>
+                  <div class="blog-meta-mini">Nov 2 · 6 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="col-md-6 col-lg-4" data-category="Safety" data-aos="fade-up" data-aos-delay="150">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.pexels.com/photos/8376203/pexels-photo-8376203.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+                 alt="Understanding Childhood Fevers: When to Worry" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-safety">Safety</span>
+            <h3 class="blog-card-title">Understanding Childhood Fevers: When to Worry</h3>
+            <p class="blog-card-excerpt">Fevers are one of the most common reasons parents rush to the ER — but most don't require emergency care. Learn when to act.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Sarah Johnson" />
+                <div>
+                  <span class="d-block">Dr. Sarah Johnson</span>
+                  <div class="blog-meta-mini">Oct 28 · 7 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="col-md-6 col-lg-4" data-category="Development" data-aos="fade-up" data-aos-delay="200">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.pexels.com/photos/7414080/pexels-photo-7414080.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+                 alt="Screen Time Guidelines for Children by Age Group" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-development">Development</span>
+            <h3 class="blog-card-title">Screen Time Guidelines for Children by Age Group</h3>
+            <p class="blog-card-excerpt">How much screen time is too much? The latest WHO and AAP guidelines explained — with practical tips for every age.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.pexels.com/photos/38618420/pexels-photo-38618420.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Dr. Anita Rao" />
+                <div>
+                  <span class="d-block">Dr. Anita Rao</span>
+                  <div class="blog-meta-mini">Oct 20 · 5 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="col-md-6 col-lg-4" data-category="Nutrition" data-aos="fade-up" data-aos-delay="250">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.pexels.com/photos/6969708/pexels-photo-6969708.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+                 alt="Navigating Picky Eaters: A Pediatric Nutritionist's Guide" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-nutrition">Nutrition</span>
+            <h3 class="blog-card-title">Navigating Picky Eaters: A Pediatric Nutritionist's Guide</h3>
+            <p class="blog-card-excerpt">Mealtimes don't have to be a battle. Expert strategies to help picky eaters develop healthier relationships with food.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.pexels.com/photos/39556769/pexels-photo-39556769.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Dr. Kavitha Nair" />
+                <div>
+                  <span class="d-block">Dr. Kavitha Nair</span>
+                  <div class="blog-meta-mini">Oct 15 · 6 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Post 6 -->
+      <div class="col-md-6 col-lg-4" data-category="Mental Health" data-aos="fade-up" data-aos-delay="300">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=260&fit=crop&q=80&auto=format"
+                 alt="Building Emotional Resilience in School-Age Children" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-mental">Mental Health</span>
+            <h3 class="blog-card-title">Building Emotional Resilience in School-Age Children</h3>
+            <p class="blog-card-excerpt">Teaching children to handle setbacks and stress is one of the best investments in their long-term mental well-being.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.pexels.com/photos/19438566/pexels-photo-19438566.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Dr. Rajan Mehta" />
+                <div>
+                  <span class="d-block">Dr. Rajan Mehta</span>
+                  <div class="blog-meta-mini">Oct 10 · 8 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Post 7 -->
+      <div class="col-md-6 col-lg-4" data-category="Development" data-aos="fade-up" data-aos-delay="350">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.pexels.com/photos/7641242/pexels-photo-7641242.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop&crop=faces&q=80"
+                 alt="Sleep Training Methods: What Works and What Doesn't" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-development">Development</span>
+            <h3 class="blog-card-title">Sleep Training Methods: What Works &amp; What Doesn't</h3>
+            <p class="blog-card-excerpt">From the Ferber method to attachment parenting — a pediatrician's honest, evidence-based review of popular sleep training approaches.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Priya Sharma" />
+                <div>
+                  <span class="d-block">Dr. Priya Sharma</span>
+                  <div class="blog-meta-mini">Oct 5 · 9 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Post 8 -->
+      <div class="col-md-6 col-lg-4" data-category="Safety" data-aos="fade-up" data-aos-delay="400">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?w=400&h=260&fit=crop&q=80&auto=format"
+                 alt="Allergy-Proofing Your Home: A Parent's Checklist" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-safety">Safety</span>
+            <h3 class="blog-card-title">Allergy-Proofing Your Home: A Parent's Checklist</h3>
+            <p class="blog-card-excerpt">Create a safer home environment for allergy-prone children with this room-by-room checklist reviewed by our allergy specialists.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.pexels.com/photos/38618420/pexels-photo-38618420.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Dr. Anita Rao" />
+                <div>
+                  <span class="d-block">Dr. Anita Rao</span>
+                  <div class="blog-meta-mini">Sep 28 · 6 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Post 9 -->
+      <div class="col-md-6 col-lg-4" data-category="Development" data-aos="fade-up" data-aos-delay="450">
+        <article class="blog-card">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=400&h=260&fit=crop&q=80&auto=format"
+                 alt="Preparing Your Child for the First Day of School" class="blog-card-img" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="cat-badge cat-development">Development</span>
+            <h3 class="blog-card-title">Preparing Your Child for the First Day of School</h3>
+            <p class="blog-card-excerpt">First-day anxiety is real — for both kids and parents. Here's how to build confidence and ease the transition into school life.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author-mini">
+                <img src="https://images.pexels.com/photos/39556769/pexels-photo-39556769.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Dr. Kavitha Nair" />
+                <div>
+                  <span class="d-block">Dr. Kavitha Nair</span>
+                  <div class="blog-meta-mini">Sep 20 · 5 min read</div>
+                </div>
+              </div>
+              <button class="heart-btn" onclick="this.classList.toggle('liked')" aria-label="Save article"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div><!-- /row -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 4: NEWSLETTER + TRENDING TOPICS
+═══════════════════════════════════ -->
+<section class="newsletter-section" aria-labelledby="newsletterSectionTitle">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Left 2/3: Newsletter -->
+      <div class="col-lg-8" data-aos="fade-right">
+        <div class="newsletter-card">
+          <span style="display:inline-block;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);border-radius:50px;padding:5px 16px;font-size:0.8rem;font-weight:700;margin-bottom:14px;"><i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i> Weekly Newsletter</span>
+          <h2 class="newsletter-title" id="newsletterSectionTitle">Get Expert Pediatric Tips Delivered Weekly</h2>
+          <p class="newsletter-sub">Join 12,000+ parents who receive curated health tips, milestone reminders, and pediatrician Q&As every Wednesday morning.</p>
+          <div class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address..." aria-label="Email for newsletter" />
+            <button class="newsletter-btn" type="button"><i class="fas fa-paper-plane me-2"></i>Subscribe Free</button>
+          </div>
+          <!-- Tips Preview -->
+          <div class="tips-preview">
+            <p style="font-size:0.8rem;opacity:0.65;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;font-weight:700;">This week's preview:</p>
+            <div class="tip-card">
+              <div class="tip-card-icon"><i class="fa-solid fa-carrot" aria-hidden="true"></i></div>
+              <div class="tip-card-text"><strong>Nutrition Tip:</strong> Iron-rich foods for babies starting solids — a complete guide with recipes</div>
+            </div>
+            <div class="tip-card">
+              <div class="tip-card-icon"><i class="fa-solid fa-syringe" aria-hidden="true"></i></div>
+              <div class="tip-card-text"><strong>Vaccine Alert:</strong> Updated flu vaccine schedule for children 6 months and older — 2026 season</div>
+            </div>
+            <div class="tip-card">
+              <div class="tip-card-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
+              <div class="tip-card-text"><strong>Development:</strong> Simple daily activities that dramatically boost your toddler's language development</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 1/3: Sidebar -->
+      <div class="col-lg-4" data-aos="fade-left">
+        <!-- Trending Tags -->
+        <div class="sidebar-card">
+          <div class="sidebar-title"><i class="fas fa-fire me-2" style="color:var(--peach-dark)"></i>Trending Tags</div>
+          <div class="tag-cloud">
+            <span class="tag-pill-sidebar">Vaccination</span>
+            <span class="tag-pill-sidebar">Toddler Sleep</span>
+            <span class="tag-pill-sidebar">Picky Eaters</span>
+            <span class="tag-pill-sidebar">Autism</span>
+            <span class="tag-pill-sidebar">Newborn</span>
+            <span class="tag-pill-sidebar">Fever</span>
+            <span class="tag-pill-sidebar">Screen Time</span>
+            <span class="tag-pill-sidebar">Allergies</span>
+            <span class="tag-pill-sidebar">Nutrition</span>
+            <span class="tag-pill-sidebar">ADHD</span>
+            <span class="tag-pill-sidebar">Growth</span>
+            <span class="tag-pill-sidebar">Milestones</span>
+          </div>
+        </div>
+
+        <!-- Recent Posts -->
+        <div class="sidebar-card">
+          <div class="sidebar-title"><i class="fas fa-clock me-2" style="color:var(--sky-blue-dark)"></i>Recent Posts</div>
+          <div class="recent-post-item">
+            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=100&h=100&fit=crop&q=80&auto=format" alt="Vaccination" class="recent-post-img" />
+            <div>
+              <div class="recent-post-title">Complete Guide to Vaccination Schedule 2024</div>
+              <div class="recent-post-date">Nov 10, 2026</div>
+            </div>
+          </div>
+          <div class="recent-post-item">
+            <img src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=100&h=100&fit=crop&q=80&auto=format" alt="Milestones" class="recent-post-img" />
+            <div>
+              <div class="recent-post-title">Signs Your Baby is Hitting Developmental Milestones</div>
+              <div class="recent-post-date">Nov 5, 2026</div>
+            </div>
+          </div>
+          <div class="recent-post-item">
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=100&h=100&fit=crop&q=80&auto=format" alt="Brain Foods" class="recent-post-img" />
+            <div>
+              <div class="recent-post-title">5 Foods That Boost Your Toddler's Brain</div>
+              <div class="recent-post-date">Nov 2, 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Authors -->
+        <div class="sidebar-card">
+          <div class="sidebar-title"><i class="fas fa-users me-2" style="color:var(--mint-dark)"></i>Popular Authors</div>
+          <div class="author-item">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Sarah Johnson" />
+            <div>
+              <div class="author-item-name">Dr. Sarah Johnson</div>
+              <div class="author-item-posts">42 articles · Vaccines</div>
+            </div>
+          </div>
+          <div class="author-item">
+            <img src="https://images.pexels.com/photos/19438566/pexels-photo-19438566.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Dr. Rajan Mehta" />
+            <div>
+              <div class="author-item-name">Dr. Rajan Mehta</div>
+              <div class="author-item-posts">35 articles · Development</div>
+            </div>
+          </div>
+          <div class="author-item">
+            <img src="https://images.pexels.com/photos/38618420/pexels-photo-38618420.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=faces&q=80" alt="Dr. Anita Rao" />
+            <div>
+              <div class="author-item-name">Dr. Anita Rao</div>
+              <div class="author-item-posts">28 articles · Safety</div>
+            </div>
+          </div>
+          <button class="btn-ask-pedia mt-3"><i class="fas fa-comment-medical me-2"></i>Ask a Pediatrician</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 5: CATEGORIES SHOWCASE
+═══════════════════════════════════ -->
+<section class="categories-section" aria-labelledby="catSectionTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title-main" id="catSectionTitle">Browse by Topic</h2>
+      <p class="section-subtitle-main">Explore our library of expert pediatric articles organized by category</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="cat-showcase-card">
+          <span class="cat-showcase-icon"><i class="fa-solid fa-carrot" aria-hidden="true"></i></span>
+          <div class="cat-showcase-title">Nutrition &amp; Diet</div>
+          <div class="cat-showcase-count"><strong>24</strong> articles</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-top:10px;">From breastfeeding basics to introducing solids and managing food allergies.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="cat-showcase-card">
+          <span class="cat-showcase-icon"><i class="fa-solid fa-syringe" aria-hidden="true"></i></span>
+          <div class="cat-showcase-title">Vaccines &amp; Prevention</div>
+          <div class="cat-showcase-count"><strong>18</strong> articles</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-top:10px;">Immunization schedules, vaccine safety, and disease prevention strategies.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="cat-showcase-card">
+          <span class="cat-showcase-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span>
+          <div class="cat-showcase-title">Development Milestones</div>
+          <div class="cat-showcase-count"><strong>31</strong> articles</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-top:10px;">Motor skills, language, cognition, and social development across all age groups.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="cat-showcase-card">
+          <span class="cat-showcase-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+          <div class="cat-showcase-title">Child Safety</div>
+          <div class="cat-showcase-count"><strong>15</strong> articles</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-top:10px;">Home safety, accident prevention, fever management, and emergency first aid.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="cat-showcase-card">
+          <span class="cat-showcase-icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>
+          <div class="cat-showcase-title">Mental Health</div>
+          <div class="cat-showcase-count"><strong>22</strong> articles</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-top:10px;">Emotional resilience, anxiety, school stress, and positive parenting techniques.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="cat-showcase-card">
+          <span class="cat-showcase-icon"><i class="fa-solid fa-baby" aria-hidden="true"></i></span>
+          <div class="cat-showcase-title">Newborn Care</div>
+          <div class="cat-showcase-count"><strong>19</strong> articles</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-top:10px;">Everything for the first 90 days — feeding, sleep, umbilical cord care, and more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 6: LOAD MORE + SUBSCRIBE
+═══════════════════════════════════ -->
+<section class="loadmore-section" aria-label="Load more articles and subscribe">
+  <div class="container">
+    <!-- Load More Button -->
+    <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+      <button class="btn-load-more" onclick="loadMoreArticles(this)" aria-label="Load more articles">
+        <i class="fas fa-sync-alt" id="loadMoreIcon"></i>
+        <span id="loadMoreText">Load More Articles</span>
+      </button>
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-top:12px;">Showing 9 of 129 articles</p>
+    </div>
+
+    <!-- Big Subscribe CTA -->
+    <div class="subscribe-cta" data-aos="zoom-in">
+      <span style="display:inline-block;background:rgba(52,68,92,0.15);color:var(--navy);border-radius:50px;padding:5px 16px;font-size:0.8rem;font-weight:700;margin-bottom:14px;"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Free Weekly Newsletter</span>
+      <h3>Subscribe to Weekly Pediatric Health Insights</h3>
+      <p>Get expert articles, milestone guides, vaccine reminders, and parenting Q&As delivered straight to your inbox — every Wednesday, completely free.</p>
+      <form class="sub-form" onsubmit="subscribeNewsletter(event)">
+        <input type="email" class="sub-input" placeholder="Enter your email address..." aria-label="Email for newsletter subscription" required />
+        <button type="submit" class="sub-btn"><i class="fas fa-paper-plane me-2"></i>Subscribe</button>
+      </form>
+      <p style="font-size:0.8rem;color:var(--navy);opacity:0.65;margin-top:14px;">Join 12,000+ parents · Unsubscribe anytime · Zero spam</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Col 1: Brand -->
+      <div class="col-lg-4 col-md-6">
+        <span class="footer-brand">PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span>
+        <p class="footer-about">
+          PediaCare is a premier pediatric clinic dedicated to nurturing the health, growth, and happiness of children from birth through adolescence. Our board-certified team combines medical excellence with heartfelt compassion.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+          <li><a href="home2.html"><i class="fas fa-chevron-right fa-xs"></i> Home 2</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          <li><a href="parent-dashboard.html"><i class="fas fa-chevron-right fa-xs"></i> Parent Dashboard</a></li>
+          <li><a href="#appointment"><i class="fas fa-chevron-right fa-xs"></i> Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> General Pediatrics</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Neonatology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Developmental Medicine</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Pediatric Nutrition</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Allergy &amp; Immunology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Vaccinations</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Wellness Programs</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact + Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Wellness Blvd, Suite 200<br>Health City, CA 90001</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1-800-PEDIACARE<br>+1 (555) 234-5678</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>hello@pediacare.com<br>appointments@pediacare.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Open 24/7 · 365 Days a Year</span>
+        </div>
+
+        <h4 class="footer-heading mt-4">Newsletter</h4>
+        <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:.8rem;">Get parenting tips & clinic news.</p>
+        <form class="newsletter-form d-flex" aria-label="Newsletter signup form" onsubmit="return handleNewsletter(event)">
+          <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter" required />
+          <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p>© 2025 PediaCare Medical Group. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+        <a href="#">HIPAA Notice</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js" defer></script>
+<script>
+  AOS.init({ duration: 700, once: true, offset: 60 });
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    (document.getElementById('themeBtn') || document.createElement('span')).innerHTML = isDark ? '<i class="fa-solid fa-moon" aria-hidden="true"></i> Dark' : '<i class="fa-solid fa-sun" aria-hidden="true"></i> Light';
+    localStorage.setItem('pediacare-theme', isDark ? 'light' : 'dark');
+  }
+  (function() {
+    const saved = localStorage.getItem('pediacare-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    const btn = (document.getElementById('themeBtn') || document.createElement('span'));
+    if (btn) btn.innerHTML = saved === 'dark' ? '<i class="fa-solid fa-sun" aria-hidden="true"></i> Light' : '<i class="fa-solid fa-moon" aria-hidden="true"></i> Dark';
+  })();
+
+  function filterCategory(btn, cat) {
+    document.querySelectorAll('.cat-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+    btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
+    const cards = document.querySelectorAll('#blogGrid [data-category]');
+    cards.forEach(card => {
+      if (cat === 'all' || card.dataset.category === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function loadMoreArticles(btn) {
+    const icon = (document.getElementById('loadMoreIcon') || document.createElement('span'));
+    const text = (document.getElementById('loadMoreText') || document.createElement('span'));
+    icon.style.animation = 'spin 1s linear infinite';
+    text.textContent = 'Loading...';
+    setTimeout(() => {
+      icon.style.animation = '';
+      text.textContent = 'Load More Articles';
+      btn.disabled = true;
+      text.textContent = 'All articles loaded!';
+      icon.className = 'fas fa-check';
+    }, 1800);
+  }
+
+  function subscribeNewsletter(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.innerHTML = '<i class="fas fa-check me-2"></i>Subscribed!';
+    btn.style.background = 'var(--mint-dark)';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Subscribe';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Search
+  (document.getElementById('blogSearch') || document.createElement('span')).addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('#blogGrid [data-category]').forEach(card => {
+      const title = card.querySelector('.blog-card-title').textContent.toLowerCase();
+      card.style.display = title.includes(q) ? '' : 'none';
+    });
+  });
+</script>
+<style>@keyframes spin { from {transform:rotate(0deg)} to {transform:rotate(360deg)} }[data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: #17243A !important; }
+[data-theme="dark"] #copyLabel { color: #17243A !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }</style>
+
+<script>
+(function () {
+  const navbar = document.getElementById('mainNavbar');
+  if (navbar) {
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  const darkBtn = document.getElementById('darkModeToggle');
+  const darkIcon = document.getElementById('darkModeIcon');
+  const rtlBtn = document.getElementById('rtlToggle');
+  const htmlEl = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    try { localStorage.setItem('pediacare-theme', theme); } catch (e) {}
+    if (darkIcon) {
+      if (theme === 'dark') {
+        darkIcon.classList.remove('fa-moon');
+        darkIcon.classList.add('fa-sun');
+      } else {
+        darkIcon.classList.remove('fa-sun');
+        darkIcon.classList.add('fa-moon');
+      }
+    }
+  }
+
+  let saved = 'light';
+  try { saved = localStorage.getItem('pediacare-theme') || 'light'; } catch (e) {}
+  applyTheme(saved);
+
+  if (darkBtn) {
+    darkBtn.addEventListener('click', () => {
+      applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+  if (rtlBtn) {
+    rtlBtn.addEventListener('click', () => {
+      const cur = htmlEl.getAttribute('dir');
+      htmlEl.setAttribute('dir', cur === 'rtl' ? 'ltr' : 'rtl');
+    });
+  }
+
+  window.handleNewsletter = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const input = form.querySelector('input[type="email"]');
+    if (!input || !input.value) return false;
+    input.value = '';
+    const btn = form.querySelector('button');
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i>';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 2500);
+    }
+    return false;
+  };
+
+  document.querySelectorAll('#navbarMain a').forEach(a => {
+    a.addEventListener('click', () => {
+      const el = document.getElementById('navbarMain');
+      if (el && el.classList.contains('show') && window.bootstrap) {
+        bootstrap.Collapse.getOrCreateInstance(el).hide();
+      }
+    });
+  });
+
+  document.querySelectorAll('#blogGrid .blog-card').forEach(card => {
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('click', e => {
+      if (e.target.closest('.heart-btn')) return;
+      const img = card.querySelector('.blog-card-img');
+      if (!img) return;
+      const params = new URLSearchParams({ img: img.src, alt: img.alt });
+      window.location.href = 'blog-details.html?' + params.toString();
+    });
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+})();
+</script>
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>

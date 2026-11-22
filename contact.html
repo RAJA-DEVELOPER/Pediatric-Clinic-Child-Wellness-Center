@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact PediaCare — Reach our pediatric care team by phone, email, live chat, or visit one of our 3 clinic locations. Book appointments online." />
+  <meta name="keywords" content="PediaCare contact, pediatric clinic contact, book appointment, children doctor" />
+  <title>Contact Us | PediaCare Pediatric Clinic</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Shared CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sky: #A8D8EA;
+      --mint: #B8D8C0;
+      --peach: #FFD6C2;
+      --cream: #FFF9F2;
+      --navy: #34445C;
+      --sky-dark: #7EC8E3;
+      --mint-dark: #8DC49A;
+      --peach-dark: #FFBFA0;
+    }
+    body { font-family: 'Quicksand', sans-serif; background: var(--cream); color: var(--navy); }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Nunito', sans-serif; }
+
+    /* ── NAVBAR ── */
+    .navbar { background: #fff; box-shadow: 0 2px 20px rgba(52,68,92,.08); padding: 12px 0; }
+    .navbar-brand { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--navy) !important; }
+    .navbar-brand span { color: var(--sky-dark); }
+    .nav-link { font-weight: 600; color: var(--navy) !important; padding: 8px 14px !important; border-radius: 8px; transition: all .2s; }
+    .nav-link:hover, .nav-link.active { background: var(--sky); color: #fff !important; }
+    .btn-appt { background: var(--navy); color: #fff !important; border-radius: 25px; padding: 8px 20px !important; font-weight: 700; }
+    .btn-appt:hover { background: var(--sky-dark); }
+
+    /* ── HERO ── */
+    .contact-hero { background: linear-gradient(135deg, #e8f6fb 0%, #f0faf3 50%, #fff4ee 100%); padding: 80px 0 60px; position: relative; overflow: hidden; }
+    .contact-hero::before { content:''; position:absolute; top:-60px; right:-80px; width:300px; height:300px; border-radius:50%; background: rgba(168,216,234,.3); }
+    .contact-hero::after { content:''; position:absolute; bottom:-80px; left:-60px; width:250px; height:250px; border-radius:50%; background: rgba(184,216,192,.2); }
+    .hero-title { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; color: var(--navy); line-height: 1.2; }
+    .stat-pill { background:#fff; border-radius:20px; padding:10px 18px; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 15px rgba(0,0,0,.08); font-weight:700; color:var(--navy); font-size:.9rem; }
+    .emergency-banner { background: var(--peach); border-left: 5px solid #ff7043; border-radius: 12px; padding: 15px 20px; }
+
+    /* ── METHOD CARDS ── */
+    .method-card { background:#fff; border-radius:20px; padding:30px; box-shadow:0 4px 20px rgba(0,0,0,.07); transition:all .3s; border:2px solid transparent; height:100%; }
+    .method-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(0,0,0,.12); border-color:var(--sky); }
+    .method-icon { width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; margin:0 auto 15px; }
+
+    /* ── FORM SECTION ── */
+    .form-section { background:#fff; }
+    .form-wrapper { background: var(--cream); border-radius:20px; padding:40px; box-shadow: 0 4px 30px rgba(0,0,0,.06); }
+    .form-control, .form-select { border-radius:12px; border:2px solid #e8eef5; padding:12px 16px; font-family:'Quicksand',sans-serif; font-weight:500; transition:all .2s; }
+    .form-control:focus, .form-select:focus { border-color:var(--sky-dark); box-shadow:0 0 0 .2rem rgba(126,200,227,.25); }
+    .btn-submit { background:var(--navy); color:#fff; border-radius:25px; padding:14px 40px; font-weight:700; font-size:1rem; border:none; transition:all .3s; }
+    .btn-submit:hover { background:var(--sky-dark); transform:translateY(-2px); box-shadow:0 8px 25px rgba(52,68,92,.3); }
+    .faq-item { border-radius:12px; overflow:hidden; margin-bottom:10px; border:2px solid #e8eef5; }
+    .faq-btn { background:#fff; color:var(--navy); font-weight:700; padding:15px 20px; border:none; width:100%; text-align:left; }
+    .faq-btn:not(.collapsed) { background:var(--sky); color:#fff; }
+
+    /* ── LOCATIONS ── */
+    .locations-section { background: linear-gradient(135deg, #f0faf3 0%, #e8f6fb 100%); }
+    .location-card { background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.07); transition:all .3s; cursor:pointer; }
+    .location-card.active, .location-card:hover { box-shadow:0 12px 40px rgba(0,0,0,.12); transform:translateY(-4px); }
+    .location-card.active { border:3px solid var(--sky-dark); }
+    .location-map { border-radius:0 0 20px 20px; overflow:hidden; }
+    .location-map iframe { width:100%; height:220px; border:none; }
+    .hours-badge { background:var(--mint); color:var(--navy); font-size:.75rem; font-weight:700; padding:4px 10px; border-radius:20px; }
+
+    /* ── BOOKING ── */
+    .booking-section { background:#fff; }
+    .step-progress { display:flex; align-items:center; justify-content:center; gap:0; margin-bottom:40px; }
+    .step-dot { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.9rem; border:3px solid #dee2e6; background:#fff; color:#adb5bd; transition:all .3s; }
+    .step-dot.active { border-color:var(--navy); background:var(--navy); color:#fff; }
+    .step-dot.done { border-color:var(--mint-dark); background:var(--mint-dark); color:#fff; }
+    .step-line { flex:1; height:3px; background:#dee2e6; max-width:80px; }
+    .step-line.done { background:var(--mint-dark); }
+    .clinic-select-card { border:3px solid #e8eef5; border-radius:16px; padding:20px; cursor:pointer; transition:all .2s; text-align:center; }
+    .clinic-select-card:hover, .clinic-select-card.selected { border-color:var(--sky-dark); background:#e8f6fb; }
+    .doctor-card { border:3px solid #e8eef5; border-radius:16px; padding:15px; cursor:pointer; transition:all .2s; text-align:center; }
+    .doctor-card:hover, .doctor-card.selected { border-color:var(--sky-dark); background:#e8f6fb; }
+    .doctor-avatar { width:80px; height:80px; border-radius:50%; object-fit:cover; margin:0 auto 10px; border:3px solid var(--sky); }
+    .time-slot { border:2px solid #e8eef5; border-radius:10px; padding:8px 12px; cursor:pointer; text-align:center; font-weight:700; font-size:.85rem; transition:all .2s; }
+    .time-slot:hover, .time-slot.selected { border-color:var(--navy); background:var(--navy); color:#fff; }
+    .time-slot.unavailable { opacity:.4; cursor:not-allowed; background:#f8f9fa; }
+    .booking-summary { background:var(--cream); border-radius:16px; padding:25px; border:2px solid var(--sky); }
+    .btn-nav { border-radius:25px; padding:12px 30px; font-weight:700; }
+    .btn-prev { background:#f8f9fa; color:var(--navy); border:2px solid #dee2e6; }
+    .btn-next { background:var(--sky-dark); color:#fff; border:none; }
+    .btn-confirm { background:var(--navy); color:#fff; border:none; }
+
+    /* ── SOCIAL + HOURS ── */
+    .social-section { background: linear-gradient(135deg, #e8f6fb 0%, #f0faf3 50%, #fff4ee 100%); }
+    .social-card { background:#fff; border-radius:16px; padding:20px; display:flex; align-items:center; gap:15px; box-shadow:0 4px 15px rgba(0,0,0,.06); transition:all .2s; margin-bottom:12px; }
+    .social-card:hover { transform:translateX(5px); box-shadow:0 8px 25px rgba(0,0,0,.1); }
+    .social-icon { width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:#fff; }
+    .hours-table { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,.06); }
+    .hours-row { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-bottom:1px solid #f0f4f8; }
+    .hours-row:last-child { border-bottom:none; }
+    .hours-row.today { background:var(--cream); font-weight:800; }
+    .status-open { background:#d1f2e1; color:#1a7a4a; font-size:.75rem; font-weight:700; padding:3px 10px; border-radius:20px; }
+    .status-closed { background:#fde8e8; color:#c0392b; font-size:.75rem; font-weight:700; padding:3px 10px; border-radius:20px; }
+    .app-btn { background:#fff; border:2px solid var(--navy); border-radius:12px; padding:12px 20px; display:flex; align-items:center; gap:10px; font-weight:700; color:var(--navy); text-decoration:none; transition:all .2s; }
+    .app-btn:hover { background:var(--navy); color:#fff; }
+    .qr-placeholder { width:120px; height:120px; border:3px dashed var(--sky-dark); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:.8rem; color:#adb5bd; text-align:center; }
+    .trust-badge { background:#fff; border-radius:12px; padding:12px 20px; display:flex; align-items:center; gap:8px; font-weight:700; color:var(--navy); font-size:.85rem; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+
+    /* ── FOOTER ── */
+    .main-footer { background:var(--navy); color:#fff; padding:60px 0 20px; }
+    .footer-brand { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.5rem; }
+    .footer-link { color:rgba(255,255,255,.7); text-decoration:none; display:block; margin-bottom:8px; transition:color .2s; }
+    .footer-link:hover { color:#fff; }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,.1); margin-top:40px; padding-top:20px; }
+
+    /* ── MODAL ── */
+    .modal-success-icon { width:80px; height:80px; background:var(--mint); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; margin:0 auto 20px; }
+
+    /* Breadcrumb */
+    .breadcrumb-item a { color:var(--sky-dark); text-decoration:none; }
+    .breadcrumb-item.active { color:var(--navy); font-weight:600; }
+  
+/* ===== HOME NAVBAR + FOOTER (SHARED) ===== */
+header, footer {
+  --sky-blue: #A8D8EA;
+  --cream: #FFF9F2;
+  --navy: #34445C;
+  --text-dark: #2c3e50;
+  --text-muted: #566274;
+  --shadow-md: 0 8px 30px rgba(52,68,92,.14);
+  --radius-sm: 0.5rem;
+  --transition: all .3s cubic-bezier(.4,0,.2,1);
+  --font-heading: 'Nunito', sans-serif;
+  --bg-card: #ffffff;
+  --text-body: var(--text-dark);
+}
+[data-theme="dark"] header, [data-theme="dark"] footer {
+  --bg-card: #243046;
+  --text-muted: #A8B8CC;
+  --navy: #A8D8EA;
+  --cream: #1a2233;
+  --text-body: #e8edf5;
+}
+/* ===== NAVBAR ===== */
+    header .navbar {
+      background: rgba(255,249,242,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,216,234,.3);
+      padding: .9rem 0;
+      transition: var(--transition);
+      z-index: 1050;
+    }
+    [data-theme="dark"] header .navbar {
+      background: rgba(26,34,51,.97);
+      border-color: rgba(168,216,234,.15);
+    }
+    header .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    header .navbar-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy) !important;
+      letter-spacing: -.5px;
+    }
+    [data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+    header .nav-link {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--text-dark) !important;
+      padding: .4rem .85rem !important;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    [data-theme="dark"] header .nav-link { color: #e8edf5 !important; }
+    header .nav-link:hover, header .nav-link.active {
+      background: var(--sky-blue);
+      color: var(--navy) !important;
+    }
+    header .btn-appointment {
+      background: linear-gradient(135deg, #34445C, #A8D8EA);
+      color: #fff !important;
+      border: none;
+      border-radius: 30px;
+      padding: .5rem 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(52,68,92,.25);
+    }
+    header .btn-appointment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52,68,92,.35);
+    }
+    header .toggle-btn {
+      background: none;
+      border: 2px solid rgba(168,216,234,.6);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: .9rem;
+    }
+    [data-theme="dark"] header .toggle-btn { color: var(--sky-blue); border-color: rgba(168,216,234,.4); }
+    header .toggle-btn:hover { background: var(--sky-blue); color: var(--navy); }
+
+    
+/* ===== FOOTER ===== */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid rgba(168,216,234,.3);
+      padding: 70px 0 0;
+    }
+    [data-theme="dark"] footer { background: #141c2b; }
+    footer .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: .9rem;
+      display: block;
+    }
+    [data-theme="dark"] footer .footer-brand { color: var(--sky-blue); }
+    footer .footer-about {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    footer .footer-social a {
+      width: 38px; height: 38px;
+      background: rgba(168,216,234,.2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-size: .9rem;
+      transition: var(--transition);
+      text-decoration: none;
+      margin-right: .4rem;
+    }
+    [data-theme="dark"] footer .footer-social a { color: var(--sky-blue); background: rgba(168,216,234,.1); }
+    footer .footer-social a:hover { background: var(--sky-blue); color: var(--navy); transform: translateY(-3px); }
+    footer .footer-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    [data-theme="dark"] footer .footer-heading { color: #e8edf5; }
+    footer .footer-links { list-style: none; padding: 0; }
+    footer .footer-links li { margin-bottom: .6rem; }
+    footer .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    footer .footer-links a:hover { color: var(--navy); transform: translateX(4px); }
+    [data-theme="dark"] footer .footer-links a:hover { color: var(--sky-blue); }
+    footer .footer-contact-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: .9rem;
+    }
+    footer .footer-contact-item i {
+      color: var(--sky-blue);
+      font-size: 1rem;
+      margin-top: .15rem;
+      flex-shrink: 0;
+    }
+    footer .newsletter-form .form-control {
+      border-radius: 30px 0 0 30px;
+      border: 2px solid rgba(168,216,234,.4);
+      background: var(--bg-card);
+      color: var(--text-body);
+      padding: .6rem 1.2rem;
+    }
+    footer .newsletter-form .form-control:focus { border-color: var(--sky-blue); box-shadow: none; }
+    footer .newsletter-form .btn-newsletter {
+      border-radius: 0 30px 30px 0;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: .6rem 1.2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: var(--transition);
+    }
+    footer .newsletter-form .btn-newsletter:hover { background: #A8D8EA; color: var(--navy); }
+    footer .footer-bottom {
+      background: rgba(52,68,92,.06);
+      border-top: 1px solid rgba(168,216,234,.2);
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+    }
+    [data-theme="dark"] footer .footer-bottom { background: rgba(0,0,0,.2); }
+    footer .footer-bottom p { color: var(--text-muted); font-size: .85rem; margin: 0; }
+    footer .footer-bottom a { color: var(--sky-blue); text-decoration: none; font-weight: 600; }
+    footer .footer-bottom a:hover { text-decoration: underline; }
+
+    
+/* ===== NAVBAR TOGGLER CUSTOM ===== */
+    header .navbar-toggler { border: 2px solid rgba(168,216,234,.5); border-radius: var(--radius-sm); }
+    header .navbar-toggler:focus { box-shadow: none; }
+    [data-theme="dark"] header .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+header .navbar { color: var(--text-dark) !important; }
+footer { color: var(--text-dark) !important; font-size: 16px !important; }
+footer .footer-bottom { font-size: 14px !important; }body { padding-top: 72px !important; }
+header .navbar { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; }/* ===== HOME NAVBAR OVERRIDE ===== */
+header .navbar {
+  background: rgba(255,249,242,.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(168,216,234,.3) !important;
+  padding: .9rem 0 !important;
+}
+[data-theme="dark"] header .navbar {
+  background: rgba(26,34,51,.97) !important;
+  border-color: rgba(168,216,234,.15) !important;
+}
+header .navbar-brand {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  color: var(--navy) !important;
+  letter-spacing: -.5px !important;
+}
+[data-theme="dark"] header .navbar-brand { color: var(--sky-blue) !important; }
+header .navbar-nav .nav-link {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: .92rem !important;
+  color: var(--text-dark) !important;
+  padding: .4rem .85rem !important;
+  border-radius: 20px !important;
+}
+[data-theme="dark"] header .navbar-nav .nav-link { color: #e8edf5 !important; }
+header .navbar-nav .nav-link:hover,
+header .navbar-nav .nav-link.active {
+  background: var(--sky-blue) !important;
+  color: var(--navy) !important;
+}
+/* ===== ACCESSIBLE FOOTER CONTRAST ===== */
+footer { background: var(--cream) !important; color: var(--text-dark) !important; }
+footer .footer-about, footer .footer-contact-item, footer .footer-links a,
+footer .footer-bottom, footer .footer-bottom p, footer .footer-bottom a,
+footer .footer-bottom-links a { color: #566274 !important; }
+footer .footer-social a { color: #34445C !important; background: rgba(52,68,92,0.08) !important; border-color: rgba(52,68,92,0.15) !important; }
+footer .footer-newsletter input { background: rgba(52,68,92,0.06) !important; border-color: rgba(52,68,92,0.2) !important; color: #34445C !important; }
+footer .footer-newsletter input::placeholder { color: #566274 !important; }
+[data-theme="dark"] footer { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-about, [data-theme="dark"] footer .footer-contact-item,
+[data-theme="dark"] footer .footer-links a, [data-theme="dark"] footer .footer-bottom,
+[data-theme="dark"] footer .footer-bottom p, [data-theme="dark"] footer .footer-bottom a,
+[data-theme="dark"] footer .footer-bottom-links a { color: #A8B8CC !important; }
+[data-theme="dark"] footer .footer-social a { color: #A8D8EA !important; background: rgba(168,216,234,0.1) !important; border-color: rgba(168,216,234,0.2) !important; }
+[data-theme="dark"] footer .footer-newsletter input { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; color: #E8F0F8 !important; }
+[data-theme="dark"] footer .footer-newsletter input::placeholder { color: #A8B8CC !important; }/* ===== DARK NAVLINK CONTRAST ===== */
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] header .nav-link:hover,
+[data-theme="dark"] header .nav-link.active,
+[data-theme="dark"] header .navbar-nav .nav-link:hover,
+[data-theme="dark"] header .navbar-nav .nav-link.active {
+  background: #A8D8EA !important;
+  color: #17243A !important;
+}/* ===== PROFILE ICON CONTRAST ===== */
+.profile-menu .dropdown-item i { color: #34445C !important; }
+[data-theme="dark"] .profile-nav .profile-toggle { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-nav .profile-toggle:hover,
+[data-theme="dark"] .profile-nav .profile-toggle[aria-expanded="true"] { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .profile-menu { background: #1E2D3D !important; border: 1px solid rgba(168,216,234,0.15) !important; }
+[data-theme="dark"] .profile-menu .dropdown-item { color: #E8F0F8 !important; }
+[data-theme="dark"] .profile-menu .dropdown-item:hover { background: #2A5468 !important; color: #A8D8EA !important; }
+[data-theme="dark"] .profile-menu .dropdown-item i { color: #A8D8EA !important; }[data-theme="dark"] body {
+  --text-dark: #E8F0F8 !important;
+  --text-body: #E8F0F8 !important;
+  --text-muted: #A8B8CC !important;
+  --navy: #A8D8EA !important;
+  --cream: #1a2234 !important;
+  --white: #243047 !important;
+  --bg-card: #243047 !important;
+  --sky-blue: #A8D8EA !important;
+}[data-theme="dark"] body { background: #101725 !important; color: #E8F0F8 !important; }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, [data-theme="dark"] th { color: #EAF4F8 !important; }
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] small, [data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] label { color: #A8B8CC !important; }
+[data-theme="dark"] a { color: #A8D8EA !important; }
+[data-theme="dark"] strong { color: #EAF4F8 !important; }
+[data-theme="dark"] .text-muted { color: #A8B8CC !important; }
+[data-theme="dark"] .text-success { color: #7EE2A8 !important; }
+[data-theme="dark"] .badge, [data-theme="dark"] .section-label, [data-theme="dark"] .timeline-year, [data-theme="dark"] .doctor-specialty-badge, [data-theme="dark"] .tag-badge, [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .feature-pill, [data-theme="dark"] .status-open, [data-theme="dark"] .stat-pill { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .btn-join, [data-theme="dark"] .btn-directions, [data-theme="dark"] .btn-book-back { background: #A8D8EA !important; color: #17243A !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .accordion-button, [data-theme="dark"] .accordion-body { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background: #101725 !important; color: #E8F0F8 !important; border-color: rgba(168,216,234,.3) !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #A8B8CC !important; }
+[data-theme="dark"] .featured-category, [data-theme="dark"] .cat-badge, [data-theme="dark"] .category-badge-lg, [data-theme="dark"] .credential-badge, [data-theme="dark"] .age-badge, [data-theme="dark"] .trending-tag, [data-theme="dark"] .page-link, [data-theme="dark"] .service-badge, [data-theme="dark"] .num-404 { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .nav-card, [data-theme="dark"] .search-suggestion, [data-theme="dark"] .method-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .testimonial-card, [data-theme="dark"] .cat-tab, [data-theme="dark"] .accordion-item, [data-theme="dark"] .stat-card { background: #1a2234 !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .avail-day.today { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] header div, [data-theme="dark"] header ul { color: #E8F0F8 !important; }
+[data-theme="dark"] a.cta-home { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .nav-section-label, [data-theme="dark"] .nav-badge, [data-theme="dark"] .admin-badge, [data-theme="dark"] .status-closed { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .trend-down, [data-theme="dark"] .text-danger, [data-theme="dark"] .fw-700.small { color: #FF9E8A !important; }
+[data-theme="dark"] .btn-quick-add span, [data-theme="dark"] .admin-profile-btn span { color: #17243A !important; }
+[data-theme="dark"] .blog-hero { background: #2A5468 !important; }
+[data-theme="dark"] .blog-hero, [data-theme="dark"] .blog-hero * { color: #E8F0F8 !important; }
+[data-theme="dark"] span[class*="cat-badge"], [data-theme="dark"] .tag-pill-sidebar, [data-theme="dark"] .subscribe-cta { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .newsletter-btn, [data-theme="dark"] .btn-ask-pedia, [data-theme="dark"] .sub-btn { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .social-share-btn, [data-theme="dark"] .social-pill, [data-theme="dark"] .social-card { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .progress-section span { background: #2A5468 !important; color: #EAF4F8 !important; }[data-theme="dark"] .btn-load-more span { background: transparent !important; color: #17243A !important; }
+[data-theme="dark"] .loadmore-section span[style*="background"] { background: #2A5468 !important; color: #EAF4F8 !important; }
+[data-theme="dark"] .subscribe-cta p { color: #EAF4F8 !important; }
+[data-theme="dark"] .social-share-btn { background: #2A5468 !important; background-image: none !important; }
+[data-theme="dark"] .social-share-btn span { color: #EAF4F8 !important; }
+[data-theme="dark"] .fw-600.small { color: #A8B8CC !important; }
+[data-theme="dark"] a.cta-option { background: #A8D8EA !important; color: #17243A !important; }[data-theme="dark"] .top-navbar { background: #141c2b !important; color: #E8F0F8 !important; }
+[data-theme="dark"] .dark-toggle span { color: #17243A !important; }
+[data-theme="dark"] #copyLabel { color: #17243A !important; }
+[data-theme="dark"] .doctor-quote { color: #F4F9FC !important; }
+[data-theme="dark"] .text-primary { color: #A8D8EA !important; }
+[data-theme="dark"] body {
+  --sky-dark: #A8D8EA !important;
+  --sky-blue-dark: #A8D8EA !important;
+  --mint-dark: #B8D8C0 !important;
+  --mint-green-dark: #B8D8C0 !important;
+  --peach-dark: #FFD6C2 !important;
+  --text-link: #A8D8EA !important;
+  --color-primary-text: #A8D8EA !important;
+  --color-secondary-text: #B8D8C0 !important;
+  --color-accent-text: #FFD6C2 !important;
+}
+[data-theme="dark"] .countdown-label { color: #A8B8CC !important; }[data-theme="dark"] .app-btn { background: #141c2b !important; color: #EAF4F8 !important; border-color: #A8D8EA !important; }
+[data-theme="dark"] .app-btn:hover { background: #A8D8EA !important; color: #17243A !important; }
+[data-theme="dark"] .share-fb i { color: #FFFFFF !important; }
+[data-theme="dark"] .share-tw i { color: #17243A !important; }
+[data-theme="dark"] .share-in i { color: #FFFFFF !important; }</style>
+  <link rel="stylesheet" href="assets/css/responsive.css?v=7" />
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 1: CONTACT HERO
+════════════════════════════════════════════════════════ -->
+<!-- STICKY NAVBAR -->
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html" aria-label="PediaCare Home">
+        PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+      </a>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMain" aria-controls="navbarMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto gap-1" role="list">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <!-- Dark mode toggle -->
+          <button class="toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fas fa-moon" id="darkModeIcon"></i>
+          </button>
+          <!-- RTL toggle -->
+          <button class="toggle-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL">
+            <span style="font-size:.62rem;font-weight:800;letter-spacing:.02em;line-height:1">RTL</span>
+          </button>
+          
+          <div class="dropdown profile-nav">
+            <a class="nav-link profile-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+              <i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end profile-menu">
+              <li><a class="dropdown-item" href="parent-dashboard.html"><i class="fa-solid fa-user me-2"></i>User Dashboard</a></li>
+              <li><a class="dropdown-item" href="admin-dashboard.html"><i class="fa-solid fa-user-shield me-2"></i>Admin Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="contact-hero" aria-labelledby="heroTitle">
+  <div class="container position-relative" style="z-index:2;">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home me-1"></i>Home</a></li>
+        <li class="breadcrumb-item active">Contact</li>
+      </ol>
+    </nav>
+
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="badge text-white mb-3" style="background:var(--sky-dark); border-radius:20px; padding:8px 18px; font-weight:700;"><i class="fa-solid fa-comments" aria-hidden="true"></i> We're Here For You</span>
+        <h1 id="heroTitle" class="hero-title mb-4">Get In Touch With<br/>Our <span style="color:var(--sky-dark);">Care Team</span></h1>
+        <p class="lead mb-4" style="color:#566274; font-size:1.1rem;">Your child's health is our priority. Reach us anytime — our compassionate team is ready to help with appointments, questions, and everything in between.</p>
+
+        <!-- Quick Contact Stats -->
+        <div class="d-flex flex-wrap gap-3 mb-4">
+          <div class="stat-pill"><i class="fa fa-calendar-check text-success"></i> Available Mon–Sat</div>
+          <div class="stat-pill"><i class="fa fa-bolt text-warning"></i> 2 min avg response</div>
+          <div class="stat-pill"><i class="fa fa-star text-warning"></i> 4.9 support rating</div>
+        </div>
+
+        <!-- Emergency Banner -->
+        <div class="emergency-banner" role="alert">
+          <div class="d-flex align-items-start gap-3">
+            <i class="fa fa-triangle-exclamation fa-2x" style="color:#e53935; margin-top:2px;"></i>
+            <div>
+              <strong style="color:#c62828;">Medical Emergency?</strong>
+              <span style="color:#333;"> Call <strong>911</strong> or visit nearest ER.</span><br/>
+              <span style="color:#555;">For urgent pediatric concerns: <strong>(555) 999-KIDS</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="text-center">
+          <img src="https://images.pexels.com/photos/5998453/pexels-photo-5998453.jpeg?auto=compress&cs=tinysrgb&w=600&h=420&fit=crop&crop=faces&q=80" alt="Friendly PediaCare pediatrician with a child patient" class="img-fluid rounded-4 shadow-lg" style="max-height:420px; object-fit:cover;" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 2: CONTACT METHODS CARDS
+════════════════════════════════════════════════════════ -->
+<section class="py-5" aria-labelledby="methodsTitle" style="background:#fff;">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 id="methodsTitle" class="fw-900" style="font-family:'Nunito',sans-serif; font-weight:900;">How Would You Like to <span style="color:var(--sky-dark);">Reach Us?</span></h2>
+      <p class="text-muted">Multiple ways to connect with our care team</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Call -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="method-card text-center">
+          <div class="method-icon mx-auto" style="background:#e8f6fb;">
+            <i class="fa fa-phone" style="color:var(--sky-dark);"></i>
+          </div>
+          <h4 class="fw-800 mb-2" style="font-family:'Nunito',sans-serif;">Call Us</h4>
+          <p class="fw-700 mb-1" style="color:var(--sky-dark); font-size:1.1rem;">(555) 123-PEDIA</p>
+          <p class="text-muted small mb-1"><i class="fa fa-clock me-1"></i>Mon–Sat 8AM–8PM</p>
+          <p class="text-muted small mb-3"><i class="fa fa-shield me-1" style="color:#e53935;"></i>Emergency line 24/7</p>
+          <a href="tel:5551234002" class="btn w-100 fw-700" style="background:var(--sky); color:var(--navy); border-radius:25px;">Call Now</a>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="method-card text-center">
+          <div class="method-icon mx-auto" style="background:#f0faf3;">
+            <i class="fa fa-envelope" style="color:var(--mint-dark);"></i>
+          </div>
+          <h4 class="fw-800 mb-2" style="font-family:'Nunito',sans-serif;">Email Us</h4>
+          <p class="fw-700 mb-1" style="color:var(--mint-dark); font-size:.95rem;">hello@pediacare.com</p>
+          <p class="text-muted small mb-1"><i class="fa fa-bolt me-1"></i>Avg response 2 hours</p>
+          <p class="text-muted small mb-3"><i class="fa fa-lock me-1"></i>Secure medical email</p>
+          <a href="mailto:hello@pediacare.com" class="btn w-100 fw-700" style="background:var(--mint); color:var(--navy); border-radius:25px;">Send Email</a>
+        </div>
+      </div>
+
+      <!-- Live Chat -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="method-card text-center">
+          <div class="method-icon mx-auto" style="background:#fff4ee;">
+            <i class="fa fa-comments" style="color:#ff7043;"></i>
+          </div>
+          <h4 class="fw-800 mb-2" style="font-family:'Nunito',sans-serif;">Live Chat</h4>
+          <p class="fw-700 mb-1" style="color:#ff7043; font-size:.95rem;">Chat with our team</p>
+          <p class="text-muted small mb-1"><i class="fa fa-clock me-1"></i>Available 9AM–6PM</p>
+          <p class="text-muted small mb-3"><i class="fa fa-robot me-1"></i>AI + Human support</p>
+          <button class="btn w-100 fw-700" style="background:var(--peach); color:var(--navy); border-radius:25px;" onclick="(document.getElementById('chatWidget') || document.createElement('span')).classList.toggle('d-none')">Chat Now</button>
+        </div>
+      </div>
+
+      <!-- Visit Us -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="method-card text-center">
+          <div class="method-icon mx-auto" style="background:#f0e8fa;">
+            <i class="fa fa-map-marker-alt" style="color:#8b5cf6;"></i>
+          </div>
+          <h4 class="fw-800 mb-2" style="font-family:'Nunito',sans-serif;">Visit Us</h4>
+          <p class="fw-700 mb-1" style="color:#8b5cf6; font-size:.95rem;">3 Locations Nearby</p>
+          <p class="text-muted small mb-1"><i class="fa fa-map-pin me-1"></i>Springfield Metro Area</p>
+          <p class="text-muted small mb-3"><i class="fa fa-door-open me-1"></i>Walk-ins for emergencies</p>
+          <a href="#locations" class="btn w-100 fw-700" style="background:#ede9fa; color:#8b5cf6; border-radius:25px;">Find Location</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chat widget stub -->
+<div id="chatWidget" class="d-none" style="position:fixed; bottom:30px; right:30px; z-index:9999; background:#fff; border-radius:20px; padding:20px; box-shadow:0 10px 40px rgba(0,0,0,.2); width:300px;">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <strong style="color:var(--navy);"><i class="fa-solid fa-comments" aria-hidden="true"></i> PediaCare Chat</strong>
+    <button onclick="(document.getElementById('chatWidget') || document.createElement('span')).classList.add('d-none')" class="btn btn-sm" style="border-radius:50%; width:28px; height:28px; padding:0; line-height:1; background:#f0f4f8;">&times;</button>
+  </div>
+  <p class="small text-muted">Hi! How can we help your little one today?</p>
+  <input type="text" class="form-control mb-2" placeholder="Type a message..." style="border-radius:12px;" />
+  <button class="btn w-100 fw-700" style="background:var(--navy); color:#fff; border-radius:25px;">Send</button>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 3: MAIN CONTACT FORM
+════════════════════════════════════════════════════════ -->
+<section class="py-5 form-section" aria-labelledby="contactFormTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 id="contactFormTitle" style="font-family:'Nunito',sans-serif; font-weight:900; color:var(--navy);">Send Us a <span style="color:var(--sky-dark);">Message</span></h2>
+      <p class="text-muted">Fill out the form and we'll get back to you within 2 hours</p>
+    </div>
+
+    <div class="row g-5">
+      <!-- FORM -->
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="form-wrapper">
+          <form id="contactForm" class="needs-validation" novalidate aria-label="Contact form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="fullName" class="form-label fw-700">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="fullName" placeholder="Jane Smith" required minlength="2" />
+                <div class="invalid-feedback">Please enter your full name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label fw-700">Email Address <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="email" placeholder="jane@example.com" required />
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label fw-700">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="(555) 000-0000" pattern="[\d\s\(\)\-\+]+" />
+                <div class="invalid-feedback">Please enter a valid phone number.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="subject" class="form-label fw-700">Subject <span class="text-danger">*</span></label>
+                <select class="form-select" id="subject" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="appointment">Book Appointment</option>
+                  <option value="medical">Medical Question</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="invalid-feedback">Please select a subject.</div>
+              </div>
+              <div class="col-12">
+                <label for="department" class="form-label fw-700">Department</label>
+                <select class="form-select" id="department">
+                  <option value="" disabled selected>Select department (optional)</option>
+                  <option value="general">General Pediatrics</option>
+                  <option value="vaccination">Vaccination</option>
+                  <option value="nutrition">Nutrition</option>
+                  <option value="development">Development</option>
+                  <option value="billing">Billing</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label fw-700">Message <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Tell us how we can help your child..." required minlength="20"></textarea>
+                <div class="invalid-feedback">Please enter a message (at least 20 characters).</div>
+              </div>
+              <div class="col-12">
+                <label for="fileUpload" class="form-label fw-700">Attach File <span class="text-muted small">(optional — medical records, insurance card)</span></label>
+                <input type="file" class="form-control" id="fileUpload" accept=".pdf,.jpg,.png,.doc,.docx" />
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gdprConsent" required />
+                  <label class="form-check-label" for="gdprConsent">
+                    I consent to PediaCare storing my data to respond to this inquiry. <a href="#" style="color:var(--sky-dark);">Privacy Policy</a> <span class="text-danger">*</span>
+                  </label>
+                  <div class="invalid-feedback">You must accept our privacy policy.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-submit w-100">
+                  <i class="fa fa-paper-plane me-2"></i>Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="col-lg-5" data-aos="fade-left">
+        <h3 style="font-family:'Nunito',sans-serif; font-weight:800; color:var(--navy);" class="mb-4"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Quick Answers</h3>
+        <div id="contactFaq">
+          <div class="faq-item">
+            <button class="faq-btn collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false">
+              How quickly do you respond to messages?
+              <i class="fa fa-chevron-down ms-2"></i>
+            </button>
+            <div id="faq1" class="collapse">
+              <div class="p-3" style="background:#f8fcff;">We typically respond within 2 hours during business hours (Mon–Sat, 8AM–8PM). For urgent medical matters, please call our emergency line at (555) 999-KIDS.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
+              Can I book an appointment online?
+              <i class="fa fa-chevron-down ms-2"></i>
+            </button>
+            <div id="faq2" class="collapse">
+              <div class="p-3" style="background:#f8fcff;">Yes! Use our <a href="#booking" style="color:var(--sky-dark);">online booking form</a> below to schedule in 3 easy steps — choose a clinic, pick a doctor and time, then confirm your child's details.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
+              Do you accept walk-in patients?
+              <i class="fa fa-chevron-down ms-2"></i>
+            </button>
+            <div id="faq3" class="collapse">
+              <div class="p-3" style="background:#f8fcff;">Walk-ins are accepted for emergencies at all 3 locations. For non-emergency visits, we recommend booking ahead for shorter wait times.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">
+              What insurance plans do you accept?
+              <i class="fa fa-chevron-down ms-2"></i>
+            </button>
+            <div id="faq4" class="collapse">
+              <div class="p-3" style="background:#f8fcff;">We accept most major insurance plans including BlueCross, Aetna, Cigna, United, Medicaid, and CHIP. Contact our billing team for specific coverage questions.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false">
+              Is my medical information kept secure?
+              <i class="fa fa-chevron-down ms-2"></i>
+            </button>
+            <div id="faq5" class="collapse">
+              <div class="p-3" style="background:#f8fcff;">Absolutely. We are fully HIPAA compliant and use 256-bit SSL encryption for all data. Your family's medical information is strictly private and protected.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Info Quick Box -->
+        <div class="mt-4 p-4 rounded-4" style="background:var(--navy); color:#fff;">
+          <h5 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif;"><i class="fa fa-headset me-2" style="color:var(--sky);"></i>Direct Contact</h5>
+          <p class="mb-2"><i class="fa fa-phone me-2" style="color:var(--sky);"></i><a href="tel:5551234002" style="color:#fff; text-decoration:none;">(555) 123-PEDIA</a></p>
+          <p class="mb-2"><i class="fa fa-envelope me-2" style="color:var(--mint);"></i><a href="mailto:hello@pediacare.com" style="color:#fff; text-decoration:none;">hello@pediacare.com</a></p>
+          <p class="mb-0"><i class="fa fa-shield-halved me-2" style="color:#ff7043;"></i>Emergency: <strong>(555) 999-KIDS</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 rounded-4" style="padding:30px;">
+      <div class="text-center">
+        <div class="modal-success-icon"><i class="fa fa-check" style="color:var(--navy);"></i></div>
+        <h4 id="successModalLabel" class="fw-900 mb-2" style="font-family:'Nunito',sans-serif; color:var(--navy);">Message Sent! <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i></h4>
+        <p class="text-muted mb-4">Thank you for reaching out! Our care team will respond within 2 hours.</p>
+        <button type="button" class="btn-submit" data-bs-dismiss="modal" style="border-radius:25px; padding:12px 30px;">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 4: CLINIC LOCATIONS MAP
+════════════════════════════════════════════════════════ -->
+<section class="py-5 locations-section" id="locations" aria-labelledby="locationsTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 id="locationsTitle" style="font-family:'Nunito',sans-serif; font-weight:900; color:var(--navy);">Find Your Nearest <span style="color:var(--sky-dark);">PediaCare</span></h2>
+      <p class="text-muted">Three convenient locations across the Springfield Metro Area</p>
+    </div>
+
+    <!-- Tab switcher -->
+    <div class="d-flex justify-content-center mb-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="d-flex gap-2 p-2 rounded-pill" style="background:#fff; box-shadow:0 2px 15px rgba(0,0,0,.08);">
+        <button class="btn fw-700 rounded-pill px-4 location-tab active" data-loc="downtown" style="background:var(--navy); color:#fff;"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Downtown</button>
+        <button class="btn fw-700 rounded-pill px-4 location-tab" data-loc="westside" style="color:var(--navy);"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Westside</button>
+        <button class="btn fw-700 rounded-pill px-4 location-tab" data-loc="northgate" style="color:var(--navy);"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Northgate</button>
+      </div>
+    </div>
+
+    <!-- Location Panels -->
+    <div id="loc-downtown" class="location-panel" data-aos="fade-up">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-5">
+          <div class="location-card h-100">
+            <div class="p-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div style="background:var(--sky); border-radius:12px; width:50px; height:50px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                <div>
+                  <h4 class="mb-0 fw-900" style="font-family:'Nunito',sans-serif; color:var(--navy);">PediaCare Downtown</h4>
+                  <span class="status-open">Currently Open</span>
+                </div>
+              </div>
+              <p class="mb-2"><i class="fa fa-map-marker-alt me-2" style="color:var(--sky-dark);"></i><strong>123 Health Ave, Springfield, IL 62701</strong></p>
+              <p class="mb-2"><i class="fa fa-phone me-2" style="color:var(--sky-dark);"></i><a href="tel:5551234001" style="color:var(--navy);">(555) 123-4001</a></p>
+              <p class="mb-3"><i class="fa fa-clock me-2" style="color:var(--sky-dark);"></i>Mon–Fri: 8AM–6PM | Sat: 9AM–3PM</p>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge" style="background:var(--sky); color:var(--navy);">General Pediatrics</span>
+                <span class="badge" style="background:var(--mint); color:var(--navy);">Vaccination</span>
+                <span class="badge" style="background:var(--peach); color:var(--navy);">Nutrition</span>
+                <span class="badge" style="background:#ede9fa; color:#8b5cf6;">Development</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="tel:5551234001" class="btn fw-700 flex-fill" style="background:var(--navy); color:#fff; border-radius:25px;">Call</a>
+                <a href="https://maps.google.com/?q=123+Health+Ave+Springfield" target="_blank" rel="noopener" class="btn fw-700 flex-fill" style="background:var(--sky); color:var(--navy); border-radius:25px;">Directions</a>
+              </div>
+            </div>
+            <div class="location-map">
+              <iframe src="https://maps.google.com/maps?q=pediatric+clinic+springfield+illinois&output=embed" title="PediaCare Downtown location map" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3 h-100">
+            <div class="col-12">
+              <div class="p-4 rounded-4" style="background:#fff; box-shadow:0 4px 15px rgba(0,0,0,.06);">
+                <h5 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> This Week's Availability</h5>
+                <div class="row g-2">
+                  <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Mon</div><div class="small text-success">8 slots</div></div></div>
+                  <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Tue</div><div class="small text-success">12 slots</div></div></div>
+                  <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#fff3cd;"><div class="fw-800">Wed</div><div class="small text-warning">3 slots</div></div></div>
+                  <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Thu</div><div class="small text-success">9 slots</div></div></div>
+                  <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#fde8e8;"><div class="fw-800">Fri</div><div class="small text-danger">Full</div></div></div>
+                  <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Sat</div><div class="small text-success">6 slots</div></div></div>
+                </div>
+                <a href="#booking" class="btn mt-3 w-100 fw-700" style="background:var(--navy); color:#fff; border-radius:25px;">Book at Downtown</a>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="p-4 rounded-4" style="background:#fff; box-shadow:0 4px 15px rgba(0,0,0,.06);">
+                <h5 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i> Doctors at this Location</h5>
+                <div class="d-flex gap-3 flex-wrap">
+                  <div class="text-center">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Sarah Johnson" class="rounded-circle mb-1" style="width:60px; height:60px; object-fit:cover; border:3px solid var(--sky);" />
+                    <div class="fw-700 small">Dr. Johnson</div>
+                    <div class="text-muted" style="font-size:.7rem;">Pediatrician</div>
+                  </div>
+                  <div class="text-center">
+                    <img src="https://images.pexels.com/photos/12660379/pexels-photo-12660379.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop&crop=faces&q=80" alt="Dr. Michael Chen" class="rounded-circle mb-1" style="width:60px; height:60px; object-fit:cover; border:3px solid var(--mint);" />
+                    <div class="fw-700 small">Dr. Chen</div>
+                    <div class="text-muted" style="font-size:.7rem;">Neonatologist</div>
+                  </div>
+                  <div class="text-center">
+                    <img src="https://images.pexels.com/photos/33067699/pexels-photo-33067699.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop&crop=faces&q=80" alt="Dr. Emily Park" class="rounded-circle mb-1" style="width:60px; height:60px; object-fit:cover; border:3px solid var(--peach);" />
+                    <div class="fw-700 small">Dr. Park</div>
+                    <div class="text-muted" style="font-size:.7rem;">Nutritionist</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loc-westside" class="location-panel d-none">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <div class="location-card">
+            <div class="p-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div style="background:var(--mint); border-radius:12px; width:50px; height:50px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                <div>
+                  <h4 class="mb-0 fw-900" style="font-family:'Nunito',sans-serif; color:var(--navy);">PediaCare Westside</h4>
+                  <span class="status-open">Currently Open</span>
+                </div>
+              </div>
+              <p class="mb-2"><i class="fa fa-map-marker-alt me-2" style="color:var(--mint-dark);"></i><strong>456 Wellness Blvd, Springfield, IL 62702</strong></p>
+              <p class="mb-2"><i class="fa fa-phone me-2" style="color:var(--mint-dark);"></i><a href="tel:5551234002" style="color:var(--navy);">(555) 123-4002</a></p>
+              <p class="mb-3"><i class="fa fa-clock me-2" style="color:var(--mint-dark);"></i>Mon–Fri: 8AM–7PM | Sat: 8AM–4PM</p>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge" style="background:var(--mint); color:var(--navy);">Pediatric Surgery</span>
+                <span class="badge" style="background:var(--sky); color:var(--navy);">Cardiology</span>
+                <span class="badge" style="background:var(--peach); color:var(--navy);">Neurology</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="tel:5551234002" class="btn fw-700 flex-fill" style="background:var(--navy); color:#fff; border-radius:25px;">Call</a>
+                <a href="https://maps.google.com/?q=456+Wellness+Blvd+Springfield" target="_blank" rel="noopener" class="btn fw-700 flex-fill" style="background:var(--mint); color:var(--navy); border-radius:25px;">Directions</a>
+              </div>
+            </div>
+            <div class="location-map">
+              <iframe src="https://maps.google.com/maps?q=pediatric+clinic+westside+springfield&output=embed" title="PediaCare Westside location map" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="p-4 rounded-4" style="background:#fff; box-shadow:0 4px 15px rgba(0,0,0,.06);">
+            <h5 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> This Week's Availability</h5>
+            <div class="row g-2">
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Mon</div><div class="small text-success">15 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Tue</div><div class="small text-success">10 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Wed</div><div class="small text-success">8 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#fff3cd;"><div class="fw-800">Thu</div><div class="small text-warning">4 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Fri</div><div class="small text-success">11 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Sat</div><div class="small text-success">9 slots</div></div></div>
+            </div>
+            <a href="#booking" class="btn mt-3 w-100 fw-700" style="background:var(--navy); color:#fff; border-radius:25px;">Book at Westside</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loc-northgate" class="location-panel d-none">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <div class="location-card">
+            <div class="p-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div style="background:var(--peach); border-radius:12px; width:50px; height:50px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                <div>
+                  <h4 class="mb-0 fw-900" style="font-family:'Nunito',sans-serif; color:var(--navy);">PediaCare Northgate</h4>
+                  <span class="status-open">Currently Open</span>
+                </div>
+              </div>
+              <p class="mb-2"><i class="fa fa-map-marker-alt me-2" style="color:#ff7043;"></i><strong>789 Care Circle, Springfield, IL 62703</strong></p>
+              <p class="mb-2"><i class="fa fa-phone me-2" style="color:#ff7043;"></i><a href="tel:5551234003" style="color:var(--navy);">(555) 123-4003</a></p>
+              <p class="mb-3"><i class="fa fa-clock me-2" style="color:#ff7043;"></i>Mon–Fri: 7AM–6PM | Sat: 8AM–2PM</p>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge" style="background:var(--peach); color:var(--navy);">Urgent Care</span>
+                <span class="badge" style="background:var(--sky); color:var(--navy);">Immunology</span>
+                <span class="badge" style="background:var(--mint); color:var(--navy);">Dermatology</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="tel:5551234003" class="btn fw-700 flex-fill" style="background:var(--navy); color:#fff; border-radius:25px;">Call</a>
+                <a href="https://maps.google.com/?q=789+Care+Circle+Springfield" target="_blank" rel="noopener" class="btn fw-700 flex-fill" style="background:var(--peach); color:var(--navy); border-radius:25px;">Directions</a>
+              </div>
+            </div>
+            <div class="location-map">
+              <iframe src="https://maps.google.com/maps?q=pediatric+clinic+northgate+springfield&output=embed" title="PediaCare Northgate location map" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="p-4 rounded-4" style="background:#fff; box-shadow:0 4px 15px rgba(0,0,0,.06);">
+            <h5 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> This Week's Availability</h5>
+            <div class="row g-2">
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Mon</div><div class="small text-success">7 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#fde8e8;"><div class="fw-800">Tue</div><div class="small text-danger">Full</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Wed</div><div class="small text-success">5 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Thu</div><div class="small text-success">13 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#fff3cd;"><div class="fw-800">Fri</div><div class="small text-warning">2 slots</div></div></div>
+              <div class="col-4"><div class="text-center p-2 rounded-3" style="background:#d1f2e1;"><div class="fw-800">Sat</div><div class="small text-success">4 slots</div></div></div>
+            </div>
+            <a href="#booking" class="btn mt-3 w-100 fw-700" style="background:var(--navy); color:#fff; border-radius:25px;">Book at Northgate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 5: APPOINTMENT BOOKING FORM (Multi-step)
+════════════════════════════════════════════════════════ -->
+<section class="py-5 booking-section" id="booking" aria-labelledby="bookingTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 id="bookingTitle" style="font-family:'Nunito',sans-serif; font-weight:900; color:var(--navy);">Book Your <span style="color:var(--sky-dark);">Appointment</span></h2>
+      <p class="text-muted">3 easy steps to schedule your child's visit</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <!-- Progress Bar -->
+        <div class="step-progress mb-5" data-aos="fade-up" aria-label="Booking steps">
+          <div class="text-center">
+            <div class="step-dot active" id="dot1" aria-current="step">1</div>
+            <div class="small fw-700 mt-1" style="color:var(--navy);">Location</div>
+          </div>
+          <div class="step-line" id="line1"></div>
+          <div class="text-center">
+            <div class="step-dot" id="dot2">2</div>
+            <div class="small fw-700 mt-1" style="color:#adb5bd;">Doctor & Time</div>
+          </div>
+          <div class="step-line" id="line2"></div>
+          <div class="text-center">
+            <div class="step-dot" id="dot3">3</div>
+            <div class="small fw-700 mt-1" style="color:#adb5bd;">Confirm</div>
+          </div>
+        </div>
+
+        <!-- STEP 1 -->
+        <div id="step1" data-aos="fade-up">
+          <div class="p-4 rounded-4 mb-4" style="background:var(--cream); border:2px solid var(--sky);">
+            <h4 class="fw-800 mb-4" style="font-family:'Nunito',sans-serif; color:var(--navy);">Step 1: Choose Your Clinic &amp; Service</h4>
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <div class="clinic-select-card" onclick="selectClinic(this,'Downtown')">
+                  <div class="fs-2 mb-2"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                  <div class="fw-800" style="color:var(--navy);">Downtown</div>
+                  <div class="text-muted small">123 Health Ave</div>
+                  <div class="text-muted small">Mon–Sat 8AM–6PM</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="clinic-select-card" onclick="selectClinic(this,'Westside')">
+                  <div class="fs-2 mb-2"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                  <div class="fw-800" style="color:var(--navy);">Westside</div>
+                  <div class="text-muted small">456 Wellness Blvd</div>
+                  <div class="text-muted small">Mon–Sat 8AM–7PM</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="clinic-select-card" onclick="selectClinic(this,'Northgate')">
+                  <div class="fs-2 mb-2"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                  <div class="fw-800" style="color:var(--navy);">Northgate</div>
+                  <div class="text-muted small">789 Care Circle</div>
+                  <div class="text-muted small">Mon–Sat 7AM–6PM</div>
+                </div>
+              </div>
+            </div>
+            <label for="serviceType" class="form-label fw-700">Service Type</label>
+            <select class="form-select mb-4" id="serviceType">
+              <option value="" disabled selected>Select service…</option>
+              <option>Well-Child Check-up</option>
+              <option>Vaccination</option>
+              <option>Sick Visit</option>
+              <option>Nutrition Counseling</option>
+              <option>Development Assessment</option>
+              <option>Follow-up Appointment</option>
+            </select>
+            <div class="text-end">
+              <button class="btn-nav btn-next" onclick="goStep(2)"><i class="fa fa-arrow-right me-2"></i>Next: Choose Doctor</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step2" class="d-none" data-aos="fade-up">
+          <div class="p-4 rounded-4 mb-4" style="background:var(--cream); border:2px solid var(--mint);">
+            <h4 class="fw-800 mb-4" style="font-family:'Nunito',sans-serif; color:var(--navy);">Step 2: Choose Doctor, Date &amp; Time</h4>
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <div class="doctor-card" onclick="selectDoctor(this,'Dr. Sarah Johnson')">
+                  <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=130&fit=crop&crop=faces&q=80&auto=format" alt="Dr. Sarah Johnson" class="doctor-avatar" />
+                  <div class="fw-800" style="color:var(--navy);">Dr. Sarah Johnson</div>
+                  <div class="text-muted small">General Pediatrics</div>
+                  <div class="mt-1"><span class="text-warning"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></span> <span class="small">(4.9)</span></div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="doctor-card" onclick="selectDoctor(this,'Dr. Michael Chen')">
+                  <img src="https://images.pexels.com/photos/12660379/pexels-photo-12660379.jpeg?auto=compress&cs=tinysrgb&w=200&h=130&fit=crop&crop=faces&q=80" alt="Dr. Michael Chen" class="doctor-avatar" />
+                  <div class="fw-800" style="color:var(--navy);">Dr. Michael Chen</div>
+                  <div class="text-muted small">Neonatology</div>
+                  <div class="mt-1"><span class="text-warning"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></span> <span class="small">(4.8)</span></div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="doctor-card" onclick="selectDoctor(this,'Dr. Emily Park')">
+                  <img src="https://images.pexels.com/photos/33067699/pexels-photo-33067699.jpeg?auto=compress&cs=tinysrgb&w=200&h=130&fit=crop&crop=faces&q=80" alt="Dr. Emily Park" class="doctor-avatar" />
+                  <div class="fw-800" style="color:var(--navy);">Dr. Emily Park</div>
+                  <div class="text-muted small">Pediatric Nutrition</div>
+                  <div class="mt-1"><span class="text-warning"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-regular fa-star" aria-hidden="true"></i></span> <span class="small">(4.7)</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label for="apptDate" class="form-label fw-700">Select Date</label>
+                <input type="date" class="form-control" id="apptDate" min="" />
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-700">Available Time Slots</label>
+              <div class="d-flex flex-wrap gap-2">
+                <div class="time-slot" onclick="selectSlot(this)">8:00 AM</div>
+                <div class="time-slot" onclick="selectSlot(this)">8:30 AM</div>
+                <div class="time-slot unavailable">9:00 AM</div>
+                <div class="time-slot" onclick="selectSlot(this)">9:30 AM</div>
+                <div class="time-slot" onclick="selectSlot(this)">10:00 AM</div>
+                <div class="time-slot unavailable">10:30 AM</div>
+                <div class="time-slot" onclick="selectSlot(this)">11:00 AM</div>
+                <div class="time-slot" onclick="selectSlot(this)">11:30 AM</div>
+                <div class="time-slot unavailable">1:00 PM</div>
+                <div class="time-slot" onclick="selectSlot(this)">1:30 PM</div>
+                <div class="time-slot" onclick="selectSlot(this)">2:00 PM</div>
+                <div class="time-slot" onclick="selectSlot(this)">2:30 PM</div>
+                <div class="time-slot unavailable">3:00 PM</div>
+                <div class="time-slot" onclick="selectSlot(this)">3:30 PM</div>
+                <div class="time-slot" onclick="selectSlot(this)">4:00 PM</div>
+              </div>
+              <div class="mt-2 small text-muted"><span style="display:inline-block; width:14px; height:14px; background:#dee2e6; border-radius:4px; vertical-align:middle;"></span> Unavailable</div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button class="btn-nav btn-prev" onclick="goStep(1)"><i class="fa fa-arrow-left me-2"></i>Back</button>
+              <button class="btn-nav btn-next" onclick="goStep(3)">Next: Child Info <i class="fa fa-arrow-right ms-2"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step3" class="d-none" data-aos="fade-up">
+          <div class="p-4 rounded-4 mb-4" style="background:var(--cream); border:2px solid var(--peach);">
+            <h4 class="fw-800 mb-4" style="font-family:'Nunito',sans-serif; color:var(--navy);">Step 3: Patient &amp; Parent Details</h4>
+            <div class="row g-3 mb-4">
+              <div class="col-12"><h6 class="fw-800" style="color:var(--sky-dark);"><i class="fa fa-child me-2"></i>Child Information</h6></div>
+              <div class="col-md-6">
+                <label for="childName" class="form-label fw-700">Child's Name</label>
+                <input type="text" class="form-control" id="childName" placeholder="Emma Smith" />
+              </div>
+              <div class="col-md-3">
+                <label for="childAge" class="form-label fw-700">Age</label>
+                <input type="number" class="form-control" id="childAge" min="0" max="17" placeholder="5" />
+              </div>
+              <div class="col-md-3">
+                <label for="childDob" class="form-label fw-700">Date of Birth</label>
+                <input type="date" class="form-control" id="childDob" />
+              </div>
+              <div class="col-12"><h6 class="fw-800 mt-2" style="color:var(--mint-dark);"><i class="fa fa-user me-2"></i>Parent / Guardian Information</h6></div>
+              <div class="col-md-6">
+                <label for="parentName" class="form-label fw-700">Parent Name</label>
+                <input type="text" class="form-control" id="parentName" placeholder="Jane Smith" />
+              </div>
+              <div class="col-md-6">
+                <label for="parentPhone" class="form-label fw-700">Phone</label>
+                <input type="tel" class="form-control" id="parentPhone" placeholder="(555) 000-0000" />
+              </div>
+              <div class="col-md-6">
+                <label for="parentEmail" class="form-label fw-700">Email</label>
+                <input type="email" class="form-control" id="parentEmail" placeholder="jane@email.com" />
+              </div>
+              <div class="col-12">
+                <label for="apptNotes" class="form-label fw-700">Additional Notes</label>
+                <textarea class="form-control" id="apptNotes" rows="3" placeholder="Any allergies, current medications, or specific concerns..."></textarea>
+              </div>
+            </div>
+
+            <!-- Summary Card -->
+            <div class="booking-summary mb-4" id="bookingSummary">
+              <h6 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Booking Summary</h6>
+              <div class="row g-2">
+                <div class="col-6"><span class="text-muted small">Clinic:</span><div class="fw-700" id="sumClinic">Not selected</div></div>
+                <div class="col-6"><span class="text-muted small">Doctor:</span><div class="fw-700" id="sumDoctor">Not selected</div></div>
+                <div class="col-6"><span class="text-muted small">Date:</span><div class="fw-700" id="sumDate">Not selected</div></div>
+                <div class="col-6"><span class="text-muted small">Time:</span><div class="fw-700" id="sumTime">Not selected</div></div>
+                <div class="col-12"><span class="text-muted small">Service:</span><div class="fw-700" id="sumService">Not selected</div></div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <button class="btn-nav btn-prev" onclick="goStep(2)"><i class="fa fa-arrow-left me-2"></i>Back</button>
+              <button class="btn-nav btn-confirm" onclick="confirmBooking()"><i class="fa fa-calendar-check me-2"></i>Confirm Booking</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking Confirm Modal -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 rounded-4" style="padding:30px; text-align:center;">
+      <div class="modal-success-icon"><i class="fa fa-calendar-check" style="color:var(--navy);"></i></div>
+      <h4 id="bookingModalLabel" class="fw-900 mb-2" style="font-family:'Nunito',sans-serif; color:var(--navy);">Appointment Booked! <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i></h4>
+      <p class="text-muted mb-4">We've sent a confirmation to your email. Our team will call you 24 hours before your appointment to confirm.</p>
+      <button type="button" class="btn-submit" data-bs-dismiss="modal" style="border-radius:25px; padding:12px 30px;">Done</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION 6: SOCIAL + HOURS + CTA
+════════════════════════════════════════════════════════ -->
+<section class="py-5 social-section" aria-labelledby="socialTitle">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 id="socialTitle" style="font-family:'Nunito',sans-serif; font-weight:900; color:var(--navy);">Stay Connected &amp; <span style="color:var(--sky-dark);">Up to Date</span></h2>
+    </div>
+
+    <div class="row g-4">
+      <!-- Social Media -->
+      <div class="col-lg-4" data-aos="fade-right">
+        <h5 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Follow Us</h5>
+        <a href="#" class="social-card text-decoration-none">
+          <div class="social-icon" style="background:#1877f2;"><i class="fab fa-facebook-f"></i></div>
+          <div>
+            <div class="fw-700" style="color:var(--navy);">Facebook</div>
+            <div class="text-muted small">12.4K followers</div>
+            <div class="text-muted" style="font-size:.75rem;">Latest: "Tips for Back-to-School Health Checks"</div>
+          </div>
+        </a>
+        <a href="#" class="social-card text-decoration-none">
+          <div class="social-icon" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);"><i class="fab fa-instagram"></i></div>
+          <div>
+            <div class="fw-700" style="color:var(--navy);">Instagram</div>
+            <div class="text-muted small">8.9K followers</div>
+            <div class="text-muted" style="font-size:.75rem;">Latest: "Meet Dr. Chen — Neonatology expert!"</div>
+          </div>
+        </a>
+        <a href="#" class="social-card text-decoration-none">
+          <div class="social-icon" style="background:#1da1f2;"><i class="fab fa-twitter"></i></div>
+          <div>
+            <div class="fw-700" style="color:var(--navy);">Twitter / X</div>
+            <div class="text-muted small">5.2K followers</div>
+            <div class="text-muted" style="font-size:.75rem;">Latest: "Flu season tips for parents <i class="fa-solid fa-head-side-cough" aria-hidden="true"></i>"</div>
+          </div>
+        </a>
+        <a href="#" class="social-card text-decoration-none">
+          <div class="social-icon" style="background:#ff0000;"><i class="fab fa-youtube"></i></div>
+          <div>
+            <div class="fw-700" style="color:var(--navy);">YouTube</div>
+            <div class="text-muted small">3.1K subscribers</div>
+            <div class="text-muted" style="font-size:.75rem;">Latest: "Child nutrition webinar"</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Hours Table -->
+      <div class="col-lg-4" data-aos="fade-up">
+        <h5 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);"><i class="fa-solid fa-clock" aria-hidden="true"></i> Clinic Hours</h5>
+        <div class="hours-table">
+          <div class="hours-row today">
+            <span class="fw-800">Monday</span>
+            <div class="d-flex align-items-center gap-2"><span>8:00 AM – 8:00 PM</span><span class="status-open">Open</span></div>
+          </div>
+          <div class="hours-row">
+            <span class="fw-700">Tuesday</span>
+            <div class="d-flex align-items-center gap-2"><span>8:00 AM – 8:00 PM</span><span class="status-open">Open</span></div>
+          </div>
+          <div class="hours-row">
+            <span class="fw-700">Wednesday</span>
+            <div class="d-flex align-items-center gap-2"><span>8:00 AM – 8:00 PM</span><span class="status-open">Open</span></div>
+          </div>
+          <div class="hours-row">
+            <span class="fw-700">Thursday</span>
+            <div class="d-flex align-items-center gap-2"><span>8:00 AM – 8:00 PM</span><span class="status-open">Open</span></div>
+          </div>
+          <div class="hours-row">
+            <span class="fw-700">Friday</span>
+            <div class="d-flex align-items-center gap-2"><span>8:00 AM – 8:00 PM</span><span class="status-open">Open</span></div>
+          </div>
+          <div class="hours-row">
+            <span class="fw-700">Saturday</span>
+            <div class="d-flex align-items-center gap-2"><span>9:00 AM – 4:00 PM</span><span class="status-open">Open</span></div>
+          </div>
+          <div class="hours-row">
+            <span class="fw-700">Sunday</span>
+            <div class="d-flex align-items-center gap-2"><span>Emergency Only</span><span class="status-closed">Limited</span></div>
+          </div>
+          <div class="p-3" style="background:var(--peach); border-radius:0 0 16px 16px;">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa fa-phone-volume" style="color:#c62828;"></i>
+              <span class="fw-700 small" style="color:#c62828;">24/7 Emergency: (555) 999-KIDS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download App -->
+      <div class="col-lg-4" data-aos="fade-left">
+        <h5 class="fw-800 mb-3" style="font-family:'Nunito',sans-serif; color:var(--navy);"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Download Our App</h5>
+        <div class="p-4 rounded-4 mb-4" style="background:#fff; box-shadow:0 4px 20px rgba(0,0,0,.07);">
+          <p class="text-muted mb-4">Book appointments, view records, and chat with doctors — all from your phone.</p>
+          <div class="d-flex flex-column gap-3 mb-4">
+            <a href="#" class="app-btn"><i class="fab fa-apple fa-lg"></i><div><div class="small" style="font-size:.7rem; font-weight:400;">Download on the</div><div>App Store</div></div></a>
+            <a href="#" class="app-btn"><i class="fab fa-google-play fa-lg"></i><div><div class="small" style="font-size:.7rem; font-weight:400;">Get it on</div><div>Google Play</div></div></a>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <div class="qr-placeholder">Scan QR<br/>to download</div>
+            <div>
+              <div class="fw-700" style="color:var(--navy);">Scan to Download</div>
+              <div class="text-muted small">Available on iOS &amp; Android</div>
+              <div class="mt-1"><span class="text-warning"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></span> <span class="small text-muted">4.9 App Store</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="mt-5 pt-4 border-top" data-aos="fade-up">
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <div class="trust-badge"><i class="fa fa-shield-halved text-success"></i> HIPAA Compliant</div>
+        <div class="trust-badge"><i class="fa fa-lock text-primary"></i> SSL Secured</div>
+        <div class="trust-badge"><i class="fa fa-certificate" style="color:#ff7043;"></i> Board-Certified</div>
+        <div class="trust-badge"><i class="fa fa-phone-volume" style="color:#e53935;"></i> 24/7 Emergency</div>
+        <div class="trust-badge"><i class="fa fa-language" style="color:#8b5cf6;"></i> Bilingual Staff</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Col 1: Brand -->
+      <div class="col-lg-4 col-md-6">
+        <span class="footer-brand">PediaCare <i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span>
+        <p class="footer-about">
+          PediaCare is a premier pediatric clinic dedicated to nurturing the health, growth, and happiness of children from birth through adolescence. Our board-certified team combines medical excellence with heartfelt compassion.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+          <li><a href="home2.html"><i class="fas fa-chevron-right fa-xs"></i> Home 2</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          <li><a href="parent-dashboard.html"><i class="fas fa-chevron-right fa-xs"></i> Parent Dashboard</a></li>
+          <li><a href="#appointment"><i class="fas fa-chevron-right fa-xs"></i> Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> General Pediatrics</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Neonatology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Developmental Medicine</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Pediatric Nutrition</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Allergy &amp; Immunology</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Vaccinations</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Wellness Programs</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact + Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="footer-heading">Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Wellness Blvd, Suite 200<br>Health City, CA 90001</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1-800-PEDIACARE<br>+1 (555) 234-5678</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>hello@pediacare.com<br>appointments@pediacare.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Open 24/7 · 365 Days a Year</span>
+        </div>
+
+        <h4 class="footer-heading mt-4">Newsletter</h4>
+        <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:.8rem;">Get parenting tips & clinic news.</p>
+        <form class="newsletter-form d-flex" aria-label="Newsletter signup form" onsubmit="return handleNewsletter(event)">
+          <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter" required />
+          <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p>© 2025 PediaCare Medical Group. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+        <a href="#">HIPAA Notice</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  AOS.init({ duration: 800, once: true, offset: 60 });
+
+  // Set min date for appointment
+  (document.getElementById('apptDate') || document.createElement('span')).min = new Date().toISOString().split('T')[0];
+
+  // ── Booking state
+  let bookingData = { clinic: '', doctor: '', time: '', date: '', service: '' };
+
+  function selectClinic(el, name) {
+    document.querySelectorAll('.clinic-select-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    bookingData.clinic = name;
+    (document.getElementById('sumClinic') || document.createElement('span')).textContent = name;
+  }
+  function selectDoctor(el, name) {
+    document.querySelectorAll('.doctor-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    bookingData.doctor = name;
+    (document.getElementById('sumDoctor') || document.createElement('span')).textContent = name;
+  }
+  function selectSlot(el) {
+    if(el.classList.contains('unavailable')) return;
+    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+    el.classList.add('selected');
+    bookingData.time = el.textContent;
+    (document.getElementById('sumTime') || document.createElement('span')).textContent = el.textContent;
+  }
+
+  (document.getElementById('apptDate') || document.createElement('span')).addEventListener('change', function() {
+    bookingData.date = this.value;
+    (document.getElementById('sumDate') || document.createElement('span')).textContent = this.value;
+  });
+  (document.getElementById('serviceType') || document.createElement('span')).addEventListener('change', function() {
+    bookingData.service = this.value;
+    (document.getElementById('sumService') || document.createElement('span')).textContent = this.value;
+  });
+
+  function goStep(n) {
+    [1,2,3].forEach(i => {
+      document.getElementById('step'+i).classList.add('d-none');
+      document.getElementById('dot'+i).classList.remove('active','done');
+    });
+    for(let i=1;i<n;i++) {
+      document.getElementById('dot'+i).classList.add('done');
+      if(i<3) document.getElementById('line'+i).classList.add('done');
+    }
+    document.getElementById('dot'+n).classList.add('active');
+    document.getElementById('step'+n).classList.remove('d-none');
+    (document.getElementById('booking') || document.createElement('span')).scrollIntoView({behavior:'smooth'});
+  }
+
+  function confirmBooking() {
+    new bootstrap.Modal((document.getElementById('bookingModal') || document.createElement('span'))).show();
+  }
+
+  // ── Location tab switcher
+  document.querySelectorAll('.location-tab').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.location-tab').forEach(b => {
+        b.style.background=''; b.style.color='var(--navy)';
+      });
+      this.style.background = 'var(--navy)';
+      this.style.color = '#fff';
+      document.querySelectorAll('.location-panel').forEach(p => p.classList.add('d-none'));
+      document.getElementById('loc-'+this.dataset.loc).classList.remove('d-none');
+    });
+  });
+
+  // ── Contact form validation + modal
+  (document.getElementById('contactForm') || document.createElement('span')).addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(!this.checkValidity()) {
+      this.classList.add('was-validated');
+      return;
+    }
+    new bootstrap.Modal((document.getElementById('successModal') || document.createElement('span'))).show();
+    this.reset();
+    this.classList.remove('was-validated');
+  });
+</script>
+
+<script>
+(function () {
+  const navbar = document.getElementById('mainNavbar');
+  if (navbar) {
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  const darkBtn = document.getElementById('darkModeToggle');
+  const darkIcon = document.getElementById('darkModeIcon');
+  const rtlBtn = document.getElementById('rtlToggle');
+  const htmlEl = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    try { localStorage.setItem('pediacare-theme', theme); } catch (e) {}
+    if (darkIcon) {
+      if (theme === 'dark') {
+        darkIcon.classList.remove('fa-moon');
+        darkIcon.classList.add('fa-sun');
+      } else {
+        darkIcon.classList.remove('fa-sun');
+        darkIcon.classList.add('fa-moon');
+      }
+    }
+  }
+
+  let saved = 'light';
+  try { saved = localStorage.getItem('pediacare-theme') || 'light'; } catch (e) {}
+  applyTheme(saved);
+
+  if (darkBtn) {
+    darkBtn.addEventListener('click', () => {
+      applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+  if (rtlBtn) {
+    rtlBtn.addEventListener('click', () => {
+      const cur = htmlEl.getAttribute('dir');
+      htmlEl.setAttribute('dir', cur === 'rtl' ? 'ltr' : 'rtl');
+    });
+  }
+
+  window.handleNewsletter = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const input = form.querySelector('input[type="email"]');
+    if (!input || !input.value) return false;
+    input.value = '';
+    const btn = form.querySelector('button');
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i>';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 2500);
+    }
+    return false;
+  };
+
+  document.querySelectorAll('#navbarMain a').forEach(a => {
+    a.addEventListener('click', () => {
+      const el = document.getElementById('navbarMain');
+      if (el && el.classList.contains('show') && window.bootstrap) {
+        bootstrap.Collapse.getOrCreateInstance(el).hide();
+      }
+    });
+  });
+})();
+</script>
+  <link rel="stylesheet" href="assets/css/dark-theme.css">
+</body>
+</html>
